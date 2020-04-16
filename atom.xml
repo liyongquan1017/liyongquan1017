@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-04-14T11:50:44.262Z</updated>
+  <updated>2020-04-15T13:42:04.682Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -18,10 +18,10 @@
   
   <entry>
     <title>我的祖国</title>
-    <link href="http://yoursite.com/2019/10/28/d/"/>
-    <id>http://yoursite.com/2019/10/28/d/</id>
-    <published>2019-10-28T08:16:04.000Z</published>
-    <updated>2020-04-14T11:50:44.262Z</updated>
+    <link href="http://yoursite.com/2020/04/15/%E6%88%91%E7%9A%84%E7%A5%96%E5%9B%BD/"/>
+    <id>http://yoursite.com/2020/04/15/%E6%88%91%E7%9A%84%E7%A5%96%E5%9B%BD/</id>
+    <published>2020-04-15T13:42:01.000Z</published>
+    <updated>2020-04-15T13:42:04.682Z</updated>
     
     <summary type="html">
     
@@ -40,9 +40,74 @@
   </entry>
   
   <entry>
+    <title>使用gitee自建图床</title>
+    <link href="http://yoursite.com/2020/04/15/%E8%87%AA%E5%BB%BA%E5%9B%BE%E5%BA%8A/"/>
+    <id>http://yoursite.com/2020/04/15/%E8%87%AA%E5%BB%BA%E5%9B%BE%E5%BA%8A/</id>
+    <published>2020-04-15T12:32:47.000Z</published>
+    <updated>2020-04-15T13:40:28.448Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;使用gitee建自己图床&quot;&gt;&lt;a href=&quot;#使用gitee建自己图床&quot; class=&quot;headerlink&quot; title=&quot;使用gitee建自己图床&quot;&gt;&lt;/a&gt;使用gitee建自己图床&lt;/h1&gt;&lt;h3 id=&quot;使用gitee建自己图床的好处：&quot;&gt;&lt;a href=&quot;#使用gitee建自己图床的好处：&quot; class=&quot;headerlink&quot; title=&quot;使用gitee建自己图床的好处：&quot;&gt;&lt;/a&gt;使用gitee建自己图床的好处：&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;都在自己账号内，好管理。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;支持https，避免使用HTTP而打开时网站提示不安全。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;丢失概率低&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="技巧" scheme="http://yoursite.com/tags/%E6%8A%80%E5%B7%A7/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>代码管理(git,gitee,coding等)平台配置ssh</title>
+    <link href="http://yoursite.com/2019/10/25/%E4%BB%A3%E7%A0%81%E7%AE%A1%E7%90%86%E5%B9%B3%E5%8F%B0%E9%85%8D%E7%BD%AEssh/"/>
+    <id>http://yoursite.com/2019/10/25/%E4%BB%A3%E7%A0%81%E7%AE%A1%E7%90%86%E5%B9%B3%E5%8F%B0%E9%85%8D%E7%BD%AEssh/</id>
+    <published>2019-10-25T08:16:04.626Z</published>
+    <updated>2020-04-15T13:37:44.223Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;git-gitee-coding等平台配置ssh&quot;&gt;&lt;a href=&quot;#git-gitee-coding等平台配置ssh&quot; class=&quot;headerlink&quot; title=&quot;git,gitee,coding等平台配置ssh&quot;&gt;&lt;/a&gt;git,gitee,coding等平台配置ssh&lt;/h1&gt;&lt;h3 id=&quot;git-gitee-coding等托管平台配置ssh的目的：&quot;&gt;&lt;a href=&quot;#git-gitee-coding等托管平台配置ssh的目的：&quot; class=&quot;headerlink&quot; title=&quot;git,gitee,coding等托管平台配置ssh的目的：&quot;&gt;&lt;/a&gt;git,gitee,coding等托管平台配置ssh的目的：&lt;/h3&gt;&lt;p&gt;配置好ssh后可以让你的电脑和git,gitee,coding等平台通讯的时候建立可信任的安全连接&lt;/p&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="技巧" scheme="http://yoursite.com/tags/%E6%8A%80%E5%B7%A7/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>能力陷进</title>
+    <link href="http://yoursite.com/2019/10/25/%E8%83%BD%E5%8A%9B%E9%99%B7%E8%BF%9B/"/>
+    <id>http://yoursite.com/2019/10/25/%E8%83%BD%E5%8A%9B%E9%99%B7%E8%BF%9B/</id>
+    <published>2019-10-25T08:16:04.000Z</published>
+    <updated>2020-04-14T11:51:24.811Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;https://dreams_quan.gitee.io/images/images/blog/NLXJ.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;​         本书深刻揭示职场的三大观念陷阱，提出“先行动，后思考”的方法，打破了传统领导者的养成法则，帮助那些渴望成为优秀领导者的人学会如何扩展业务范围，如何提出更好的策略性意见，以及如何扩建人际关系网络并引领他们朝着不同的方向发展自己。&lt;/p&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="读书" scheme="http://yoursite.com/tags/%E8%AF%BB%E4%B9%A6/"/>
+    
+  </entry>
+  
+  <entry>
     <title>用例编写</title>
-    <link href="http://yoursite.com/2019/10/25/b/"/>
-    <id>http://yoursite.com/2019/10/25/b/</id>
+    <link href="http://yoursite.com/2019/10/25/%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B%E8%AE%BE%E8%AE%A1%E6%96%B9%E6%B3%95/"/>
+    <id>http://yoursite.com/2019/10/25/%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B%E8%AE%BE%E8%AE%A1%E6%96%B9%E6%B3%95/</id>
     <published>2019-10-25T08:16:04.000Z</published>
     <updated>2020-04-14T11:43:13.630Z</updated>
     
@@ -62,26 +127,6 @@
     
     
       <category term="测试" scheme="http://yoursite.com/tags/%E6%B5%8B%E8%AF%95/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>能力陷进</title>
-    <link href="http://yoursite.com/2019/10/25/c/"/>
-    <id>http://yoursite.com/2019/10/25/c/</id>
-    <published>2019-10-25T08:16:04.000Z</published>
-    <updated>2020-04-14T11:51:24.811Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;img src=&quot;https://dreams_quan.gitee.io/images/images/blog/NLXJ.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;p&gt;​         本书深刻揭示职场的三大观念陷阱，提出“先行动，后思考”的方法，打破了传统领导者的养成法则，帮助那些渴望成为优秀领导者的人学会如何扩展业务范围，如何提出更好的策略性意见，以及如何扩建人际关系网络并引领他们朝着不同的方向发展自己。&lt;/p&gt;
-    
-    </summary>
-    
-    
-    
-      <category term="读书" scheme="http://yoursite.com/tags/%E8%AF%BB%E4%B9%A6/"/>
     
   </entry>
   
