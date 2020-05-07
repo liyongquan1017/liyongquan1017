@@ -180,7 +180,7 @@
       </tags>
   </entry>
   <entry>
-    <title>用例编写</title>
+    <title>登录用例编写</title>
     <url>/2019/10/25/%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B%E8%AE%BE%E8%AE%A1%E6%96%B9%E6%B3%95/</url>
     <content><![CDATA[<h3 id="测试用例设计方法"><a href="#测试用例设计方法" class="headerlink" title="测试用例设计方法"></a>测试用例设计方法</h3><ul>
 <li><p>逐级细分法</p>
