@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://yoursite.com/"/>
-  <updated>2020-05-26T08:47:34.976Z</updated>
+  <updated>2020-05-26T09:09:40.934Z</updated>
   <id>https://yoursite.com/</id>
   
   <author>
@@ -17,15 +17,15 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>接口自动化(1)之构造请求参数</title>
+    <title>接口自动化之构造请求参数(1)</title>
     <link href="https://yoursite.com/2020/05/25/%E6%8E%A5%E5%8F%A3%E8%87%AA%E5%8A%A8%E5%8C%96(1)%E4%B9%8B%E6%9E%84%E9%80%A0%E5%8F%82%E6%95%B0/"/>
     <id>https://yoursite.com/2020/05/25/%E6%8E%A5%E5%8F%A3%E8%87%AA%E5%8A%A8%E5%8C%96(1)%E4%B9%8B%E6%9E%84%E9%80%A0%E5%8F%82%E6%95%B0/</id>
     <published>2020-05-25T08:38:57.000Z</published>
-    <updated>2020-05-26T08:47:34.976Z</updated>
+    <updated>2020-05-26T09:09:40.934Z</updated>
     
     <summary type="html">
     
-      &lt;h1 id=&quot;接口自动化-1-之构造请求参数&quot;&gt;&lt;a href=&quot;#接口自动化-1-之构造请求参数&quot; class=&quot;headerlink&quot; title=&quot;接口自动化(1)之构造请求参数&quot;&gt;&lt;/a&gt;接口自动化(1)之构造请求参数&lt;/h1&gt;&lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h3&gt;&lt;p&gt;接口测试中，我们需要去手动输入请求参数组合，因为输入法等问题，可能会造成标点或括号等输错，最后出错后，还不大好排查。因此我们通过构造请求参数，能大大避免这类问题的发生。这也是最基础的知识，&lt;/p&gt;
+      &lt;h1 id=&quot;接口自动化构造请求参数-1&quot;&gt;&lt;a href=&quot;#接口自动化构造请求参数-1&quot; class=&quot;headerlink&quot; title=&quot;接口自动化构造请求参数(1)&quot;&gt;&lt;/a&gt;接口自动化构造请求参数(1)&lt;/h1&gt;&lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h3&gt;&lt;p&gt;接口测试中，我们需要去手动输入请求参数组合，因为输入法等问题，可能会造成标点或括号等输错，最后出错后，还不大好排查。因此我们通过构造请求参数，能大大避免这类问题的发生。这也是最基础的知识，&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;另我们使用Postman输入请求参数时，也可以先用Python构造请求参数，然后再使用。不过这个因人而异，如果你对自己有信心，直接手拼也OK。&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -107,31 +107,11 @@
   </entry>
   
   <entry>
-    <title>能力陷进</title>
-    <link href="https://yoursite.com/2019/10/25/%E8%83%BD%E5%8A%9B%E9%99%B7%E8%BF%9B/"/>
-    <id>https://yoursite.com/2019/10/25/%E8%83%BD%E5%8A%9B%E9%99%B7%E8%BF%9B/</id>
-    <published>2019-10-25T08:16:04.000Z</published>
-    <updated>2020-04-14T11:51:24.811Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;img src=&quot;https://dreams_quan.gitee.io/images/images/blog/NLXJ.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;p&gt;​         本书深刻揭示职场的三大观念陷阱，提出“先行动，后思考”的方法，打破了传统领导者的养成法则，帮助那些渴望成为优秀领导者的人学会如何扩展业务范围，如何提出更好的策略性意见，以及如何扩建人际关系网络并引领他们朝着不同的方向发展自己。&lt;/p&gt;
-    
-    </summary>
-    
-    
-    
-      <category term="读书" scheme="https://yoursite.com/tags/%E8%AF%BB%E4%B9%A6/"/>
-    
-  </entry>
-  
-  <entry>
     <title>登录用例编写</title>
     <link href="https://yoursite.com/2019/10/25/%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B%E8%AE%BE%E8%AE%A1%E6%96%B9%E6%B3%95/"/>
     <id>https://yoursite.com/2019/10/25/%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B%E8%AE%BE%E8%AE%A1%E6%96%B9%E6%B3%95/</id>
     <published>2019-10-25T08:16:04.000Z</published>
-    <updated>2020-05-07T07:31:49.612Z</updated>
+    <updated>2020-05-15T12:39:57.119Z</updated>
     
     <summary type="html">
     
@@ -149,6 +129,26 @@
     
     
       <category term="测试" scheme="https://yoursite.com/tags/%E6%B5%8B%E8%AF%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>能力陷进</title>
+    <link href="https://yoursite.com/2019/10/25/%E8%83%BD%E5%8A%9B%E9%99%B7%E8%BF%9B/"/>
+    <id>https://yoursite.com/2019/10/25/%E8%83%BD%E5%8A%9B%E9%99%B7%E8%BF%9B/</id>
+    <published>2019-10-25T08:16:04.000Z</published>
+    <updated>2020-04-14T11:51:24.811Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;https://dreams_quan.gitee.io/images/images/blog/NLXJ.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;​         本书深刻揭示职场的三大观念陷阱，提出“先行动，后思考”的方法，打破了传统领导者的养成法则，帮助那些渴望成为优秀领导者的人学会如何扩展业务范围，如何提出更好的策略性意见，以及如何扩建人际关系网络并引领他们朝着不同的方向发展自己。&lt;/p&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="读书" scheme="https://yoursite.com/tags/%E8%AF%BB%E4%B9%A6/"/>
     
   </entry>
   
