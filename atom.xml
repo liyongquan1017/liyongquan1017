@@ -44,11 +44,33 @@
     <link href="https://yoursite.com/2020/05/25/%E6%8E%A5%E5%8F%A3%E8%87%AA%E5%8A%A8%E5%8C%96(1)%E4%B9%8B%E6%9E%84%E9%80%A0%E5%8F%82%E6%95%B0/"/>
     <id>https://yoursite.com/2020/05/25/%E6%8E%A5%E5%8F%A3%E8%87%AA%E5%8A%A8%E5%8C%96(1)%E4%B9%8B%E6%9E%84%E9%80%A0%E5%8F%82%E6%95%B0/</id>
     <published>2020-05-25T08:38:57.000Z</published>
-    <updated>2020-05-26T09:20:36.326Z</updated>
+    <updated>2020-05-26T10:12:28.588Z</updated>
     
     <summary type="html">
     
       &lt;h1 id=&quot;接口自动化之构造请求参数-1&quot;&gt;&lt;a href=&quot;#接口自动化之构造请求参数-1&quot; class=&quot;headerlink&quot; title=&quot;接口自动化之构造请求参数(1)&quot;&gt;&lt;/a&gt;接口自动化之构造请求参数(1)&lt;/h1&gt;&lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h3&gt;&lt;p&gt;接口测试中，我们需要去手动输入请求参数组合，因为输入法等问题，可能会造成标点或括号等输错，最后出错后，还不大好排查。因此我们通过构造请求参数，能大大避免这类问题的发生。这也是最基础的知识，&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;另我们使用Postman输入请求参数时，也可以先用Python构造请求参数，然后再使用。不过这个因人而异，如果你对自己有信心，直接手拼也OK。&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="接口自动化" scheme="https://yoursite.com/tags/%E6%8E%A5%E5%8F%A3%E8%87%AA%E5%8A%A8%E5%8C%96/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>接口自动化之requests用法(2)</title>
+    <link href="https://yoursite.com/2020/05/25/%E6%8E%A5%E5%8F%A3%E8%87%AA%E5%8A%A8%E5%8C%96(2)%E4%B9%8BRequests%E7%94%A8%E6%B3%95/"/>
+    <id>https://yoursite.com/2020/05/25/%E6%8E%A5%E5%8F%A3%E8%87%AA%E5%8A%A8%E5%8C%96(2)%E4%B9%8BRequests%E7%94%A8%E6%B3%95/</id>
+    <published>2020-05-25T08:38:57.000Z</published>
+    <updated>2020-05-26T09:59:10.774Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;接口自动化之Requests用法-2&quot;&gt;&lt;a href=&quot;#接口自动化之Requests用法-2&quot; class=&quot;headerlink&quot; title=&quot;接口自动化之Requests用法(2)&quot;&gt;&lt;/a&gt;接口自动化之Requests用法(2)&lt;/h1&gt;&lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h3&gt;&lt;p&gt;接口测试中，我们需要去手动输入请求参数组合，因为输入法等问题，可能会造成标点或括号等输错，最后出错后，还不大好排查。因此我们通过构造请求参数，能大大避免这类问题的发生。这也是最基础的知识，&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;另我们使用Postman输入请求参数时，也可以先用Python构造请求参数，然后再使用。不过这个因人而异，如果你对自己有信心，直接手拼也OK。&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -111,7 +133,7 @@
     <link href="https://yoursite.com/2019/10/25/%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B%E8%AE%BE%E8%AE%A1%E6%96%B9%E6%B3%95/"/>
     <id>https://yoursite.com/2019/10/25/%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B%E8%AE%BE%E8%AE%A1%E6%96%B9%E6%B3%95/</id>
     <published>2019-10-25T08:16:04.000Z</published>
-    <updated>2020-05-15T12:39:57.119Z</updated>
+    <updated>2020-05-26T09:24:23.010Z</updated>
     
     <summary type="html">
     
