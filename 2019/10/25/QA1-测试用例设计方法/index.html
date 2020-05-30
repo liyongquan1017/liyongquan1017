@@ -11,7 +11,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <title>
-    使用gitee自建图床 |  Dreaming
+    测试用例的编写 |  Dreaming
   </title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   
@@ -35,7 +35,7 @@
   <div id="app">
     <main class="content on">
       <section class="outer">
-  <article id="post-自建图床" class="article article-type-post" itemscope
+  <article id="post-QA1-测试用例设计方法" class="article article-type-post" itemscope
   itemprop="blogPost" data-scroll-reveal>
 
   <div class="article-inner">
@@ -43,7 +43,7 @@
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  使用gitee自建图床
+  测试用例的编写
 </h1>
  
 
@@ -52,8 +52,8 @@
 
     
     <div class="article-meta">
-      <a href="/2020/04/15/%E8%87%AA%E5%BB%BA%E5%9B%BE%E5%BA%8A/" class="article-date">
-  <time datetime="2020-04-15T12:32:47.000Z" itemprop="datePublished">2020-04-15</time>
+      <a href="/2019/10/25/QA1-%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B%E8%AE%BE%E8%AE%A1%E6%96%B9%E6%B3%95/" class="article-date">
+  <time datetime="2019-10-25T08:16:04.000Z" itemprop="datePublished">2019-10-25</time>
 </a>
       
       
@@ -63,7 +63,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">578</span>
+            <span class="post-count">1.7k</span>
         </span>
     </span>
 
@@ -72,7 +72,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> 阅读时长≈</span>
-            <span class="post-count">2 分钟</span>
+            <span class="post-count">5 分钟</span>
         </span>
     </span>
 </div>
@@ -97,54 +97,93 @@
       
 
       
-      <h1 id="使用gitee建自己图床"><a href="#使用gitee建自己图床" class="headerlink" title="使用gitee建自己图床"></a>使用gitee建自己图床</h1><h3 id="使用gitee建自己图床的好处："><a href="#使用gitee建自己图床的好处：" class="headerlink" title="使用gitee建自己图床的好处："></a>使用gitee建自己图床的好处：</h3><ol>
-<li><p>都在自己账号内，好管理。</p>
+      <h3 id="测试用例设计方法"><a href="#测试用例设计方法" class="headerlink" title="测试用例设计方法"></a>测试用例设计方法</h3><ul>
+<li><p>逐级细分法</p>
 </li>
-<li><p>支持https，避免使用HTTP而打开时网站提示不安全。</p>
+<li><p>输入域测试法</p>
 </li>
-<li><p>丢失概率低</p>
+<li><p>输出域分析法</p>
 </li>
-</ol>
+<li><p>正交试验设计法</p>
 <a id="more"></a>
-
-<h3 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h3><ol>
-<li>创建一个属于自己的<a href="https://gitee.com/" target="_blank" rel="noopener">gitee账户</a></li>
-<li>然后就本地有git，这里有较为详细的<a href="https://www.liaoxuefeng.com/wiki/896043488029600" target="_blank" rel="noopener">git教程</a></li>
-<li>然后配置本体ssh,并与远程库建立可信任连接</li>
-</ol>
-<h3 id="开始搭建图床"><a href="#开始搭建图床" class="headerlink" title="开始搭建图床"></a>开始搭建图床</h3><ol>
-<li>打开自己的gitee,新建一个仓库</li>
-</ol>
-<p>   <img src="https://dreams_quan.gitee.io/images/images/blog/makeGitee1.png" alt="makeGitee1"></p>
-<p>   <img src="https://dreams_quan.gitee.io/images/images/blog/makeGitee2.png" alt="makeGitee2"></p>
-<ol start="2">
-<li>创建完成后，新建一个文件，必须是index.html</li>
-</ol>
-<p>   <img src="https://dreams_quan.gitee.io/images/images/blog/makeGitee3.png" alt="makeGitee3"></p>
-<p>   <img src="https://dreams_quan.gitee.io/images/images/blog/makeGitee4.png" alt="makeGitee4"></p>
-   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">&lt;meta charset=&quot;utf-8&quot;&gt;</span><br><span class="line">&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;</span><br><span class="line">&lt;title&gt;我的图床首页&lt;/title&gt;</span><br><span class="line">&lt;meta name=&quot;description&quot; content=&quot;&quot;&gt;</span><br><span class="line">&lt;meta name=&quot;author&quot; content=&quot;&quot;&gt;</span><br></pre></td></tr></table></figure>
-
-
-
-<ol start="3">
-<li>保存后，点击仓库上方的，服务=》‘Gitee Pages’，然后进去点击更新，等几秒钟，然后点击网站地址，就会跳转到一个空白的网页，图床基本就搭建完成了。</li>
-</ol>
-<p>   <img src="https://dreams_quan.gitee.io/images/images/blog/makeGitee5.png" alt="makeGitee5"></p>
-<p>   <img src="https://dreams_quan.gitee.io/images/images/blog/makeGitee6.png" alt="makeGitee5"></p>
-<ol start="4">
-<li><p>然后自己搭建本地库，关联自己刚新建的gitee仓库，到时在自己的本地库新建个文件夹保存图片，保存完push到自己的远程 gitee库（或者直接在gitee自己建的仓库内）。</p>
-<!--注意：每次push完或上传完图片都需要把第三步执行一遍，这样图片才能通过你的图床正常访问-->
-
-<p>例如：我的网址是 ：<a href="https://dreams_quan.gitee.io/images，我新建的问价夹名字为images，图片名为" target="_blank" rel="noopener">https://dreams_quan.gitee.io/images，我新建的问价夹名字为images，图片名为</a> china.jpg，这时在执行完上面步骤后，你的图片就可以通过网址访问了 <a href="https://dreams_quan.gitee.io/images/images/china.jpg" target="_blank" rel="noopener">https://dreams_quan.gitee.io/images/images/china.jpg</a></p>
-<blockquote>
-<p>小技巧：你写macdown等文档时，可以先使用本地保存的图片，等文档写完后，把图片统一上传，然后把文档内的图片地址的前缀替换为链接地址就OK。例如本地地址为   /Desktop/image/images/blog/china.jpg，你只要把  /Desktop/image/images/blog/  全部替换为   <a href="https://dreams_quan.gitee.io/images/images/" target="_blank" rel="noopener">https://dreams_quan.gitee.io/images/images/</a>  就OK了</p>
-</blockquote>
 </li>
+<li><p>业务流程分析法</p>
+</li>
+<li><p>状态迁移法</p>
+</li>
+<li><p>因果图法</p>
+</li>
+<li><p>判定表法</p>
+</li>
+<li><p>错误猜测法</p>
+</li>
+<li><p>等价类划分法 （等价类划分方法，是将所有可能的输入数据划分成若干个子集，在每个子集中，如果任意一个输入数据对于揭露程序中潜在错误都具有同等效果，那么这样的子集就构成了一个等价类。后续只要从每个等价类中任意选取一个值进行测试，就可以用少量具有代表性的测试输入取得较好的测试覆盖结果）</p>
+</li>
+<li><p>边界值分析法（边界值分析方法，是选取输入、输出的边界值进行测试。因为通常大量的软件错误是发生在输入或输出范围的边界上，所以需要对边界值进行重点测试，通常选取正好等于、刚刚大于或刚刚小于边界的值作为测试数据。 从方法论上可以看出来，边界值分析是对等价类划分的补充，所以这两种测试方法经常结合起来使用。</p>
+</li>
+</ul>
+<hr>
+<h4 id="‘用户登录’设计测试用例"><a href="#‘用户登录’设计测试用例" class="headerlink" title="‘用户登录’设计测试用例"></a>‘用户登录’设计测试用例</h4><blockquote>
+<p>目标是要保证系统在各种应用场景下的功能是符合设计要求的，这样考虑的测试用例就需要更多、更全面。</p>
+</blockquote>
+<h5 id="基于等价类划分和边界值分析方法，我们设计的测试用例包括："><a href="#基于等价类划分和边界值分析方法，我们设计的测试用例包括：" class="headerlink" title="基于等价类划分和边界值分析方法，我们设计的测试用例包括："></a>基于等价类划分和边界值分析方法，我们设计的测试用例包括：</h5><ol>
+<li>输入已注册的用户名和正确的密码，验证是否登录成功</li>
+<li>输入已注册的用户名和不正确的密码，验证是否登录失败，并且提示信息正确</li>
+<li>输入未注册的用户名和任意密码，验证是否登录失败，并且提示信息正确；</li>
+<li>用户名和密码两者都为空，验证是否登录失败，并且提示信息正确</li>
+<li>用户名和密码两者之一为空，验证是否登录失败，并且提示信息正确；</li>
+<li>如果登录功能启用了验证码功能，在用户名和密码正确的前提下，输入正确的验证码，验证是否登录成功；</li>
+<li>如果登录功能启用了验证码功能，在用户名和密码正确的前提下，输入错误的验证码，验证是否登录失败，并且提示信息正确。</li>
 </ol>
-<ol start="5">
-<li>如果自己想让自己的图床首页好看点，就自己网上找个静态网页模板，然后自己动手改改里面的内容，push上去然后更新就OK。</li>
+<h5 id="需要弥补的测试用例"><a href="#需要弥补的测试用例" class="headerlink" title="需要弥补的测试用例"></a>需要弥补的测试用例</h5><ol>
+<li>用户名和密码是否大小写敏感；</li>
+<li>页面上的密码框是否加密显示；</li>
+<li>后台系统创建的用户第一次登录成功时，是否提示修改密码</li>
+<li>忘记用户名和忘记密码的功能是否可用</li>
+<li>前端页面是否根据设计要求限制用户名和密码长度；</li>
+<li>如果登录功能需要验证码，点击验证码图片是否可以更换验证码，更换后的验证码是否可用</li>
+<li>刷新页面是否会刷新验证码；</li>
+<li>如果验证码具有时效性，需要分别验证时效内和时效外验证码的有效性</li>
+<li>用户登录成功但是会话超时后，继续操作是否会重定向到用户登录界面</li>
+<li>不同级别的用户，比如管理员用户和普通用户，登录系统后的权限是否正确</li>
+<li>页面默认焦点是否定位在用户名的输入框中</li>
+<li>快捷键Tab和Enter等，是否可以正常使用</li>
 </ol>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>像自建图床啦，自己搭建博客网站等，都可以自己练习的去整一下，每一个积累都会是你的财富，加油！！！</p>
+<h5 id="安全性测试用例包括"><a href="#安全性测试用例包括" class="headerlink" title="安全性测试用例包括"></a>安全性测试用例包括</h5><blockquote>
+<p>一个质量过硬的软件系统，除了显式功能性需求以外，其他的非功能性需求即隐式功能性需求也是极其关键的。</p>
+</blockquote>
+<blockquote>
+<p>显式功能性需求（Functional requirement）的含义从字面上就可以很好地理解，指的是软件本身需要实现的具体功能， 比如“正常用户使用正确的用户名和密码可以成功登录”、“非注册用户无法登录”等，这都是属于典型的显式功能性需求描述。</p>
+</blockquote>
+<blockquote>
+<p>那什么是非功能性需求（Non-functional requirement）呢？从软件测试的维度来看，非功能性需求主要涉及安全性、性能以及兼容性三大方面。</p>
+</blockquote>
+<ol>
+<li>用户密码后台存储是否加密</li>
+<li>用户密码在网络传输过程中是否加密</li>
+<li>密码是否具有有效期，密码有效期到期后，是否提示需要修改密码</li>
+<li>不登录的情况下，在浏览器中直接输入登录后的URL地址，验证是否会重新定向到用户登录界面；</li>
+<li>密码输入框是否不支持复制和粘贴；</li>
+<li>密码输入框内输入的密码是否都可以在页面源码模式下被查看；</li>
+<li>用户名和密码的输入框中分别输入典型的“SQL注入攻击”字符串，验证系统的返回页面；</li>
+<li>用户名和密码的输入框中分别输入典型的“XSS跨站脚本攻击”字符串，验证系统行为是否被篡改；</li>
+<li>连续多次登录失败情况下，系统是否会阻止后续的尝试以应对暴力破解；</li>\n 同一用户在同一终端的多种浏览器上登录，验证登录功能的互斥性是否符合设计预期；</li>
+<li>同一用户先后在多台终端的浏览器上登录，验证登录是否具有互斥性。</li>
+</ol>
+<h5 id="性能压力测试用例包括"><a href="#性能压力测试用例包括" class="headerlink" title="性能压力测试用例包括:"></a>性能压力测试用例包括:</h5><ol>
+<li>单用户登录的响应时间是否小于3秒；</li>
+<li>单用户登录时，后台请求数量是否过多；</li>
+<li>高并发场景下用户登录的响应时间是否小于5秒；</li>
+<li>高并发场景下服务端的监控指标是否符合预期；</li>
+<li>高集合点并发场景下，是否存在资源死锁和不合理的资源等待；</li>
+<li>长时间大量用户连续登录和登出，服务器端是否存在内存泄漏。</li>
+</ol>
+<h5 id="兼容性测试用例包括："><a href="#兼容性测试用例包括：" class="headerlink" title="兼容性测试用例包括："></a>兼容性测试用例包括：</h5><ol>
+<li>不同浏览器下，验证登录页面的显示以及功能正确性；</li>
+<li>相同浏览器的不同版本下，验证登录页面的显示以及功能正确性；</li>
+<li>不同移动设备终端的不同浏览器下，验证登录页面的显示以及功能正确性；</li>
+<li>不同分辨率的界面下，验证登录页面的显示以及功能正确性。</li>
+</ol>
 
       
       <!-- reward -->
@@ -213,14 +252,14 @@
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://yoursite.com/2020/04/15/%E8%87%AA%E5%BB%BA%E5%9B%BE%E5%BA%8A/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://yoursite.com/2019/10/25/QA1-%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B%E8%AE%BE%E8%AE%A1%E6%96%B9%E6%B3%95/" alt="微信分享二维码">
     </div>
 </div>
 
 <div id="share-mask"></div>
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%8A%80%E5%B7%A7/" rel="tag">技巧</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%B5%8B%E8%AF%95/" rel="tag">测试</a></li></ul>
 
 
     </footer>
@@ -231,19 +270,19 @@
   
   <nav class="article-nav">
     
-      <a href="/2020/05/25/%E6%8E%A5%E5%8F%A3%E8%87%AA%E5%8A%A8%E5%8C%96(1)%E4%B9%8B%E6%9E%84%E9%80%A0%E5%8F%82%E6%95%B0/" class="article-nav-link">
+      <a href="/2019/10/25/%E6%8A%80%E5%B7%A71-%E4%BB%A3%E7%A0%81%E7%AE%A1%E7%90%86%E5%B9%B3%E5%8F%B0%E9%85%8D%E7%BD%AEssh/" class="article-nav-link">
         <strong class="article-nav-caption">上一篇</strong>
         <div class="article-nav-title">
           
-            接口自动化之构造请求参数(1)
+            代码管理(git,gitee,coding等)平台配置ssh
           
         </div>
       </a>
     
     
-      <a href="/2019/10/25/%E4%BB%A3%E7%A0%81%E7%AE%A1%E7%90%86%E5%B9%B3%E5%8F%B0%E9%85%8D%E7%BD%AEssh/" class="article-nav-link">
+      <a href="/2019/10/25/%E8%AF%BB%E4%B9%A62-%E8%83%BD%E5%8A%9B%E9%99%B7%E8%BF%9B/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">代码管理(git,gitee,coding等)平台配置ssh</div>
+        <div class="article-nav-title">能力陷进</div>
       </a>
     
   </nav>

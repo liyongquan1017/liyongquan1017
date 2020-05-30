@@ -1,187 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>接口自动化之构造请求参数(1)</title>
-    <url>/2020/05/25/%E6%8E%A5%E5%8F%A3%E8%87%AA%E5%8A%A8%E5%8C%96(1)%E4%B9%8B%E6%9E%84%E9%80%A0%E5%8F%82%E6%95%B0/</url>
-    <content><![CDATA[<h1 id="接口自动化之构造请求参数-1"><a href="#接口自动化之构造请求参数-1" class="headerlink" title="接口自动化之构造请求参数(1)"></a>接口自动化之构造请求参数(1)</h1><h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>接口测试中，我们需要去手动输入请求参数组合，因为输入法等问题，可能会造成标点或括号等输错，最后出错后，还不大好排查。因此我们通过构造请求参数，能大大避免这类问题的发生。这也是最基础的知识，</p>
-<blockquote>
-<p>另我们使用Postman输入请求参数时，也可以先用Python构造请求参数，然后再使用。不过这个因人而异，如果你对自己有信心，直接手拼也OK。</p>
-</blockquote>
+    <title>Markdown的使用</title>
+    <url>/2020/05/27/%E6%8A%80%E5%B7%A73-Markdown%E7%9A%84%E4%BD%BF%E7%94%A8/</url>
+    <content><![CDATA[<h1 id="Markdown的使用"><a href="#Markdown的使用" class="headerlink" title="Markdown的使用"></a>Markdown的使用</h1><h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>Markdown 是一种轻量级标记语言，它允许人们使用易读易写的纯文本格式编写文档。</p>
+<p>Markdown 编写的文档后缀为 <code>.md</code>, <code>.markdown</code>，可以导出 HTML 、Word、图像、PDF、Epub 等多种格式的文档。当前许多网站都广泛使用 Markdown 来撰写帮助文档或是用于论坛上发表消息。例如：GitHub、简书等。</p>
+<p>通俗一点讲，使用Markdown写文档可以让你的文档格式比较规范明了，看着比较优美，本文的教程就是用Markdown写的。</p>
 <a id="more"></a>
 
-<h3 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h3><ol>
-<li>Python3.0 + 编译工具（推荐Pycharm）</li>
-<li>了解Python  <a href="https://www.runoob.com/python/python-dictionary.html" target="_blank" rel="noopener">dict（字典)</a>，<a href="https://www.runoob.com/python/python-lists.html" target="_blank" rel="noopener">list（列表)</a>，<a href="https://www.runoob.com/python/python-json.html" target="_blank" rel="noopener">json</a>等的基本知识</li>
-</ol>
-<h3 id="具体示例"><a href="#具体示例" class="headerlink" title="具体示例"></a>具体示例</h3><p>假如一个请求内的请求参数表如下，我们无需去管这个是哪个接口的参数，也不用管里面的内容，我们的目的是了解参数的构造，以及对一些基本知识的应用。</p>
-<table>
-<thead>
-<tr>
-<th>名称</th>
-<th>类型</th>
-<th>是否必传</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>id</td>
-<td>string</td>
-<td>是</td>
-<td>用户ID。例如：520</td>
-</tr>
-<tr>
-<td>comment</td>
-<td>string</td>
-<td>是</td>
-<td>发布内容</td>
-</tr>
-<tr>
-<td>tagIdList</td>
-<td>Jsonlist</td>
-<td>是</td>
-<td>使用标签，标签ID可传多个。如       [{‘tagid’:1},{‘tagid’:2}]</td>
-</tr>
-<tr>
-<td>otherIDinfo</td>
-<td>Jsonlist</td>
-<td>是</td>
-<td>@其他的人信息                      [{‘id’:’123’,’name’:’梦想’},{‘id:’456’,’name’:’飞翔’}]</td>
-</tr>
-<tr>
-<td>button_type</td>
-<td>String</td>
-<td>是</td>
-<td>按钮位置   朋友圈：friend   广场：square</td>
-</tr>
-<tr>
-<td>type</td>
-<td>Int</td>
-<td>是</td>
-<td>是否开放   开放：1     不开放：0</td>
-</tr>
-</tbody></table>
-<p>具体代码如下：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> json</span><br><span class="line"></span><br><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="string">接下来我们我们开始构造一个请求参数，具体需要传入的值如下：</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">用户ID为             456</span></span><br><span class="line"><span class="string">发布内容为            构造参数</span></span><br><span class="line"><span class="string">使用的标签ID为        1，2和3</span></span><br><span class="line"><span class="string">@的人的信息为(前面为名字，后面为ID)    梦想，123  飞翔，456</span></span><br><span class="line"><span class="string">开放类型为           不开放</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="comment"># 1.定义一个字典类型testDict，用于存放整个请求参数</span></span><br><span class="line">testDict = &#123;&#125;</span><br><span class="line"><span class="comment"># 2.请求参数中加入用户ID,ID为string类型</span></span><br><span class="line">testDict[<span class="string">'id'</span>] = <span class="string">'456'</span></span><br><span class="line"><span class="comment"># 3.请求参数中加入发布内容comment，为string类型</span></span><br><span class="line">testDict[<span class="string">'comment'</span>]= <span class="string">'构造参数'</span></span><br><span class="line"><span class="comment"># 4.请求参数中加入标签tagIdList，因为标签是list类型，因为我们要传入三个标签，所以需要拼接</span></span><br><span class="line">tagIdlists = []     <span class="comment">#定义一个存放标签集的list</span></span><br><span class="line">tagids = &#123;&#125;         <span class="comment">#定义一个存放ID的字典</span></span><br><span class="line">tagids[<span class="string">'tagid'</span>] =<span class="number">1</span>  <span class="comment">#加入标签为1的标签</span></span><br><span class="line"><span class="comment">#把标签为1拼接 到标签集里面，使用json.dumps的原因是把字典转换为字符串格式，避免后面tagids['tagid']赋值时把前面覆盖</span></span><br><span class="line">tagIdlists.append(json.dumps(tagids))</span><br><span class="line">tagids[<span class="string">'tagid'</span>] =<span class="number">2</span></span><br><span class="line">tagIdlists.append(json.dumps(tagids))  <span class="comment">#把标签为2拼接 到标签集里面</span></span><br><span class="line">tagids[<span class="string">'tagid'</span>] =<span class="number">3</span></span><br><span class="line">tagIdlists.append(json.dumps(tagids))  <span class="comment">#把标签为3拼接 到标签集里面</span></span><br><span class="line">testDict[<span class="string">'tagIdList'</span>] = tagIdlists  <span class="comment"># 把标签集加入到我们的请求参数内</span></span><br><span class="line"><span class="comment"># 5.请求参数中加入需要@的人的信息otherIDinfo,基本和步骤四类似</span></span><br><span class="line">otherInfos =[]</span><br><span class="line">otherIn = &#123;&#125;</span><br><span class="line">otherIn[<span class="string">'id'</span>] = <span class="string">'123'</span></span><br><span class="line">otherIn[<span class="string">'name'</span>] = <span class="string">'梦想'</span></span><br><span class="line">otherInfos.append(json.dumps(otherIn,ensure_ascii=<span class="literal">False</span>))</span><br><span class="line">otherIn[<span class="string">'id'</span>] = <span class="string">'456'</span></span><br><span class="line">otherIn[<span class="string">'name'</span>] = <span class="string">'飞翔'</span></span><br><span class="line">otherInfos.append(json.dumps(otherIn,ensure_ascii=<span class="literal">False</span>))</span><br><span class="line">testDict[<span class="string">'otherIDinfo'</span>] = otherInfos <span class="comment"># 把需要@的人的信加入到我们的请求参数内</span></span><br><span class="line"><span class="comment"># 6.请求参数中加入 是否开放的信息</span></span><br><span class="line">testDict[<span class="string">'type'</span>] = <span class="number">0</span></span><br><span class="line"><span class="comment"># 7.把请求参数转换为json格式</span></span><br><span class="line">print(testDict)</span><br></pre></td></tr></table></figure>
-
-<p>此时打印出来的为：</p>
+<h3 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h3><p>1.在线练习工具<a href="https://www.zybuluo.com/mdeditor" target="_blank" rel="noopener">Cmd Markdown 编辑阅读器</a></p>
+<p>2.客户端编写软件 <a href="https://typora.io/" target="_blank" rel="noopener">Typora</a></p>
 <blockquote>
-<p>{‘id’: ‘456’, ‘comment’: ‘构造参数’, ‘tagIdList’: [‘{“tagid”: 1}’, ‘{“tagid”: 2}’, ‘{“tagid”: 3}’], ‘otherIDinfo’: [‘{“id”: “123”, “name”: “梦想”}’, ‘{“id”: “456”, “name”: “飞翔”}’], ‘type’: 0}</p>
+<p>注意 在线练习工具Cmd Markdown 编辑阅读器 和 客户端软件 Typora 有些语法会有差异大家自行甄别。</p>
 </blockquote>
-<p>这时我们打印出来的实际为字典类型，实际中我们需要传入的请求参数为json格式，所以我们需要把字典转换为json格式，我们可以在代码最后加入两行</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment"># 7.把请求参数转换为json格式</span></span><br><span class="line">testDict = json.dumps(testDict)</span><br><span class="line">print(testDict)</span><br></pre></td></tr></table></figure>
+<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><p>给介绍几个常用的语法和最终的展示效果，具体的一些可以在 <a href="https://www.zybuluo.com/mdeditor" target="_blank" rel="noopener">Cmd Markdown 编辑阅读器</a> 中查阅</p>
+<h4 id="1-标题"><a href="#1-标题" class="headerlink" title="1.标题"></a>1.标题</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">语法：</span><br><span class="line"># 这是一级标题</span><br><span class="line">## 这是二级标题</span><br><span class="line">### 这是三级标题</span><br><span class="line">#### 这是四级标题</span><br><span class="line">##### 这是五级标题</span><br><span class="line">###### 这是六级标题</span><br></pre></td></tr></table></figure>
 
-<p>这时打印出来的如下</p>
-<blockquote>
-<p>{“id”: “456”, “comment”: “\u6784\u9020\u53c2\u6570”, “tagIdList”: [“{&quot;tagid&quot;: 1}”, “{&quot;tagid&quot;: 2}”, “{&quot;tagid&quot;: 3}”], “otherIDinfo”: [“{&quot;id&quot;: &quot;123&quot;, &quot;name&quot;: &quot;\u68a6\u60f3&quot;}”, “{&quot;id&quot;: &quot;456&quot;, &quot;name&quot;: &quot;\u98de\u7fd4&quot;}”], “type”: 0}</p>
-</blockquote>
-<p>我们发现转换后出现，汉字变为Unicode码的问题，这时我们需要在转换时，加入一个参数<code>ensure_ascii=False</code>避免中文转为Unicode码。</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 7.把请求参数转换为json格式</span></span><br><span class="line">testDict = json.dumps(testDict,ensure_ascii=<span class="literal">False</span>)</span><br><span class="line">print(testDict)</span><br></pre></td></tr></table></figure>
+<p>展示效果：</p>
+<p><img src="https://ssd.qiniu.dreamfly95.com/Markdown1.png" alt=""></p>
+<h4 id="2-字体"><a href="#2-字体" class="headerlink" title="2.字体"></a>2.字体</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">语法：</span><br><span class="line">**这是加粗的文字**</span><br><span class="line">*这是倾斜的文字*`</span><br><span class="line">***这是斜体加粗的文字***</span><br><span class="line">~~这是加删除线的文字~~</span><br></pre></td></tr></table></figure>
 
-<p>这时打印出来的就是符合规范的请求参数</p>
-<blockquote>
-<p>{“id”: “456”, “comment”: “构造参数”, “tagIdList”: [“{&quot;tagid&quot;: 1}”, “{&quot;tagid&quot;: 2}”, “{&quot;tagid&quot;: 3}”], “otherIDinfo”: [“{&quot;id&quot;: &quot;123&quot;, &quot;name&quot;: &quot;梦想&quot;}”, “{&quot;id&quot;: &quot;456&quot;, &quot;name&quot;: &quot;飞翔&quot;}”], “type”: 0}</p>
-</blockquote>
+<p>展示效果：</p>
+<p><img src="https://ssd.qiniu.dreamfly95.com/Markdown2.png" alt=""></p>
+<h4 id="3-引用"><a href="#3-引用" class="headerlink" title="3.引用"></a>3.引用</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">语法：</span><br><span class="line">&gt;这是引用的内容</span><br></pre></td></tr></table></figure>
+
+<p>展示效果：</p>
+<p><img src="https://ssd.qiniu.dreamfly95.com/Markdown3.png" alt=""></p>
+<h4 id="4-超链接"><a href="#4-超链接" class="headerlink" title="4.超链接"></a>4.超链接</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">语法</span><br><span class="line">[超链接名](超链接地址 &quot;超链接title&quot;)</span><br><span class="line"></span><br><span class="line">示例：</span><br><span class="line">[百度](http://baidu.com)</span><br></pre></td></tr></table></figure>
+
+<p>展示效果：</p>
+<p><img src="https://ssd.qiniu.dreamfly95.com/Markdown4.png" alt=""></p>
+<h4 id="5-图片"><a href="#5-图片" class="headerlink" title="5.图片"></a>5.图片</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">![图片描述](图片地址 &apos;&apos;图片title&apos;&apos;)</span><br><span class="line"></span><br><span class="line">图片alt就是显示在图片下面的文字，相当于对图片内容的解释，可加可不加</span><br><span class="line">图片title是图片的标题，当鼠标移到图片上时显示的内容。title可加可不加</span><br><span class="line"></span><br><span class="line">示例：</span><br><span class="line"></span><br><span class="line">![风景](https://ss0.bdstatic.com/94oJfD_bAAcT8t7mm9GUKT-xh_/timg?image&amp;quality=100&amp;size=b4000_4000&amp;sec=1590818510&amp;di=f0e6467d2588dd1434e9fbb151653570&amp;src=http://www.wndhw.com/fengjing/shanshui/images/ss003t4.jpg &quot;风景&quot;)</span><br></pre></td></tr></table></figure>
+
+<p>展示效果：</p>
+<p><img src="https://ssd.qiniu.dreamfly95.com/Markdown5.png" alt=""></p>
+<h4 id="6-代码块"><a href="#6-代码块" class="headerlink" title="6.代码块"></a>6.代码块</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">语法：</span><br><span class="line"></span><br><span class="line">`代码内容`</span><br></pre></td></tr></table></figure>
+<p> 我是代码块<br> 我是代码块<br> 我是代码块<br> 我是代码块<br> <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+<p>展示效果：</p>
+<p><img src="https://ssd.qiniu.dreamfly95.com/Markdown6.png" alt=""></p>
+<p>以上是一些基本常用的。其他的语法大家可以在  <a href="https://www.zybuluo.com/mdeditor" target="_blank" rel="noopener">Cmd Markdown 编辑阅读器</a> 中查阅。</p>
 <h3 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h3><p>面朝大海，春暖花开。</p>
 <p>愿你一生努力，一生被爱。</p>
-]]></content>
-      <tags>
-        <tag>接口自动化</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>我的祖国</title>
-    <url>/2020/05/26/%E6%88%91%E7%9A%84%E7%A5%96%E5%9B%BD/</url>
-    <content><![CDATA[<p><img src="https://dreams_quan.gitee.io/images/images/blog/china.jpg" alt=""></p>
-<p>我和我的祖国</p>
-<p>一刻也不能分割</p>
-<p>无论我走到哪里</p>
-<p>都流出一首赞歌</p>
-<a id="more"></a>
-
-<p>我歌唱每一座高山</p>
-<p>我歌唱每一条河</p>
-<p>袅袅炊烟 小小村落</p>
-<p>路上一道辙</p>
-<p>我最亲爱的祖国</p>
-<p>我永远紧依着你的心窝</p>
-<p>你用你那母亲的脉搏</p>
-<p>和我诉说</p>
-<p>我的祖国和我</p>
-<p>像海和浪花一朵</p>
-<p>浪是那海的赤子</p>
-<p>海是那浪的依托</p>
-<p>每当大海在微笑</p>
-<p>我就是笑的旋涡</p>
-<p>我分担着海的忧愁</p>
-<p>分享海的欢乐</p>
-<p>我最亲爱的祖国</p>
-<p>你是大海永不干涸</p>
-<p>永远给我碧浪清波</p>
-<p>心中的歌</p>
-]]></content>
-      <tags>
-        <tag>读书</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>代码管理(git,gitee,coding等)平台配置ssh</title>
-    <url>/2019/10/25/%E4%BB%A3%E7%A0%81%E7%AE%A1%E7%90%86%E5%B9%B3%E5%8F%B0%E9%85%8D%E7%BD%AEssh/</url>
-    <content><![CDATA[<h1 id="git-gitee-coding等平台配置ssh"><a href="#git-gitee-coding等平台配置ssh" class="headerlink" title="git,gitee,coding等平台配置ssh"></a>git,gitee,coding等平台配置ssh</h1><h3 id="git-gitee-coding等托管平台配置ssh的目的："><a href="#git-gitee-coding等托管平台配置ssh的目的：" class="headerlink" title="git,gitee,coding等托管平台配置ssh的目的："></a>git,gitee,coding等托管平台配置ssh的目的：</h3><p>配置好ssh后可以让你的电脑和git,gitee,coding等平台通讯的时候建立可信任的安全连接</p>
-<a id="more"></a>
-
-<p>###步骤：</p>
-<ol>
-<li><p>打开终端（windows下载<a href="https://gitforwindows.org/" target="_blank" rel="noopener">git windows 终端</a>，Mac直接用原生自带的terminal就OK）。</p>
-<ul>
-<li>输入<code>cd ~/.ssh</code></li>
-<li>然后输入<code>ls</code>,查看是否有<code>id_rsa</code>和<code>id_rsa.pub</code></li>
-</ul>
-<p><img src="/Users/liyongquan/Desktop/image/images/blog/cdssh.png" alt=""></p>
-<ul>
-<li>如果有则执行第2部，如果没有上述两个文件就执行 <code>ssh-keygen -trsa -C xxxxx@XXX.com</code>(xxxxx@XXX.com为你注册github时的邮箱)，然后开始执行第二部</li>
-</ul>
-<!--注意：如果已有id_rsa和id_rsa.pub文件时，不要执行 ssh-keygen，不然会把你原有的ssh文件冲掉，原来配置过ssh的地方就失效了-->
-</li>
-<li><p>查看公钥内容</p>
-<ul>
-<li><p>执行<code>cat ~/.ssh/id_rsa.pub</code></p>
-<p><img src="/Users/liyongquan/Desktop/image/images/blog/catssh.png" alt=""></p>
-</li>
-</ul>
-</li>
-<li><p>复制公钥内容，全部内容，以ssh-rsa开头的全部内容。粘贴至你所要建立安全连接的平台，这里咦gitee为例：</p>
-<ul>
-<li>打开<a href="https://gitee.com/" target="_blank" rel="noopener">gitee</a>并登陆账户,按下图操作</li>
-</ul>
-<p><img src="/Users/liyongquan/Desktop/image/images/blog/giteessh1.png" alt=""></p>
-</li>
-</ol>
-<p>   <img src="/Users/liyongquan/Desktop/image/images/blog/giteessh2.png" alt=""></p>
-<p>   <img src="/Users/liyongquan/Desktop/image/images/blog/giteessh3.png" alt=""></p>
-<ul>
-<li>然后点击保存就OK了，其他例如 github,gitlab等都一样</li>
-</ul>
-<ol start="4">
-<li><p>测试是否连接成功</p>
-<ul>
-<li><p>终端执行 <code>ssh -T git@gitee.com</code>   (@后面的可以换成你想要连接的平台的网址就OK)</p>
-</li>
-<li><p>如果成功则会提示 You’ve successfully</p>
-<p><img src="/Users/liyongquan/Desktop/image/images/blog/sshtest.png" alt=""></p>
-</li>
-</ul>
-</li>
-<li><p>完工！！！</p>
-</li>
-</ol>
 ]]></content>
       <tags>
         <tag>技巧</tag>
       </tags>
   </entry>
   <entry>
-    <title>登录用例编写</title>
-    <url>/2019/10/25/%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B%E8%AE%BE%E8%AE%A1%E6%96%B9%E6%B3%95/</url>
+    <title>测试用例的编写</title>
+    <url>/2019/10/25/QA1-%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B%E8%AE%BE%E8%AE%A1%E6%96%B9%E6%B3%95/</url>
     <content><![CDATA[<h3 id="测试用例设计方法"><a href="#测试用例设计方法" class="headerlink" title="测试用例设计方法"></a>测试用例设计方法</h3><ul>
 <li><p>逐级细分法</p>
 </li>
@@ -275,8 +142,64 @@
       </tags>
   </entry>
   <entry>
+    <title>代码管理(git,gitee,coding等)平台配置ssh</title>
+    <url>/2019/10/25/%E6%8A%80%E5%B7%A71-%E4%BB%A3%E7%A0%81%E7%AE%A1%E7%90%86%E5%B9%B3%E5%8F%B0%E9%85%8D%E7%BD%AEssh/</url>
+    <content><![CDATA[<h1 id="git-gitee-coding等平台配置ssh"><a href="#git-gitee-coding等平台配置ssh" class="headerlink" title="git,gitee,coding等平台配置ssh"></a>git,gitee,coding等平台配置ssh</h1><h3 id="git-gitee-coding等托管平台配置ssh的目的："><a href="#git-gitee-coding等托管平台配置ssh的目的：" class="headerlink" title="git,gitee,coding等托管平台配置ssh的目的："></a>git,gitee,coding等托管平台配置ssh的目的：</h3><p>配置好ssh后可以让你的电脑和git,gitee,coding等平台通讯的时候建立可信任的安全连接</p>
+<a id="more"></a>
+
+<p>###步骤：</p>
+<ol>
+<li><p>打开终端（windows下载<a href="https://gitforwindows.org/" target="_blank" rel="noopener">git windows 终端</a>，Mac直接用原生自带的terminal就OK）。</p>
+<ul>
+<li>输入<code>cd ~/.ssh</code></li>
+<li>然后输入<code>ls</code>,查看是否有<code>id_rsa</code>和<code>id_rsa.pub</code></li>
+</ul>
+<p><img src="/Users/liyongquan/Desktop/image/images/blog/cdssh.png" alt=""></p>
+<ul>
+<li>如果有则执行第2部，如果没有上述两个文件就执行 <code>ssh-keygen -trsa -C xxxxx@XXX.com</code>(xxxxx@XXX.com为你注册github时的邮箱)，然后开始执行第二部</li>
+</ul>
+<!--注意：如果已有id_rsa和id_rsa.pub文件时，不要执行 ssh-keygen，不然会把你原有的ssh文件冲掉，原来配置过ssh的地方就失效了-->
+</li>
+<li><p>查看公钥内容</p>
+<ul>
+<li><p>执行<code>cat ~/.ssh/id_rsa.pub</code></p>
+<p><img src="/Users/liyongquan/Desktop/image/images/blog/catssh.png" alt=""></p>
+</li>
+</ul>
+</li>
+<li><p>复制公钥内容，全部内容，以ssh-rsa开头的全部内容。粘贴至你所要建立安全连接的平台，这里咦gitee为例：</p>
+<ul>
+<li>打开<a href="https://gitee.com/" target="_blank" rel="noopener">gitee</a>并登陆账户,按下图操作</li>
+</ul>
+<p><img src="/Users/liyongquan/Desktop/image/images/blog/giteessh1.png" alt=""></p>
+</li>
+</ol>
+<p>   <img src="/Users/liyongquan/Desktop/image/images/blog/giteessh2.png" alt=""></p>
+<p>   <img src="/Users/liyongquan/Desktop/image/images/blog/giteessh3.png" alt=""></p>
+<ul>
+<li>然后点击保存就OK了，其他例如 github,gitlab等都一样</li>
+</ul>
+<ol start="4">
+<li><p>测试是否连接成功</p>
+<ul>
+<li><p>终端执行 <code>ssh -T git@gitee.com</code>   (@后面的可以换成你想要连接的平台的网址就OK)</p>
+</li>
+<li><p>如果成功则会提示 You’ve successfully</p>
+<p><img src="/Users/liyongquan/Desktop/image/images/blog/sshtest.png" alt=""></p>
+</li>
+</ul>
+</li>
+<li><p>完工！！！</p>
+</li>
+</ol>
+]]></content>
+      <tags>
+        <tag>技巧</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>使用gitee自建图床</title>
-    <url>/2020/04/15/%E8%87%AA%E5%BB%BA%E5%9B%BE%E5%BA%8A/</url>
+    <url>/2020/04/15/%E6%8A%80%E5%B7%A72-%E8%87%AA%E5%BB%BA%E5%9B%BE%E5%BA%8A/</url>
     <content><![CDATA[<h1 id="使用gitee建自己图床"><a href="#使用gitee建自己图床" class="headerlink" title="使用gitee建自己图床"></a>使用gitee建自己图床</h1><h3 id="使用gitee建自己图床的好处："><a href="#使用gitee建自己图床的好处：" class="headerlink" title="使用gitee建自己图床的好处："></a>使用gitee建自己图床的好处：</h3><ol>
 <li><p>都在自己账号内，好管理。</p>
 </li>
@@ -331,8 +254,31 @@
       </tags>
   </entry>
   <entry>
+    <title>接口自动化之requests用法(2)</title>
+    <url>/2020/05/30/%E6%8E%A5%E5%8F%A3%E8%87%AA%E5%8A%A8%E5%8C%962%E4%B9%8BRequests%E7%94%A8%E6%B3%95/</url>
+    <content><![CDATA[<h1 id="接口自动化之Requests用法-2"><a href="#接口自动化之Requests用法-2" class="headerlink" title="接口自动化之Requests用法(2)"></a>接口自动化之Requests用法(2)</h1><h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>要学接口自动化，或者爬虫等，Requests库的使用是必备知识，也是给你打开自动化大门的一把钥匙。</p>
+<p>Requests的口号是为人类服务，也是唯一的一个<strong>非转基因</strong>的 Python HTTP 库，人类可以安全享用。</p>
+<a id="more"></a>
+
+<h3 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h3><p>1.<a href="https://cn.python-requests.org/zh_CN/latest/user/install.html" target="_blank" rel="noopener">安装Requests库方法</a></p>
+<p>2.<a href="https://cn.python-requests.org/zh_CN/latest/user/quickstart.html" target="_blank" rel="noopener">Requests的官方文档</a></p>
+<p>3.可用于练习的免费接口：<a href="https://www.juhe.cn/docs" target="_blank" rel="noopener">聚合数据免费接口</a>（打开在筛选页，选择免费的，然后申请下就可以用了），<a href="https://api.apiopen.top/api.html" target="_blank" rel="noopener">其他免费接口</a>（由于被人乱刷，导致部分接口已被封禁）</p>
+<p>4.了解<a href="https://www.jianshu.com/p/55c8708da06c" target="_blank" rel="noopener">get和post的区别</a></p>
+<h3 id="具体示例"><a href="#具体示例" class="headerlink" title="具体示例"></a>具体示例</h3><p>我们已 qq号测吉凶为例来演示Requests的基本用法，<a href="https://www.juhe.cn/docs/api/id/166" target="_blank" rel="noopener">qq号测吉凶API地址</a>。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"></span><br><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="string">网址：https://www.juhe.cn/docs/api/id/166</span></span><br><span class="line"><span class="string">接口地址：http://japi.juhe.cn/qqevaluate/qq</span></span><br><span class="line"><span class="string">返回格式：json</span></span><br><span class="line"><span class="string">请求方式：get post</span></span><br><span class="line"><span class="string">请求示例：http://japi.juhe.cn/qqevaluate/qq?key=您申请的appKey&amp;qq=295424589</span></span><br><span class="line"><span class="string">接口备注：根据传入的参数qq号码和您申请的appKey测试qq的吉凶</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">名称 必填 类型 说明</span></span><br><span class="line"><span class="string">key    是  string 您申请的appKey</span></span><br><span class="line"><span class="string">qq 是  string 需要测试的QQ号码</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">该接口支持get和 post请求</span></span><br><span class="line"><span class="string">上面key需要自己注册账号后申请，是免费的。</span></span><br><span class="line"><span class="string">'''</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 1.先来联系get请求,</span></span><br><span class="line"><span class="comment"># 方式一：直接请求,在请求地址后面直接拼接请求参数</span></span><br><span class="line">rGet1 = requests.get(<span class="string">'http://japi.juhe.cn/qqevaluate/qq?key=你申请的appkey&amp;qq=要测试的QQ'</span>).json()</span><br><span class="line"><span class="comment"># print(rGet1)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 方式二：定义请求参数，然后使用get请求</span></span><br><span class="line">params = &#123;<span class="string">'key'</span>:<span class="string">'你申请的appkey'</span>,</span><br><span class="line">          <span class="string">'qq'</span>:<span class="string">'要测试的QQ'</span>&#125;</span><br><span class="line">rGet2 = requests.get(<span class="string">'http://japi.juhe.cn/qqevaluate/qq'</span>,params=params).json()</span><br><span class="line"><span class="comment"># print(rGet2)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 2.用post请求来</span></span><br><span class="line">data = &#123;<span class="string">'key'</span>:<span class="string">'你申请的appkey'</span>,</span><br><span class="line">          <span class="string">'qq'</span>:<span class="string">'要测试的QQ'</span>&#125;</span><br><span class="line">rPost = requests.post(<span class="string">'http://japi.juhe.cn/qqevaluate/qq'</span>,data=data).json()</span><br><span class="line">print(rPost)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 取出QQ的测试结果</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 方式一</span></span><br><span class="line">qqResult = rPost[<span class="string">'result'</span>][<span class="string">'data'</span>][<span class="string">'conclusion'</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 方式二，具体为何用get可以自行查阅资料</span></span><br><span class="line">qqResult1 = rPost.get(<span class="string">'result'</span>).get(<span class="string">'data'</span>).get(<span class="string">'conclusion'</span>)</span><br><span class="line"></span><br><span class="line">print(qqResult1)</span><br></pre></td></tr></table></figure>
+
+<p>以上就是Requests 的基本用法，以后在编码过程中也要学会查看函数参数和方法。</p>
+<p>学会Requests的用法就可以对接口做一些基本的操作了。</p>
+<h3 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h3><p>面朝大海，春暖花开。</p>
+<p>愿你一生努力，一生被爱。</p>
+]]></content>
+      <tags>
+        <tag>接口自动化</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>能力陷进</title>
-    <url>/2019/10/25/%E8%83%BD%E5%8A%9B%E9%99%B7%E8%BF%9B/</url>
+    <url>/2019/10/25/%E8%AF%BB%E4%B9%A62-%E8%83%BD%E5%8A%9B%E9%99%B7%E8%BF%9B/</url>
     <content><![CDATA[<p><img src="https://dreams_quan.gitee.io/images/images/blog/NLXJ.png" alt=""></p>
 <p>​         本书深刻揭示职场的三大观念陷阱，提出“先行动，后思考”的方法，打破了传统领导者的养成法则，帮助那些渴望成为优秀领导者的人学会如何扩展业务范围，如何提出更好的策略性意见，以及如何扩建人际关系网络并引领他们朝着不同的方向发展自己。</p>
 <a id="more"></a>
@@ -360,6 +306,129 @@
 ]]></content>
       <tags>
         <tag>读书</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>我的祖国</title>
+    <url>/2020/05/30/%E8%AF%BB%E4%B9%A61-%E6%88%91%E7%9A%84%E7%A5%96%E5%9B%BD/</url>
+    <content><![CDATA[<p><img src="https://dreams_quan.gitee.io/images/images/blog/china.jpg" alt=""></p>
+<p>我和我的祖国</p>
+<p>一刻也不能分割</p>
+<p>无论我走到哪里</p>
+<p>都流出一首赞歌</p>
+<a id="more"></a>
+
+<p>我歌唱每一座高山</p>
+<p>我歌唱每一条河</p>
+<p>袅袅炊烟 小小村落</p>
+<p>路上一道辙</p>
+<p>我最亲爱的祖国</p>
+<p>我永远紧依着你的心窝</p>
+<p>你用你那母亲的脉搏</p>
+<p>和我诉说</p>
+<p>我的祖国和我</p>
+<p>像海和浪花一朵</p>
+<p>浪是那海的赤子</p>
+<p>海是那浪的依托</p>
+<p>每当大海在微笑</p>
+<p>我就是笑的旋涡</p>
+<p>我分担着海的忧愁</p>
+<p>分享海的欢乐</p>
+<p>我最亲爱的祖国</p>
+<p>你是大海永不干涸</p>
+<p>永远给我碧浪清波</p>
+<p>心中的歌</p>
+]]></content>
+      <tags>
+        <tag>读书</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>接口自动化之构造请求参数(1)</title>
+    <url>/2020/05/25/%E6%8E%A5%E5%8F%A3%E8%87%AA%E5%8A%A8%E5%8C%961%E4%B9%8B%E6%9E%84%E9%80%A0%E5%8F%82%E6%95%B0/</url>
+    <content><![CDATA[<h1 id="接口自动化之构造请求参数-1"><a href="#接口自动化之构造请求参数-1" class="headerlink" title="接口自动化之构造请求参数(1)"></a>接口自动化之构造请求参数(1)</h1><h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>接口测试中，我们需要去手动输入请求参数组合，因为输入法等问题，可能会造成标点或括号等输错，最后出错后，还不大好排查。因此我们通过构造请求参数，能大大避免这类问题的发生。这也是最基础的知识，</p>
+<blockquote>
+<p>另我们使用Postman输入请求参数时，也可以先用Python构造请求参数，然后再使用。不过这个因人而异，如果你对自己有信心，直接手拼也OK。</p>
+</blockquote>
+<a id="more"></a>
+
+<h3 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h3><ol>
+<li>Python3.0 + 编译工具（推荐Pycharm）</li>
+<li>了解Python  <a href="https://www.runoob.com/python/python-dictionary.html" target="_blank" rel="noopener">dict（字典)</a>，<a href="https://www.runoob.com/python/python-lists.html" target="_blank" rel="noopener">list（列表)</a>，<a href="https://www.runoob.com/python/python-json.html" target="_blank" rel="noopener">json</a>等的基本知识</li>
+</ol>
+<h3 id="具体示例"><a href="#具体示例" class="headerlink" title="具体示例"></a>具体示例</h3><p>假如一个请求内的请求参数表如下，我们无需去管这个是哪个接口的参数，也不用管里面的内容，我们的目的是了解参数的构造，以及对一些基本知识的应用。</p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>类型</th>
+<th>是否必传</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>id</td>
+<td>string</td>
+<td>是</td>
+<td>用户ID。例如：520</td>
+</tr>
+<tr>
+<td>comment</td>
+<td>string</td>
+<td>是</td>
+<td>发布内容</td>
+</tr>
+<tr>
+<td>tagIdList</td>
+<td>Jsonlist</td>
+<td>是</td>
+<td>使用标签，标签ID可传多个。如       [{‘tagid’:1},{‘tagid’:2}]</td>
+</tr>
+<tr>
+<td>otherIDinfo</td>
+<td>Jsonlist</td>
+<td>是</td>
+<td>@其他的人信息                      [{‘id’:’123’,’name’:’梦想’},{‘id:’456’,’name’:’飞翔’}]</td>
+</tr>
+<tr>
+<td>button_type</td>
+<td>String</td>
+<td>是</td>
+<td>按钮位置   朋友圈：friend   广场：square</td>
+</tr>
+<tr>
+<td>type</td>
+<td>Int</td>
+<td>是</td>
+<td>是否开放   开放：1     不开放：0</td>
+</tr>
+</tbody></table>
+<p>具体代码如下：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> json</span><br><span class="line"></span><br><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="string">接下来我们我们开始构造一个请求参数，具体需要传入的值如下：</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">用户ID为             456</span></span><br><span class="line"><span class="string">发布内容为            构造参数</span></span><br><span class="line"><span class="string">使用的标签ID为        1，2和3</span></span><br><span class="line"><span class="string">@的人的信息为(前面为名字，后面为ID)    梦想，123  飞翔，456</span></span><br><span class="line"><span class="string">开放类型为           不开放</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="comment"># 1.定义一个字典类型testDict，用于存放整个请求参数</span></span><br><span class="line">testDict = &#123;&#125;</span><br><span class="line"><span class="comment"># 2.请求参数中加入用户ID,ID为string类型</span></span><br><span class="line">testDict[<span class="string">'id'</span>] = <span class="string">'456'</span></span><br><span class="line"><span class="comment"># 3.请求参数中加入发布内容comment，为string类型</span></span><br><span class="line">testDict[<span class="string">'comment'</span>]= <span class="string">'构造参数'</span></span><br><span class="line"><span class="comment"># 4.请求参数中加入标签tagIdList，因为标签是list类型，因为我们要传入三个标签，所以需要拼接</span></span><br><span class="line">tagIdlists = []     <span class="comment">#定义一个存放标签集的list</span></span><br><span class="line">tagids = &#123;&#125;         <span class="comment">#定义一个存放ID的字典</span></span><br><span class="line">tagids[<span class="string">'tagid'</span>] =<span class="number">1</span>  <span class="comment">#加入标签为1的标签</span></span><br><span class="line"><span class="comment">#把标签为1拼接 到标签集里面，使用json.dumps的原因是把字典转换为字符串格式，避免后面tagids['tagid']赋值时把前面覆盖</span></span><br><span class="line">tagIdlists.append(json.dumps(tagids))</span><br><span class="line">tagids[<span class="string">'tagid'</span>] =<span class="number">2</span></span><br><span class="line">tagIdlists.append(json.dumps(tagids))  <span class="comment">#把标签为2拼接 到标签集里面</span></span><br><span class="line">tagids[<span class="string">'tagid'</span>] =<span class="number">3</span></span><br><span class="line">tagIdlists.append(json.dumps(tagids))  <span class="comment">#把标签为3拼接 到标签集里面</span></span><br><span class="line">testDict[<span class="string">'tagIdList'</span>] = tagIdlists  <span class="comment"># 把标签集加入到我们的请求参数内</span></span><br><span class="line"><span class="comment"># 5.请求参数中加入需要@的人的信息otherIDinfo,基本和步骤四类似</span></span><br><span class="line">otherInfos =[]</span><br><span class="line">otherIn = &#123;&#125;</span><br><span class="line">otherIn[<span class="string">'id'</span>] = <span class="string">'123'</span></span><br><span class="line">otherIn[<span class="string">'name'</span>] = <span class="string">'梦想'</span></span><br><span class="line">otherInfos.append(json.dumps(otherIn,ensure_ascii=<span class="literal">False</span>))</span><br><span class="line">otherIn[<span class="string">'id'</span>] = <span class="string">'456'</span></span><br><span class="line">otherIn[<span class="string">'name'</span>] = <span class="string">'飞翔'</span></span><br><span class="line">otherInfos.append(json.dumps(otherIn,ensure_ascii=<span class="literal">False</span>))</span><br><span class="line">testDict[<span class="string">'otherIDinfo'</span>] = otherInfos <span class="comment"># 把需要@的人的信加入到我们的请求参数内</span></span><br><span class="line"><span class="comment"># 6.请求参数中加入 是否开放的信息</span></span><br><span class="line">testDict[<span class="string">'type'</span>] = <span class="number">0</span></span><br><span class="line"><span class="comment"># 7.把请求参数转换为json格式</span></span><br><span class="line">print(testDict)</span><br></pre></td></tr></table></figure>
+
+<p>此时打印出来的为：</p>
+<blockquote>
+<p>{‘id’: ‘456’, ‘comment’: ‘构造参数’, ‘tagIdList’: [‘{“tagid”: 1}’, ‘{“tagid”: 2}’, ‘{“tagid”: 3}’], ‘otherIDinfo’: [‘{“id”: “123”, “name”: “梦想”}’, ‘{“id”: “456”, “name”: “飞翔”}’], ‘type’: 0}</p>
+</blockquote>
+<p>这时我们打印出来的实际为字典类型，实际中我们需要传入的请求参数为json格式，所以我们需要把字典转换为json格式，我们可以在代码最后加入两行</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment"># 7.把请求参数转换为json格式</span></span><br><span class="line">testDict = json.dumps(testDict)</span><br><span class="line">print(testDict)</span><br></pre></td></tr></table></figure>
+
+<p>这时打印出来的如下</p>
+<blockquote>
+<p>{“id”: “456”, “comment”: “\u6784\u9020\u53c2\u6570”, “tagIdList”: [“{&quot;tagid&quot;: 1}”, “{&quot;tagid&quot;: 2}”, “{&quot;tagid&quot;: 3}”], “otherIDinfo”: [“{&quot;id&quot;: &quot;123&quot;, &quot;name&quot;: &quot;\u68a6\u60f3&quot;}”, “{&quot;id&quot;: &quot;456&quot;, &quot;name&quot;: &quot;\u98de\u7fd4&quot;}”], “type”: 0}</p>
+</blockquote>
+<p>我们发现转换后出现，汉字变为Unicode码的问题，这时我们需要在转换时，加入一个参数<code>ensure_ascii=False</code>避免中文转为Unicode码。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 7.把请求参数转换为json格式</span></span><br><span class="line">testDict = json.dumps(testDict,ensure_ascii=<span class="literal">False</span>)</span><br><span class="line">print(testDict)</span><br></pre></td></tr></table></figure>
+
+<p>这时打印出来的就是符合规范的请求参数</p>
+<blockquote>
+<p>{“id”: “456”, “comment”: “构造参数”, “tagIdList”: [“{&quot;tagid&quot;: 1}”, “{&quot;tagid&quot;: 2}”, “{&quot;tagid&quot;: 3}”], “otherIDinfo”: [“{&quot;id&quot;: &quot;123&quot;, &quot;name&quot;: &quot;梦想&quot;}”, “{&quot;id&quot;: &quot;456&quot;, &quot;name&quot;: &quot;飞翔&quot;}”], “type”: 0}</p>
+</blockquote>
+<h3 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h3><p>面朝大海，春暖花开。</p>
+<p>愿你一生努力，一生被爱。</p>
+]]></content>
+      <tags>
+        <tag>接口自动化</tag>
       </tags>
   </entry>
 </search>

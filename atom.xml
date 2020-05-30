@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://yoursite.com/"/>
-  <updated>2020-05-26T09:12:50.646Z</updated>
+  <updated>2020-05-30T07:14:50.686Z</updated>
   <id>https://yoursite.com/</id>
   
   <author>
@@ -18,10 +18,10 @@
   
   <entry>
     <title>我的祖国</title>
-    <link href="https://yoursite.com/2020/05/26/%E6%88%91%E7%9A%84%E7%A5%96%E5%9B%BD/"/>
-    <id>https://yoursite.com/2020/05/26/%E6%88%91%E7%9A%84%E7%A5%96%E5%9B%BD/</id>
-    <published>2020-05-26T09:12:45.000Z</published>
-    <updated>2020-05-26T09:12:50.646Z</updated>
+    <link href="https://yoursite.com/2020/05/30/%E8%AF%BB%E4%B9%A61-%E6%88%91%E7%9A%84%E7%A5%96%E5%9B%BD/"/>
+    <id>https://yoursite.com/2020/05/30/%E8%AF%BB%E4%B9%A61-%E6%88%91%E7%9A%84%E7%A5%96%E5%9B%BD/</id>
+    <published>2020-05-30T07:14:46.000Z</published>
+    <updated>2020-05-30T07:14:50.686Z</updated>
     
     <summary type="html">
     
@@ -40,9 +40,50 @@
   </entry>
   
   <entry>
+    <title>接口自动化之requests用法(2)</title>
+    <link href="https://yoursite.com/2020/05/30/%E6%8E%A5%E5%8F%A3%E8%87%AA%E5%8A%A8%E5%8C%962%E4%B9%8BRequests%E7%94%A8%E6%B3%95/"/>
+    <id>https://yoursite.com/2020/05/30/%E6%8E%A5%E5%8F%A3%E8%87%AA%E5%8A%A8%E5%8C%962%E4%B9%8BRequests%E7%94%A8%E6%B3%95/</id>
+    <published>2020-05-30T06:14:21.000Z</published>
+    <updated>2020-05-30T07:11:38.418Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;接口自动化之Requests用法-2&quot;&gt;&lt;a href=&quot;#接口自动化之Requests用法-2&quot; class=&quot;headerlink&quot; title=&quot;接口自动化之Requests用法(2)&quot;&gt;&lt;/a&gt;接口自动化之Requests用法(2)&lt;/h1&gt;&lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h3&gt;&lt;p&gt;要学接口自动化，或者爬虫等，Requests库的使用是必备知识，也是给你打开自动化大门的一把钥匙。&lt;/p&gt;
+&lt;p&gt;Requests的口号是为人类服务，也是唯一的一个&lt;strong&gt;非转基因&lt;/strong&gt;的 Python HTTP 库，人类可以安全享用。&lt;/p&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="接口自动化" scheme="https://yoursite.com/tags/%E6%8E%A5%E5%8F%A3%E8%87%AA%E5%8A%A8%E5%8C%96/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Markdown的使用</title>
+    <link href="https://yoursite.com/2020/05/27/%E6%8A%80%E5%B7%A73-Markdown%E7%9A%84%E4%BD%BF%E7%94%A8/"/>
+    <id>https://yoursite.com/2020/05/27/%E6%8A%80%E5%B7%A73-Markdown%E7%9A%84%E4%BD%BF%E7%94%A8/</id>
+    <published>2020-05-27T06:14:06.000Z</published>
+    <updated>2020-05-30T07:13:51.810Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;Markdown的使用&quot;&gt;&lt;a href=&quot;#Markdown的使用&quot; class=&quot;headerlink&quot; title=&quot;Markdown的使用&quot;&gt;&lt;/a&gt;Markdown的使用&lt;/h1&gt;&lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h3&gt;&lt;p&gt;Markdown 是一种轻量级标记语言，它允许人们使用易读易写的纯文本格式编写文档。&lt;/p&gt;
+&lt;p&gt;Markdown 编写的文档后缀为 &lt;code&gt;.md&lt;/code&gt;, &lt;code&gt;.markdown&lt;/code&gt;，可以导出 HTML 、Word、图像、PDF、Epub 等多种格式的文档。当前许多网站都广泛使用 Markdown 来撰写帮助文档或是用于论坛上发表消息。例如：GitHub、简书等。&lt;/p&gt;
+&lt;p&gt;通俗一点讲，使用Markdown写文档可以让你的文档格式比较规范明了，看着比较优美，本文的教程就是用Markdown写的。&lt;/p&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="技巧" scheme="https://yoursite.com/tags/%E6%8A%80%E5%B7%A7/"/>
+    
+  </entry>
+  
+  <entry>
     <title>接口自动化之构造请求参数(1)</title>
-    <link href="https://yoursite.com/2020/05/25/%E6%8E%A5%E5%8F%A3%E8%87%AA%E5%8A%A8%E5%8C%96(1)%E4%B9%8B%E6%9E%84%E9%80%A0%E5%8F%82%E6%95%B0/"/>
-    <id>https://yoursite.com/2020/05/25/%E6%8E%A5%E5%8F%A3%E8%87%AA%E5%8A%A8%E5%8C%96(1)%E4%B9%8B%E6%9E%84%E9%80%A0%E5%8F%82%E6%95%B0/</id>
+    <link href="https://yoursite.com/2020/05/25/%E6%8E%A5%E5%8F%A3%E8%87%AA%E5%8A%A8%E5%8C%961%E4%B9%8B%E6%9E%84%E9%80%A0%E5%8F%82%E6%95%B0/"/>
+    <id>https://yoursite.com/2020/05/25/%E6%8E%A5%E5%8F%A3%E8%87%AA%E5%8A%A8%E5%8C%961%E4%B9%8B%E6%9E%84%E9%80%A0%E5%8F%82%E6%95%B0/</id>
     <published>2020-05-25T08:38:57.000Z</published>
     <updated>2020-05-26T13:33:02.460Z</updated>
     
@@ -63,8 +104,8 @@
   
   <entry>
     <title>使用gitee自建图床</title>
-    <link href="https://yoursite.com/2020/04/15/%E8%87%AA%E5%BB%BA%E5%9B%BE%E5%BA%8A/"/>
-    <id>https://yoursite.com/2020/04/15/%E8%87%AA%E5%BB%BA%E5%9B%BE%E5%BA%8A/</id>
+    <link href="https://yoursite.com/2020/04/15/%E6%8A%80%E5%B7%A72-%E8%87%AA%E5%BB%BA%E5%9B%BE%E5%BA%8A/"/>
+    <id>https://yoursite.com/2020/04/15/%E6%8A%80%E5%B7%A72-%E8%87%AA%E5%BB%BA%E5%9B%BE%E5%BA%8A/</id>
     <published>2020-04-15T12:32:47.000Z</published>
     <updated>2020-04-17T08:09:29.250Z</updated>
     
@@ -89,8 +130,8 @@
   
   <entry>
     <title>代码管理(git,gitee,coding等)平台配置ssh</title>
-    <link href="https://yoursite.com/2019/10/25/%E4%BB%A3%E7%A0%81%E7%AE%A1%E7%90%86%E5%B9%B3%E5%8F%B0%E9%85%8D%E7%BD%AEssh/"/>
-    <id>https://yoursite.com/2019/10/25/%E4%BB%A3%E7%A0%81%E7%AE%A1%E7%90%86%E5%B9%B3%E5%8F%B0%E9%85%8D%E7%BD%AEssh/</id>
+    <link href="https://yoursite.com/2019/10/25/%E6%8A%80%E5%B7%A71-%E4%BB%A3%E7%A0%81%E7%AE%A1%E7%90%86%E5%B9%B3%E5%8F%B0%E9%85%8D%E7%BD%AEssh/"/>
+    <id>https://yoursite.com/2019/10/25/%E6%8A%80%E5%B7%A71-%E4%BB%A3%E7%A0%81%E7%AE%A1%E7%90%86%E5%B9%B3%E5%8F%B0%E9%85%8D%E7%BD%AEssh/</id>
     <published>2019-10-25T08:16:04.626Z</published>
     <updated>2020-04-15T13:37:44.223Z</updated>
     
@@ -107,11 +148,11 @@
   </entry>
   
   <entry>
-    <title>登录用例编写</title>
-    <link href="https://yoursite.com/2019/10/25/%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B%E8%AE%BE%E8%AE%A1%E6%96%B9%E6%B3%95/"/>
-    <id>https://yoursite.com/2019/10/25/%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B%E8%AE%BE%E8%AE%A1%E6%96%B9%E6%B3%95/</id>
+    <title>测试用例的编写</title>
+    <link href="https://yoursite.com/2019/10/25/QA1-%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B%E8%AE%BE%E8%AE%A1%E6%96%B9%E6%B3%95/"/>
+    <id>https://yoursite.com/2019/10/25/QA1-%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B%E8%AE%BE%E8%AE%A1%E6%96%B9%E6%B3%95/</id>
     <published>2019-10-25T08:16:04.000Z</published>
-    <updated>2020-05-26T09:24:23.010Z</updated>
+    <updated>2020-05-30T06:15:09.521Z</updated>
     
     <summary type="html">
     
@@ -134,8 +175,8 @@
   
   <entry>
     <title>能力陷进</title>
-    <link href="https://yoursite.com/2019/10/25/%E8%83%BD%E5%8A%9B%E9%99%B7%E8%BF%9B/"/>
-    <id>https://yoursite.com/2019/10/25/%E8%83%BD%E5%8A%9B%E9%99%B7%E8%BF%9B/</id>
+    <link href="https://yoursite.com/2019/10/25/%E8%AF%BB%E4%B9%A62-%E8%83%BD%E5%8A%9B%E9%99%B7%E8%BF%9B/"/>
+    <id>https://yoursite.com/2019/10/25/%E8%AF%BB%E4%B9%A62-%E8%83%BD%E5%8A%9B%E9%99%B7%E8%BF%9B/</id>
     <published>2019-10-25T08:16:04.000Z</published>
     <updated>2020-04-14T11:51:24.811Z</updated>
     
