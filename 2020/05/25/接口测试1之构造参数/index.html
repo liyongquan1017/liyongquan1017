@@ -11,7 +11,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <title>
-    使用gitee自建图床 |  Dreaming
+    接口测试之构造请求参数（1） |  Dreaming
   </title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   
@@ -35,7 +35,7 @@
   <div id="app">
     <main class="content on">
       <section class="outer">
-  <article id="post-技巧2-自建图床" class="article article-type-post" itemscope
+  <article id="post-接口测试1之构造参数" class="article article-type-post" itemscope
   itemprop="blogPost" data-scroll-reveal>
 
   <div class="article-inner">
@@ -43,7 +43,7 @@
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  使用gitee自建图床
+  接口测试之构造请求参数（1）
 </h1>
  
 
@@ -52,8 +52,8 @@
 
     
     <div class="article-meta">
-      <a href="/2020/04/15/%E6%8A%80%E5%B7%A72-%E8%87%AA%E5%BB%BA%E5%9B%BE%E5%BA%8A/" class="article-date">
-  <time datetime="2020-04-15T12:32:47.000Z" itemprop="datePublished">2020-04-15</time>
+      <a href="/2020/05/25/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%951%E4%B9%8B%E6%9E%84%E9%80%A0%E5%8F%82%E6%95%B0/" class="article-date">
+  <time datetime="2020-05-25T08:38:57.000Z" itemprop="datePublished">2020-05-25</time>
 </a>
       
       
@@ -63,7 +63,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">578</span>
+            <span class="post-count">1.1k</span>
         </span>
     </span>
 
@@ -72,7 +72,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> 阅读时长≈</span>
-            <span class="post-count">2 分钟</span>
+            <span class="post-count">4 分钟</span>
         </span>
     </span>
 </div>
@@ -97,54 +97,86 @@
       
 
       
-      <h1 id="使用gitee建自己图床"><a href="#使用gitee建自己图床" class="headerlink" title="使用gitee建自己图床"></a>使用gitee建自己图床</h1><h3 id="使用gitee建自己图床的好处："><a href="#使用gitee建自己图床的好处：" class="headerlink" title="使用gitee建自己图床的好处："></a>使用gitee建自己图床的好处：</h3><ol>
-<li><p>都在自己账号内，好管理。</p>
-</li>
-<li><p>支持https，避免使用HTTP而打开时网站提示不安全。</p>
-</li>
-<li><p>丢失概率低</p>
-</li>
-</ol>
+      <h1 id="接口测试之构造请求参数（1）"><a href="#接口测试之构造请求参数（1）" class="headerlink" title="接口测试之构造请求参数（1）"></a>接口测试之构造请求参数（1）</h1><h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>接口测试中，我们需要去手动输入请求参数组合，因为输入法等问题，可能会造成标点或括号等输错，最后出错后，还不大好排查。因此我们通过构造请求参数，能大大避免这类问题的发生。这也是最基础的知识，</p>
+<blockquote>
+<p>另我们使用Postman输入请求参数时，也可以先用Python构造请求参数，然后再使用。不过这个因人而异，如果你对自己有信心，直接手拼也OK。</p>
+</blockquote>
 <a id="more"></a>
 
-<h3 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h3><ol>
-<li>创建一个属于自己的<a href="https://gitee.com/" target="_blank" rel="noopener">gitee账户</a></li>
-<li>然后就本地有git，这里有较为详细的<a href="https://www.liaoxuefeng.com/wiki/896043488029600" target="_blank" rel="noopener">git教程</a></li>
-<li>然后配置本体ssh,并与远程库建立可信任连接</li>
+<h3 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h3><ol>
+<li>Python3.0 + 编译工具（推荐Pycharm）</li>
+<li>了解Python  <a href="https://www.runoob.com/python/python-dictionary.html" target="_blank" rel="noopener">dict（字典)</a>，<a href="https://www.runoob.com/python/python-lists.html" target="_blank" rel="noopener">list（列表)</a>，<a href="https://www.runoob.com/python/python-json.html" target="_blank" rel="noopener">json</a>等的基本知识</li>
 </ol>
-<h3 id="开始搭建图床"><a href="#开始搭建图床" class="headerlink" title="开始搭建图床"></a>开始搭建图床</h3><ol>
-<li>打开自己的gitee,新建一个仓库</li>
-</ol>
-<p>   <img src="https://dreams_quan.gitee.io/images/images/blog/makeGitee1.png" alt="makeGitee1"></p>
-<p>   <img src="https://dreams_quan.gitee.io/images/images/blog/makeGitee2.png" alt="makeGitee2"></p>
-<ol start="2">
-<li>创建完成后，新建一个文件，必须是index.html</li>
-</ol>
-<p>   <img src="https://dreams_quan.gitee.io/images/images/blog/makeGitee3.png" alt="makeGitee3"></p>
-<p>   <img src="https://dreams_quan.gitee.io/images/images/blog/makeGitee4.png" alt="makeGitee4"></p>
-   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">&lt;meta charset=&quot;utf-8&quot;&gt;</span><br><span class="line">&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;</span><br><span class="line">&lt;title&gt;我的图床首页&lt;/title&gt;</span><br><span class="line">&lt;meta name=&quot;description&quot; content=&quot;&quot;&gt;</span><br><span class="line">&lt;meta name=&quot;author&quot; content=&quot;&quot;&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="具体示例"><a href="#具体示例" class="headerlink" title="具体示例"></a>具体示例</h3><p>假如一个请求内的请求参数表如下，我们无需去管这个是哪个接口的参数，也不用管里面的内容，我们的目的是了解参数的构造，以及对一些基本知识的应用。</p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>类型</th>
+<th>是否必传</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>id</td>
+<td>string</td>
+<td>是</td>
+<td>用户ID。例如：520</td>
+</tr>
+<tr>
+<td>comment</td>
+<td>string</td>
+<td>是</td>
+<td>发布内容</td>
+</tr>
+<tr>
+<td>tagIdList</td>
+<td>Jsonlist</td>
+<td>是</td>
+<td>使用标签，标签ID可传多个。如       [{‘tagid’:1},{‘tagid’:2}]</td>
+</tr>
+<tr>
+<td>otherIDinfo</td>
+<td>Jsonlist</td>
+<td>是</td>
+<td>@其他的人信息                      [{‘id’:’123’,’name’:’梦想’},{‘id:’456’,’name’:’飞翔’}]</td>
+</tr>
+<tr>
+<td>button_type</td>
+<td>String</td>
+<td>是</td>
+<td>按钮位置   朋友圈：friend   广场：square</td>
+</tr>
+<tr>
+<td>type</td>
+<td>Int</td>
+<td>是</td>
+<td>是否开放   开放：1     不开放：0</td>
+</tr>
+</tbody></table>
+<p>具体代码如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> json</span><br><span class="line"></span><br><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="string">接下来我们我们开始构造一个请求参数，具体需要传入的值如下：</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">用户ID为             456</span></span><br><span class="line"><span class="string">发布内容为            构造参数</span></span><br><span class="line"><span class="string">使用的标签ID为        1，2和3</span></span><br><span class="line"><span class="string">@的人的信息为(前面为名字，后面为ID)    梦想，123  飞翔，456</span></span><br><span class="line"><span class="string">开放类型为           不开放</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="comment"># 1.定义一个字典类型testDict，用于存放整个请求参数</span></span><br><span class="line">testDict = &#123;&#125;</span><br><span class="line"><span class="comment"># 2.请求参数中加入用户ID,ID为string类型</span></span><br><span class="line">testDict[<span class="string">'id'</span>] = <span class="string">'456'</span></span><br><span class="line"><span class="comment"># 3.请求参数中加入发布内容comment，为string类型</span></span><br><span class="line">testDict[<span class="string">'comment'</span>]= <span class="string">'构造参数'</span></span><br><span class="line"><span class="comment"># 4.请求参数中加入标签tagIdList，因为标签是list类型，因为我们要传入三个标签，所以需要拼接</span></span><br><span class="line">tagIdlists = []     <span class="comment">#定义一个存放标签集的list</span></span><br><span class="line">tagids = &#123;&#125;         <span class="comment">#定义一个存放ID的字典</span></span><br><span class="line">tagids[<span class="string">'tagid'</span>] =<span class="number">1</span>  <span class="comment">#加入标签为1的标签</span></span><br><span class="line"><span class="comment">#把标签为1拼接 到标签集里面，使用json.dumps的原因是把字典转换为字符串格式，避免后面tagids['tagid']赋值时把前面覆盖</span></span><br><span class="line">tagIdlists.append(json.dumps(tagids))</span><br><span class="line">tagids[<span class="string">'tagid'</span>] =<span class="number">2</span></span><br><span class="line">tagIdlists.append(json.dumps(tagids))  <span class="comment">#把标签为2拼接 到标签集里面</span></span><br><span class="line">tagids[<span class="string">'tagid'</span>] =<span class="number">3</span></span><br><span class="line">tagIdlists.append(json.dumps(tagids))  <span class="comment">#把标签为3拼接 到标签集里面</span></span><br><span class="line">testDict[<span class="string">'tagIdList'</span>] = tagIdlists  <span class="comment"># 把标签集加入到我们的请求参数内</span></span><br><span class="line"><span class="comment"># 5.请求参数中加入需要@的人的信息otherIDinfo,基本和步骤四类似</span></span><br><span class="line">otherInfos =[]</span><br><span class="line">otherIn = &#123;&#125;</span><br><span class="line">otherIn[<span class="string">'id'</span>] = <span class="string">'123'</span></span><br><span class="line">otherIn[<span class="string">'name'</span>] = <span class="string">'梦想'</span></span><br><span class="line">otherInfos.append(json.dumps(otherIn,ensure_ascii=<span class="literal">False</span>))</span><br><span class="line">otherIn[<span class="string">'id'</span>] = <span class="string">'456'</span></span><br><span class="line">otherIn[<span class="string">'name'</span>] = <span class="string">'飞翔'</span></span><br><span class="line">otherInfos.append(json.dumps(otherIn,ensure_ascii=<span class="literal">False</span>))</span><br><span class="line">testDict[<span class="string">'otherIDinfo'</span>] = otherInfos <span class="comment"># 把需要@的人的信加入到我们的请求参数内</span></span><br><span class="line"><span class="comment"># 6.请求参数中加入 是否开放的信息</span></span><br><span class="line">testDict[<span class="string">'type'</span>] = <span class="number">0</span></span><br><span class="line"><span class="comment"># 7.把请求参数转换为json格式</span></span><br><span class="line">print(testDict)</span><br></pre></td></tr></table></figure>
 
-
-
-<ol start="3">
-<li>保存后，点击仓库上方的，服务=》‘Gitee Pages’，然后进去点击更新，等几秒钟，然后点击网站地址，就会跳转到一个空白的网页，图床基本就搭建完成了。</li>
-</ol>
-<p>   <img src="https://dreams_quan.gitee.io/images/images/blog/makeGitee5.png" alt="makeGitee5"></p>
-<p>   <img src="https://dreams_quan.gitee.io/images/images/blog/makeGitee6.png" alt="makeGitee5"></p>
-<ol start="4">
-<li><p>然后自己搭建本地库，关联自己刚新建的gitee仓库，到时在自己的本地库新建个文件夹保存图片，保存完push到自己的远程 gitee库（或者直接在gitee自己建的仓库内）。</p>
-<!--注意：每次push完或上传完图片都需要把第三步执行一遍，这样图片才能通过你的图床正常访问-->
-
-<p>例如：我的网址是 ：<a href="https://dreams_quan.gitee.io/images，我新建的问价夹名字为images，图片名为" target="_blank" rel="noopener">https://dreams_quan.gitee.io/images，我新建的问价夹名字为images，图片名为</a> china.jpg，这时在执行完上面步骤后，你的图片就可以通过网址访问了 <a href="https://dreams_quan.gitee.io/images/images/china.jpg" target="_blank" rel="noopener">https://dreams_quan.gitee.io/images/images/china.jpg</a></p>
+<p>此时打印出来的为：</p>
 <blockquote>
-<p>小技巧：你写macdown等文档时，可以先使用本地保存的图片，等文档写完后，把图片统一上传，然后把文档内的图片地址的前缀替换为链接地址就OK。例如本地地址为   /Desktop/image/images/blog/china.jpg，你只要把  /Desktop/image/images/blog/  全部替换为   <a href="https://dreams_quan.gitee.io/images/images/" target="_blank" rel="noopener">https://dreams_quan.gitee.io/images/images/</a>  就OK了</p>
+<p>{‘id’: ‘456’, ‘comment’: ‘构造参数’, ‘tagIdList’: [‘{“tagid”: 1}’, ‘{“tagid”: 2}’, ‘{“tagid”: 3}’], ‘otherIDinfo’: [‘{“id”: “123”, “name”: “梦想”}’, ‘{“id”: “456”, “name”: “飞翔”}’], ‘type’: 0}</p>
 </blockquote>
-</li>
-</ol>
-<ol start="5">
-<li>如果自己想让自己的图床首页好看点，就自己网上找个静态网页模板，然后自己动手改改里面的内容，push上去然后更新就OK。</li>
-</ol>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>像自建图床啦，自己搭建博客网站等，都可以自己练习的去整一下，每一个积累都会是你的财富，加油！！！</p>
+<p>这时我们打印出来的实际为字典类型，实际中我们需要传入的请求参数为json格式，所以我们需要把字典转换为json格式，我们可以在代码最后加入两行</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment"># 7.把请求参数转换为json格式</span></span><br><span class="line">testDict = json.dumps(testDict)</span><br><span class="line">print(testDict)</span><br></pre></td></tr></table></figure>
+
+<p>这时打印出来的如下</p>
+<blockquote>
+<p>{“id”: “456”, “comment”: “\u6784\u9020\u53c2\u6570”, “tagIdList”: [“{&quot;tagid&quot;: 1}”, “{&quot;tagid&quot;: 2}”, “{&quot;tagid&quot;: 3}”], “otherIDinfo”: [“{&quot;id&quot;: &quot;123&quot;, &quot;name&quot;: &quot;\u68a6\u60f3&quot;}”, “{&quot;id&quot;: &quot;456&quot;, &quot;name&quot;: &quot;\u98de\u7fd4&quot;}”], “type”: 0}</p>
+</blockquote>
+<p>我们发现转换后出现，汉字变为Unicode码的问题，这时我们需要在转换时，加入一个参数<code>ensure_ascii=False</code>避免中文转为Unicode码。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 7.把请求参数转换为json格式</span></span><br><span class="line">testDict = json.dumps(testDict,ensure_ascii=<span class="literal">False</span>)</span><br><span class="line">print(testDict)</span><br></pre></td></tr></table></figure>
+
+<p>这时打印出来的就是符合规范的请求参数</p>
+<blockquote>
+<p>{“id”: “456”, “comment”: “构造参数”, “tagIdList”: [“{&quot;tagid&quot;: 1}”, “{&quot;tagid&quot;: 2}”, “{&quot;tagid&quot;: 3}”], “otherIDinfo”: [“{&quot;id&quot;: &quot;123&quot;, &quot;name&quot;: &quot;梦想&quot;}”, “{&quot;id&quot;: &quot;456&quot;, &quot;name&quot;: &quot;飞翔&quot;}”], “type”: 0}</p>
+</blockquote>
+<h3 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h3><p>面朝大海，春暖花开。</p>
+<p>愿你一生努力，一生被爱。</p>
 
       
       <!-- reward -->
@@ -213,14 +245,14 @@
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://yoursite.com/2020/04/15/%E6%8A%80%E5%B7%A72-%E8%87%AA%E5%BB%BA%E5%9B%BE%E5%BA%8A/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://yoursite.com/2020/05/25/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%951%E4%B9%8B%E6%9E%84%E9%80%A0%E5%8F%82%E6%95%B0/" alt="微信分享二维码">
     </div>
 </div>
 
 <div id="share-mask"></div>
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%8A%80%E5%B7%A7/" rel="tag">技巧</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/" rel="tag">接口测试</a></li></ul>
 
 
     </footer>
@@ -231,19 +263,19 @@
   
   <nav class="article-nav">
     
-      <a href="/2020/05/25/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%951%E4%B9%8B%E6%9E%84%E9%80%A0%E5%8F%82%E6%95%B0/" class="article-nav-link">
+      <a href="/2020/05/26/%E6%8A%80%E5%B7%A73-Markdown%E7%9A%84%E4%BD%BF%E7%94%A8/" class="article-nav-link">
         <strong class="article-nav-caption">上一篇</strong>
         <div class="article-nav-title">
           
-            接口测试之构造请求参数（1）
+            Markdown的使用
           
         </div>
       </a>
     
     
-      <a href="/2019/10/25/%E6%8A%80%E5%B7%A71-%E4%BB%A3%E7%A0%81%E7%AE%A1%E7%90%86%E5%B9%B3%E5%8F%B0%E9%85%8D%E7%BD%AEssh/" class="article-nav-link">
+      <a href="/2020/04/15/%E6%8A%80%E5%B7%A72-%E8%87%AA%E5%BB%BA%E5%9B%BE%E5%BA%8A/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">代码管理(git,gitee,coding等)平台配置ssh</div>
+        <div class="article-nav-title">使用gitee自建图床</div>
       </a>
     
   </nav>

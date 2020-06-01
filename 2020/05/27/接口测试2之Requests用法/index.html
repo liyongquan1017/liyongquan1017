@@ -11,7 +11,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <title>
-    使用gitee自建图床 |  Dreaming
+    接口测试之requests用法（2） |  Dreaming
   </title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   
@@ -35,7 +35,7 @@
   <div id="app">
     <main class="content on">
       <section class="outer">
-  <article id="post-技巧2-自建图床" class="article article-type-post" itemscope
+  <article id="post-接口测试2之Requests用法" class="article article-type-post" itemscope
   itemprop="blogPost" data-scroll-reveal>
 
   <div class="article-inner">
@@ -43,7 +43,7 @@
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  使用gitee自建图床
+  接口测试之requests用法（2）
 </h1>
  
 
@@ -52,8 +52,8 @@
 
     
     <div class="article-meta">
-      <a href="/2020/04/15/%E6%8A%80%E5%B7%A72-%E8%87%AA%E5%BB%BA%E5%9B%BE%E5%BA%8A/" class="article-date">
-  <time datetime="2020-04-15T12:32:47.000Z" itemprop="datePublished">2020-04-15</time>
+      <a href="/2020/05/27/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%952%E4%B9%8BRequests%E7%94%A8%E6%B3%95/" class="article-date">
+  <time datetime="2020-05-27T14:54:21.000Z" itemprop="datePublished">2020-05-27</time>
 </a>
       
       
@@ -63,7 +63,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">578</span>
+            <span class="post-count">571</span>
         </span>
     </span>
 
@@ -97,54 +97,21 @@
       
 
       
-      <h1 id="使用gitee建自己图床"><a href="#使用gitee建自己图床" class="headerlink" title="使用gitee建自己图床"></a>使用gitee建自己图床</h1><h3 id="使用gitee建自己图床的好处："><a href="#使用gitee建自己图床的好处：" class="headerlink" title="使用gitee建自己图床的好处："></a>使用gitee建自己图床的好处：</h3><ol>
-<li><p>都在自己账号内，好管理。</p>
-</li>
-<li><p>支持https，避免使用HTTP而打开时网站提示不安全。</p>
-</li>
-<li><p>丢失概率低</p>
-</li>
-</ol>
+      <h1 id="接口测试之Requests用法"><a href="#接口测试之Requests用法" class="headerlink" title="接口测试之Requests用法"></a>接口测试之Requests用法</h1><h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>要学接口自动化，或者爬虫等，Requests库的使用是必备知识，也是给你打开自动化大门的一把钥匙。</p>
+<p>Requests的口号是为人类服务，也是唯一的一个<strong>非转基因</strong>的 Python HTTP 库，人类可以安全享用。</p>
 <a id="more"></a>
 
-<h3 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h3><ol>
-<li>创建一个属于自己的<a href="https://gitee.com/" target="_blank" rel="noopener">gitee账户</a></li>
-<li>然后就本地有git，这里有较为详细的<a href="https://www.liaoxuefeng.com/wiki/896043488029600" target="_blank" rel="noopener">git教程</a></li>
-<li>然后配置本体ssh,并与远程库建立可信任连接</li>
-</ol>
-<h3 id="开始搭建图床"><a href="#开始搭建图床" class="headerlink" title="开始搭建图床"></a>开始搭建图床</h3><ol>
-<li>打开自己的gitee,新建一个仓库</li>
-</ol>
-<p>   <img src="https://dreams_quan.gitee.io/images/images/blog/makeGitee1.png" alt="makeGitee1"></p>
-<p>   <img src="https://dreams_quan.gitee.io/images/images/blog/makeGitee2.png" alt="makeGitee2"></p>
-<ol start="2">
-<li>创建完成后，新建一个文件，必须是index.html</li>
-</ol>
-<p>   <img src="https://dreams_quan.gitee.io/images/images/blog/makeGitee3.png" alt="makeGitee3"></p>
-<p>   <img src="https://dreams_quan.gitee.io/images/images/blog/makeGitee4.png" alt="makeGitee4"></p>
-   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">&lt;meta charset=&quot;utf-8&quot;&gt;</span><br><span class="line">&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;</span><br><span class="line">&lt;title&gt;我的图床首页&lt;/title&gt;</span><br><span class="line">&lt;meta name=&quot;description&quot; content=&quot;&quot;&gt;</span><br><span class="line">&lt;meta name=&quot;author&quot; content=&quot;&quot;&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h3><p>1.<a href="https://cn.python-requests.org/zh_CN/latest/user/install.html" target="_blank" rel="noopener">安装Requests库方法</a></p>
+<p>2.<a href="https://cn.python-requests.org/zh_CN/latest/user/quickstart.html" target="_blank" rel="noopener">Requests的官方文档</a></p>
+<p>3.可用于练习的免费接口：<a href="https://www.juhe.cn/docs" target="_blank" rel="noopener">聚合数据免费接口</a>（打开在筛选页，选择免费的，然后申请下就可以用了），<a href="https://api.apiopen.top/api.html" target="_blank" rel="noopener">其他免费接口</a>（由于被人乱刷，导致部分接口已被封禁）</p>
+<p>4.了解<a href="https://www.jianshu.com/p/55c8708da06c" target="_blank" rel="noopener">get和post的区别</a></p>
+<h3 id="具体示例"><a href="#具体示例" class="headerlink" title="具体示例"></a>具体示例</h3><p>我们已 qq号测吉凶为例来演示Requests的基本用法，<a href="https://www.juhe.cn/docs/api/id/166" target="_blank" rel="noopener">qq号测吉凶API地址</a>。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"></span><br><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="string">网址：https://www.juhe.cn/docs/api/id/166</span></span><br><span class="line"><span class="string">接口地址：http://japi.juhe.cn/qqevaluate/qq</span></span><br><span class="line"><span class="string">返回格式：json</span></span><br><span class="line"><span class="string">请求方式：get post</span></span><br><span class="line"><span class="string">请求示例：http://japi.juhe.cn/qqevaluate/qq?key=您申请的appKey&amp;qq=295424589</span></span><br><span class="line"><span class="string">接口备注：根据传入的参数qq号码和您申请的appKey测试qq的吉凶</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">名称 必填 类型 说明</span></span><br><span class="line"><span class="string">key    是  string 您申请的appKey</span></span><br><span class="line"><span class="string">qq 是  string 需要测试的QQ号码</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">该接口支持get和 post请求</span></span><br><span class="line"><span class="string">上面key需要自己注册账号后申请，是免费的。</span></span><br><span class="line"><span class="string">'''</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 1.先来联系get请求,</span></span><br><span class="line"><span class="comment"># 方式一：直接请求,在请求地址后面直接拼接请求参数</span></span><br><span class="line">rGet1 = requests.get(<span class="string">'http://japi.juhe.cn/qqevaluate/qq?key=你申请的appkey&amp;qq=要测试的QQ'</span>).json()</span><br><span class="line"><span class="comment"># print(rGet1)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 方式二：定义请求参数，然后使用get请求</span></span><br><span class="line">params = &#123;<span class="string">'key'</span>:<span class="string">'你申请的appkey'</span>,</span><br><span class="line">          <span class="string">'qq'</span>:<span class="string">'要测试的QQ'</span>&#125;</span><br><span class="line">rGet2 = requests.get(<span class="string">'http://japi.juhe.cn/qqevaluate/qq'</span>,params=params).json()</span><br><span class="line"><span class="comment"># print(rGet2)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 2.用post请求来</span></span><br><span class="line">data = &#123;<span class="string">'key'</span>:<span class="string">'你申请的appkey'</span>,</span><br><span class="line">          <span class="string">'qq'</span>:<span class="string">'要测试的QQ'</span>&#125;</span><br><span class="line">rPost = requests.post(<span class="string">'http://japi.juhe.cn/qqevaluate/qq'</span>,data=data).json()</span><br><span class="line">print(rPost)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 取出QQ的测试结果</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 方式一</span></span><br><span class="line">qqResult = rPost[<span class="string">'result'</span>][<span class="string">'data'</span>][<span class="string">'conclusion'</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 方式二，具体为何用get可以自行查阅资料</span></span><br><span class="line">qqResult1 = rPost.get(<span class="string">'result'</span>).get(<span class="string">'data'</span>).get(<span class="string">'conclusion'</span>)</span><br><span class="line"></span><br><span class="line">print(qqResult1)</span><br></pre></td></tr></table></figure>
 
-
-
-<ol start="3">
-<li>保存后，点击仓库上方的，服务=》‘Gitee Pages’，然后进去点击更新，等几秒钟，然后点击网站地址，就会跳转到一个空白的网页，图床基本就搭建完成了。</li>
-</ol>
-<p>   <img src="https://dreams_quan.gitee.io/images/images/blog/makeGitee5.png" alt="makeGitee5"></p>
-<p>   <img src="https://dreams_quan.gitee.io/images/images/blog/makeGitee6.png" alt="makeGitee5"></p>
-<ol start="4">
-<li><p>然后自己搭建本地库，关联自己刚新建的gitee仓库，到时在自己的本地库新建个文件夹保存图片，保存完push到自己的远程 gitee库（或者直接在gitee自己建的仓库内）。</p>
-<!--注意：每次push完或上传完图片都需要把第三步执行一遍，这样图片才能通过你的图床正常访问-->
-
-<p>例如：我的网址是 ：<a href="https://dreams_quan.gitee.io/images，我新建的问价夹名字为images，图片名为" target="_blank" rel="noopener">https://dreams_quan.gitee.io/images，我新建的问价夹名字为images，图片名为</a> china.jpg，这时在执行完上面步骤后，你的图片就可以通过网址访问了 <a href="https://dreams_quan.gitee.io/images/images/china.jpg" target="_blank" rel="noopener">https://dreams_quan.gitee.io/images/images/china.jpg</a></p>
-<blockquote>
-<p>小技巧：你写macdown等文档时，可以先使用本地保存的图片，等文档写完后，把图片统一上传，然后把文档内的图片地址的前缀替换为链接地址就OK。例如本地地址为   /Desktop/image/images/blog/china.jpg，你只要把  /Desktop/image/images/blog/  全部替换为   <a href="https://dreams_quan.gitee.io/images/images/" target="_blank" rel="noopener">https://dreams_quan.gitee.io/images/images/</a>  就OK了</p>
-</blockquote>
-</li>
-</ol>
-<ol start="5">
-<li>如果自己想让自己的图床首页好看点，就自己网上找个静态网页模板，然后自己动手改改里面的内容，push上去然后更新就OK。</li>
-</ol>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>像自建图床啦，自己搭建博客网站等，都可以自己练习的去整一下，每一个积累都会是你的财富，加油！！！</p>
+<p>以上就是Requests 的基本用法，以后在编码过程中也要学会查看函数参数和方法。</p>
+<p>学会Requests的用法就可以对接口做一些基本的操作了。</p>
+<h3 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h3><p>面朝大海，春暖花开。</p>
+<p>愿你一生努力，一生被爱。</p>
 
       
       <!-- reward -->
@@ -213,14 +180,14 @@
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://yoursite.com/2020/04/15/%E6%8A%80%E5%B7%A72-%E8%87%AA%E5%BB%BA%E5%9B%BE%E5%BA%8A/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://yoursite.com/2020/05/27/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%952%E4%B9%8BRequests%E7%94%A8%E6%B3%95/" alt="微信分享二维码">
     </div>
 </div>
 
 <div id="share-mask"></div>
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%8A%80%E5%B7%A7/" rel="tag">技巧</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/" rel="tag">接口测试</a></li></ul>
 
 
     </footer>
@@ -231,19 +198,19 @@
   
   <nav class="article-nav">
     
-      <a href="/2020/05/25/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%951%E4%B9%8B%E6%9E%84%E9%80%A0%E5%8F%82%E6%95%B0/" class="article-nav-link">
+      <a href="/2020/05/30/QA2-%E6%B5%8B%E8%AF%95%E5%B7%A5%E7%A8%8B%E5%B8%88%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1/" class="article-nav-link">
         <strong class="article-nav-caption">上一篇</strong>
         <div class="article-nav-title">
           
-            接口测试之构造请求参数（1）
+            测试工程师知识图谱
           
         </div>
       </a>
     
     
-      <a href="/2019/10/25/%E6%8A%80%E5%B7%A71-%E4%BB%A3%E7%A0%81%E7%AE%A1%E7%90%86%E5%B9%B3%E5%8F%B0%E9%85%8D%E7%BD%AEssh/" class="article-nav-link">
+      <a href="/2020/05/26/%E6%8A%80%E5%B7%A73-Markdown%E7%9A%84%E4%BD%BF%E7%94%A8/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">代码管理(git,gitee,coding等)平台配置ssh</div>
+        <div class="article-nav-title">Markdown的使用</div>
       </a>
     
   </nav>
