@@ -472,4 +472,18 @@
         <tag>接口测试</tag>
       </tags>
   </entry>
+  <entry>
+    <title>测试全流程图解</title>
+    <url>/2020/05/30/QA3-%E6%B5%8B%E8%AF%95%E5%85%A8%E6%B5%81%E7%A8%8B%E5%9B%BE%E8%A7%A3/</url>
+    <content><![CDATA[<h1 id="测试全流程图解"><a href="#测试全流程图解" class="headerlink" title="测试全流程图解"></a>测试全流程图解</h1><h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>对于测试流程，大部分做测试的同学都能说个七七八八，但是对于一些细节，可能还是一知半解的，以下是对测试全流程整理的一个图谱，应该可以给大家带来一些帮助，如有不妥的地方，烦请指正。</p>
+<a id="more"></a>
+
+<h3 id="图谱"><a href="#图谱" class="headerlink" title="图谱"></a>图谱</h3><p><img src="https://ssd.qiniu.dreamfly95.com/image-20200530184050663.png" alt="image-20200530184050663"></p>
+<h3 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h3><p>面朝大海，春暖花开。</p>
+<p>愿你一生努力，一生被爱。</p>
+]]></content>
+      <tags>
+        <tag>测试</tag>
+      </tags>
+  </entry>
 </search>

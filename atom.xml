@@ -78,6 +78,25 @@
   </entry>
   
   <entry>
+    <title>测试全流程图解</title>
+    <link href="https://yoursite.com/2020/05/30/QA3-%E6%B5%8B%E8%AF%95%E5%85%A8%E6%B5%81%E7%A8%8B%E5%9B%BE%E8%A7%A3/"/>
+    <id>https://yoursite.com/2020/05/30/QA3-%E6%B5%8B%E8%AF%95%E5%85%A8%E6%B5%81%E7%A8%8B%E5%9B%BE%E8%A7%A3/</id>
+    <published>2020-05-30T07:00:52.000Z</published>
+    <updated>2020-05-30T10:58:22.220Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;测试全流程图解&quot;&gt;&lt;a href=&quot;#测试全流程图解&quot; class=&quot;headerlink&quot; title=&quot;测试全流程图解&quot;&gt;&lt;/a&gt;测试全流程图解&lt;/h1&gt;&lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h3&gt;&lt;p&gt;对于测试流程，大部分做测试的同学都能说个七七八八，但是对于一些细节，可能还是一知半解的，以下是对测试全流程整理的一个图谱，应该可以给大家带来一些帮助，如有不妥的地方，烦请指正。&lt;/p&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="测试" scheme="https://yoursite.com/tags/%E6%B5%8B%E8%AF%95/"/>
+    
+  </entry>
+  
+  <entry>
     <title>接口测试之requests用法（2）</title>
     <link href="https://yoursite.com/2020/05/27/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%952%E4%B9%8BRequests%E7%94%A8%E6%B3%95/"/>
     <id>https://yoursite.com/2020/05/27/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%952%E4%B9%8BRequests%E7%94%A8%E6%B3%95/</id>
