@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://yoursite.com/"/>
-  <updated>2020-06-01T03:52:01.644Z</updated>
+  <updated>2020-06-05T07:16:28.653Z</updated>
   <id>https://yoursite.com/</id>
   
   <author>
@@ -18,10 +18,10 @@
   
   <entry>
     <title>我的祖国</title>
-    <link href="https://yoursite.com/2020/06/01/%E8%AF%BB%E4%B9%A61-%E6%88%91%E7%9A%84%E7%A5%96%E5%9B%BD/"/>
-    <id>https://yoursite.com/2020/06/01/%E8%AF%BB%E4%B9%A61-%E6%88%91%E7%9A%84%E7%A5%96%E5%9B%BD/</id>
-    <published>2020-06-01T00:00:43.000Z</published>
-    <updated>2020-06-01T03:52:01.644Z</updated>
+    <link href="https://yoursite.com/2020/06/03/%E8%AF%BB%E4%B9%A61-%E6%88%91%E7%9A%84%E7%A5%96%E5%9B%BD/"/>
+    <id>https://yoursite.com/2020/06/03/%E8%AF%BB%E4%B9%A61-%E6%88%91%E7%9A%84%E7%A5%96%E5%9B%BD/</id>
+    <published>2020-06-03T00:00:43.000Z</published>
+    <updated>2020-06-05T07:16:28.653Z</updated>
     
     <summary type="html">
     
@@ -36,6 +36,25 @@
     
     
       <category term="读书" scheme="https://yoursite.com/tags/%E8%AF%BB%E4%B9%A6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>测试全流程图解</title>
+    <link href="https://yoursite.com/2020/06/02/QA3-%E6%B5%8B%E8%AF%95%E5%85%A8%E6%B5%81%E7%A8%8B%E5%9B%BE%E8%A7%A3/"/>
+    <id>https://yoursite.com/2020/06/02/QA3-%E6%B5%8B%E8%AF%95%E5%85%A8%E6%B5%81%E7%A8%8B%E5%9B%BE%E8%A7%A3/</id>
+    <published>2020-06-02T07:00:52.000Z</published>
+    <updated>2020-06-05T07:16:38.718Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;测试全流程图解&quot;&gt;&lt;a href=&quot;#测试全流程图解&quot; class=&quot;headerlink&quot; title=&quot;测试全流程图解&quot;&gt;&lt;/a&gt;测试全流程图解&lt;/h1&gt;&lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h3&gt;&lt;p&gt;对于测试流程，大部分做测试的同学都能说个七七八八，但是对于一些细节，可能还是一知半解的，以下是对测试全流程整理的一个图谱，应该可以给大家带来一些帮助，如有不妥的地方，烦请指正。&lt;/p&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="测试" scheme="https://yoursite.com/tags/%E6%B5%8B%E8%AF%95/"/>
     
   </entry>
   
@@ -68,25 +87,6 @@
     <summary type="html">
     
       &lt;h1 id=&quot;测试工程师必备知识图谱&quot;&gt;&lt;a href=&quot;#测试工程师必备知识图谱&quot; class=&quot;headerlink&quot; title=&quot;测试工程师必备知识图谱&quot;&gt;&lt;/a&gt;测试工程师必备知识图谱&lt;/h1&gt;&lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h3&gt;&lt;p&gt;有很多同学对于测试工程师必备的测试技能不是很清晰，对自己以后的规划也不是很明了，不知道自己到底该从哪个方向努力或发展，下面是我从其他大佬那找的测试工程师必备知识图谱，也许能能给大家带来一些帮助。&lt;/p&gt;
-    
-    </summary>
-    
-    
-    
-      <category term="测试" scheme="https://yoursite.com/tags/%E6%B5%8B%E8%AF%95/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>测试全流程图解</title>
-    <link href="https://yoursite.com/2020/05/30/QA3-%E6%B5%8B%E8%AF%95%E5%85%A8%E6%B5%81%E7%A8%8B%E5%9B%BE%E8%A7%A3/"/>
-    <id>https://yoursite.com/2020/05/30/QA3-%E6%B5%8B%E8%AF%95%E5%85%A8%E6%B5%81%E7%A8%8B%E5%9B%BE%E8%A7%A3/</id>
-    <published>2020-05-30T07:00:52.000Z</published>
-    <updated>2020-05-30T10:58:22.220Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;测试全流程图解&quot;&gt;&lt;a href=&quot;#测试全流程图解&quot; class=&quot;headerlink&quot; title=&quot;测试全流程图解&quot;&gt;&lt;/a&gt;测试全流程图解&lt;/h1&gt;&lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h3&gt;&lt;p&gt;对于测试流程，大部分做测试的同学都能说个七七八八，但是对于一些细节，可能还是一知半解的，以下是对测试全流程整理的一个图谱，应该可以给大家带来一些帮助，如有不妥的地方，烦请指正。&lt;/p&gt;
     
     </summary>
     
