@@ -11,7 +11,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <title>
-    接口测试之模拟抽奖概率计算（3） |  Dreaming
+    接口测试之构造请求参数（1） |  Dreaming
   </title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   
@@ -35,7 +35,7 @@
   <div id="app">
     <main class="content on">
       <section class="outer">
-  <article id="post-接口测试3之模拟抽奖概率计算" class="article article-type-post" itemscope
+  <article id="post-interfaceTest/接口测试1之构造参数" class="article article-type-post" itemscope
   itemprop="blogPost" data-scroll-reveal>
 
   <div class="article-inner">
@@ -43,7 +43,7 @@
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  接口测试之模拟抽奖概率计算（3）
+  接口测试之构造请求参数（1）
 </h1>
  
 
@@ -52,8 +52,8 @@
 
     
     <div class="article-meta">
-      <a href="/2020/05/31/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%953%E4%B9%8B%E6%A8%A1%E6%8B%9F%E6%8A%BD%E5%A5%96%E6%A6%82%E7%8E%87%E8%AE%A1%E7%AE%97/" class="article-date">
-  <time datetime="2020-05-31T14:54:21.000Z" itemprop="datePublished">2020-05-31</time>
+      <a href="/2020/05/25/interfaceTest/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%951%E4%B9%8B%E6%9E%84%E9%80%A0%E5%8F%82%E6%95%B0/" class="article-date">
+  <time datetime="2020-05-25T08:38:57.000Z" itemprop="datePublished">2020-05-25</time>
 </a>
       
       
@@ -63,7 +63,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">941</span>
+            <span class="post-count">1.1k</span>
         </span>
     </span>
 
@@ -72,7 +72,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> 阅读时长≈</span>
-            <span class="post-count">3 分钟</span>
+            <span class="post-count">4 分钟</span>
         </span>
     </span>
 </div>
@@ -97,21 +97,84 @@
       
 
       
-      <h1 id="接口测试之模拟抽奖概率计算（3）"><a href="#接口测试之模拟抽奖概率计算（3）" class="headerlink" title="接口测试之模拟抽奖概率计算（3）"></a>接口测试之模拟抽奖概率计算（3）</h1><h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>在很多公司测试过程中会有抽奖概率测试，如果用手动去模拟，会很不现实，一般都是从接口入手，模拟跑1万到10万次或者更多，来计算概率是否符合预期。本教程先不涉及接口，只是单纯的去了解一下怎么取计算抽奖概率。</p>
+      <h1 id="接口测试之构造请求参数（1）"><a href="#接口测试之构造请求参数（1）" class="headerlink" title="接口测试之构造请求参数（1）"></a>接口测试之构造请求参数（1）</h1><h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>接口测试中，我们需要去手动输入请求参数组合，因为输入法等问题，可能会造成标点或括号等输错，最后出错后，还不大好排查。因此我们通过构造请求参数，能大大避免这类问题的发生。这也是最基础的知识，</p>
+<blockquote>
+<p>另我们使用Postman输入请求参数时，也可以先用Python构造请求参数，然后再使用。不过这个因人而异，如果你对自己有信心，直接手拼也OK。</p>
+</blockquote>
 <a id="more"></a>
 
-<h3 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h3><p>1.一个包含各种奖项的奖池。</p>
-<p>2.了解随机模块<a href="https://www.runoob.com/python/func-number-random.html" target="_blank" rel="noopener">random</a>的用法</p>
-<p>3.了解 <a href="https://blog.csdn.net/u013216667/article/details/51316971" target="_blank" rel="noopener">python格式化%s,%d,%f</a></p>
-<h3 id="具体示例"><a href="#具体示例" class="headerlink" title="具体示例"></a>具体示例</h3><p>我们这里设计一个含有6种不同奖项的列表，然后随机抽取1万次，然后计算各个奖品的概率，具体如下：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> random</span><br><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="string">奖项列表：</span></span><br><span class="line"><span class="string">编号  奖品</span></span><br><span class="line"><span class="string">1    土豪女友/男友</span></span><br><span class="line"><span class="string">2    私人庄园</span></span><br><span class="line"><span class="string">3    海景别墅</span></span><br><span class="line"><span class="string">4    劳斯莱斯</span></span><br><span class="line"><span class="string">5    iPhone12</span></span><br><span class="line"><span class="string">6    纸巾一包</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">设计思路：</span></span><br><span class="line"><span class="string">把所有奖品ID放一个列表，然后随机抽取，一共抽10000次，计算抽奖结果。</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="comment"># 1.定义一个抽奖列表，有抽奖编号组成</span></span><br><span class="line">rewardIds = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>]</span><br><span class="line"><span class="comment"># 2.抽取10000次，并把抽到的结果放到一个列表内，</span></span><br><span class="line"><span class="comment"># 定义单次抽奖列表组合为lotteryResult,抽奖次数为：num1</span></span><br><span class="line">lotteryResultSimple = []</span><br><span class="line">num1 = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">10000</span>):</span><br><span class="line">    <span class="comment"># 每次只抽一个奖品时</span></span><br><span class="line">    <span class="string">'''</span></span><br><span class="line"><span class="string">    从每次随机从列表取一个元素，用 random.choice(),</span></span><br><span class="line"><span class="string">    取出的元素类型为元素本身的类型</span></span><br><span class="line"><span class="string">    '''</span></span><br><span class="line">    a = random.choice(rewardIds)</span><br><span class="line">    lotteryResultSimple.append(a)</span><br><span class="line">    num1+=<span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 定义每次抽多个奖品，抽奖奖励集合为lotteryResultMore,抽奖次数为：num2</span></span><br><span class="line">lotteryResultMore = []</span><br><span class="line">num2 = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> j <span class="keyword">in</span> range(<span class="number">10000</span>):</span><br><span class="line">    <span class="comment">#每次只抽一个奖品时</span></span><br><span class="line">    <span class="string">'''</span></span><br><span class="line"><span class="string">    从每次随机从列表取n个元素，用 random.sample(list,N)</span></span><br><span class="line"><span class="string">    list所要去随机元素的数列，N为每次要取的数</span></span><br><span class="line"><span class="string">    这时取出的随机元素，是一个数列</span></span><br><span class="line"><span class="string">    '''</span></span><br><span class="line">    b = random.sample(rewardIds,<span class="number">2</span>)</span><br><span class="line">    <span class="comment"># 因为b是一个数列，所以不能用append把抽奖结果加进去了</span></span><br><span class="line">    lotteryResultMore = lotteryResultMore + b</span><br><span class="line">    num2 += <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 定义总抽奖次数为 num,所有奖品集合为lotteryResult</span></span><br><span class="line">num = num1 + num2</span><br><span class="line">lotteryResult = lotteryResultMore + lotteryResultSimple</span><br><span class="line"></span><br><span class="line"><span class="comment"># 总共抽到的奖品数量为 lotteryResultCount</span></span><br><span class="line">lotteryResultCount = len(lotteryResult)</span><br><span class="line"><span class="comment"># 抽到土豪女友/男友的次数</span></span><br><span class="line">rewardId1 = lotteryResult.count(<span class="number">1</span>)</span><br><span class="line"><span class="comment"># 抽到私人庄园的次数</span></span><br><span class="line">rewardId2 = lotteryResult.count(<span class="number">2</span>)</span><br><span class="line"><span class="comment"># 抽到海景别墅的次数</span></span><br><span class="line">rewardId3 = lotteryResult.count(<span class="number">3</span>)</span><br><span class="line"><span class="comment"># 抽到劳斯莱斯的次数</span></span><br><span class="line">rewardId4 = lotteryResult.count(<span class="number">4</span>)</span><br><span class="line"><span class="comment"># 抽到iPhone12的次数</span></span><br><span class="line">rewardId5 = lotteryResult.count(<span class="number">5</span>)</span><br><span class="line"><span class="comment"># 抽到纸巾的次数</span></span><br><span class="line">rewardId6 = lotteryResult.count(<span class="number">6</span>)</span><br><span class="line"></span><br><span class="line">print(<span class="string">'共抽奖%s次，其中单抽%s次，二连抽%s次，共抽到奖品%s个'</span>%(num,num1,num2,lotteryResultCount))</span><br><span class="line">print(<span class="string">"*"</span>*<span class="number">30</span>)  <span class="comment"># 此处就是打印一个分割线</span></span><br><span class="line">print(<span class="string">'抽到土豪女友/男友的概率为    %.2f%%'</span>%(rewardId1/lotteryResultCount*<span class="number">100</span>))</span><br><span class="line">print(<span class="string">'抽到私人庄园的概率为        %.2f%%'</span>%(rewardId2/lotteryResultCount*<span class="number">100</span>))</span><br><span class="line">print(<span class="string">'抽到海景别墅的概率为        %.2f%%'</span>%(rewardId3/lotteryResultCount*<span class="number">100</span>))</span><br><span class="line">print(<span class="string">'抽到劳斯莱斯的概率为        %.2f%%'</span>%(rewardId4/lotteryResultCount*<span class="number">100</span>))</span><br><span class="line">print(<span class="string">'抽到iPhone12的概率为      %.2f%%'</span>%(rewardId5/lotteryResultCount*<span class="number">100</span>))</span><br><span class="line">print(<span class="string">'抽到纸巾的概率为           %.2f%%'</span>%(rewardId6/lotteryResultCount*<span class="number">100</span>))</span><br></pre></td></tr></table></figure>
+<h3 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h3><ol>
+<li>Python3.0 + 编译工具（推荐Pycharm）</li>
+<li>了解Python  <a href="https://www.runoob.com/python/python-dictionary.html" target="_blank" rel="noopener">dict（字典)</a>，<a href="https://www.runoob.com/python/python-lists.html" target="_blank" rel="noopener">list（列表)</a>，<a href="https://www.runoob.com/python/python-json.html" target="_blank" rel="noopener">json</a>等的基本知识</li>
+</ol>
+<h3 id="具体示例"><a href="#具体示例" class="headerlink" title="具体示例"></a>具体示例</h3><p>假如一个请求内的请求参数表如下，我们无需去管这个是哪个接口的参数，也不用管里面的内容，我们的目的是了解参数的构造，以及对一些基本知识的应用。</p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>类型</th>
+<th>是否必传</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>id</td>
+<td>string</td>
+<td>是</td>
+<td>用户ID。例如：520</td>
+</tr>
+<tr>
+<td>comment</td>
+<td>string</td>
+<td>是</td>
+<td>发布内容</td>
+</tr>
+<tr>
+<td>tagIdList</td>
+<td>Jsonlist</td>
+<td>是</td>
+<td>使用标签，标签ID可传多个。如       [{‘tagid’:1},{‘tagid’:2}]</td>
+</tr>
+<tr>
+<td>otherIDinfo</td>
+<td>Jsonlist</td>
+<td>是</td>
+<td>@其他的人信息                      [{‘id’:’123’,’name’:’梦想’},{‘id:’456’,’name’:’飞翔’}]</td>
+</tr>
+<tr>
+<td>button_type</td>
+<td>String</td>
+<td>是</td>
+<td>按钮位置   朋友圈：friend   广场：square</td>
+</tr>
+<tr>
+<td>type</td>
+<td>Int</td>
+<td>是</td>
+<td>是否开放   开放：1     不开放：0</td>
+</tr>
+</tbody></table>
+<p>具体代码如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> json</span><br><span class="line"></span><br><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="string">接下来我们我们开始构造一个请求参数，具体需要传入的值如下：</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">用户ID为             456</span></span><br><span class="line"><span class="string">发布内容为            构造参数</span></span><br><span class="line"><span class="string">使用的标签ID为        1，2和3</span></span><br><span class="line"><span class="string">@的人的信息为(前面为名字，后面为ID)    梦想，123  飞翔，456</span></span><br><span class="line"><span class="string">开放类型为           不开放</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="comment"># 1.定义一个字典类型testDict，用于存放整个请求参数</span></span><br><span class="line">testDict = &#123;&#125;</span><br><span class="line"><span class="comment"># 2.请求参数中加入用户ID,ID为string类型</span></span><br><span class="line">testDict[<span class="string">'id'</span>] = <span class="string">'456'</span></span><br><span class="line"><span class="comment"># 3.请求参数中加入发布内容comment，为string类型</span></span><br><span class="line">testDict[<span class="string">'comment'</span>]= <span class="string">'构造参数'</span></span><br><span class="line"><span class="comment"># 4.请求参数中加入标签tagIdList，因为标签是list类型，因为我们要传入三个标签，所以需要拼接</span></span><br><span class="line">tagIdlists = []     <span class="comment">#定义一个存放标签集的list</span></span><br><span class="line">tagids = &#123;&#125;         <span class="comment">#定义一个存放ID的字典</span></span><br><span class="line">tagids[<span class="string">'tagid'</span>] =<span class="number">1</span>  <span class="comment">#加入标签为1的标签</span></span><br><span class="line"><span class="comment">#把标签为1拼接 到标签集里面，使用json.dumps的原因是把字典转换为字符串格式，避免后面tagids['tagid']赋值时把前面覆盖</span></span><br><span class="line">tagIdlists.append(json.dumps(tagids))</span><br><span class="line">tagids[<span class="string">'tagid'</span>] =<span class="number">2</span></span><br><span class="line">tagIdlists.append(json.dumps(tagids))  <span class="comment">#把标签为2拼接 到标签集里面</span></span><br><span class="line">tagids[<span class="string">'tagid'</span>] =<span class="number">3</span></span><br><span class="line">tagIdlists.append(json.dumps(tagids))  <span class="comment">#把标签为3拼接 到标签集里面</span></span><br><span class="line">testDict[<span class="string">'tagIdList'</span>] = tagIdlists  <span class="comment"># 把标签集加入到我们的请求参数内</span></span><br><span class="line"><span class="comment"># 5.请求参数中加入需要@的人的信息otherIDinfo,基本和步骤四类似</span></span><br><span class="line">otherInfos =[]</span><br><span class="line">otherIn = &#123;&#125;</span><br><span class="line">otherIn[<span class="string">'id'</span>] = <span class="string">'123'</span></span><br><span class="line">otherIn[<span class="string">'name'</span>] = <span class="string">'梦想'</span></span><br><span class="line">otherInfos.append(json.dumps(otherIn,ensure_ascii=<span class="literal">False</span>))</span><br><span class="line">otherIn[<span class="string">'id'</span>] = <span class="string">'456'</span></span><br><span class="line">otherIn[<span class="string">'name'</span>] = <span class="string">'飞翔'</span></span><br><span class="line">otherInfos.append(json.dumps(otherIn,ensure_ascii=<span class="literal">False</span>))</span><br><span class="line">testDict[<span class="string">'otherIDinfo'</span>] = otherInfos <span class="comment"># 把需要@的人的信加入到我们的请求参数内</span></span><br><span class="line"><span class="comment"># 6.请求参数中加入 是否开放的信息</span></span><br><span class="line">testDict[<span class="string">'type'</span>] = <span class="number">0</span></span><br><span class="line"><span class="comment"># 7.把请求参数转换为json格式</span></span><br><span class="line">print(testDict)</span><br></pre></td></tr></table></figure>
 
-<p>以上就是一个概率的计算，以及结果的展示，具体用到的也就是一些基础知识，实际使用抽奖接口去抽奖并计算概率时，需要考虑的东西还有很多，我们后续再讲。</p>
-<p><strong>小知识</strong></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#其他输出格式化例如 %s啦，%d基本大同小异，大家自行搜索练习 </span></span><br><span class="line"></span><br><span class="line">a = <span class="number">0.222222222</span></span><br><span class="line">print(<span class="string">"a显示小数点后两位：%.2f"</span>%a)</span><br><span class="line"><span class="comment"># 输出为： a显示小数点后两位：0.22</span></span><br><span class="line"></span><br><span class="line">print(<span class="string">"a显示小数点后5位： %.5f"</span>%a)</span><br><span class="line"><span class="comment"># 输出为：a显示小数点后5位： 0.22222</span></span><br><span class="line"></span><br><span class="line">print(<span class="string">"以百分号形式输出并保留小数点后两位 %.2f%%"</span>%(a*<span class="number">100</span>))</span><br><span class="line"><span class="comment"># 输出为： 以百分号形式输出并保留小数点后两位 22.22%</span></span><br></pre></td></tr></table></figure>
+<p>此时打印出来的为：</p>
+<blockquote>
+<p>{‘id’: ‘456’, ‘comment’: ‘构造参数’, ‘tagIdList’: [‘{“tagid”: 1}’, ‘{“tagid”: 2}’, ‘{“tagid”: 3}’], ‘otherIDinfo’: [‘{“id”: “123”, “name”: “梦想”}’, ‘{“id”: “456”, “name”: “飞翔”}’], ‘type’: 0}</p>
+</blockquote>
+<p>这时我们打印出来的实际为字典类型，实际中我们需要传入的请求参数为json格式，所以我们需要把字典转换为json格式，我们可以在代码最后加入两行</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment"># 7.把请求参数转换为json格式</span></span><br><span class="line">testDict = json.dumps(testDict)</span><br><span class="line">print(testDict)</span><br></pre></td></tr></table></figure>
 
+<p>这时打印出来的如下</p>
+<blockquote>
+<p>{“id”: “456”, “comment”: “\u6784\u9020\u53c2\u6570”, “tagIdList”: [“{&quot;tagid&quot;: 1}”, “{&quot;tagid&quot;: 2}”, “{&quot;tagid&quot;: 3}”], “otherIDinfo”: [“{&quot;id&quot;: &quot;123&quot;, &quot;name&quot;: &quot;\u68a6\u60f3&quot;}”, “{&quot;id&quot;: &quot;456&quot;, &quot;name&quot;: &quot;\u98de\u7fd4&quot;}”], “type”: 0}</p>
+</blockquote>
+<p>我们发现转换后出现，汉字变为Unicode码的问题，这时我们需要在转换时，加入一个参数<code>ensure_ascii=False</code>避免中文转为Unicode码。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 7.把请求参数转换为json格式</span></span><br><span class="line">testDict = json.dumps(testDict,ensure_ascii=<span class="literal">False</span>)</span><br><span class="line">print(testDict)</span><br></pre></td></tr></table></figure>
 
-
+<p>这时打印出来的就是符合规范的请求参数</p>
+<blockquote>
+<p>{“id”: “456”, “comment”: “构造参数”, “tagIdList”: [“{&quot;tagid&quot;: 1}”, “{&quot;tagid&quot;: 2}”, “{&quot;tagid&quot;: 3}”], “otherIDinfo”: [“{&quot;id&quot;: &quot;123&quot;, &quot;name&quot;: &quot;梦想&quot;}”, “{&quot;id&quot;: &quot;456&quot;, &quot;name&quot;: &quot;飞翔&quot;}”], “type”: 0}</p>
+</blockquote>
 <h3 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h3><p>面朝大海，春暖花开。</p>
 <p>愿你一生努力，一生被爱。</p>
 
@@ -182,7 +245,7 @@
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://yoursite.com/2020/05/31/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%953%E4%B9%8B%E6%A8%A1%E6%8B%9F%E6%8A%BD%E5%A5%96%E6%A6%82%E7%8E%87%E8%AE%A1%E7%AE%97/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://yoursite.com/2020/05/25/interfaceTest/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%951%E4%B9%8B%E6%9E%84%E9%80%A0%E5%8F%82%E6%95%B0/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -200,19 +263,19 @@
   
   <nav class="article-nav">
     
-      <a href="/2020/06/02/QA3-%E6%B5%8B%E8%AF%95%E5%85%A8%E6%B5%81%E7%A8%8B%E5%9B%BE%E8%A7%A3/" class="article-nav-link">
+      <a href="/2020/05/26/%E6%8A%80%E5%B7%A73-Markdown%E7%9A%84%E4%BD%BF%E7%94%A8/" class="article-nav-link">
         <strong class="article-nav-caption">上一篇</strong>
         <div class="article-nav-title">
           
-            测试全流程图解
+            Markdown的使用
           
         </div>
       </a>
     
     
-      <a href="/2020/05/30/QA2-%E6%B5%8B%E8%AF%95%E5%B7%A5%E7%A8%8B%E5%B8%88%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1/" class="article-nav-link">
+      <a href="/2020/04/15/%E6%8A%80%E5%B7%A72-%E8%87%AA%E5%BB%BA%E5%9B%BE%E5%BA%8A/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">测试工程师知识图谱</div>
+        <div class="article-nav-title">使用gitee自建图床</div>
       </a>
     
   </nav>

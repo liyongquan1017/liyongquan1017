@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://yoursite.com/"/>
-  <updated>2020-06-05T07:16:28.653Z</updated>
+  <updated>2020-07-04T10:20:21.397Z</updated>
   <id>https://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,56 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>markdown图片自动上传</title>
+    <link href="https://yoursite.com/2020/07/04/%E6%8A%80%E5%B7%A75-markdown%E5%9B%BE%E7%89%87%E8%87%AA%E5%8A%A8%E4%B8%8A%E4%BC%A0/"/>
+    <id>https://yoursite.com/2020/07/04/%E6%8A%80%E5%B7%A75-markdown%E5%9B%BE%E7%89%87%E8%87%AA%E5%8A%A8%E4%B8%8A%E4%BC%A0/</id>
+    <published>2020-07-04T10:04:47.000Z</published>
+    <updated>2020-07-04T10:20:21.397Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;markdown图片自动上传&quot;&gt;&lt;a href=&quot;#markdown图片自动上传&quot; class=&quot;headerlink&quot; title=&quot;markdown图片自动上传&quot;&gt;&lt;/a&gt;markdown图片自动上传&lt;/h1&gt;&lt;h3 id=&quot;前言&quot;&gt;&lt;a
+        
+      
+    
+    </summary>
+    
+    
+    
+      <category term="技巧" scheme="https://yoursite.com/tags/%E6%8A%80%E5%B7%A7/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>怎么打开iOS手机的开发者模式</title>
+    <link href="https://yoursite.com/2020/07/04/%E6%8A%80%E5%B7%A74-iOS%E6%89%8B%E6%9C%BA%E7%9A%84%E5%BC%80%E5%8F%91%E8%80%85%E6%A8%A1%E5%BC%8F/"/>
+    <id>https://yoursite.com/2020/07/04/%E6%8A%80%E5%B7%A74-iOS%E6%89%8B%E6%9C%BA%E7%9A%84%E5%BC%80%E5%8F%91%E8%80%85%E6%A8%A1%E5%BC%8F/</id>
+    <published>2020-07-04T08:55:48.000Z</published>
+    <updated>2020-07-04T10:00:42.753Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;关于iOS手机的开发者模式&quot;&gt;&lt;a href=&quot;#关于iOS手机的开发者模式&quot; class=&quot;headerlink&quot; title=&quot;关于iOS手机的开发者模式&quot;&gt;&lt;/a&gt;关于iOS手机的开发者模式&lt;/h1&gt;&lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot;
+        
+      
+    
+    </summary>
+    
+    
+    
+      <category term="技巧" scheme="https://yoursite.com/tags/%E6%8A%80%E5%B7%A7/"/>
+    
+  </entry>
   
   <entry>
     <title>我的祖国</title>
@@ -60,8 +110,8 @@
   
   <entry>
     <title>接口测试之模拟抽奖概率计算（3）</title>
-    <link href="https://yoursite.com/2020/05/31/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%953%E4%B9%8B%E6%A8%A1%E6%8B%9F%E6%8A%BD%E5%A5%96%E6%A6%82%E7%8E%87%E8%AE%A1%E7%AE%97/"/>
-    <id>https://yoursite.com/2020/05/31/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%953%E4%B9%8B%E6%A8%A1%E6%8B%9F%E6%8A%BD%E5%A5%96%E6%A6%82%E7%8E%87%E8%AE%A1%E7%AE%97/</id>
+    <link href="https://yoursite.com/2020/05/31/interfaceTest/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%953%E4%B9%8B%E6%A8%A1%E6%8B%9F%E6%8A%BD%E5%A5%96%E6%A6%82%E7%8E%87%E8%AE%A1%E7%AE%97/"/>
+    <id>https://yoursite.com/2020/05/31/interfaceTest/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%953%E4%B9%8B%E6%A8%A1%E6%8B%9F%E6%8A%BD%E5%A5%96%E6%A6%82%E7%8E%87%E8%AE%A1%E7%AE%97/</id>
     <published>2020-05-31T14:54:21.000Z</published>
     <updated>2020-06-01T03:48:27.453Z</updated>
     
@@ -98,8 +148,8 @@
   
   <entry>
     <title>接口测试之requests用法（2）</title>
-    <link href="https://yoursite.com/2020/05/27/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%952%E4%B9%8BRequests%E7%94%A8%E6%B3%95/"/>
-    <id>https://yoursite.com/2020/05/27/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%952%E4%B9%8BRequests%E7%94%A8%E6%B3%95/</id>
+    <link href="https://yoursite.com/2020/05/27/interfaceTest/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%952%E4%B9%8BRequests%E7%94%A8%E6%B3%95/"/>
+    <id>https://yoursite.com/2020/05/27/interfaceTest/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%952%E4%B9%8BRequests%E7%94%A8%E6%B3%95/</id>
     <published>2020-05-27T14:54:21.000Z</published>
     <updated>2020-05-30T11:18:12.159Z</updated>
     
@@ -139,8 +189,8 @@
   
   <entry>
     <title>接口测试之构造请求参数（1）</title>
-    <link href="https://yoursite.com/2020/05/25/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%951%E4%B9%8B%E6%9E%84%E9%80%A0%E5%8F%82%E6%95%B0/"/>
-    <id>https://yoursite.com/2020/05/25/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%951%E4%B9%8B%E6%9E%84%E9%80%A0%E5%8F%82%E6%95%B0/</id>
+    <link href="https://yoursite.com/2020/05/25/interfaceTest/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%951%E4%B9%8B%E6%9E%84%E9%80%A0%E5%8F%82%E6%95%B0/"/>
+    <id>https://yoursite.com/2020/05/25/interfaceTest/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%951%E4%B9%8B%E6%9E%84%E9%80%A0%E5%8F%82%E6%95%B0/</id>
     <published>2020-05-25T08:38:57.000Z</published>
     <updated>2020-05-30T11:18:18.366Z</updated>
     
@@ -205,9 +255,29 @@
   </entry>
   
   <entry>
+    <title>能力陷阱</title>
+    <link href="https://yoursite.com/2019/10/25/%E8%AF%BB%E4%B9%A62-%E8%83%BD%E5%8A%9B%E9%99%B7%E9%98%B1/"/>
+    <id>https://yoursite.com/2019/10/25/%E8%AF%BB%E4%B9%A62-%E8%83%BD%E5%8A%9B%E9%99%B7%E9%98%B1/</id>
+    <published>2019-10-25T08:16:04.000Z</published>
+    <updated>2020-06-05T07:24:59.164Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;https://dreams_quan.gitee.io/images/images/blog/NLXJ.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;​         本书深刻揭示职场的三大观念陷阱，提出“先行动，后思考”的方法，打破了传统领导者的养成法则，帮助那些渴望成为优秀领导者的人学会如何扩展业务范围，如何提出更好的策略性意见，以及如何扩建人际关系网络并引领他们朝着不同的方向发展自己。&lt;/p&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="读书" scheme="https://yoursite.com/tags/%E8%AF%BB%E4%B9%A6/"/>
+    
+  </entry>
+  
+  <entry>
     <title>测试用例的编写</title>
-    <link href="https://yoursite.com/2019/10/25/QA1-%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B%E8%AE%BE%E8%AE%A1%E6%96%B9%E6%B3%95/"/>
-    <id>https://yoursite.com/2019/10/25/QA1-%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B%E8%AE%BE%E8%AE%A1%E6%96%B9%E6%B3%95/</id>
+    <link href="https://yoursite.com/2019/10/25/QA4-%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B%E8%AE%BE%E8%AE%A1%E6%96%B9%E6%B3%95/"/>
+    <id>https://yoursite.com/2019/10/25/QA4-%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B%E8%AE%BE%E8%AE%A1%E6%96%B9%E6%B3%95/</id>
     <published>2019-10-25T08:16:04.000Z</published>
     <updated>2020-05-30T06:15:09.521Z</updated>
     
@@ -227,26 +297,6 @@
     
     
       <category term="测试" scheme="https://yoursite.com/tags/%E6%B5%8B%E8%AF%95/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>能力陷阱</title>
-    <link href="https://yoursite.com/2019/10/25/%E8%AF%BB%E4%B9%A62-%E8%83%BD%E5%8A%9B%E9%99%B7%E9%98%B1/"/>
-    <id>https://yoursite.com/2019/10/25/%E8%AF%BB%E4%B9%A62-%E8%83%BD%E5%8A%9B%E9%99%B7%E9%98%B1/</id>
-    <published>2019-10-25T08:16:04.000Z</published>
-    <updated>2020-06-05T07:24:59.164Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;img src=&quot;https://dreams_quan.gitee.io/images/images/blog/NLXJ.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;p&gt;​         本书深刻揭示职场的三大观念陷阱，提出“先行动，后思考”的方法，打破了传统领导者的养成法则，帮助那些渴望成为优秀领导者的人学会如何扩展业务范围，如何提出更好的策略性意见，以及如何扩建人际关系网络并引领他们朝着不同的方向发展自己。&lt;/p&gt;
-    
-    </summary>
-    
-    
-    
-      <category term="读书" scheme="https://yoursite.com/tags/%E8%AF%BB%E4%B9%A6/"/>
     
   </entry>
   

@@ -17,101 +17,6 @@
       </tags>
   </entry>
   <entry>
-    <title>测试用例的编写</title>
-    <url>/2019/10/25/QA1-%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B%E8%AE%BE%E8%AE%A1%E6%96%B9%E6%B3%95/</url>
-    <content><![CDATA[<h3 id="测试用例设计方法"><a href="#测试用例设计方法" class="headerlink" title="测试用例设计方法"></a>测试用例设计方法</h3><ul>
-<li><p>逐级细分法</p>
-</li>
-<li><p>输入域测试法</p>
-</li>
-<li><p>输出域分析法</p>
-</li>
-<li><p>正交试验设计法</p>
-<a id="more"></a>
-</li>
-<li><p>业务流程分析法</p>
-</li>
-<li><p>状态迁移法</p>
-</li>
-<li><p>因果图法</p>
-</li>
-<li><p>判定表法</p>
-</li>
-<li><p>错误猜测法</p>
-</li>
-<li><p>等价类划分法 （等价类划分方法，是将所有可能的输入数据划分成若干个子集，在每个子集中，如果任意一个输入数据对于揭露程序中潜在错误都具有同等效果，那么这样的子集就构成了一个等价类。后续只要从每个等价类中任意选取一个值进行测试，就可以用少量具有代表性的测试输入取得较好的测试覆盖结果）</p>
-</li>
-<li><p>边界值分析法（边界值分析方法，是选取输入、输出的边界值进行测试。因为通常大量的软件错误是发生在输入或输出范围的边界上，所以需要对边界值进行重点测试，通常选取正好等于、刚刚大于或刚刚小于边界的值作为测试数据。 从方法论上可以看出来，边界值分析是对等价类划分的补充，所以这两种测试方法经常结合起来使用。</p>
-</li>
-</ul>
-<hr>
-<h4 id="‘用户登录’设计测试用例"><a href="#‘用户登录’设计测试用例" class="headerlink" title="‘用户登录’设计测试用例"></a>‘用户登录’设计测试用例</h4><blockquote>
-<p>目标是要保证系统在各种应用场景下的功能是符合设计要求的，这样考虑的测试用例就需要更多、更全面。</p>
-</blockquote>
-<h5 id="基于等价类划分和边界值分析方法，我们设计的测试用例包括："><a href="#基于等价类划分和边界值分析方法，我们设计的测试用例包括：" class="headerlink" title="基于等价类划分和边界值分析方法，我们设计的测试用例包括："></a>基于等价类划分和边界值分析方法，我们设计的测试用例包括：</h5><ol>
-<li>输入已注册的用户名和正确的密码，验证是否登录成功</li>
-<li>输入已注册的用户名和不正确的密码，验证是否登录失败，并且提示信息正确</li>
-<li>输入未注册的用户名和任意密码，验证是否登录失败，并且提示信息正确；</li>
-<li>用户名和密码两者都为空，验证是否登录失败，并且提示信息正确</li>
-<li>用户名和密码两者之一为空，验证是否登录失败，并且提示信息正确；</li>
-<li>如果登录功能启用了验证码功能，在用户名和密码正确的前提下，输入正确的验证码，验证是否登录成功；</li>
-<li>如果登录功能启用了验证码功能，在用户名和密码正确的前提下，输入错误的验证码，验证是否登录失败，并且提示信息正确。</li>
-</ol>
-<h5 id="需要弥补的测试用例"><a href="#需要弥补的测试用例" class="headerlink" title="需要弥补的测试用例"></a>需要弥补的测试用例</h5><ol>
-<li>用户名和密码是否大小写敏感；</li>
-<li>页面上的密码框是否加密显示；</li>
-<li>后台系统创建的用户第一次登录成功时，是否提示修改密码</li>
-<li>忘记用户名和忘记密码的功能是否可用</li>
-<li>前端页面是否根据设计要求限制用户名和密码长度；</li>
-<li>如果登录功能需要验证码，点击验证码图片是否可以更换验证码，更换后的验证码是否可用</li>
-<li>刷新页面是否会刷新验证码；</li>
-<li>如果验证码具有时效性，需要分别验证时效内和时效外验证码的有效性</li>
-<li>用户登录成功但是会话超时后，继续操作是否会重定向到用户登录界面</li>
-<li>不同级别的用户，比如管理员用户和普通用户，登录系统后的权限是否正确</li>
-<li>页面默认焦点是否定位在用户名的输入框中</li>
-<li>快捷键Tab和Enter等，是否可以正常使用</li>
-</ol>
-<h5 id="安全性测试用例包括"><a href="#安全性测试用例包括" class="headerlink" title="安全性测试用例包括"></a>安全性测试用例包括</h5><blockquote>
-<p>一个质量过硬的软件系统，除了显式功能性需求以外，其他的非功能性需求即隐式功能性需求也是极其关键的。</p>
-</blockquote>
-<blockquote>
-<p>显式功能性需求（Functional requirement）的含义从字面上就可以很好地理解，指的是软件本身需要实现的具体功能， 比如“正常用户使用正确的用户名和密码可以成功登录”、“非注册用户无法登录”等，这都是属于典型的显式功能性需求描述。</p>
-</blockquote>
-<blockquote>
-<p>那什么是非功能性需求（Non-functional requirement）呢？从软件测试的维度来看，非功能性需求主要涉及安全性、性能以及兼容性三大方面。</p>
-</blockquote>
-<ol>
-<li>用户密码后台存储是否加密</li>
-<li>用户密码在网络传输过程中是否加密</li>
-<li>密码是否具有有效期，密码有效期到期后，是否提示需要修改密码</li>
-<li>不登录的情况下，在浏览器中直接输入登录后的URL地址，验证是否会重新定向到用户登录界面；</li>
-<li>密码输入框是否不支持复制和粘贴；</li>
-<li>密码输入框内输入的密码是否都可以在页面源码模式下被查看；</li>
-<li>用户名和密码的输入框中分别输入典型的“SQL注入攻击”字符串，验证系统的返回页面；</li>
-<li>用户名和密码的输入框中分别输入典型的“XSS跨站脚本攻击”字符串，验证系统行为是否被篡改；</li>
-<li>连续多次登录失败情况下，系统是否会阻止后续的尝试以应对暴力破解；</li>\n 同一用户在同一终端的多种浏览器上登录，验证登录功能的互斥性是否符合设计预期；</li>
-<li>同一用户先后在多台终端的浏览器上登录，验证登录是否具有互斥性。</li>
-</ol>
-<h5 id="性能压力测试用例包括"><a href="#性能压力测试用例包括" class="headerlink" title="性能压力测试用例包括:"></a>性能压力测试用例包括:</h5><ol>
-<li>单用户登录的响应时间是否小于3秒；</li>
-<li>单用户登录时，后台请求数量是否过多；</li>
-<li>高并发场景下用户登录的响应时间是否小于5秒；</li>
-<li>高并发场景下服务端的监控指标是否符合预期；</li>
-<li>高集合点并发场景下，是否存在资源死锁和不合理的资源等待；</li>
-<li>长时间大量用户连续登录和登出，服务器端是否存在内存泄漏。</li>
-</ol>
-<h5 id="兼容性测试用例包括："><a href="#兼容性测试用例包括：" class="headerlink" title="兼容性测试用例包括："></a>兼容性测试用例包括：</h5><ol>
-<li>不同浏览器下，验证登录页面的显示以及功能正确性；</li>
-<li>相同浏览器的不同版本下，验证登录页面的显示以及功能正确性；</li>
-<li>不同移动设备终端的不同浏览器下，验证登录页面的显示以及功能正确性；</li>
-<li>不同分辨率的界面下，验证登录页面的显示以及功能正确性。</li>
-</ol>
-]]></content>
-      <tags>
-        <tag>测试</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>使用gitee自建图床</title>
     <url>/2020/04/15/%E6%8A%80%E5%B7%A72-%E8%87%AA%E5%BB%BA%E5%9B%BE%E5%BA%8A/</url>
     <content><![CDATA[<h1 id="使用gitee建自己图床"><a href="#使用gitee建自己图床" class="headerlink" title="使用gitee建自己图床"></a>使用gitee建自己图床</h1><h3 id="使用gitee建自己图床的好处："><a href="#使用gitee建自己图床的好处：" class="headerlink" title="使用gitee建自己图床的好处："></a>使用gitee建自己图床的好处：</h3><ol>
@@ -305,33 +210,217 @@
       </tags>
   </entry>
   <entry>
-    <title>接口测试之模拟抽奖概率计算（3）</title>
-    <url>/2020/05/31/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%953%E4%B9%8B%E6%A8%A1%E6%8B%9F%E6%8A%BD%E5%A5%96%E6%A6%82%E7%8E%87%E8%AE%A1%E7%AE%97/</url>
-    <content><![CDATA[<h1 id="接口测试之模拟抽奖概率计算（3）"><a href="#接口测试之模拟抽奖概率计算（3）" class="headerlink" title="接口测试之模拟抽奖概率计算（3）"></a>接口测试之模拟抽奖概率计算（3）</h1><h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>在很多公司测试过程中会有抽奖概率测试，如果用手动去模拟，会很不现实，一般都是从接口入手，模拟跑1万到10万次或者更多，来计算概率是否符合预期。本教程先不涉及接口，只是单纯的去了解一下怎么取计算抽奖概率。</p>
+    <title>测试全流程图解</title>
+    <url>/2020/06/02/QA3-%E6%B5%8B%E8%AF%95%E5%85%A8%E6%B5%81%E7%A8%8B%E5%9B%BE%E8%A7%A3/</url>
+    <content><![CDATA[<h1 id="测试全流程图解"><a href="#测试全流程图解" class="headerlink" title="测试全流程图解"></a>测试全流程图解</h1><h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>对于测试流程，大部分做测试的同学都能说个七七八八，但是对于一些细节，可能还是一知半解的，以下是对测试全流程整理的一个图谱，应该可以给大家带来一些帮助，如有不妥的地方，烦请指正。</p>
 <a id="more"></a>
 
-<h3 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h3><p>1.一个包含各种奖项的奖池。</p>
-<p>2.了解随机模块<a href="https://www.runoob.com/python/func-number-random.html" target="_blank" rel="noopener">random</a>的用法</p>
-<p>3.了解 <a href="https://blog.csdn.net/u013216667/article/details/51316971" target="_blank" rel="noopener">python格式化%s,%d,%f</a></p>
-<h3 id="具体示例"><a href="#具体示例" class="headerlink" title="具体示例"></a>具体示例</h3><p>我们这里设计一个含有6种不同奖项的列表，然后随机抽取1万次，然后计算各个奖品的概率，具体如下：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> random</span><br><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="string">奖项列表：</span></span><br><span class="line"><span class="string">编号  奖品</span></span><br><span class="line"><span class="string">1    土豪女友/男友</span></span><br><span class="line"><span class="string">2    私人庄园</span></span><br><span class="line"><span class="string">3    海景别墅</span></span><br><span class="line"><span class="string">4    劳斯莱斯</span></span><br><span class="line"><span class="string">5    iPhone12</span></span><br><span class="line"><span class="string">6    纸巾一包</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">设计思路：</span></span><br><span class="line"><span class="string">把所有奖品ID放一个列表，然后随机抽取，一共抽10000次，计算抽奖结果。</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="comment"># 1.定义一个抽奖列表，有抽奖编号组成</span></span><br><span class="line">rewardIds = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>]</span><br><span class="line"><span class="comment"># 2.抽取10000次，并把抽到的结果放到一个列表内，</span></span><br><span class="line"><span class="comment"># 定义单次抽奖列表组合为lotteryResult,抽奖次数为：num1</span></span><br><span class="line">lotteryResultSimple = []</span><br><span class="line">num1 = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">10000</span>):</span><br><span class="line">    <span class="comment"># 每次只抽一个奖品时</span></span><br><span class="line">    <span class="string">'''</span></span><br><span class="line"><span class="string">    从每次随机从列表取一个元素，用 random.choice(),</span></span><br><span class="line"><span class="string">    取出的元素类型为元素本身的类型</span></span><br><span class="line"><span class="string">    '''</span></span><br><span class="line">    a = random.choice(rewardIds)</span><br><span class="line">    lotteryResultSimple.append(a)</span><br><span class="line">    num1+=<span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 定义每次抽多个奖品，抽奖奖励集合为lotteryResultMore,抽奖次数为：num2</span></span><br><span class="line">lotteryResultMore = []</span><br><span class="line">num2 = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> j <span class="keyword">in</span> range(<span class="number">10000</span>):</span><br><span class="line">    <span class="comment">#每次只抽一个奖品时</span></span><br><span class="line">    <span class="string">'''</span></span><br><span class="line"><span class="string">    从每次随机从列表取n个元素，用 random.sample(list,N)</span></span><br><span class="line"><span class="string">    list所要去随机元素的数列，N为每次要取的数</span></span><br><span class="line"><span class="string">    这时取出的随机元素，是一个数列</span></span><br><span class="line"><span class="string">    '''</span></span><br><span class="line">    b = random.sample(rewardIds,<span class="number">2</span>)</span><br><span class="line">    <span class="comment"># 因为b是一个数列，所以不能用append把抽奖结果加进去了</span></span><br><span class="line">    lotteryResultMore = lotteryResultMore + b</span><br><span class="line">    num2 += <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 定义总抽奖次数为 num,所有奖品集合为lotteryResult</span></span><br><span class="line">num = num1 + num2</span><br><span class="line">lotteryResult = lotteryResultMore + lotteryResultSimple</span><br><span class="line"></span><br><span class="line"><span class="comment"># 总共抽到的奖品数量为 lotteryResultCount</span></span><br><span class="line">lotteryResultCount = len(lotteryResult)</span><br><span class="line"><span class="comment"># 抽到土豪女友/男友的次数</span></span><br><span class="line">rewardId1 = lotteryResult.count(<span class="number">1</span>)</span><br><span class="line"><span class="comment"># 抽到私人庄园的次数</span></span><br><span class="line">rewardId2 = lotteryResult.count(<span class="number">2</span>)</span><br><span class="line"><span class="comment"># 抽到海景别墅的次数</span></span><br><span class="line">rewardId3 = lotteryResult.count(<span class="number">3</span>)</span><br><span class="line"><span class="comment"># 抽到劳斯莱斯的次数</span></span><br><span class="line">rewardId4 = lotteryResult.count(<span class="number">4</span>)</span><br><span class="line"><span class="comment"># 抽到iPhone12的次数</span></span><br><span class="line">rewardId5 = lotteryResult.count(<span class="number">5</span>)</span><br><span class="line"><span class="comment"># 抽到纸巾的次数</span></span><br><span class="line">rewardId6 = lotteryResult.count(<span class="number">6</span>)</span><br><span class="line"></span><br><span class="line">print(<span class="string">'共抽奖%s次，其中单抽%s次，二连抽%s次，共抽到奖品%s个'</span>%(num,num1,num2,lotteryResultCount))</span><br><span class="line">print(<span class="string">"*"</span>*<span class="number">30</span>)  <span class="comment"># 此处就是打印一个分割线</span></span><br><span class="line">print(<span class="string">'抽到土豪女友/男友的概率为    %.2f%%'</span>%(rewardId1/lotteryResultCount*<span class="number">100</span>))</span><br><span class="line">print(<span class="string">'抽到私人庄园的概率为        %.2f%%'</span>%(rewardId2/lotteryResultCount*<span class="number">100</span>))</span><br><span class="line">print(<span class="string">'抽到海景别墅的概率为        %.2f%%'</span>%(rewardId3/lotteryResultCount*<span class="number">100</span>))</span><br><span class="line">print(<span class="string">'抽到劳斯莱斯的概率为        %.2f%%'</span>%(rewardId4/lotteryResultCount*<span class="number">100</span>))</span><br><span class="line">print(<span class="string">'抽到iPhone12的概率为      %.2f%%'</span>%(rewardId5/lotteryResultCount*<span class="number">100</span>))</span><br><span class="line">print(<span class="string">'抽到纸巾的概率为           %.2f%%'</span>%(rewardId6/lotteryResultCount*<span class="number">100</span>))</span><br></pre></td></tr></table></figure>
-
-<p>以上就是一个概率的计算，以及结果的展示，具体用到的也就是一些基础知识，实际使用抽奖接口去抽奖并计算概率时，需要考虑的东西还有很多，我们后续再讲。</p>
-<p><strong>小知识</strong></p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment">#其他输出格式化例如 %s啦，%d基本大同小异，大家自行搜索练习 </span></span><br><span class="line"></span><br><span class="line">a = <span class="number">0.222222222</span></span><br><span class="line">print(<span class="string">"a显示小数点后两位：%.2f"</span>%a)</span><br><span class="line"><span class="comment"># 输出为： a显示小数点后两位：0.22</span></span><br><span class="line"></span><br><span class="line">print(<span class="string">"a显示小数点后5位： %.5f"</span>%a)</span><br><span class="line"><span class="comment"># 输出为：a显示小数点后5位： 0.22222</span></span><br><span class="line"></span><br><span class="line">print(<span class="string">"以百分号形式输出并保留小数点后两位 %.2f%%"</span>%(a*<span class="number">100</span>))</span><br><span class="line"><span class="comment"># 输出为： 以百分号形式输出并保留小数点后两位 22.22%</span></span><br></pre></td></tr></table></figure>
-
-
-
+<h3 id="图谱"><a href="#图谱" class="headerlink" title="图谱"></a>图谱</h3><p><img src="https://ssd.qiniu.dreamfly95.com/image-20200530184050663.png" alt="image-20200530184050663"></p>
 <h3 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h3><p>面朝大海，春暖花开。</p>
 <p>愿你一生努力，一生被爱。</p>
 ]]></content>
       <tags>
-        <tag>接口测试</tag>
+        <tag>测试</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>能力陷阱</title>
+    <url>/2019/10/25/%E8%AF%BB%E4%B9%A62-%E8%83%BD%E5%8A%9B%E9%99%B7%E9%98%B1/</url>
+    <content><![CDATA[<p><img src="https://dreams_quan.gitee.io/images/images/blog/NLXJ.png" alt=""></p>
+<p>​         本书深刻揭示职场的三大观念陷阱，提出“先行动，后思考”的方法，打破了传统领导者的养成法则，帮助那些渴望成为优秀领导者的人学会如何扩展业务范围，如何提出更好的策略性意见，以及如何扩建人际关系网络并引领他们朝着不同的方向发展自己。</p>
+<a id="more"></a>
+
+<ol>
+<li><p>很多需要紧急处理的事情限制着你，让你没有办法去做那些更重要的事。但是在努力学会做好一个领导者的问题上，你面临着一个更大的挑战：那就是只有先行动起来，你才能知道关于自己，关于工作你需要做些什么，而不仅仅是思考。</p>
+</li>
+<li><p>如果我们想要成为一名优秀的领导者，就要学会“先行动后思考”。这与我们普遍所熟知的学习顺序的矛盾在于，在改变的过程中，我们会先看到结果，即改变让我们产生了什么样的感受，身边的人对我们的改变有什么样的反应，之后我们才会开始思考，把外在经历内在化。换句话说，我们要先在行为上表现得像一个领导者，而后才会像领导者一样去思考。</p>
+</li>
+<li><p>做领导者所做的工作会引发两个重要的转变过程：一是外在转变过程；二是内在转变过程。它们之间是紧密相连的。外在转变过程指的是建立起一个有潜力或有能力的好名声，这能够在很大程度上改变我们的自我认知；而内在转变过程涉及内在动机和自我定位的转变，这种转变并不是独立发生的，而是在与他人所建立的关系中渐渐发生的转变。</p>
+</li>
+<li><p>为了成为一名优秀的领导者，你要学会像领导者一样去思考。</p>
+</li>
+<li><p>你思考的方式来源于你过去的经历。</p>
+</li>
+<li><p>改变你想法的唯一方法就是去做与之前不一样的事情。</p>
+</li>
+<li><p>去做——而不仅仅是去想——才会增强你的外在表现力，而这些外在表现力是一个领导者所必需的。</p>
+</li>
+<li><p>稳定的“三脚架”（tripod）关系能提升你的外在表现力：新工作、新关系以及新自我。</p>
+</li>
+<li><p>我们很乐于去做那些我们擅长的事，于是就会一直去做，最终就使得我们会一直擅长那些事。做得越多，就越擅长，越擅长就越愿意去做。这样的一个循环能让我们在这方面获得更多的经验。而它就像是毒品一样，我们被它深深吸引，因为我们的快乐和自信都来源于它。它还会让我们产生误区，让我们相信我们擅长的事就是最有价值的且最重要的事，所以值得我们花时间去做。</p>
+</li>
+</ol>
+]]></content>
+      <tags>
+        <tag>读书</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>测试用例的编写</title>
+    <url>/2019/10/25/QA4-%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B%E8%AE%BE%E8%AE%A1%E6%96%B9%E6%B3%95/</url>
+    <content><![CDATA[<h3 id="测试用例设计方法"><a href="#测试用例设计方法" class="headerlink" title="测试用例设计方法"></a>测试用例设计方法</h3><ul>
+<li><p>逐级细分法</p>
+</li>
+<li><p>输入域测试法</p>
+</li>
+<li><p>输出域分析法</p>
+</li>
+<li><p>正交试验设计法</p>
+<a id="more"></a>
+</li>
+<li><p>业务流程分析法</p>
+</li>
+<li><p>状态迁移法</p>
+</li>
+<li><p>因果图法</p>
+</li>
+<li><p>判定表法</p>
+</li>
+<li><p>错误猜测法</p>
+</li>
+<li><p>等价类划分法 （等价类划分方法，是将所有可能的输入数据划分成若干个子集，在每个子集中，如果任意一个输入数据对于揭露程序中潜在错误都具有同等效果，那么这样的子集就构成了一个等价类。后续只要从每个等价类中任意选取一个值进行测试，就可以用少量具有代表性的测试输入取得较好的测试覆盖结果）</p>
+</li>
+<li><p>边界值分析法（边界值分析方法，是选取输入、输出的边界值进行测试。因为通常大量的软件错误是发生在输入或输出范围的边界上，所以需要对边界值进行重点测试，通常选取正好等于、刚刚大于或刚刚小于边界的值作为测试数据。 从方法论上可以看出来，边界值分析是对等价类划分的补充，所以这两种测试方法经常结合起来使用。</p>
+</li>
+</ul>
+<hr>
+<h4 id="‘用户登录’设计测试用例"><a href="#‘用户登录’设计测试用例" class="headerlink" title="‘用户登录’设计测试用例"></a>‘用户登录’设计测试用例</h4><blockquote>
+<p>目标是要保证系统在各种应用场景下的功能是符合设计要求的，这样考虑的测试用例就需要更多、更全面。</p>
+</blockquote>
+<h5 id="基于等价类划分和边界值分析方法，我们设计的测试用例包括："><a href="#基于等价类划分和边界值分析方法，我们设计的测试用例包括：" class="headerlink" title="基于等价类划分和边界值分析方法，我们设计的测试用例包括："></a>基于等价类划分和边界值分析方法，我们设计的测试用例包括：</h5><ol>
+<li>输入已注册的用户名和正确的密码，验证是否登录成功</li>
+<li>输入已注册的用户名和不正确的密码，验证是否登录失败，并且提示信息正确</li>
+<li>输入未注册的用户名和任意密码，验证是否登录失败，并且提示信息正确；</li>
+<li>用户名和密码两者都为空，验证是否登录失败，并且提示信息正确</li>
+<li>用户名和密码两者之一为空，验证是否登录失败，并且提示信息正确；</li>
+<li>如果登录功能启用了验证码功能，在用户名和密码正确的前提下，输入正确的验证码，验证是否登录成功；</li>
+<li>如果登录功能启用了验证码功能，在用户名和密码正确的前提下，输入错误的验证码，验证是否登录失败，并且提示信息正确。</li>
+</ol>
+<h5 id="需要弥补的测试用例"><a href="#需要弥补的测试用例" class="headerlink" title="需要弥补的测试用例"></a>需要弥补的测试用例</h5><ol>
+<li>用户名和密码是否大小写敏感；</li>
+<li>页面上的密码框是否加密显示；</li>
+<li>后台系统创建的用户第一次登录成功时，是否提示修改密码</li>
+<li>忘记用户名和忘记密码的功能是否可用</li>
+<li>前端页面是否根据设计要求限制用户名和密码长度；</li>
+<li>如果登录功能需要验证码，点击验证码图片是否可以更换验证码，更换后的验证码是否可用</li>
+<li>刷新页面是否会刷新验证码；</li>
+<li>如果验证码具有时效性，需要分别验证时效内和时效外验证码的有效性</li>
+<li>用户登录成功但是会话超时后，继续操作是否会重定向到用户登录界面</li>
+<li>不同级别的用户，比如管理员用户和普通用户，登录系统后的权限是否正确</li>
+<li>页面默认焦点是否定位在用户名的输入框中</li>
+<li>快捷键Tab和Enter等，是否可以正常使用</li>
+</ol>
+<h5 id="安全性测试用例包括"><a href="#安全性测试用例包括" class="headerlink" title="安全性测试用例包括"></a>安全性测试用例包括</h5><blockquote>
+<p>一个质量过硬的软件系统，除了显式功能性需求以外，其他的非功能性需求即隐式功能性需求也是极其关键的。</p>
+</blockquote>
+<blockquote>
+<p>显式功能性需求（Functional requirement）的含义从字面上就可以很好地理解，指的是软件本身需要实现的具体功能， 比如“正常用户使用正确的用户名和密码可以成功登录”、“非注册用户无法登录”等，这都是属于典型的显式功能性需求描述。</p>
+</blockquote>
+<blockquote>
+<p>那什么是非功能性需求（Non-functional requirement）呢？从软件测试的维度来看，非功能性需求主要涉及安全性、性能以及兼容性三大方面。</p>
+</blockquote>
+<ol>
+<li>用户密码后台存储是否加密</li>
+<li>用户密码在网络传输过程中是否加密</li>
+<li>密码是否具有有效期，密码有效期到期后，是否提示需要修改密码</li>
+<li>不登录的情况下，在浏览器中直接输入登录后的URL地址，验证是否会重新定向到用户登录界面；</li>
+<li>密码输入框是否不支持复制和粘贴；</li>
+<li>密码输入框内输入的密码是否都可以在页面源码模式下被查看；</li>
+<li>用户名和密码的输入框中分别输入典型的“SQL注入攻击”字符串，验证系统的返回页面；</li>
+<li>用户名和密码的输入框中分别输入典型的“XSS跨站脚本攻击”字符串，验证系统行为是否被篡改；</li>
+<li>连续多次登录失败情况下，系统是否会阻止后续的尝试以应对暴力破解；</li>\n 同一用户在同一终端的多种浏览器上登录，验证登录功能的互斥性是否符合设计预期；</li>
+<li>同一用户先后在多台终端的浏览器上登录，验证登录是否具有互斥性。</li>
+</ol>
+<h5 id="性能压力测试用例包括"><a href="#性能压力测试用例包括" class="headerlink" title="性能压力测试用例包括:"></a>性能压力测试用例包括:</h5><ol>
+<li>单用户登录的响应时间是否小于3秒；</li>
+<li>单用户登录时，后台请求数量是否过多；</li>
+<li>高并发场景下用户登录的响应时间是否小于5秒；</li>
+<li>高并发场景下服务端的监控指标是否符合预期；</li>
+<li>高集合点并发场景下，是否存在资源死锁和不合理的资源等待；</li>
+<li>长时间大量用户连续登录和登出，服务器端是否存在内存泄漏。</li>
+</ol>
+<h5 id="兼容性测试用例包括："><a href="#兼容性测试用例包括：" class="headerlink" title="兼容性测试用例包括："></a>兼容性测试用例包括：</h5><ol>
+<li>不同浏览器下，验证登录页面的显示以及功能正确性；</li>
+<li>相同浏览器的不同版本下，验证登录页面的显示以及功能正确性；</li>
+<li>不同移动设备终端的不同浏览器下，验证登录页面的显示以及功能正确性；</li>
+<li>不同分辨率的界面下，验证登录页面的显示以及功能正确性。</li>
+</ol>
+]]></content>
+      <tags>
+        <tag>测试</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>怎么打开iOS手机的开发者模式</title>
+    <url>/2020/07/04/%E6%8A%80%E5%B7%A74-iOS%E6%89%8B%E6%9C%BA%E7%9A%84%E5%BC%80%E5%8F%91%E8%80%85%E6%A8%A1%E5%BC%8F/</url>
+    <content><![CDATA[<h1 id="关于iOS手机的开发者模式"><a href="#关于iOS手机的开发者模式" class="headerlink" title="关于iOS手机的开发者模式"></a>关于iOS手机的开发者模式</h1><h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>iPhone手机也有开发者选项，这个功能开发或者测试同学都有很大的帮助，今天我们就把这个功能个如何打开，如何关闭，以及各个功能到底有什么作用给大家列一下。</p>
+<h3 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h3><p>1.Xcode （本次文档中使用是 Xcode Version 11.5）</p>
+<p>2.iPhone （本次文档中使用是 iPhone XR iOS13.5.1）</p>
+<h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>开发者每个选项的作用：</p>
+<p><strong>PAIRED DEVICES</strong> </p>
+<p>Clear Trusted Computers 清除受信任的计算机</p>
+<p><strong>INSTRUMENTS</strong></p>
+<p> Logging 点击进入  可以对电量和网络记录情况进行记录 记录的内容可以使用instruments查看。<a href="https://links.jianshu.com/go?to=http%3A%2F%2Fwww.cocoachina.com%2Fios%2F20180806%2F24469.html" target="_blank" rel="noopener">使用方法</a></p>
+<p><strong>Enable UI Automation</strong>  是否允许UI自动化测试</p>
+<p> <a href="https://www.jianshu.com/p/0e28ae1bd2c2" target="_blank" rel="noopener">iOS自动化测试 UI Automation</a></p>
+<p><strong>NETWORKING</strong><br> Network Link Conditioner 网络链接调节器  模拟各种网络情况，可以对APP进行弱网测试。</p>
+<p><strong>AD DEVELOPER APP TESTING</strong> 广告开发者 app测试<br> Fill Rate 填充率<br> Ad Refresh Rate 广告刷新间隔<br> Highlight Clipped Banners  突出显示剪贴横幅<br> Unlimited Ad Presentation  无限广告展示</p>
+<p><strong>PASSKIT TESTING</strong> 测试<br> Addtional Logging 附加登录<br> Allow HTTP Services 允许http服务<br> Disable Rate Limiting  禁止限制速率<br> NFC Pass Key Optional NFC密码可选<br> <a href="https://links.jianshu.com/go?to=https%3A%2F%2Fdeveloper.apple.com%2Fwallet%2F" target="_blank" rel="noopener">官方链接</a></p>
+<p><strong>NEWS TESTING</strong><br> Reset Local Data on Next Launch. 下次启动时重置本地数据<br> Reset layouts,images,and other cached elements. Private data will not be affected.<br> 重置布局、图像和其他缓存元素。私有数据不会受到影响。</p>
+<h3 id="打开方式"><a href="#打开方式" class="headerlink" title="打开方式"></a>打开方式</h3><ol>
+<li><p>用数据线连接mac和iPhone</p>
+</li>
+<li><p>打开Xcode，选择 Xcode -&gt; window -&gt; Devices and Simulators，如图：</p>
+</li>
+</ol>
+<p><img src="https://ssd.qiniu.dreamfly95.com/image-20200704175313401.png" alt="image-20200704175313401"></p>
+<ol start="3">
+<li>选择自己的手机，右键单击选择Show Provisioning Profiles…，如图：</li>
+</ol>
+<p><img src="https://ssd.qiniu.dreamfly95.com/image-20200704175458221.png" alt="image-20200704175458221"></p>
+<ol start="4">
+<li><p>在弹窗中的列表中查看，是否有开发者证书，如果没有，就点击“+”，添加开发者证书，完成后点击“Done”。如图：</p>
+<p><img src="https://ssd.qiniu.dreamfly95.com/image-20200704175643841.png" alt="image-20200704175643841"></p>
+</li>
+<li><p>打开手机设置，在列表里就能看到开发者选项了。</p>
+<p><img src="https://ssd.qiniu.dreamfly95.com/image-20200704175829746.png" alt="image-20200704175829746"></p>
+</li>
+</ol>
+<h3 id="关闭开发者选项"><a href="#关闭开发者选项" class="headerlink" title="关闭开发者选项"></a>关闭开发者选项</h3><p>在未连接mac时，手机关机重启，开发者选项就消失。</p>
+<h3 id="资料来源"><a href="#资料来源" class="headerlink" title="资料来源"></a>资料来源</h3><p><a href="https://www.jianshu.com/p/8dc5787b4728" target="_blank" rel="noopener">https://www.jianshu.com/p/8dc5787b4728</a></p>
+<h3 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h3><p>面朝大海，春暖花开。</p>
+<p>愿你一生努力，一生被爱。</p>
+]]></content>
+      <tags>
+        <tag>技巧</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>markdown图片自动上传</title>
+    <url>/2020/07/04/%E6%8A%80%E5%B7%A75-markdown%E5%9B%BE%E7%89%87%E8%87%AA%E5%8A%A8%E4%B8%8A%E4%BC%A0/</url>
+    <content><![CDATA[<h1 id="markdown图片自动上传"><a href="#markdown图片自动上传" class="headerlink" title="markdown图片自动上传"></a>markdown图片自动上传</h1><h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>我们写markdown时，里面需要用到的图片，需要上传生成链接后在放到文档里面，图片一旦多了会很麻烦。</p>
+<p>今天给大家推荐两款应用，结合使用，可以直接把要用的图片直接拖到markdown编写工具内，图片就会自动上传。</p>
+<h3 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h3><p>1.<a href="https://github.com/Molunerfinn/PicGo" target="_blank" rel="noopener">PicGo 图床管理工具</a></p>
+<p>2.<a href="https://www.typora.io/" target="_blank" rel="noopener">Typore markdown编写工具</a></p>
+<blockquote>
+<p>本次使用的mac电脑，window电脑操作方式应该大体也一样</p>
+</blockquote>
+<h3 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h3><p>1.配置PicGo 图床管理工具，<a href="https://picgo.github.io/PicGo-Doc/zh/guide/getting-started.html" target="_blank" rel="noopener">使用文档</a></p>
+<p>2.打开Typore，选择 Typore =&gt; 偏好设置 =&gt; 图像，然后做如图配置：</p>
+<p><img src="https://ssd.qiniu.dreamfly95.com/image-20200704181634536.png" alt="image-20200704181634536"></p>
+<p>3.点击验证图片上传选项，出现如图验证成功提示，就配置完成了。</p>
+<p><img src="https://ssd.qiniu.dreamfly95.com/image-20200704181826122.png" alt="image-20200704181826122"></p>
+<p>4.这时就可以把本地图片拖到Typore里，图片就会自动传到云端了，大家快去体验一下吧。</p>
+<h3 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h3><p>面朝大海，春暖花开。</p>
+<p>愿你一生努力，一生被爱。</p>
+]]></content>
+      <tags>
+        <tag>技巧</tag>
       </tags>
   </entry>
   <entry>
     <title>接口测试之requests用法（2）</title>
-    <url>/2020/05/27/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%952%E4%B9%8BRequests%E7%94%A8%E6%B3%95/</url>
+    <url>/2020/05/27/interfaceTest/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%952%E4%B9%8BRequests%E7%94%A8%E6%B3%95/</url>
     <content><![CDATA[<h1 id="接口测试之Requests用法"><a href="#接口测试之Requests用法" class="headerlink" title="接口测试之Requests用法"></a>接口测试之Requests用法</h1><h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>要学接口自动化，或者爬虫等，Requests库的使用是必备知识，也是给你打开自动化大门的一把钥匙。</p>
 <p>Requests的口号是为人类服务，也是唯一的一个<strong>非转基因</strong>的 Python HTTP 库，人类可以安全享用。</p>
 <a id="more"></a>
@@ -354,7 +443,7 @@
   </entry>
   <entry>
     <title>接口测试之构造请求参数（1）</title>
-    <url>/2020/05/25/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%951%E4%B9%8B%E6%9E%84%E9%80%A0%E5%8F%82%E6%95%B0/</url>
+    <url>/2020/05/25/interfaceTest/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%951%E4%B9%8B%E6%9E%84%E9%80%A0%E5%8F%82%E6%95%B0/</url>
     <content><![CDATA[<h1 id="接口测试之构造请求参数（1）"><a href="#接口测试之构造请求参数（1）" class="headerlink" title="接口测试之构造请求参数（1）"></a>接口测试之构造请求参数（1）</h1><h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>接口测试中，我们需要去手动输入请求参数组合，因为输入法等问题，可能会造成标点或括号等输错，最后出错后，还不大好排查。因此我们通过构造请求参数，能大大避免这类问题的发生。这也是最基础的知识，</p>
 <blockquote>
 <p>另我们使用Postman输入请求参数时，也可以先用Python构造请求参数，然后再使用。不过这个因人而异，如果你对自己有信心，直接手拼也OK。</p>
@@ -441,49 +530,28 @@
       </tags>
   </entry>
   <entry>
-    <title>测试全流程图解</title>
-    <url>/2020/06/02/QA3-%E6%B5%8B%E8%AF%95%E5%85%A8%E6%B5%81%E7%A8%8B%E5%9B%BE%E8%A7%A3/</url>
-    <content><![CDATA[<h1 id="测试全流程图解"><a href="#测试全流程图解" class="headerlink" title="测试全流程图解"></a>测试全流程图解</h1><h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>对于测试流程，大部分做测试的同学都能说个七七八八，但是对于一些细节，可能还是一知半解的，以下是对测试全流程整理的一个图谱，应该可以给大家带来一些帮助，如有不妥的地方，烦请指正。</p>
+    <title>接口测试之模拟抽奖概率计算（3）</title>
+    <url>/2020/05/31/interfaceTest/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%953%E4%B9%8B%E6%A8%A1%E6%8B%9F%E6%8A%BD%E5%A5%96%E6%A6%82%E7%8E%87%E8%AE%A1%E7%AE%97/</url>
+    <content><![CDATA[<h1 id="接口测试之模拟抽奖概率计算（3）"><a href="#接口测试之模拟抽奖概率计算（3）" class="headerlink" title="接口测试之模拟抽奖概率计算（3）"></a>接口测试之模拟抽奖概率计算（3）</h1><h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>在很多公司测试过程中会有抽奖概率测试，如果用手动去模拟，会很不现实，一般都是从接口入手，模拟跑1万到10万次或者更多，来计算概率是否符合预期。本教程先不涉及接口，只是单纯的去了解一下怎么取计算抽奖概率。</p>
 <a id="more"></a>
 
-<h3 id="图谱"><a href="#图谱" class="headerlink" title="图谱"></a>图谱</h3><p><img src="https://ssd.qiniu.dreamfly95.com/image-20200530184050663.png" alt="image-20200530184050663"></p>
+<h3 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h3><p>1.一个包含各种奖项的奖池。</p>
+<p>2.了解随机模块<a href="https://www.runoob.com/python/func-number-random.html" target="_blank" rel="noopener">random</a>的用法</p>
+<p>3.了解 <a href="https://blog.csdn.net/u013216667/article/details/51316971" target="_blank" rel="noopener">python格式化%s,%d,%f</a></p>
+<h3 id="具体示例"><a href="#具体示例" class="headerlink" title="具体示例"></a>具体示例</h3><p>我们这里设计一个含有6种不同奖项的列表，然后随机抽取1万次，然后计算各个奖品的概率，具体如下：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> random</span><br><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="string">奖项列表：</span></span><br><span class="line"><span class="string">编号  奖品</span></span><br><span class="line"><span class="string">1    土豪女友/男友</span></span><br><span class="line"><span class="string">2    私人庄园</span></span><br><span class="line"><span class="string">3    海景别墅</span></span><br><span class="line"><span class="string">4    劳斯莱斯</span></span><br><span class="line"><span class="string">5    iPhone12</span></span><br><span class="line"><span class="string">6    纸巾一包</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">设计思路：</span></span><br><span class="line"><span class="string">把所有奖品ID放一个列表，然后随机抽取，一共抽10000次，计算抽奖结果。</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="comment"># 1.定义一个抽奖列表，有抽奖编号组成</span></span><br><span class="line">rewardIds = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>]</span><br><span class="line"><span class="comment"># 2.抽取10000次，并把抽到的结果放到一个列表内，</span></span><br><span class="line"><span class="comment"># 定义单次抽奖列表组合为lotteryResult,抽奖次数为：num1</span></span><br><span class="line">lotteryResultSimple = []</span><br><span class="line">num1 = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">10000</span>):</span><br><span class="line">    <span class="comment"># 每次只抽一个奖品时</span></span><br><span class="line">    <span class="string">'''</span></span><br><span class="line"><span class="string">    从每次随机从列表取一个元素，用 random.choice(),</span></span><br><span class="line"><span class="string">    取出的元素类型为元素本身的类型</span></span><br><span class="line"><span class="string">    '''</span></span><br><span class="line">    a = random.choice(rewardIds)</span><br><span class="line">    lotteryResultSimple.append(a)</span><br><span class="line">    num1+=<span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 定义每次抽多个奖品，抽奖奖励集合为lotteryResultMore,抽奖次数为：num2</span></span><br><span class="line">lotteryResultMore = []</span><br><span class="line">num2 = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> j <span class="keyword">in</span> range(<span class="number">10000</span>):</span><br><span class="line">    <span class="comment">#每次只抽一个奖品时</span></span><br><span class="line">    <span class="string">'''</span></span><br><span class="line"><span class="string">    从每次随机从列表取n个元素，用 random.sample(list,N)</span></span><br><span class="line"><span class="string">    list所要去随机元素的数列，N为每次要取的数</span></span><br><span class="line"><span class="string">    这时取出的随机元素，是一个数列</span></span><br><span class="line"><span class="string">    '''</span></span><br><span class="line">    b = random.sample(rewardIds,<span class="number">2</span>)</span><br><span class="line">    <span class="comment"># 因为b是一个数列，所以不能用append把抽奖结果加进去了</span></span><br><span class="line">    lotteryResultMore = lotteryResultMore + b</span><br><span class="line">    num2 += <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 定义总抽奖次数为 num,所有奖品集合为lotteryResult</span></span><br><span class="line">num = num1 + num2</span><br><span class="line">lotteryResult = lotteryResultMore + lotteryResultSimple</span><br><span class="line"></span><br><span class="line"><span class="comment"># 总共抽到的奖品数量为 lotteryResultCount</span></span><br><span class="line">lotteryResultCount = len(lotteryResult)</span><br><span class="line"><span class="comment"># 抽到土豪女友/男友的次数</span></span><br><span class="line">rewardId1 = lotteryResult.count(<span class="number">1</span>)</span><br><span class="line"><span class="comment"># 抽到私人庄园的次数</span></span><br><span class="line">rewardId2 = lotteryResult.count(<span class="number">2</span>)</span><br><span class="line"><span class="comment"># 抽到海景别墅的次数</span></span><br><span class="line">rewardId3 = lotteryResult.count(<span class="number">3</span>)</span><br><span class="line"><span class="comment"># 抽到劳斯莱斯的次数</span></span><br><span class="line">rewardId4 = lotteryResult.count(<span class="number">4</span>)</span><br><span class="line"><span class="comment"># 抽到iPhone12的次数</span></span><br><span class="line">rewardId5 = lotteryResult.count(<span class="number">5</span>)</span><br><span class="line"><span class="comment"># 抽到纸巾的次数</span></span><br><span class="line">rewardId6 = lotteryResult.count(<span class="number">6</span>)</span><br><span class="line"></span><br><span class="line">print(<span class="string">'共抽奖%s次，其中单抽%s次，二连抽%s次，共抽到奖品%s个'</span>%(num,num1,num2,lotteryResultCount))</span><br><span class="line">print(<span class="string">"*"</span>*<span class="number">30</span>)  <span class="comment"># 此处就是打印一个分割线</span></span><br><span class="line">print(<span class="string">'抽到土豪女友/男友的概率为    %.2f%%'</span>%(rewardId1/lotteryResultCount*<span class="number">100</span>))</span><br><span class="line">print(<span class="string">'抽到私人庄园的概率为        %.2f%%'</span>%(rewardId2/lotteryResultCount*<span class="number">100</span>))</span><br><span class="line">print(<span class="string">'抽到海景别墅的概率为        %.2f%%'</span>%(rewardId3/lotteryResultCount*<span class="number">100</span>))</span><br><span class="line">print(<span class="string">'抽到劳斯莱斯的概率为        %.2f%%'</span>%(rewardId4/lotteryResultCount*<span class="number">100</span>))</span><br><span class="line">print(<span class="string">'抽到iPhone12的概率为      %.2f%%'</span>%(rewardId5/lotteryResultCount*<span class="number">100</span>))</span><br><span class="line">print(<span class="string">'抽到纸巾的概率为           %.2f%%'</span>%(rewardId6/lotteryResultCount*<span class="number">100</span>))</span><br></pre></td></tr></table></figure>
+
+<p>以上就是一个概率的计算，以及结果的展示，具体用到的也就是一些基础知识，实际使用抽奖接口去抽奖并计算概率时，需要考虑的东西还有很多，我们后续再讲。</p>
+<p><strong>小知识</strong></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment">#其他输出格式化例如 %s啦，%d基本大同小异，大家自行搜索练习 </span></span><br><span class="line"></span><br><span class="line">a = <span class="number">0.222222222</span></span><br><span class="line">print(<span class="string">"a显示小数点后两位：%.2f"</span>%a)</span><br><span class="line"><span class="comment"># 输出为： a显示小数点后两位：0.22</span></span><br><span class="line"></span><br><span class="line">print(<span class="string">"a显示小数点后5位： %.5f"</span>%a)</span><br><span class="line"><span class="comment"># 输出为：a显示小数点后5位： 0.22222</span></span><br><span class="line"></span><br><span class="line">print(<span class="string">"以百分号形式输出并保留小数点后两位 %.2f%%"</span>%(a*<span class="number">100</span>))</span><br><span class="line"><span class="comment"># 输出为： 以百分号形式输出并保留小数点后两位 22.22%</span></span><br></pre></td></tr></table></figure>
+
+
+
 <h3 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h3><p>面朝大海，春暖花开。</p>
 <p>愿你一生努力，一生被爱。</p>
 ]]></content>
       <tags>
-        <tag>测试</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>能力陷阱</title>
-    <url>/2019/10/25/%E8%AF%BB%E4%B9%A62-%E8%83%BD%E5%8A%9B%E9%99%B7%E9%98%B1/</url>
-    <content><![CDATA[<p><img src="https://dreams_quan.gitee.io/images/images/blog/NLXJ.png" alt=""></p>
-<p>​         本书深刻揭示职场的三大观念陷阱，提出“先行动，后思考”的方法，打破了传统领导者的养成法则，帮助那些渴望成为优秀领导者的人学会如何扩展业务范围，如何提出更好的策略性意见，以及如何扩建人际关系网络并引领他们朝着不同的方向发展自己。</p>
-<a id="more"></a>
-
-<ol>
-<li><p>很多需要紧急处理的事情限制着你，让你没有办法去做那些更重要的事。但是在努力学会做好一个领导者的问题上，你面临着一个更大的挑战：那就是只有先行动起来，你才能知道关于自己，关于工作你需要做些什么，而不仅仅是思考。</p>
-</li>
-<li><p>如果我们想要成为一名优秀的领导者，就要学会“先行动后思考”。这与我们普遍所熟知的学习顺序的矛盾在于，在改变的过程中，我们会先看到结果，即改变让我们产生了什么样的感受，身边的人对我们的改变有什么样的反应，之后我们才会开始思考，把外在经历内在化。换句话说，我们要先在行为上表现得像一个领导者，而后才会像领导者一样去思考。</p>
-</li>
-<li><p>做领导者所做的工作会引发两个重要的转变过程：一是外在转变过程；二是内在转变过程。它们之间是紧密相连的。外在转变过程指的是建立起一个有潜力或有能力的好名声，这能够在很大程度上改变我们的自我认知；而内在转变过程涉及内在动机和自我定位的转变，这种转变并不是独立发生的，而是在与他人所建立的关系中渐渐发生的转变。</p>
-</li>
-<li><p>为了成为一名优秀的领导者，你要学会像领导者一样去思考。</p>
-</li>
-<li><p>你思考的方式来源于你过去的经历。</p>
-</li>
-<li><p>改变你想法的唯一方法就是去做与之前不一样的事情。</p>
-</li>
-<li><p>去做——而不仅仅是去想——才会增强你的外在表现力，而这些外在表现力是一个领导者所必需的。</p>
-</li>
-<li><p>稳定的“三脚架”（tripod）关系能提升你的外在表现力：新工作、新关系以及新自我。</p>
-</li>
-<li><p>我们很乐于去做那些我们擅长的事，于是就会一直去做，最终就使得我们会一直擅长那些事。做得越多，就越擅长，越擅长就越愿意去做。这样的一个循环能让我们在这方面获得更多的经验。而它就像是毒品一样，我们被它深深吸引，因为我们的快乐和自信都来源于它。它还会让我们产生误区，让我们相信我们擅长的事就是最有价值的且最重要的事，所以值得我们花时间去做。</p>
-</li>
-</ol>
-]]></content>
-      <tags>
-        <tag>读书</tag>
+        <tag>接口测试</tag>
       </tags>
   </entry>
 </search>

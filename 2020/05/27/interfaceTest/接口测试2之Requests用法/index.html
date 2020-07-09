@@ -11,7 +11,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <title>
-    测试工程师知识图谱 |  Dreaming
+    接口测试之requests用法（2） |  Dreaming
   </title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   
@@ -35,7 +35,7 @@
   <div id="app">
     <main class="content on">
       <section class="outer">
-  <article id="post-QA2-测试工程师知识图谱" class="article article-type-post" itemscope
+  <article id="post-interfaceTest/接口测试2之Requests用法" class="article article-type-post" itemscope
   itemprop="blogPost" data-scroll-reveal>
 
   <div class="article-inner">
@@ -43,7 +43,7 @@
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  测试工程师知识图谱
+  接口测试之requests用法（2）
 </h1>
  
 
@@ -52,8 +52,8 @@
 
     
     <div class="article-meta">
-      <a href="/2020/05/30/QA2-%E6%B5%8B%E8%AF%95%E5%B7%A5%E7%A8%8B%E5%B8%88%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1/" class="article-date">
-  <time datetime="2020-05-30T07:00:52.000Z" itemprop="datePublished">2020-05-30</time>
+      <a href="/2020/05/27/interfaceTest/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%952%E4%B9%8BRequests%E7%94%A8%E6%B3%95/" class="article-date">
+  <time datetime="2020-05-27T14:54:21.000Z" itemprop="datePublished">2020-05-27</time>
 </a>
       
       
@@ -63,7 +63,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">137</span>
+            <span class="post-count">571</span>
         </span>
     </span>
 
@@ -72,7 +72,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> 阅读时长≈</span>
-            <span class="post-count">1 分钟</span>
+            <span class="post-count">2 分钟</span>
         </span>
     </span>
 </div>
@@ -97,12 +97,19 @@
       
 
       
-      <h1 id="测试工程师必备知识图谱"><a href="#测试工程师必备知识图谱" class="headerlink" title="测试工程师必备知识图谱"></a>测试工程师必备知识图谱</h1><h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>有很多同学对于测试工程师必备的测试技能不是很清晰，对自己以后的规划也不是很明了，不知道自己到底该从哪个方向努力或发展，下面是我从其他大佬那找的测试工程师必备知识图谱，也许能能给大家带来一些帮助。</p>
+      <h1 id="接口测试之Requests用法"><a href="#接口测试之Requests用法" class="headerlink" title="接口测试之Requests用法"></a>接口测试之Requests用法</h1><h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>要学接口自动化，或者爬虫等，Requests库的使用是必备知识，也是给你打开自动化大门的一把钥匙。</p>
+<p>Requests的口号是为人类服务，也是唯一的一个<strong>非转基因</strong>的 Python HTTP 库，人类可以安全享用。</p>
 <a id="more"></a>
 
-<h3 id="图谱"><a href="#图谱" class="headerlink" title="图谱"></a>图谱</h3><p><img src="https://ssd.qiniu.dreamfly95.com/TesterSkillMap3.png" alt="TesterSkillMap3"></p>
-<p><img src="https://ssd.qiniu.dreamfly95.com/TesterSkillMap2.png" alt="TesterSkillMap2">)<img src="https://ssd.qiniu.dreamfly95.com/TesterSkillMap1.png" alt="TesterSkillMap1"></p>
-<p>​    来源：<a href="https://blog.csdn.net/timeorspace/article/details/69225354" target="_blank" rel="noopener">https://blog.csdn.net/timeorspace/article/details/69225354</a></p>
+<h3 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h3><p>1.<a href="https://cn.python-requests.org/zh_CN/latest/user/install.html" target="_blank" rel="noopener">安装Requests库方法</a></p>
+<p>2.<a href="https://cn.python-requests.org/zh_CN/latest/user/quickstart.html" target="_blank" rel="noopener">Requests的官方文档</a></p>
+<p>3.可用于练习的免费接口：<a href="https://www.juhe.cn/docs" target="_blank" rel="noopener">聚合数据免费接口</a>（打开在筛选页，选择免费的，然后申请下就可以用了），<a href="https://api.apiopen.top/api.html" target="_blank" rel="noopener">其他免费接口</a>（由于被人乱刷，导致部分接口已被封禁）</p>
+<p>4.了解<a href="https://www.jianshu.com/p/55c8708da06c" target="_blank" rel="noopener">get和post的区别</a></p>
+<h3 id="具体示例"><a href="#具体示例" class="headerlink" title="具体示例"></a>具体示例</h3><p>我们已 qq号测吉凶为例来演示Requests的基本用法，<a href="https://www.juhe.cn/docs/api/id/166" target="_blank" rel="noopener">qq号测吉凶API地址</a>。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"></span><br><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="string">网址：https://www.juhe.cn/docs/api/id/166</span></span><br><span class="line"><span class="string">接口地址：http://japi.juhe.cn/qqevaluate/qq</span></span><br><span class="line"><span class="string">返回格式：json</span></span><br><span class="line"><span class="string">请求方式：get post</span></span><br><span class="line"><span class="string">请求示例：http://japi.juhe.cn/qqevaluate/qq?key=您申请的appKey&amp;qq=295424589</span></span><br><span class="line"><span class="string">接口备注：根据传入的参数qq号码和您申请的appKey测试qq的吉凶</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">名称 必填 类型 说明</span></span><br><span class="line"><span class="string">key    是  string 您申请的appKey</span></span><br><span class="line"><span class="string">qq 是  string 需要测试的QQ号码</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">该接口支持get和 post请求</span></span><br><span class="line"><span class="string">上面key需要自己注册账号后申请，是免费的。</span></span><br><span class="line"><span class="string">'''</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 1.先来联系get请求,</span></span><br><span class="line"><span class="comment"># 方式一：直接请求,在请求地址后面直接拼接请求参数</span></span><br><span class="line">rGet1 = requests.get(<span class="string">'http://japi.juhe.cn/qqevaluate/qq?key=你申请的appkey&amp;qq=要测试的QQ'</span>).json()</span><br><span class="line"><span class="comment"># print(rGet1)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 方式二：定义请求参数，然后使用get请求</span></span><br><span class="line">params = &#123;<span class="string">'key'</span>:<span class="string">'你申请的appkey'</span>,</span><br><span class="line">          <span class="string">'qq'</span>:<span class="string">'要测试的QQ'</span>&#125;</span><br><span class="line">rGet2 = requests.get(<span class="string">'http://japi.juhe.cn/qqevaluate/qq'</span>,params=params).json()</span><br><span class="line"><span class="comment"># print(rGet2)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 2.用post请求来</span></span><br><span class="line">data = &#123;<span class="string">'key'</span>:<span class="string">'你申请的appkey'</span>,</span><br><span class="line">          <span class="string">'qq'</span>:<span class="string">'要测试的QQ'</span>&#125;</span><br><span class="line">rPost = requests.post(<span class="string">'http://japi.juhe.cn/qqevaluate/qq'</span>,data=data).json()</span><br><span class="line">print(rPost)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 取出QQ的测试结果</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 方式一</span></span><br><span class="line">qqResult = rPost[<span class="string">'result'</span>][<span class="string">'data'</span>][<span class="string">'conclusion'</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 方式二，具体为何用get可以自行查阅资料</span></span><br><span class="line">qqResult1 = rPost.get(<span class="string">'result'</span>).get(<span class="string">'data'</span>).get(<span class="string">'conclusion'</span>)</span><br><span class="line"></span><br><span class="line">print(qqResult1)</span><br></pre></td></tr></table></figure>
+
+<p>以上就是Requests 的基本用法，以后在编码过程中也要学会查看函数参数和方法。</p>
+<p>学会Requests的用法就可以对接口做一些基本的操作了。</p>
 <h3 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h3><p>面朝大海，春暖花开。</p>
 <p>愿你一生努力，一生被爱。</p>
 
@@ -173,14 +180,14 @@
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://yoursite.com/2020/05/30/QA2-%E6%B5%8B%E8%AF%95%E5%B7%A5%E7%A8%8B%E5%B8%88%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://yoursite.com/2020/05/27/interfaceTest/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%952%E4%B9%8BRequests%E7%94%A8%E6%B3%95/" alt="微信分享二维码">
     </div>
 </div>
 
 <div id="share-mask"></div>
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%B5%8B%E8%AF%95/" rel="tag">测试</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/" rel="tag">接口测试</a></li></ul>
 
 
     </footer>
@@ -191,19 +198,19 @@
   
   <nav class="article-nav">
     
-      <a href="/2020/05/31/interfaceTest/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%953%E4%B9%8B%E6%A8%A1%E6%8B%9F%E6%8A%BD%E5%A5%96%E6%A6%82%E7%8E%87%E8%AE%A1%E7%AE%97/" class="article-nav-link">
+      <a href="/2020/05/30/QA2-%E6%B5%8B%E8%AF%95%E5%B7%A5%E7%A8%8B%E5%B8%88%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1/" class="article-nav-link">
         <strong class="article-nav-caption">上一篇</strong>
         <div class="article-nav-title">
           
-            接口测试之模拟抽奖概率计算（3）
+            测试工程师知识图谱
           
         </div>
       </a>
     
     
-      <a href="/2020/05/27/interfaceTest/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%952%E4%B9%8BRequests%E7%94%A8%E6%B3%95/" class="article-nav-link">
+      <a href="/2020/05/26/%E6%8A%80%E5%B7%A73-Markdown%E7%9A%84%E4%BD%BF%E7%94%A8/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">接口测试之requests用法（2）</div>
+        <div class="article-nav-title">Markdown的使用</div>
       </a>
     
   </nav>
