@@ -112,20 +112,9 @@
       
       <h1 id="markdown图片自动上传"><a href="#markdown图片自动上传" class="headerlink" title="markdown图片自动上传"></a>markdown图片自动上传</h1><h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>我们写markdown时，里面需要用到的图片，需要上传生成链接后在放到文档里面，图片一旦多了会很麻烦。</p>
 <p>今天给大家推荐两款应用，结合使用，可以直接把要用的图片直接拖到markdown编写工具内，图片就会自动上传。</p>
-<h3 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h3><p>1.<a href="https://github.com/Molunerfinn/PicGo" target="_blank" rel="noopener">PicGo 图床管理工具</a></p>
-<p>2.<a href="https://www.typora.io/" target="_blank" rel="noopener">Typore markdown编写工具</a></p>
-<blockquote>
-<p>本次使用的mac电脑，window电脑操作方式应该大体也一样</p>
-</blockquote>
-<h3 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h3><p>1.配置PicGo 图床管理工具，<a href="https://picgo.github.io/PicGo-Doc/zh/guide/getting-started.html" target="_blank" rel="noopener">使用文档</a></p>
-<p>2.打开Typore，选择 Typore =&gt; 偏好设置 =&gt; 图像，然后做如图配置：</p>
-<p><img src="https://ssd.qiniu.dreamfly95.com/image-20200704181634536.png" alt="image-20200704181634536"></p>
-<p>3.点击验证图片上传选项，出现如图验证成功提示，就配置完成了。</p>
-<p><img src="https://ssd.qiniu.dreamfly95.com/image-20200704181826122.png" alt="image-20200704181826122"></p>
-<p>4.这时就可以把本地图片拖到Typore里，图片就会自动传到云端了，大家快去体验一下吧。</p>
-<h3 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h3><p>面朝大海，春暖花开。</p>
-<p>愿你一生努力，一生被爱。</p>
-
+      
+      <a class="article-more-link" href="/2020/07/04/%E6%8A%80%E5%B7%A75-markdown%E5%9B%BE%E7%89%87%E8%87%AA%E5%8A%A8%E4%B8%8A%E4%BC%A0/">阅读更多...</a>
+      
       
       <!-- reward -->
       
@@ -193,43 +182,9 @@
 
       
       <h1 id="关于iOS手机的开发者模式"><a href="#关于iOS手机的开发者模式" class="headerlink" title="关于iOS手机的开发者模式"></a>关于iOS手机的开发者模式</h1><h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>iPhone手机也有开发者选项，这个功能开发或者测试同学都有很大的帮助，今天我们就把这个功能个如何打开，如何关闭，以及各个功能到底有什么作用给大家列一下。</p>
-<h3 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h3><p>1.Xcode （本次文档中使用是 Xcode Version 11.5）</p>
-<p>2.iPhone （本次文档中使用是 iPhone XR iOS13.5.1）</p>
-<h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>开发者每个选项的作用：</p>
-<p><strong>PAIRED DEVICES</strong> </p>
-<p>Clear Trusted Computers 清除受信任的计算机</p>
-<p><strong>INSTRUMENTS</strong></p>
-<p> Logging 点击进入  可以对电量和网络记录情况进行记录 记录的内容可以使用instruments查看。<a href="https://links.jianshu.com/go?to=http%3A%2F%2Fwww.cocoachina.com%2Fios%2F20180806%2F24469.html" target="_blank" rel="noopener">使用方法</a></p>
-<p><strong>Enable UI Automation</strong>  是否允许UI自动化测试</p>
-<p> <a href="https://www.jianshu.com/p/0e28ae1bd2c2" target="_blank" rel="noopener">iOS自动化测试 UI Automation</a></p>
-<p><strong>NETWORKING</strong><br> Network Link Conditioner 网络链接调节器  模拟各种网络情况，可以对APP进行弱网测试。</p>
-<p><strong>AD DEVELOPER APP TESTING</strong> 广告开发者 app测试<br> Fill Rate 填充率<br> Ad Refresh Rate 广告刷新间隔<br> Highlight Clipped Banners  突出显示剪贴横幅<br> Unlimited Ad Presentation  无限广告展示</p>
-<p><strong>PASSKIT TESTING</strong> 测试<br> Addtional Logging 附加登录<br> Allow HTTP Services 允许http服务<br> Disable Rate Limiting  禁止限制速率<br> NFC Pass Key Optional NFC密码可选<br> <a href="https://links.jianshu.com/go?to=https%3A%2F%2Fdeveloper.apple.com%2Fwallet%2F" target="_blank" rel="noopener">官方链接</a></p>
-<p><strong>NEWS TESTING</strong><br> Reset Local Data on Next Launch. 下次启动时重置本地数据<br> Reset layouts,images,and other cached elements. Private data will not be affected.<br> 重置布局、图像和其他缓存元素。私有数据不会受到影响。</p>
-<h3 id="打开方式"><a href="#打开方式" class="headerlink" title="打开方式"></a>打开方式</h3><ol>
-<li><p>用数据线连接mac和iPhone</p>
-</li>
-<li><p>打开Xcode，选择 Xcode -&gt; window -&gt; Devices and Simulators，如图：</p>
-</li>
-</ol>
-<p><img src="https://ssd.qiniu.dreamfly95.com/image-20200704175313401.png" alt="image-20200704175313401"></p>
-<ol start="3">
-<li>选择自己的手机，右键单击选择Show Provisioning Profiles…，如图：</li>
-</ol>
-<p><img src="https://ssd.qiniu.dreamfly95.com/image-20200704175458221.png" alt="image-20200704175458221"></p>
-<ol start="4">
-<li><p>在弹窗中的列表中查看，是否有开发者证书，如果没有，就点击“+”，添加开发者证书，完成后点击“Done”。如图：</p>
-<p><img src="https://ssd.qiniu.dreamfly95.com/image-20200704175643841.png" alt="image-20200704175643841"></p>
-</li>
-<li><p>打开手机设置，在列表里就能看到开发者选项了。</p>
-<p><img src="https://ssd.qiniu.dreamfly95.com/image-20200704175829746.png" alt="image-20200704175829746"></p>
-</li>
-</ol>
-<h3 id="关闭开发者选项"><a href="#关闭开发者选项" class="headerlink" title="关闭开发者选项"></a>关闭开发者选项</h3><p>在未连接mac时，手机关机重启，开发者选项就消失。</p>
-<h3 id="资料来源"><a href="#资料来源" class="headerlink" title="资料来源"></a>资料来源</h3><p><a href="https://www.jianshu.com/p/8dc5787b4728" target="_blank" rel="noopener">https://www.jianshu.com/p/8dc5787b4728</a></p>
-<h3 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h3><p>面朝大海，春暖花开。</p>
-<p>愿你一生努力，一生被爱。</p>
-
+      
+      <a class="article-more-link" href="/2020/07/04/%E6%8A%80%E5%B7%A74-iOS%E6%89%8B%E6%9C%BA%E7%9A%84%E5%BC%80%E5%8F%91%E8%80%85%E6%A8%A1%E5%BC%8F/">阅读更多...</a>
+      
       
       <!-- reward -->
       
@@ -242,6 +197,76 @@
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%8A%80%E5%B7%A7/" rel="tag">技巧</a></li></ul>
+
+
+    </footer>
+
+  </div>
+
+  
+
+  
+  
+  
+
+  
+  
+  
+
+</article>
+    
+    <article id="post-QA1-质量管理和保障" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2020/07/01/QA1-%E8%B4%A8%E9%87%8F%E7%AE%A1%E7%90%86%E5%92%8C%E4%BF%9D%E9%9A%9C/"
+    >质量的管理和保障</a> 
+</h2>
+ 
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2020/07/01/QA1-%E8%B4%A8%E9%87%8F%E7%AE%A1%E7%90%86%E5%92%8C%E4%BF%9D%E9%9A%9C/" class="article-date">
+  <time datetime="2020-07-01T11:41:23.000Z" itemprop="datePublished">2020-07-01</time>
+</a>
+      
+      
+      
+      
+    </div>
+    
+
+    
+
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+      
+
+      
+      <h1 id="软件质量的管理和保障"><a href="#软件质量的管理和保障" class="headerlink" title="软件质量的管理和保障"></a>软件质量的管理和保障</h1><p>互联网企业的发展，离不开用户的需求，而质量问题是用户的需求很重要的一个指标，对于企业而言，软件质量的管理和保障是其中必不可少的一环。从事测试行业多年，对于软件质量的管理和保障也有了一定的认识，下面我谈一下我对这块的看法，也欢迎大家一起进行探讨，学习。</p>
+      
+      <a class="article-more-link" href="/2020/07/01/QA1-%E8%B4%A8%E9%87%8F%E7%AE%A1%E7%90%86%E5%92%8C%E4%BF%9D%E9%9A%9C/">阅读更多...</a>
+      
+      
+      <!-- reward -->
+      
+    </div>
+    
+    
+      <!-- copyright -->
+      
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%B5%8B%E8%AF%95/" rel="tag">测试</a></li></ul>
 
 
     </footer>
@@ -742,83 +767,6 @@
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/" rel="tag">接口测试</a></li></ul>
-
-
-    </footer>
-
-  </div>
-
-  
-
-  
-  
-  
-
-  
-  
-  
-
-</article>
-    
-    <article id="post-技巧2-自建图床" class="article article-type-post" itemscope
-  itemprop="blogPost" data-scroll-reveal>
-
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2020/04/15/%E6%8A%80%E5%B7%A72-%E8%87%AA%E5%BB%BA%E5%9B%BE%E5%BA%8A/"
-    >使用gitee自建图床</a> 
-</h2>
- 
-
-    </header>
-    
-
-    
-    <div class="article-meta">
-      <a href="/2020/04/15/%E6%8A%80%E5%B7%A72-%E8%87%AA%E5%BB%BA%E5%9B%BE%E5%BA%8A/" class="article-date">
-  <time datetime="2020-04-15T12:32:47.000Z" itemprop="datePublished">2020-04-15</time>
-</a>
-      
-      
-      
-      
-    </div>
-    
-
-    
-
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-      
-
-      
-      <h1 id="使用gitee建自己图床"><a href="#使用gitee建自己图床" class="headerlink" title="使用gitee建自己图床"></a>使用gitee建自己图床</h1><h3 id="使用gitee建自己图床的好处："><a href="#使用gitee建自己图床的好处：" class="headerlink" title="使用gitee建自己图床的好处："></a>使用gitee建自己图床的好处：</h3><ol>
-<li><p>都在自己账号内，好管理。</p>
-</li>
-<li><p>支持https，避免使用HTTP而打开时网站提示不安全。</p>
-</li>
-<li><p>丢失概率低</p>
-</li>
-</ol>
-      
-      <a class="article-more-link" href="/2020/04/15/%E6%8A%80%E5%B7%A72-%E8%87%AA%E5%BB%BA%E5%9B%BE%E5%BA%8A/">阅读更多...</a>
-      
-      
-      <!-- reward -->
-      
-    </div>
-    
-    
-      <!-- copyright -->
-      
-    <footer class="article-footer">
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%8A%80%E5%B7%A7/" rel="tag">技巧</a></li></ul>
 
 
     </footer>

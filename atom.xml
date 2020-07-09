@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://yoursite.com/"/>
-  <updated>2020-07-04T10:20:21.397Z</updated>
+  <updated>2020-07-09T08:19:10.340Z</updated>
   <id>https://yoursite.com/</id>
   
   <author>
@@ -21,17 +21,12 @@
     <link href="https://yoursite.com/2020/07/04/%E6%8A%80%E5%B7%A75-markdown%E5%9B%BE%E7%89%87%E8%87%AA%E5%8A%A8%E4%B8%8A%E4%BC%A0/"/>
     <id>https://yoursite.com/2020/07/04/%E6%8A%80%E5%B7%A75-markdown%E5%9B%BE%E7%89%87%E8%87%AA%E5%8A%A8%E4%B8%8A%E4%BC%A0/</id>
     <published>2020-07-04T10:04:47.000Z</published>
-    <updated>2020-07-04T10:20:21.397Z</updated>
+    <updated>2020-07-09T08:19:10.340Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          &lt;h1 id=&quot;markdown图片自动上传&quot;&gt;&lt;a href=&quot;#markdown图片自动上传&quot; class=&quot;headerlink&quot; title=&quot;markdown图片自动上传&quot;&gt;&lt;/a&gt;markdown图片自动上传&lt;/h1&gt;&lt;h3 id=&quot;前言&quot;&gt;&lt;a
-        
-      
+      &lt;h1 id=&quot;markdown图片自动上传&quot;&gt;&lt;a href=&quot;#markdown图片自动上传&quot; class=&quot;headerlink&quot; title=&quot;markdown图片自动上传&quot;&gt;&lt;/a&gt;markdown图片自动上传&lt;/h1&gt;&lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h3&gt;&lt;p&gt;我们写markdown时，里面需要用到的图片，需要上传生成链接后在放到文档里面，图片一旦多了会很麻烦。&lt;/p&gt;
+&lt;p&gt;今天给大家推荐两款应用，结合使用，可以直接把要用的图片直接拖到markdown编写工具内，图片就会自动上传。&lt;/p&gt;
     
     </summary>
     
@@ -46,23 +41,36 @@
     <link href="https://yoursite.com/2020/07/04/%E6%8A%80%E5%B7%A74-iOS%E6%89%8B%E6%9C%BA%E7%9A%84%E5%BC%80%E5%8F%91%E8%80%85%E6%A8%A1%E5%BC%8F/"/>
     <id>https://yoursite.com/2020/07/04/%E6%8A%80%E5%B7%A74-iOS%E6%89%8B%E6%9C%BA%E7%9A%84%E5%BC%80%E5%8F%91%E8%80%85%E6%A8%A1%E5%BC%8F/</id>
     <published>2020-07-04T08:55:48.000Z</published>
-    <updated>2020-07-04T10:00:42.753Z</updated>
+    <updated>2020-07-09T08:19:34.678Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          &lt;h1 id=&quot;关于iOS手机的开发者模式&quot;&gt;&lt;a href=&quot;#关于iOS手机的开发者模式&quot; class=&quot;headerlink&quot; title=&quot;关于iOS手机的开发者模式&quot;&gt;&lt;/a&gt;关于iOS手机的开发者模式&lt;/h1&gt;&lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot;
-        
-      
+      &lt;h1 id=&quot;关于iOS手机的开发者模式&quot;&gt;&lt;a href=&quot;#关于iOS手机的开发者模式&quot; class=&quot;headerlink&quot; title=&quot;关于iOS手机的开发者模式&quot;&gt;&lt;/a&gt;关于iOS手机的开发者模式&lt;/h1&gt;&lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h3&gt;&lt;p&gt;iPhone手机也有开发者选项，这个功能开发或者测试同学都有很大的帮助，今天我们就把这个功能个如何打开，如何关闭，以及各个功能到底有什么作用给大家列一下。&lt;/p&gt;
     
     </summary>
     
     
     
       <category term="技巧" scheme="https://yoursite.com/tags/%E6%8A%80%E5%B7%A7/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>质量的管理和保障</title>
+    <link href="https://yoursite.com/2020/07/01/QA1-%E8%B4%A8%E9%87%8F%E7%AE%A1%E7%90%86%E5%92%8C%E4%BF%9D%E9%9A%9C/"/>
+    <id>https://yoursite.com/2020/07/01/QA1-%E8%B4%A8%E9%87%8F%E7%AE%A1%E7%90%86%E5%92%8C%E4%BF%9D%E9%9A%9C/</id>
+    <published>2020-07-01T11:41:23.000Z</published>
+    <updated>2020-07-08T09:45:22.446Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;软件质量的管理和保障&quot;&gt;&lt;a href=&quot;#软件质量的管理和保障&quot; class=&quot;headerlink&quot; title=&quot;软件质量的管理和保障&quot;&gt;&lt;/a&gt;软件质量的管理和保障&lt;/h1&gt;&lt;p&gt;互联网企业的发展，离不开用户的需求，而质量问题是用户的需求很重要的一个指标，对于企业而言，软件质量的管理和保障是其中必不可少的一环。从事测试行业多年，对于软件质量的管理和保障也有了一定的认识，下面我谈一下我对这块的看法，也欢迎大家一起进行探讨，学习。&lt;/p&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="测试" scheme="https://yoursite.com/tags/%E6%B5%8B%E8%AF%95/"/>
     
   </entry>
   
