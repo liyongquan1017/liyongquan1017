@@ -3,7 +3,7 @@
   <entry>
     <title>测试工程师知识图谱</title>
     <url>/2020/05/30/QA2-%E6%B5%8B%E8%AF%95%E5%B7%A5%E7%A8%8B%E5%B8%88%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1/</url>
-    <content><![CDATA[<h1 id="测试工程师必备知识图谱"><a href="#测试工程师必备知识图谱" class="headerlink" title="测试工程师必备知识图谱"></a>测试工程师必备知识图谱</h1><h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>有很多同学对于测试工程师必备的测试技能不是很清晰，对自己以后的规划也不是很明了，不知道自己到底该从哪个方向努力或发展，下面是我从其他大佬那找的测试工程师必备知识图谱，也许能能给大家带来一些帮助。</p>
+    <content><![CDATA[<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>有很多同学对于测试工程师必备的测试技能不是很清晰，对自己以后的规划也不是很明了，不知道自己到底该从哪个方向努力或发展，下面是我从其他大佬那找的测试工程师必备知识图谱，也许能能给大家带来一些帮助。</p>
 <a id="more"></a>
 
 <h3 id="图谱"><a href="#图谱" class="headerlink" title="图谱"></a>图谱</h3><p><img src="https://ssd.qiniu.dreamfly95.com/TesterSkillMap3.png" alt="TesterSkillMap3"></p>
@@ -19,7 +19,7 @@
   <entry>
     <title>使用gitee自建图床</title>
     <url>/2020/04/15/%E6%8A%80%E5%B7%A72-%E8%87%AA%E5%BB%BA%E5%9B%BE%E5%BA%8A/</url>
-    <content><![CDATA[<h1 id="使用gitee建自己图床"><a href="#使用gitee建自己图床" class="headerlink" title="使用gitee建自己图床"></a>使用gitee建自己图床</h1><h3 id="使用gitee建自己图床的好处："><a href="#使用gitee建自己图床的好处：" class="headerlink" title="使用gitee建自己图床的好处："></a>使用gitee建自己图床的好处：</h3><ol>
+    <content><![CDATA[<h3 id="使用gitee建自己图床的好处："><a href="#使用gitee建自己图床的好处：" class="headerlink" title="使用gitee建自己图床的好处："></a>使用gitee建自己图床的好处：</h3><ol>
 <li><p>都在自己账号内，好管理。</p>
 </li>
 <li><p>支持https，避免使用HTTP而打开时网站提示不安全。</p>
@@ -37,13 +37,14 @@
 <h3 id="开始搭建图床"><a href="#开始搭建图床" class="headerlink" title="开始搭建图床"></a>开始搭建图床</h3><ol>
 <li>打开自己的gitee,新建一个仓库</li>
 </ol>
-<p>   <img src="https://dreams_quan.gitee.io/images/images/blog/makeGitee1.png" alt="makeGitee1"></p>
-<p>   <img src="https://dreams_quan.gitee.io/images/images/blog/makeGitee2.png" alt="makeGitee2"></p>
+<p>   <img src="https://ssd.qiniu.dreamfly95.com/makeGitee1.png" alt="makeGitee1"></p>
+<p>   <img src="https://ssd.qiniu.dreamfly95.com/makeGitee2.png" alt="makeGitee2"></p>
 <ol start="2">
-<li>创建完成后，新建一个文件，必须是index.html</li>
+<li><p>创建完成后，新建一个文件，必须是index.html</p>
+<p><img src="https://ssd.qiniu.dreamfly95.com/makeGitee3.png" alt="makeGitee3"></p>
+</li>
 </ol>
-<p>   <img src="https://dreams_quan.gitee.io/images/images/blog/makeGitee3.png" alt="makeGitee3"></p>
-<p>   <img src="https://dreams_quan.gitee.io/images/images/blog/makeGitee4.png" alt="makeGitee4"></p>
+<p>   <img src="https://ssd.qiniu.dreamfly95.com/makeGitee4.png" alt="makeGitee4"></p>
    <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">&lt;meta charset=&quot;utf-8&quot;&gt;</span><br><span class="line">&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;</span><br><span class="line">&lt;title&gt;我的图床首页&lt;/title&gt;</span><br><span class="line">&lt;meta name=&quot;description&quot; content=&quot;&quot;&gt;</span><br><span class="line">&lt;meta name=&quot;author&quot; content=&quot;&quot;&gt;</span><br></pre></td></tr></table></figure>
 
 
@@ -51,8 +52,7 @@
 <ol start="3">
 <li>保存后，点击仓库上方的，服务=》‘Gitee Pages’，然后进去点击更新，等几秒钟，然后点击网站地址，就会跳转到一个空白的网页，图床基本就搭建完成了。</li>
 </ol>
-<p>   <img src="https://dreams_quan.gitee.io/images/images/blog/makeGitee5.png" alt="makeGitee5"></p>
-<p>   <img src="https://dreams_quan.gitee.io/images/images/blog/makeGitee6.png" alt="makeGitee5"></p>
+<p>   <img src="https://ssd.qiniu.dreamfly95.com/makeGitee6.png" alt="makeGitee6"></p>
 <ol start="4">
 <li><p>然后自己搭建本地库，关联自己刚新建的gitee仓库，到时在自己的本地库新建个文件夹保存图片，保存完push到自己的远程 gitee库（或者直接在gitee自己建的仓库内）。</p>
 <!--注意：每次push完或上传完图片都需要把第三步执行一遍，这样图片才能通过你的图床正常访问-->
@@ -85,7 +85,7 @@
 <li>输入<code>cd ~/.ssh</code></li>
 <li>然后输入<code>ls</code>,查看是否有<code>id_rsa</code>和<code>id_rsa.pub</code></li>
 </ul>
-<p><img src="/Users/liyongquan/Desktop/image/images/blog/cdssh.png" alt=""></p>
+<p><img src="https://ssd.qiniu.dreamfly95.com/cdssh.png" alt="cdssh"></p>
 <ul>
 <li>如果有则执行第2部，如果没有上述两个文件就执行 <code>ssh-keygen -trsa -C xxxxx@XXX.com</code>(xxxxx@XXX.com为你注册github时的邮箱)，然后开始执行第二部</li>
 </ul>
@@ -94,19 +94,19 @@
 <li><p>查看公钥内容</p>
 <ul>
 <li><p>执行<code>cat ~/.ssh/id_rsa.pub</code></p>
-<p><img src="/Users/liyongquan/Desktop/image/images/blog/catssh.png" alt=""></p>
+<p><img src="https://ssd.qiniu.dreamfly95.com/catssh.png" alt="catssh"></p>
 </li>
 </ul>
 </li>
 <li><p>复制公钥内容，全部内容，以ssh-rsa开头的全部内容。粘贴至你所要建立安全连接的平台，这里咦gitee为例：</p>
 <ul>
-<li>打开<a href="https://gitee.com/" target="_blank" rel="noopener">gitee</a>并登陆账户,按下图操作</li>
+<li><p>打开<a href="https://gitee.com/" target="_blank" rel="noopener">gitee</a>并登陆账户,按下图操作</p>
+<p><img src="https://ssd.qiniu.dreamfly95.com/giteessh1.png" alt="giteessh1"></p>
+</li>
 </ul>
-<p><img src="/Users/liyongquan/Desktop/image/images/blog/giteessh1.png" alt=""></p>
 </li>
 </ol>
-<p>   <img src="/Users/liyongquan/Desktop/image/images/blog/giteessh2.png" alt=""></p>
-<p>   <img src="/Users/liyongquan/Desktop/image/images/blog/giteessh3.png" alt=""></p>
+<p>   <img src="https://ssd.qiniu.dreamfly95.com/giteessh2.png" alt="giteessh2"></p>
 <ul>
 <li>然后点击保存就OK了，其他例如 github,gitlab等都一样</li>
 </ul>
@@ -115,13 +115,13 @@
 <ul>
 <li><p>终端执行 <code>ssh -T git@gitee.com</code>   (@后面的可以换成你想要连接的平台的网址就OK)</p>
 </li>
-<li><p>如果成功则会提示 You’ve successfully</p>
-<p><img src="/Users/liyongquan/Desktop/image/images/blog/sshtest.png" alt=""></p>
+<li><p>如果成功则会提示 You’ve successfully<img src="https://ssd.qiniu.dreamfly95.com/giteessh3.png" alt="giteessh3"></p>
 </li>
 </ul>
 </li>
-<li><p>完工！！！</p>
-</li>
+</ol>
+<ol start="5">
+<li>完工！！！</li>
 </ol>
 ]]></content>
       <tags>
@@ -131,7 +131,7 @@
   <entry>
     <title>Markdown的使用</title>
     <url>/2020/05/26/%E6%8A%80%E5%B7%A73-Markdown%E7%9A%84%E4%BD%BF%E7%94%A8/</url>
-    <content><![CDATA[<h1 id="Markdown的使用"><a href="#Markdown的使用" class="headerlink" title="Markdown的使用"></a>Markdown的使用</h1><h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>Markdown 是一种轻量级标记语言，它允许人们使用易读易写的纯文本格式编写文档。</p>
+    <content><![CDATA[<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>Markdown 是一种轻量级标记语言，它允许人们使用易读易写的纯文本格式编写文档。</p>
 <p>Markdown 编写的文档后缀为 <code>.md</code>, <code>.markdown</code>，可以导出 HTML 、Word、图像、PDF、Epub 等多种格式的文档。当前许多网站都广泛使用 Markdown 来撰写帮助文档或是用于论坛上发表消息。例如：GitHub、简书等。</p>
 <p>通俗一点讲，使用Markdown写文档可以让你的文档格式比较规范明了，看着比较优美，本文的教程就是用Markdown写的。</p>
 <a id="more"></a>
@@ -177,7 +177,7 @@
   <entry>
     <title>我的祖国</title>
     <url>/2020/06/03/%E8%AF%BB%E4%B9%A61-%E6%88%91%E7%9A%84%E7%A5%96%E5%9B%BD/</url>
-    <content><![CDATA[<p><img src="https://dreams_quan.gitee.io/images/images/blog/china.jpg" alt=""></p>
+    <content><![CDATA[<p><img src="https://ssd.qiniu.dreamfly95.com/china.jpg" alt="china"></p>
 <p>我和我的祖国</p>
 <p>一刻也不能分割</p>
 <p>无论我走到哪里</p>
@@ -212,7 +212,7 @@
   <entry>
     <title>测试全流程图解</title>
     <url>/2020/06/02/QA3-%E6%B5%8B%E8%AF%95%E5%85%A8%E6%B5%81%E7%A8%8B%E5%9B%BE%E8%A7%A3/</url>
-    <content><![CDATA[<h1 id="测试全流程图解"><a href="#测试全流程图解" class="headerlink" title="测试全流程图解"></a>测试全流程图解</h1><h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>对于测试流程，大部分做测试的同学都能说个七七八八，但是对于一些细节，可能还是一知半解的，以下是对测试全流程整理的一个图谱，应该可以给大家带来一些帮助，如有不妥的地方，烦请指正。</p>
+    <content><![CDATA[<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>对于测试流程，大部分做测试的同学都能说个七七八八，但是对于一些细节，可能还是一知半解的，以下是对测试全流程整理的一个图谱，应该可以给大家带来一些帮助，如有不妥的地方，烦请指正。</p>
 <a id="more"></a>
 
 <h3 id="图谱"><a href="#图谱" class="headerlink" title="图谱"></a>图谱</h3><p><img src="https://ssd.qiniu.dreamfly95.com/image-20200530184050663.png" alt="image-20200530184050663"></p>
@@ -226,7 +226,7 @@
   <entry>
     <title>能力陷阱</title>
     <url>/2019/10/25/%E8%AF%BB%E4%B9%A62-%E8%83%BD%E5%8A%9B%E9%99%B7%E9%98%B1/</url>
-    <content><![CDATA[<p><img src="https://dreams_quan.gitee.io/images/images/blog/NLXJ.png" alt=""></p>
+    <content><![CDATA[<p><img src="https://ssd.qiniu.dreamfly95.com/NLXJ.png" alt="NLXJ"></p>
 <p>​         本书深刻揭示职场的三大观念陷阱，提出“先行动，后思考”的方法，打破了传统领导者的养成法则，帮助那些渴望成为优秀领导者的人学会如何扩展业务范围，如何提出更好的策略性意见，以及如何扩建人际关系网络并引领他们朝着不同的方向发展自己。</p>
 <a id="more"></a>
 
@@ -353,7 +353,7 @@
   <entry>
     <title>怎么打开iOS手机的开发者模式</title>
     <url>/2020/07/04/%E6%8A%80%E5%B7%A74-iOS%E6%89%8B%E6%9C%BA%E7%9A%84%E5%BC%80%E5%8F%91%E8%80%85%E6%A8%A1%E5%BC%8F/</url>
-    <content><![CDATA[<h1 id="关于iOS手机的开发者模式"><a href="#关于iOS手机的开发者模式" class="headerlink" title="关于iOS手机的开发者模式"></a>关于iOS手机的开发者模式</h1><h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>iPhone手机也有开发者选项，这个功能开发或者测试同学都有很大的帮助，今天我们就把这个功能个如何打开，如何关闭，以及各个功能到底有什么作用给大家列一下。</p>
+    <content><![CDATA[<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>iPhone手机也有开发者选项，这个功能开发或者测试同学都有很大的帮助，今天我们就把这个功能个如何打开，如何关闭，以及各个功能到底有什么作用给大家列一下。</p>
 <a id="more"></a>
 
 <h3 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h3><p>1.Xcode （本次文档中使用是 Xcode Version 11.5）</p>
@@ -400,7 +400,7 @@
   <entry>
     <title>markdown图片自动上传</title>
     <url>/2020/07/04/%E6%8A%80%E5%B7%A75-markdown%E5%9B%BE%E7%89%87%E8%87%AA%E5%8A%A8%E4%B8%8A%E4%BC%A0/</url>
-    <content><![CDATA[<h1 id="markdown图片自动上传"><a href="#markdown图片自动上传" class="headerlink" title="markdown图片自动上传"></a>markdown图片自动上传</h1><h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>我们写markdown时，里面需要用到的图片，需要上传生成链接后在放到文档里面，图片一旦多了会很麻烦。</p>
+    <content><![CDATA[<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>我们写markdown时，里面需要用到的图片，需要上传生成链接后在放到文档里面，图片一旦多了会很麻烦。</p>
 <p>今天给大家推荐两款应用，结合使用，可以直接把要用的图片直接拖到markdown编写工具内，图片就会自动上传。</p>
 <a id="more"></a>
 
@@ -425,7 +425,7 @@
   <entry>
     <title>接口测试之requests用法（2）</title>
     <url>/2020/05/27/interfaceTest/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%952%E4%B9%8BRequests%E7%94%A8%E6%B3%95/</url>
-    <content><![CDATA[<h1 id="接口测试之Requests用法"><a href="#接口测试之Requests用法" class="headerlink" title="接口测试之Requests用法"></a>接口测试之Requests用法</h1><h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>要学接口自动化，或者爬虫等，Requests库的使用是必备知识，也是给你打开自动化大门的一把钥匙。</p>
+    <content><![CDATA[<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>要学接口自动化，或者爬虫等，Requests库的使用是必备知识，也是给你打开自动化大门的一把钥匙。</p>
 <p>Requests的口号是为人类服务，也是唯一的一个<strong>非转基因</strong>的 Python HTTP 库，人类可以安全享用。</p>
 <a id="more"></a>
 
@@ -448,7 +448,7 @@
   <entry>
     <title>接口测试之构造请求参数（1）</title>
     <url>/2020/05/25/interfaceTest/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%951%E4%B9%8B%E6%9E%84%E9%80%A0%E5%8F%82%E6%95%B0/</url>
-    <content><![CDATA[<h1 id="接口测试之构造请求参数（1）"><a href="#接口测试之构造请求参数（1）" class="headerlink" title="接口测试之构造请求参数（1）"></a>接口测试之构造请求参数（1）</h1><h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>接口测试中，我们需要去手动输入请求参数组合，因为输入法等问题，可能会造成标点或括号等输错，最后出错后，还不大好排查。因此我们通过构造请求参数，能大大避免这类问题的发生。这也是最基础的知识，</p>
+    <content><![CDATA[<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>接口测试中，我们需要去手动输入请求参数组合，因为输入法等问题，可能会造成标点或括号等输错，最后出错后，还不大好排查。因此我们通过构造请求参数，能大大避免这类问题的发生。这也是最基础的知识，</p>
 <blockquote>
 <p>另我们使用Postman输入请求参数时，也可以先用Python构造请求参数，然后再使用。不过这个因人而异，如果你对自己有信心，直接手拼也OK。</p>
 </blockquote>
@@ -536,7 +536,7 @@
   <entry>
     <title>接口测试之模拟抽奖概率计算（3）</title>
     <url>/2020/05/31/interfaceTest/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%953%E4%B9%8B%E6%A8%A1%E6%8B%9F%E6%8A%BD%E5%A5%96%E6%A6%82%E7%8E%87%E8%AE%A1%E7%AE%97/</url>
-    <content><![CDATA[<h1 id="接口测试之模拟抽奖概率计算（3）"><a href="#接口测试之模拟抽奖概率计算（3）" class="headerlink" title="接口测试之模拟抽奖概率计算（3）"></a>接口测试之模拟抽奖概率计算（3）</h1><h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>在很多公司测试过程中会有抽奖概率测试，如果用手动去模拟，会很不现实，一般都是从接口入手，模拟跑1万到10万次或者更多，来计算概率是否符合预期。本教程先不涉及接口，只是单纯的去了解一下怎么取计算抽奖概率。</p>
+    <content><![CDATA[<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>在很多公司测试过程中会有抽奖概率测试，如果用手动去模拟，会很不现实，一般都是从接口入手，模拟跑1万到10万次或者更多，来计算概率是否符合预期。本教程先不涉及接口，只是单纯的去了解一下怎么取计算抽奖概率。</p>
 <a id="more"></a>
 
 <h3 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h3><p>1.一个包含各种奖项的奖池。</p>
@@ -559,9 +559,9 @@
       </tags>
   </entry>
   <entry>
-    <title>质量的管理和保障</title>
+    <title>软件质量的管理和保障</title>
     <url>/2020/07/01/QA1-%E8%B4%A8%E9%87%8F%E7%AE%A1%E7%90%86%E5%92%8C%E4%BF%9D%E9%9A%9C/</url>
-    <content><![CDATA[<h1 id="软件质量的管理和保障"><a href="#软件质量的管理和保障" class="headerlink" title="软件质量的管理和保障"></a>软件质量的管理和保障</h1><p>互联网企业的发展，离不开用户的需求，而质量问题是用户的需求很重要的一个指标，对于企业而言，软件质量的管理和保障是其中必不可少的一环。从事测试行业多年，对于软件质量的管理和保障也有了一定的认识，下面我谈一下我对这块的看法，也欢迎大家一起进行探讨，学习。</p>
+    <content><![CDATA[<p>互联网企业的发展，离不开用户的需求，而质量问题是用户的需求很重要的一个指标，对于企业而言，软件质量的管理和保障是其中必不可少的一环。从事测试行业多年，对于软件质量的管理和保障也有了一定的认识，下面我谈一下我对这块的看法，也欢迎大家一起进行探讨，学习。</p>
 <a id="more"></a>
 
 <p>对于保证软件质量，我们要从测试流程，测试技能等入手，首先我们说下测试流程，具体包括：</p>

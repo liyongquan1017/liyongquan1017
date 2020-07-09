@@ -107,7 +107,7 @@
 <li>输入<code>cd ~/.ssh</code></li>
 <li>然后输入<code>ls</code>,查看是否有<code>id_rsa</code>和<code>id_rsa.pub</code></li>
 </ul>
-<p><img src="/Users/liyongquan/Desktop/image/images/blog/cdssh.png" alt=""></p>
+<p><img src="https://ssd.qiniu.dreamfly95.com/cdssh.png" alt="cdssh"></p>
 <ul>
 <li>如果有则执行第2部，如果没有上述两个文件就执行 <code>ssh-keygen -trsa -C xxxxx@XXX.com</code>(xxxxx@XXX.com为你注册github时的邮箱)，然后开始执行第二部</li>
 </ul>
@@ -116,19 +116,19 @@
 <li><p>查看公钥内容</p>
 <ul>
 <li><p>执行<code>cat ~/.ssh/id_rsa.pub</code></p>
-<p><img src="/Users/liyongquan/Desktop/image/images/blog/catssh.png" alt=""></p>
+<p><img src="https://ssd.qiniu.dreamfly95.com/catssh.png" alt="catssh"></p>
 </li>
 </ul>
 </li>
 <li><p>复制公钥内容，全部内容，以ssh-rsa开头的全部内容。粘贴至你所要建立安全连接的平台，这里咦gitee为例：</p>
 <ul>
-<li>打开<a href="https://gitee.com/" target="_blank" rel="noopener">gitee</a>并登陆账户,按下图操作</li>
+<li><p>打开<a href="https://gitee.com/" target="_blank" rel="noopener">gitee</a>并登陆账户,按下图操作</p>
+<p><img src="https://ssd.qiniu.dreamfly95.com/giteessh1.png" alt="giteessh1"></p>
+</li>
 </ul>
-<p><img src="/Users/liyongquan/Desktop/image/images/blog/giteessh1.png" alt=""></p>
 </li>
 </ol>
-<p>   <img src="/Users/liyongquan/Desktop/image/images/blog/giteessh2.png" alt=""></p>
-<p>   <img src="/Users/liyongquan/Desktop/image/images/blog/giteessh3.png" alt=""></p>
+<p>   <img src="https://ssd.qiniu.dreamfly95.com/giteessh2.png" alt="giteessh2"></p>
 <ul>
 <li>然后点击保存就OK了，其他例如 github,gitlab等都一样</li>
 </ul>
@@ -137,13 +137,13 @@
 <ul>
 <li><p>终端执行 <code>ssh -T git@gitee.com</code>   (@后面的可以换成你想要连接的平台的网址就OK)</p>
 </li>
-<li><p>如果成功则会提示 You’ve successfully</p>
-<p><img src="/Users/liyongquan/Desktop/image/images/blog/sshtest.png" alt=""></p>
+<li><p>如果成功则会提示 You’ve successfully<img src="https://ssd.qiniu.dreamfly95.com/giteessh3.png" alt="giteessh3"></p>
 </li>
 </ul>
 </li>
-<li><p>完工！！！</p>
-</li>
+</ol>
+<ol start="5">
+<li>完工！！！</li>
 </ol>
 
       
