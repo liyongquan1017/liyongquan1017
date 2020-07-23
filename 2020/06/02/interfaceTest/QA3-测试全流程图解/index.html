@@ -11,7 +11,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <title>
-    测试用例的编写 |  Dreaming
+    测试全流程图解 |  Dreaming
   </title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   
@@ -35,7 +35,7 @@
   <div id="app">
     <main class="content on">
       <section class="outer">
-  <article id="post-QA4-测试用例设计方法" class="article article-type-post" itemscope
+  <article id="post-interfaceTest/QA3-测试全流程图解" class="article article-type-post" itemscope
   itemprop="blogPost" data-scroll-reveal>
 
   <div class="article-inner">
@@ -43,7 +43,7 @@
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  测试用例的编写
+  测试全流程图解
 </h1>
  
 
@@ -52,8 +52,8 @@
 
     
     <div class="article-meta">
-      <a href="/2019/10/25/QA4-%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B%E8%AE%BE%E8%AE%A1%E6%96%B9%E6%B3%95/" class="article-date">
-  <time datetime="2019-10-25T08:16:04.000Z" itemprop="datePublished">2019-10-25</time>
+      <a href="/2020/06/02/interfaceTest/QA3-%E6%B5%8B%E8%AF%95%E5%85%A8%E6%B5%81%E7%A8%8B%E5%9B%BE%E8%A7%A3/" class="article-date">
+  <time datetime="2020-06-02T07:00:52.000Z" itemprop="datePublished">2020-06-02</time>
 </a>
       
       
@@ -63,7 +63,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">1.7k</span>
+            <span class="post-count">104</span>
         </span>
     </span>
 
@@ -72,7 +72,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> 阅读时长≈</span>
-            <span class="post-count">5 分钟</span>
+            <span class="post-count">1 分钟</span>
         </span>
     </span>
 </div>
@@ -97,93 +97,12 @@
       
 
       
-      <h3 id="测试用例设计方法"><a href="#测试用例设计方法" class="headerlink" title="测试用例设计方法"></a>测试用例设计方法</h3><ul>
-<li><p>逐级细分法</p>
-</li>
-<li><p>输入域测试法</p>
-</li>
-<li><p>输出域分析法</p>
-</li>
-<li><p>正交试验设计法</p>
+      <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>对于测试流程，大部分做测试的同学都能说个七七八八，但是对于一些细节，可能还是一知半解的，以下是对测试全流程整理的一个图谱，应该可以给大家带来一些帮助，如有不妥的地方，烦请指正。</p>
 <a id="more"></a>
-</li>
-<li><p>业务流程分析法</p>
-</li>
-<li><p>状态迁移法</p>
-</li>
-<li><p>因果图法</p>
-</li>
-<li><p>判定表法</p>
-</li>
-<li><p>错误猜测法</p>
-</li>
-<li><p>等价类划分法 （等价类划分方法，是将所有可能的输入数据划分成若干个子集，在每个子集中，如果任意一个输入数据对于揭露程序中潜在错误都具有同等效果，那么这样的子集就构成了一个等价类。后续只要从每个等价类中任意选取一个值进行测试，就可以用少量具有代表性的测试输入取得较好的测试覆盖结果）</p>
-</li>
-<li><p>边界值分析法（边界值分析方法，是选取输入、输出的边界值进行测试。因为通常大量的软件错误是发生在输入或输出范围的边界上，所以需要对边界值进行重点测试，通常选取正好等于、刚刚大于或刚刚小于边界的值作为测试数据。 从方法论上可以看出来，边界值分析是对等价类划分的补充，所以这两种测试方法经常结合起来使用。</p>
-</li>
-</ul>
-<hr>
-<h4 id="‘用户登录’设计测试用例"><a href="#‘用户登录’设计测试用例" class="headerlink" title="‘用户登录’设计测试用例"></a>‘用户登录’设计测试用例</h4><blockquote>
-<p>目标是要保证系统在各种应用场景下的功能是符合设计要求的，这样考虑的测试用例就需要更多、更全面。</p>
-</blockquote>
-<h5 id="基于等价类划分和边界值分析方法，我们设计的测试用例包括："><a href="#基于等价类划分和边界值分析方法，我们设计的测试用例包括：" class="headerlink" title="基于等价类划分和边界值分析方法，我们设计的测试用例包括："></a>基于等价类划分和边界值分析方法，我们设计的测试用例包括：</h5><ol>
-<li>输入已注册的用户名和正确的密码，验证是否登录成功</li>
-<li>输入已注册的用户名和不正确的密码，验证是否登录失败，并且提示信息正确</li>
-<li>输入未注册的用户名和任意密码，验证是否登录失败，并且提示信息正确；</li>
-<li>用户名和密码两者都为空，验证是否登录失败，并且提示信息正确</li>
-<li>用户名和密码两者之一为空，验证是否登录失败，并且提示信息正确；</li>
-<li>如果登录功能启用了验证码功能，在用户名和密码正确的前提下，输入正确的验证码，验证是否登录成功；</li>
-<li>如果登录功能启用了验证码功能，在用户名和密码正确的前提下，输入错误的验证码，验证是否登录失败，并且提示信息正确。</li>
-</ol>
-<h5 id="需要弥补的测试用例"><a href="#需要弥补的测试用例" class="headerlink" title="需要弥补的测试用例"></a>需要弥补的测试用例</h5><ol>
-<li>用户名和密码是否大小写敏感；</li>
-<li>页面上的密码框是否加密显示；</li>
-<li>后台系统创建的用户第一次登录成功时，是否提示修改密码</li>
-<li>忘记用户名和忘记密码的功能是否可用</li>
-<li>前端页面是否根据设计要求限制用户名和密码长度；</li>
-<li>如果登录功能需要验证码，点击验证码图片是否可以更换验证码，更换后的验证码是否可用</li>
-<li>刷新页面是否会刷新验证码；</li>
-<li>如果验证码具有时效性，需要分别验证时效内和时效外验证码的有效性</li>
-<li>用户登录成功但是会话超时后，继续操作是否会重定向到用户登录界面</li>
-<li>不同级别的用户，比如管理员用户和普通用户，登录系统后的权限是否正确</li>
-<li>页面默认焦点是否定位在用户名的输入框中</li>
-<li>快捷键Tab和Enter等，是否可以正常使用</li>
-</ol>
-<h5 id="安全性测试用例包括"><a href="#安全性测试用例包括" class="headerlink" title="安全性测试用例包括"></a>安全性测试用例包括</h5><blockquote>
-<p>一个质量过硬的软件系统，除了显式功能性需求以外，其他的非功能性需求即隐式功能性需求也是极其关键的。</p>
-</blockquote>
-<blockquote>
-<p>显式功能性需求（Functional requirement）的含义从字面上就可以很好地理解，指的是软件本身需要实现的具体功能， 比如“正常用户使用正确的用户名和密码可以成功登录”、“非注册用户无法登录”等，这都是属于典型的显式功能性需求描述。</p>
-</blockquote>
-<blockquote>
-<p>那什么是非功能性需求（Non-functional requirement）呢？从软件测试的维度来看，非功能性需求主要涉及安全性、性能以及兼容性三大方面。</p>
-</blockquote>
-<ol>
-<li>用户密码后台存储是否加密</li>
-<li>用户密码在网络传输过程中是否加密</li>
-<li>密码是否具有有效期，密码有效期到期后，是否提示需要修改密码</li>
-<li>不登录的情况下，在浏览器中直接输入登录后的URL地址，验证是否会重新定向到用户登录界面；</li>
-<li>密码输入框是否不支持复制和粘贴；</li>
-<li>密码输入框内输入的密码是否都可以在页面源码模式下被查看；</li>
-<li>用户名和密码的输入框中分别输入典型的“SQL注入攻击”字符串，验证系统的返回页面；</li>
-<li>用户名和密码的输入框中分别输入典型的“XSS跨站脚本攻击”字符串，验证系统行为是否被篡改；</li>
-<li>连续多次登录失败情况下，系统是否会阻止后续的尝试以应对暴力破解；</li>\n 同一用户在同一终端的多种浏览器上登录，验证登录功能的互斥性是否符合设计预期；</li>
-<li>同一用户先后在多台终端的浏览器上登录，验证登录是否具有互斥性。</li>
-</ol>
-<h5 id="性能压力测试用例包括"><a href="#性能压力测试用例包括" class="headerlink" title="性能压力测试用例包括:"></a>性能压力测试用例包括:</h5><ol>
-<li>单用户登录的响应时间是否小于3秒；</li>
-<li>单用户登录时，后台请求数量是否过多；</li>
-<li>高并发场景下用户登录的响应时间是否小于5秒；</li>
-<li>高并发场景下服务端的监控指标是否符合预期；</li>
-<li>高集合点并发场景下，是否存在资源死锁和不合理的资源等待；</li>
-<li>长时间大量用户连续登录和登出，服务器端是否存在内存泄漏。</li>
-</ol>
-<h5 id="兼容性测试用例包括："><a href="#兼容性测试用例包括：" class="headerlink" title="兼容性测试用例包括："></a>兼容性测试用例包括：</h5><ol>
-<li>不同浏览器下，验证登录页面的显示以及功能正确性；</li>
-<li>相同浏览器的不同版本下，验证登录页面的显示以及功能正确性；</li>
-<li>不同移动设备终端的不同浏览器下，验证登录页面的显示以及功能正确性；</li>
-<li>不同分辨率的界面下，验证登录页面的显示以及功能正确性。</li>
-</ol>
+
+<h3 id="图谱"><a href="#图谱" class="headerlink" title="图谱"></a>图谱</h3><p><img src="https://ssd.qiniu.dreamfly95.com/image-20200530184050663.png" alt="image-20200530184050663"></p>
+<h3 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h3><p>面朝大海，春暖花开。</p>
+<p>愿你一生努力，一生被爱。</p>
 
       
       <!-- reward -->
@@ -252,7 +171,7 @@
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://yoursite.com/2019/10/25/QA4-%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B%E8%AE%BE%E8%AE%A1%E6%96%B9%E6%B3%95/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://yoursite.com/2020/06/02/interfaceTest/QA3-%E6%B5%8B%E8%AF%95%E5%85%A8%E6%B5%81%E7%A8%8B%E5%9B%BE%E8%A7%A3/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -270,15 +189,20 @@
   
   <nav class="article-nav">
     
-      <a href="/2019/10/25/%E8%AF%BB%E4%B9%A62-%E8%83%BD%E5%8A%9B%E9%99%B7%E9%98%B1/" class="article-nav-link">
+      <a href="/2020/07/04/skill/%E6%8A%80%E5%B7%A74-iOS%E6%89%8B%E6%9C%BA%E7%9A%84%E5%BC%80%E5%8F%91%E8%80%85%E6%A8%A1%E5%BC%8F/" class="article-nav-link">
         <strong class="article-nav-caption">上一篇</strong>
         <div class="article-nav-title">
           
-            能力陷阱
+            怎么打开iOS手机的开发者模式
           
         </div>
       </a>
     
+    
+      <a href="/2020/05/31/interfaceTest/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%953%E4%B9%8B%E6%A8%A1%E6%8B%9F%E6%8A%BD%E5%A5%96%E6%A6%82%E7%8E%87%E8%AE%A1%E7%AE%97/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">接口测试之模拟抽奖概率计算（3）</div>
+      </a>
     
   </nav>
 

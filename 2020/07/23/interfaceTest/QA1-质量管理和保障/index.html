@@ -11,7 +11,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <title>
-    Markdown的使用 |  Dreaming
+    软件质量的管理和保障 |  Dreaming
   </title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   
@@ -35,7 +35,7 @@
   <div id="app">
     <main class="content on">
       <section class="outer">
-  <article id="post-技巧3-Markdown的使用" class="article article-type-post" itemscope
+  <article id="post-interfaceTest/QA1-质量管理和保障" class="article article-type-post" itemscope
   itemprop="blogPost" data-scroll-reveal>
 
   <div class="article-inner">
@@ -43,7 +43,7 @@
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  Markdown的使用
+  软件质量的管理和保障
 </h1>
  
 
@@ -52,8 +52,8 @@
 
     
     <div class="article-meta">
-      <a href="/2020/05/26/%E6%8A%80%E5%B7%A73-Markdown%E7%9A%84%E4%BD%BF%E7%94%A8/" class="article-date">
-  <time datetime="2020-05-26T15:14:06.000Z" itemprop="datePublished">2020-05-26</time>
+      <a href="/2020/07/23/interfaceTest/QA1-%E8%B4%A8%E9%87%8F%E7%AE%A1%E7%90%86%E5%92%8C%E4%BF%9D%E9%9A%9C/" class="article-date">
+  <time datetime="2020-07-23T13:30:25.000Z" itemprop="datePublished">2020-07-23</time>
 </a>
       
       
@@ -63,7 +63,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">588</span>
+            <span class="post-count">594</span>
         </span>
     </span>
 
@@ -97,42 +97,27 @@
       
 
       
-      <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>Markdown 是一种轻量级标记语言，它允许人们使用易读易写的纯文本格式编写文档。</p>
-<p>Markdown 编写的文档后缀为 <code>.md</code>, <code>.markdown</code>，可以导出 HTML 、Word、图像、PDF、Epub 等多种格式的文档。当前许多网站都广泛使用 Markdown 来撰写帮助文档或是用于论坛上发表消息。例如：GitHub、简书等。</p>
-<p>通俗一点讲，使用Markdown写文档可以让你的文档格式比较规范明了，看着比较优美，本文的教程就是用Markdown写的。</p>
+      <p>互联网企业的发展，离不开用户的需求，而质量问题是用户的需求很重要的一个指标，对于企业而言，软件质量的管理和保障是其中必不可少的一环。从事测试行业多年，对于软件质量的管理和保障也有了一定的认识，下面我谈一下我对这块的看法，也欢迎大家一起进行探讨，学习。</p>
 <a id="more"></a>
 
-<h3 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h3><p>1.在线练习工具<a href="https://www.zybuluo.com/mdeditor" target="_blank" rel="noopener">Cmd Markdown 编辑阅读器</a></p>
-<p>2.客户端编写软件 <a href="https://typora.io/" target="_blank" rel="noopener">Typora</a></p>
-<blockquote>
-<p>注意 在线练习工具Cmd Markdown 编辑阅读器 和 客户端软件 Typora 有些语法会有差异大家自行甄别。</p>
-</blockquote>
-<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><p>给介绍几个常用的语法和最终的展示效果，具体的一些可以在 <a href="https://www.zybuluo.com/mdeditor" target="_blank" rel="noopener">Cmd Markdown 编辑阅读器</a> 中查阅</p>
-<h4 id="1-标题"><a href="#1-标题" class="headerlink" title="1.标题"></a>1.标题</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">语法：</span><br><span class="line"># 这是一级标题</span><br><span class="line">## 这是二级标题</span><br><span class="line">### 这是三级标题</span><br><span class="line">#### 这是四级标题</span><br><span class="line">##### 这是五级标题</span><br><span class="line">###### 这是六级标题</span><br></pre></td></tr></table></figure>
-
-<p>展示效果：</p>
-<p><img src="https://ssd.qiniu.dreamfly95.com/Markdown1.png" alt=""></p>
-<h4 id="2-字体"><a href="#2-字体" class="headerlink" title="2.字体"></a>2.字体</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">语法：</span><br><span class="line">**这是加粗的文字**</span><br><span class="line">*这是倾斜的文字*`</span><br><span class="line">***这是斜体加粗的文字***</span><br><span class="line">~~这是加删除线的文字~~</span><br></pre></td></tr></table></figure>
-
-<p>展示效果：</p>
-<p><img src="https://ssd.qiniu.dreamfly95.com/Markdown2.png" alt=""></p>
-<h4 id="3-引用"><a href="#3-引用" class="headerlink" title="3.引用"></a>3.引用</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">语法：</span><br><span class="line">&gt;这是引用的内容</span><br></pre></td></tr></table></figure>
-
-<p>展示效果：</p>
-<p><img src="https://ssd.qiniu.dreamfly95.com/Markdown3.png" alt=""></p>
-<h4 id="4-超链接"><a href="#4-超链接" class="headerlink" title="4.超链接"></a>4.超链接</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">语法</span><br><span class="line">[超链接名](超链接地址 &quot;超链接title&quot;)</span><br><span class="line"></span><br><span class="line">示例：</span><br><span class="line">[百度](http://baidu.com)</span><br></pre></td></tr></table></figure>
-
-<p>展示效果：</p>
-<p><img src="https://ssd.qiniu.dreamfly95.com/Markdown4.png" alt=""></p>
-<h4 id="5-图片"><a href="#5-图片" class="headerlink" title="5.图片"></a>5.图片</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">![图片描述](图片地址 &apos;&apos;图片title&apos;&apos;)</span><br><span class="line"></span><br><span class="line">图片alt就是显示在图片下面的文字，相当于对图片内容的解释，可加可不加</span><br><span class="line">图片title是图片的标题，当鼠标移到图片上时显示的内容。title可加可不加</span><br><span class="line"></span><br><span class="line">示例：</span><br><span class="line"></span><br><span class="line">![风景](https://ss0.bdstatic.com/94oJfD_bAAcT8t7mm9GUKT-xh_/timg?image&amp;quality=100&amp;size=b4000_4000&amp;sec=1590818510&amp;di=f0e6467d2588dd1434e9fbb151653570&amp;src=http://www.wndhw.com/fengjing/shanshui/images/ss003t4.jpg &quot;风景&quot;)</span><br></pre></td></tr></table></figure>
-
-<p>展示效果：</p>
-<p><img src="https://ssd.qiniu.dreamfly95.com/Markdown5.png" alt=""></p>
-<h4 id="6-代码块"><a href="#6-代码块" class="headerlink" title="6.代码块"></a>6.代码块</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">语法：</span><br><span class="line"></span><br><span class="line">`代码内容`</span><br></pre></td></tr></table></figure>
-<p> 我是代码块<br> 我是代码块<br> 我是代码块<br> 我是代码块<br> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
-<p>展示效果：</p>
-<p><img src="https://ssd.qiniu.dreamfly95.com/Markdown6.png" alt=""></p>
-<p>以上是一些基本常用的。其他的语法大家可以在  <a href="https://www.zybuluo.com/mdeditor" target="_blank" rel="noopener">Cmd Markdown 编辑阅读器</a> 中查阅。</p>
+<p>对于保证软件质量，我们分为三步：</p>
+<ol>
+<li>测试流程的巩固</li>
+<li>测试技能的提升</li>
+<li>测试理念的建立&amp;固化</li>
+</ol>
+<p><img src="https://ssd.qiniu.dreamfly95.com/image-20200723211903213.png" alt="image-20200723211903213"></p>
+<ol>
+<li>为什么把测试流程放到第一步呢？因为我们一个测试组会有很多人，大家的测试技能、测试理念是参差不齐的，这时保证质量的最基本的手段就是，把整个测试流程执行好，能很大程度的保证软件的质量。</li>
+<li>对于测试技能<ul>
+<li>测试用例的编写是最重要的，提升起来也是最困难的，需要不停的磨炼和探索，平时也可以提倡组内用例写的好的同学分享自己写用例的心得等。</li>
+<li>对于测试工具 Charles，Postman，Perfdog，Airtest相对来说学起来比较容易，基本也能满足我们对接口，性能等的测试。对于Python语言的学习是一个漫长的过程，可能需要坚持半年甚至几年，并每天都花一定时间的学习，才能有点小成，这个有点看个人意愿了。</li>
+</ul>
+</li>
+<li>测试理念和职责的固化和调整，这个偏软实力，要从一个测试达到一个QA的标准，实际最重要的就是这方面，需要慢慢的在工作中磨炼，并树立一个要保证整个工作流（非测试流程）的顺利进行的思想，且要对一些体验性问题保持敏感，真正的站到用户角度去思考，而并不是只是说说而已。</li>
+</ol>
+<p>以上是我整理的自己的一些看法，里面应该还有很多可以优化和提升的地方，大家有什么意见或看法，可以到公众号给我留言，感谢！！！</p>
+<p><strong>公众号：LiQ的低语</strong></p>
 <h3 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h3><p>面朝大海，春暖花开。</p>
 <p>愿你一生努力，一生被爱。</p>
 
@@ -203,14 +188,14 @@
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://yoursite.com/2020/05/26/%E6%8A%80%E5%B7%A73-Markdown%E7%9A%84%E4%BD%BF%E7%94%A8/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://yoursite.com/2020/07/23/interfaceTest/QA1-%E8%B4%A8%E9%87%8F%E7%AE%A1%E7%90%86%E5%92%8C%E4%BF%9D%E9%9A%9C/" alt="微信分享二维码">
     </div>
 </div>
 
 <div id="share-mask"></div>
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%8A%80%E5%B7%A7/" rel="tag">技巧</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%B5%8B%E8%AF%95/" rel="tag">测试</a></li></ul>
 
 
     </footer>
@@ -221,19 +206,19 @@
   
   <nav class="article-nav">
     
-      <a href="/2020/05/27/interfaceTest/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%952%E4%B9%8BRequests%E7%94%A8%E6%B3%95/" class="article-nav-link">
+      <a href="/2020/07/23/readingNotes/%E8%AF%BB%E4%B9%A61-%E6%88%91%E7%9A%84%E7%A5%96%E5%9B%BD/" class="article-nav-link">
         <strong class="article-nav-caption">上一篇</strong>
         <div class="article-nav-title">
           
-            接口测试之requests用法（2）
+            我的祖国
           
         </div>
       </a>
     
     
-      <a href="/2020/05/25/interfaceTest/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%951%E4%B9%8B%E6%9E%84%E9%80%A0%E5%8F%82%E6%95%B0/" class="article-nav-link">
+      <a href="/2020/07/04/skill/%E6%8A%80%E5%B7%A75-markdown%E5%9B%BE%E7%89%87%E8%87%AA%E5%8A%A8%E4%B8%8A%E4%BC%A0/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">接口测试之构造请求参数（1）</div>
+        <div class="article-nav-title">markdown图片自动上传</div>
       </a>
     
   </nav>

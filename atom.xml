@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://yoursite.com/"/>
-  <updated>2020-07-09T08:39:05.795Z</updated>
+  <updated>2020-07-23T13:30:50.832Z</updated>
   <id>https://yoursite.com/</id>
   
   <author>
@@ -18,10 +18,10 @@
   
   <entry>
     <title>我的祖国</title>
-    <link href="https://yoursite.com/2020/07/08/%E8%AF%BB%E4%B9%A61-%E6%88%91%E7%9A%84%E7%A5%96%E5%9B%BD/"/>
-    <id>https://yoursite.com/2020/07/08/%E8%AF%BB%E4%B9%A61-%E6%88%91%E7%9A%84%E7%A5%96%E5%9B%BD/</id>
-    <published>2020-07-08T00:00:43.000Z</published>
-    <updated>2020-07-09T08:39:05.795Z</updated>
+    <link href="https://yoursite.com/2020/07/23/readingNotes/%E8%AF%BB%E4%B9%A61-%E6%88%91%E7%9A%84%E7%A5%96%E5%9B%BD/"/>
+    <id>https://yoursite.com/2020/07/23/readingNotes/%E8%AF%BB%E4%B9%A61-%E6%88%91%E7%9A%84%E7%A5%96%E5%9B%BD/</id>
+    <published>2020-07-23T14:30:45.000Z</published>
+    <updated>2020-07-23T13:30:50.832Z</updated>
     
     <summary type="html">
     
@@ -40,9 +40,28 @@
   </entry>
   
   <entry>
+    <title>软件质量的管理和保障</title>
+    <link href="https://yoursite.com/2020/07/23/interfaceTest/QA1-%E8%B4%A8%E9%87%8F%E7%AE%A1%E7%90%86%E5%92%8C%E4%BF%9D%E9%9A%9C/"/>
+    <id>https://yoursite.com/2020/07/23/interfaceTest/QA1-%E8%B4%A8%E9%87%8F%E7%AE%A1%E7%90%86%E5%92%8C%E4%BF%9D%E9%9A%9C/</id>
+    <published>2020-07-23T13:30:25.000Z</published>
+    <updated>2020-07-23T13:30:28.719Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;互联网企业的发展，离不开用户的需求，而质量问题是用户的需求很重要的一个指标，对于企业而言，软件质量的管理和保障是其中必不可少的一环。从事测试行业多年，对于软件质量的管理和保障也有了一定的认识，下面我谈一下我对这块的看法，也欢迎大家一起进行探讨，学习。&lt;/p&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="测试" scheme="https://yoursite.com/tags/%E6%B5%8B%E8%AF%95/"/>
+    
+  </entry>
+  
+  <entry>
     <title>markdown图片自动上传</title>
-    <link href="https://yoursite.com/2020/07/04/%E6%8A%80%E5%B7%A75-markdown%E5%9B%BE%E7%89%87%E8%87%AA%E5%8A%A8%E4%B8%8A%E4%BC%A0/"/>
-    <id>https://yoursite.com/2020/07/04/%E6%8A%80%E5%B7%A75-markdown%E5%9B%BE%E7%89%87%E8%87%AA%E5%8A%A8%E4%B8%8A%E4%BC%A0/</id>
+    <link href="https://yoursite.com/2020/07/04/skill/%E6%8A%80%E5%B7%A75-markdown%E5%9B%BE%E7%89%87%E8%87%AA%E5%8A%A8%E4%B8%8A%E4%BC%A0/"/>
+    <id>https://yoursite.com/2020/07/04/skill/%E6%8A%80%E5%B7%A75-markdown%E5%9B%BE%E7%89%87%E8%87%AA%E5%8A%A8%E4%B8%8A%E4%BC%A0/</id>
     <published>2020-07-04T10:04:47.000Z</published>
     <updated>2020-07-09T08:37:16.681Z</updated>
     
@@ -61,8 +80,8 @@
   
   <entry>
     <title>怎么打开iOS手机的开发者模式</title>
-    <link href="https://yoursite.com/2020/07/04/%E6%8A%80%E5%B7%A74-iOS%E6%89%8B%E6%9C%BA%E7%9A%84%E5%BC%80%E5%8F%91%E8%80%85%E6%A8%A1%E5%BC%8F/"/>
-    <id>https://yoursite.com/2020/07/04/%E6%8A%80%E5%B7%A74-iOS%E6%89%8B%E6%9C%BA%E7%9A%84%E5%BC%80%E5%8F%91%E8%80%85%E6%A8%A1%E5%BC%8F/</id>
+    <link href="https://yoursite.com/2020/07/04/skill/%E6%8A%80%E5%B7%A74-iOS%E6%89%8B%E6%9C%BA%E7%9A%84%E5%BC%80%E5%8F%91%E8%80%85%E6%A8%A1%E5%BC%8F/"/>
+    <id>https://yoursite.com/2020/07/04/skill/%E6%8A%80%E5%B7%A74-iOS%E6%89%8B%E6%9C%BA%E7%9A%84%E5%BC%80%E5%8F%91%E8%80%85%E6%A8%A1%E5%BC%8F/</id>
     <published>2020-07-04T08:55:48.000Z</published>
     <updated>2020-07-09T08:37:10.088Z</updated>
     
@@ -79,28 +98,9 @@
   </entry>
   
   <entry>
-    <title>软件质量的管理和保障</title>
-    <link href="https://yoursite.com/2020/07/01/QA1-%E8%B4%A8%E9%87%8F%E7%AE%A1%E7%90%86%E5%92%8C%E4%BF%9D%E9%9A%9C/"/>
-    <id>https://yoursite.com/2020/07/01/QA1-%E8%B4%A8%E9%87%8F%E7%AE%A1%E7%90%86%E5%92%8C%E4%BF%9D%E9%9A%9C/</id>
-    <published>2020-07-01T11:41:23.000Z</published>
-    <updated>2020-07-09T08:36:48.212Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;互联网企业的发展，离不开用户的需求，而质量问题是用户的需求很重要的一个指标，对于企业而言，软件质量的管理和保障是其中必不可少的一环。从事测试行业多年，对于软件质量的管理和保障也有了一定的认识，下面我谈一下我对这块的看法，也欢迎大家一起进行探讨，学习。&lt;/p&gt;
-    
-    </summary>
-    
-    
-    
-      <category term="测试" scheme="https://yoursite.com/tags/%E6%B5%8B%E8%AF%95/"/>
-    
-  </entry>
-  
-  <entry>
     <title>测试全流程图解</title>
-    <link href="https://yoursite.com/2020/06/02/QA3-%E6%B5%8B%E8%AF%95%E5%85%A8%E6%B5%81%E7%A8%8B%E5%9B%BE%E8%A7%A3/"/>
-    <id>https://yoursite.com/2020/06/02/QA3-%E6%B5%8B%E8%AF%95%E5%85%A8%E6%B5%81%E7%A8%8B%E5%9B%BE%E8%A7%A3/</id>
+    <link href="https://yoursite.com/2020/06/02/interfaceTest/QA3-%E6%B5%8B%E8%AF%95%E5%85%A8%E6%B5%81%E7%A8%8B%E5%9B%BE%E8%A7%A3/"/>
+    <id>https://yoursite.com/2020/06/02/interfaceTest/QA3-%E6%B5%8B%E8%AF%95%E5%85%A8%E6%B5%81%E7%A8%8B%E5%9B%BE%E8%A7%A3/</id>
     <published>2020-06-02T07:00:52.000Z</published>
     <updated>2020-07-09T08:37:39.204Z</updated>
     
@@ -137,8 +137,8 @@
   
   <entry>
     <title>测试工程师知识图谱</title>
-    <link href="https://yoursite.com/2020/05/30/QA2-%E6%B5%8B%E8%AF%95%E5%B7%A5%E7%A8%8B%E5%B8%88%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1/"/>
-    <id>https://yoursite.com/2020/05/30/QA2-%E6%B5%8B%E8%AF%95%E5%B7%A5%E7%A8%8B%E5%B8%88%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1/</id>
+    <link href="https://yoursite.com/2020/05/30/interfaceTest/QA2-%E6%B5%8B%E8%AF%95%E5%B7%A5%E7%A8%8B%E5%B8%88%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1/"/>
+    <id>https://yoursite.com/2020/05/30/interfaceTest/QA2-%E6%B5%8B%E8%AF%95%E5%B7%A5%E7%A8%8B%E5%B8%88%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1/</id>
     <published>2020-05-30T07:00:52.000Z</published>
     <updated>2020-07-09T08:37:29.352Z</updated>
     
@@ -176,8 +176,8 @@
   
   <entry>
     <title>Markdown的使用</title>
-    <link href="https://yoursite.com/2020/05/26/%E6%8A%80%E5%B7%A73-Markdown%E7%9A%84%E4%BD%BF%E7%94%A8/"/>
-    <id>https://yoursite.com/2020/05/26/%E6%8A%80%E5%B7%A73-Markdown%E7%9A%84%E4%BD%BF%E7%94%A8/</id>
+    <link href="https://yoursite.com/2020/05/26/skill/%E6%8A%80%E5%B7%A73-Markdown%E7%9A%84%E4%BD%BF%E7%94%A8/"/>
+    <id>https://yoursite.com/2020/05/26/skill/%E6%8A%80%E5%B7%A73-Markdown%E7%9A%84%E4%BD%BF%E7%94%A8/</id>
     <published>2020-05-26T15:14:06.000Z</published>
     <updated>2020-07-09T08:36:59.623Z</updated>
     
@@ -219,8 +219,8 @@
   
   <entry>
     <title>使用gitee自建图床</title>
-    <link href="https://yoursite.com/2020/04/15/%E6%8A%80%E5%B7%A72-%E8%87%AA%E5%BB%BA%E5%9B%BE%E5%BA%8A/"/>
-    <id>https://yoursite.com/2020/04/15/%E6%8A%80%E5%B7%A72-%E8%87%AA%E5%BB%BA%E5%9B%BE%E5%BA%8A/</id>
+    <link href="https://yoursite.com/2020/04/15/skill/%E6%8A%80%E5%B7%A72-%E8%87%AA%E5%BB%BA%E5%9B%BE%E5%BA%8A/"/>
+    <id>https://yoursite.com/2020/04/15/skill/%E6%8A%80%E5%B7%A72-%E8%87%AA%E5%BB%BA%E5%9B%BE%E5%BA%8A/</id>
     <published>2020-04-15T12:32:47.000Z</published>
     <updated>2020-07-09T08:36:32.027Z</updated>
     
@@ -245,8 +245,8 @@
   
   <entry>
     <title>代码管理(git,gitee,coding等)平台配置ssh</title>
-    <link href="https://yoursite.com/2019/10/25/%E6%8A%80%E5%B7%A71-%E4%BB%A3%E7%A0%81%E7%AE%A1%E7%90%86%E5%B9%B3%E5%8F%B0%E9%85%8D%E7%BD%AEssh/"/>
-    <id>https://yoursite.com/2019/10/25/%E6%8A%80%E5%B7%A71-%E4%BB%A3%E7%A0%81%E7%AE%A1%E7%90%86%E5%B9%B3%E5%8F%B0%E9%85%8D%E7%BD%AEssh/</id>
+    <link href="https://yoursite.com/2019/10/25/skill/%E6%8A%80%E5%B7%A71-%E4%BB%A3%E7%A0%81%E7%AE%A1%E7%90%86%E5%B9%B3%E5%8F%B0%E9%85%8D%E7%BD%AEssh/"/>
+    <id>https://yoursite.com/2019/10/25/skill/%E6%8A%80%E5%B7%A71-%E4%BB%A3%E7%A0%81%E7%AE%A1%E7%90%86%E5%B9%B3%E5%8F%B0%E9%85%8D%E7%BD%AEssh/</id>
     <published>2019-10-25T08:16:04.626Z</published>
     <updated>2020-07-09T08:35:02.542Z</updated>
     
@@ -263,29 +263,9 @@
   </entry>
   
   <entry>
-    <title>能力陷阱</title>
-    <link href="https://yoursite.com/2019/10/25/%E8%AF%BB%E4%B9%A62-%E8%83%BD%E5%8A%9B%E9%99%B7%E9%98%B1/"/>
-    <id>https://yoursite.com/2019/10/25/%E8%AF%BB%E4%B9%A62-%E8%83%BD%E5%8A%9B%E9%99%B7%E9%98%B1/</id>
-    <published>2019-10-25T08:16:04.000Z</published>
-    <updated>2020-07-09T08:29:12.302Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;img src=&quot;https://ssd.qiniu.dreamfly95.com/NLXJ.png&quot; alt=&quot;NLXJ&quot;&gt;&lt;/p&gt;
-&lt;p&gt;​         本书深刻揭示职场的三大观念陷阱，提出“先行动，后思考”的方法，打破了传统领导者的养成法则，帮助那些渴望成为优秀领导者的人学会如何扩展业务范围，如何提出更好的策略性意见，以及如何扩建人际关系网络并引领他们朝着不同的方向发展自己。&lt;/p&gt;
-    
-    </summary>
-    
-    
-    
-      <category term="读书" scheme="https://yoursite.com/tags/%E8%AF%BB%E4%B9%A6/"/>
-    
-  </entry>
-  
-  <entry>
     <title>测试用例的编写</title>
-    <link href="https://yoursite.com/2019/10/25/QA4-%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B%E8%AE%BE%E8%AE%A1%E6%96%B9%E6%B3%95/"/>
-    <id>https://yoursite.com/2019/10/25/QA4-%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B%E8%AE%BE%E8%AE%A1%E6%96%B9%E6%B3%95/</id>
+    <link href="https://yoursite.com/2019/10/25/interfaceTest/QA4-%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B%E8%AE%BE%E8%AE%A1%E6%96%B9%E6%B3%95/"/>
+    <id>https://yoursite.com/2019/10/25/interfaceTest/QA4-%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B%E8%AE%BE%E8%AE%A1%E6%96%B9%E6%B3%95/</id>
     <published>2019-10-25T08:16:04.000Z</published>
     <updated>2020-07-09T08:37:44.785Z</updated>
     
@@ -305,6 +285,26 @@
     
     
       <category term="测试" scheme="https://yoursite.com/tags/%E6%B5%8B%E8%AF%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>能力陷阱</title>
+    <link href="https://yoursite.com/2019/10/25/interfaceTest/%E8%AF%BB%E4%B9%A62-%E8%83%BD%E5%8A%9B%E9%99%B7%E9%98%B1/"/>
+    <id>https://yoursite.com/2019/10/25/interfaceTest/%E8%AF%BB%E4%B9%A62-%E8%83%BD%E5%8A%9B%E9%99%B7%E9%98%B1/</id>
+    <published>2019-10-25T08:16:04.000Z</published>
+    <updated>2020-07-09T08:29:12.302Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;https://ssd.qiniu.dreamfly95.com/NLXJ.png&quot; alt=&quot;NLXJ&quot;&gt;&lt;/p&gt;
+&lt;p&gt;​         本书深刻揭示职场的三大观念陷阱，提出“先行动，后思考”的方法，打破了传统领导者的养成法则，帮助那些渴望成为优秀领导者的人学会如何扩展业务范围，如何提出更好的策略性意见，以及如何扩建人际关系网络并引领他们朝着不同的方向发展自己。&lt;/p&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="读书" scheme="https://yoursite.com/tags/%E8%AF%BB%E4%B9%A6/"/>
     
   </entry>
   

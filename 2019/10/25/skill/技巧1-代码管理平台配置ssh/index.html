@@ -11,7 +11,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <title>
-    能力陷阱 |  Dreaming
+    代码管理(git,gitee,coding等)平台配置ssh |  Dreaming
   </title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   
@@ -35,7 +35,7 @@
   <div id="app">
     <main class="content on">
       <section class="outer">
-  <article id="post-读书2-能力陷阱" class="article article-type-post" itemscope
+  <article id="post-skill/技巧1-代码管理平台配置ssh" class="article article-type-post" itemscope
   itemprop="blogPost" data-scroll-reveal>
 
   <div class="article-inner">
@@ -43,7 +43,7 @@
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  能力陷阱
+  代码管理(git,gitee,coding等)平台配置ssh
 </h1>
  
 
@@ -52,8 +52,8 @@
 
     
     <div class="article-meta">
-      <a href="/2019/10/25/%E8%AF%BB%E4%B9%A62-%E8%83%BD%E5%8A%9B%E9%99%B7%E9%98%B1/" class="article-date">
-  <time datetime="2019-10-25T08:16:04.000Z" itemprop="datePublished">2019-10-25</time>
+      <a href="/2019/10/25/skill/%E6%8A%80%E5%B7%A71-%E4%BB%A3%E7%A0%81%E7%AE%A1%E7%90%86%E5%B9%B3%E5%8F%B0%E9%85%8D%E7%BD%AEssh/" class="article-date">
+  <time datetime="2019-10-25T08:16:04.626Z" itemprop="datePublished">2019-10-25</time>
 </a>
       
       
@@ -63,7 +63,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">772</span>
+            <span class="post-count">276</span>
         </span>
     </span>
 
@@ -72,7 +72,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> 阅读时长≈</span>
-            <span class="post-count">2 分钟</span>
+            <span class="post-count">1 分钟</span>
         </span>
     </span>
 </div>
@@ -83,6 +83,8 @@
 
     
     
+    <div class="tocbot"></div>
+
 
 
 
@@ -95,29 +97,53 @@
       
 
       
-      <p><img src="https://ssd.qiniu.dreamfly95.com/NLXJ.png" alt="NLXJ"></p>
-<p>​         本书深刻揭示职场的三大观念陷阱，提出“先行动，后思考”的方法，打破了传统领导者的养成法则，帮助那些渴望成为优秀领导者的人学会如何扩展业务范围，如何提出更好的策略性意见，以及如何扩建人际关系网络并引领他们朝着不同的方向发展自己。</p>
+      <h1 id="git-gitee-coding等平台配置ssh"><a href="#git-gitee-coding等平台配置ssh" class="headerlink" title="git,gitee,coding等平台配置ssh"></a>git,gitee,coding等平台配置ssh</h1><h3 id="git-gitee-coding等托管平台配置ssh的目的："><a href="#git-gitee-coding等托管平台配置ssh的目的：" class="headerlink" title="git,gitee,coding等托管平台配置ssh的目的："></a>git,gitee,coding等托管平台配置ssh的目的：</h3><p>配置好ssh后可以让你的电脑和git,gitee,coding等平台通讯的时候建立可信任的安全连接</p>
 <a id="more"></a>
 
+<p>###步骤：</p>
 <ol>
-<li><p>很多需要紧急处理的事情限制着你，让你没有办法去做那些更重要的事。但是在努力学会做好一个领导者的问题上，你面临着一个更大的挑战：那就是只有先行动起来，你才能知道关于自己，关于工作你需要做些什么，而不仅仅是思考。</p>
+<li><p>打开终端（windows下载<a href="https://gitforwindows.org/" target="_blank" rel="noopener">git windows 终端</a>，Mac直接用原生自带的terminal就OK）。</p>
+<ul>
+<li>输入<code>cd ~/.ssh</code></li>
+<li>然后输入<code>ls</code>,查看是否有<code>id_rsa</code>和<code>id_rsa.pub</code></li>
+</ul>
+<p><img src="https://ssd.qiniu.dreamfly95.com/cdssh.png" alt="cdssh"></p>
+<ul>
+<li>如果有则执行第2部，如果没有上述两个文件就执行 <code>ssh-keygen -trsa -C xxxxx@XXX.com</code>(xxxxx@XXX.com为你注册github时的邮箱)，然后开始执行第二部</li>
+</ul>
+<!--注意：如果已有id_rsa和id_rsa.pub文件时，不要执行 ssh-keygen，不然会把你原有的ssh文件冲掉，原来配置过ssh的地方就失效了-->
 </li>
-<li><p>如果我们想要成为一名优秀的领导者，就要学会“先行动后思考”。这与我们普遍所熟知的学习顺序的矛盾在于，在改变的过程中，我们会先看到结果，即改变让我们产生了什么样的感受，身边的人对我们的改变有什么样的反应，之后我们才会开始思考，把外在经历内在化。换句话说，我们要先在行为上表现得像一个领导者，而后才会像领导者一样去思考。</p>
+<li><p>查看公钥内容</p>
+<ul>
+<li><p>执行<code>cat ~/.ssh/id_rsa.pub</code></p>
+<p><img src="https://ssd.qiniu.dreamfly95.com/catssh.png" alt="catssh"></p>
 </li>
-<li><p>做领导者所做的工作会引发两个重要的转变过程：一是外在转变过程；二是内在转变过程。它们之间是紧密相连的。外在转变过程指的是建立起一个有潜力或有能力的好名声，这能够在很大程度上改变我们的自我认知；而内在转变过程涉及内在动机和自我定位的转变，这种转变并不是独立发生的，而是在与他人所建立的关系中渐渐发生的转变。</p>
+</ul>
 </li>
-<li><p>为了成为一名优秀的领导者，你要学会像领导者一样去思考。</p>
+<li><p>复制公钥内容，全部内容，以ssh-rsa开头的全部内容。粘贴至你所要建立安全连接的平台，这里咦gitee为例：</p>
+<ul>
+<li><p>打开<a href="https://gitee.com/" target="_blank" rel="noopener">gitee</a>并登陆账户,按下图操作</p>
+<p><img src="https://ssd.qiniu.dreamfly95.com/giteessh1.png" alt="giteessh1"></p>
 </li>
-<li><p>你思考的方式来源于你过去的经历。</p>
+</ul>
 </li>
-<li><p>改变你想法的唯一方法就是去做与之前不一样的事情。</p>
+</ol>
+<p>   <img src="https://ssd.qiniu.dreamfly95.com/giteessh2.png" alt="giteessh2"></p>
+<ul>
+<li>然后点击保存就OK了，其他例如 github,gitlab等都一样</li>
+</ul>
+<ol start="4">
+<li><p>测试是否连接成功</p>
+<ul>
+<li><p>终端执行 <code>ssh -T git@gitee.com</code>   (@后面的可以换成你想要连接的平台的网址就OK)</p>
 </li>
-<li><p>去做——而不仅仅是去想——才会增强你的外在表现力，而这些外在表现力是一个领导者所必需的。</p>
+<li><p>如果成功则会提示 You’ve successfully<img src="https://ssd.qiniu.dreamfly95.com/giteessh3.png" alt="giteessh3"></p>
 </li>
-<li><p>稳定的“三脚架”（tripod）关系能提升你的外在表现力：新工作、新关系以及新自我。</p>
+</ul>
 </li>
-<li><p>我们很乐于去做那些我们擅长的事，于是就会一直去做，最终就使得我们会一直擅长那些事。做得越多，就越擅长，越擅长就越愿意去做。这样的一个循环能让我们在这方面获得更多的经验。而它就像是毒品一样，我们被它深深吸引，因为我们的快乐和自信都来源于它。它还会让我们产生误区，让我们相信我们擅长的事就是最有价值的且最重要的事，所以值得我们花时间去做。</p>
-</li>
+</ol>
+<ol start="5">
+<li>完工！！！</li>
 </ol>
 
       
@@ -187,14 +213,14 @@
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://yoursite.com/2019/10/25/%E8%AF%BB%E4%B9%A62-%E8%83%BD%E5%8A%9B%E9%99%B7%E9%98%B1/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://yoursite.com/2019/10/25/skill/%E6%8A%80%E5%B7%A71-%E4%BB%A3%E7%A0%81%E7%AE%A1%E7%90%86%E5%B9%B3%E5%8F%B0%E9%85%8D%E7%BD%AEssh/" alt="微信分享二维码">
     </div>
 </div>
 
 <div id="share-mask"></div>
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%AF%BB%E4%B9%A6/" rel="tag">读书</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%8A%80%E5%B7%A7/" rel="tag">技巧</a></li></ul>
 
 
     </footer>
@@ -205,17 +231,17 @@
   
   <nav class="article-nav">
     
-      <a href="/2019/10/25/%E6%8A%80%E5%B7%A71-%E4%BB%A3%E7%A0%81%E7%AE%A1%E7%90%86%E5%B9%B3%E5%8F%B0%E9%85%8D%E7%BD%AEssh/" class="article-nav-link">
+      <a href="/2020/04/15/skill/%E6%8A%80%E5%B7%A72-%E8%87%AA%E5%BB%BA%E5%9B%BE%E5%BA%8A/" class="article-nav-link">
         <strong class="article-nav-caption">上一篇</strong>
         <div class="article-nav-title">
           
-            代码管理(git,gitee,coding等)平台配置ssh
+            使用gitee自建图床
           
         </div>
       </a>
     
     
-      <a href="/2019/10/25/QA4-%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B%E8%AE%BE%E8%AE%A1%E6%96%B9%E6%B3%95/" class="article-nav-link">
+      <a href="/2019/10/25/interfaceTest/QA4-%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B%E8%AE%BE%E8%AE%A1%E6%96%B9%E6%B3%95/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
         <div class="article-nav-title">测试用例的编写</div>
       </a>
