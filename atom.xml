@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://yoursite.com/"/>
-  <updated>2021-03-03T08:36:34.382Z</updated>
+  <updated>2021-03-03T08:45:34.711Z</updated>
   <id>https://yoursite.com/</id>
   
   <author>
@@ -21,17 +21,12 @@
     <link href="https://yoursite.com/2021/03/03/pyhton/Python%E5%A4%9A%E4%BB%BB%E5%8A%A11%E4%B9%8B%E7%BA%BF%E7%A8%8B/"/>
     <id>https://yoursite.com/2021/03/03/pyhton/Python%E5%A4%9A%E4%BB%BB%E5%8A%A11%E4%B9%8B%E7%BA%BF%E7%A8%8B/</id>
     <published>2021-03-02T16:00:00.000Z</published>
-    <updated>2021-03-03T08:36:34.382Z</updated>
+    <updated>2021-03-03T08:45:34.711Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          &lt;h2 id=&quot;线程&quot;&gt;&lt;a href=&quot;#线程&quot; class=&quot;headerlink&quot; title=&quot;线程&quot;&gt;&lt;/a&gt;线程&lt;/h2&gt;&lt;h4 id=&quot;多任务介绍&quot;&gt;&lt;a href=&quot;#多任务介绍&quot; class=&quot;headerlink&quot;
-        
-      
+      &lt;h2 id=&quot;线程&quot;&gt;&lt;a href=&quot;#线程&quot; class=&quot;headerlink&quot; title=&quot;线程&quot;&gt;&lt;/a&gt;线程&lt;/h2&gt;&lt;h4 id=&quot;多任务介绍&quot;&gt;&lt;a href=&quot;#多任务介绍&quot; class=&quot;headerlink&quot; title=&quot;多任务介绍&quot;&gt;&lt;/a&gt;多任务介绍&lt;/h4&gt;&lt;h5 id=&quot;现实中&quot;&gt;&lt;a href=&quot;#现实中&quot; class=&quot;headerlink&quot; title=&quot;现实中&quot;&gt;&lt;/a&gt;现实中&lt;/h5&gt;&lt;p&gt;很多场景是同时进行的，比如开车的时候，手和脚共同驾驶汽车，再比如唱歌跳舞也是同事进行的；&lt;/p&gt;
+&lt;p&gt;试想，如果吧唱歌和跳舞这两件事分开完成的话，估计就比较尴尬了（想一下：先唱歌，唱完再跳舞，￣□￣｜｜）&lt;/p&gt;
     
     </summary>
     
