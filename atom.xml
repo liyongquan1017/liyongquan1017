@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://yoursite.com/"/>
-  <updated>2020-08-17T12:18:25.653Z</updated>
+  <updated>2021-03-03T08:36:34.382Z</updated>
   <id>https://yoursite.com/</id>
   
   <author>
@@ -17,11 +17,36 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Python多任务之线程</title>
+    <link href="https://yoursite.com/2021/03/03/pyhton/Python%E5%A4%9A%E4%BB%BB%E5%8A%A11%E4%B9%8B%E7%BA%BF%E7%A8%8B/"/>
+    <id>https://yoursite.com/2021/03/03/pyhton/Python%E5%A4%9A%E4%BB%BB%E5%8A%A11%E4%B9%8B%E7%BA%BF%E7%A8%8B/</id>
+    <published>2021-03-02T16:00:00.000Z</published>
+    <updated>2021-03-03T08:36:34.382Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;线程&quot;&gt;&lt;a href=&quot;#线程&quot; class=&quot;headerlink&quot; title=&quot;线程&quot;&gt;&lt;/a&gt;线程&lt;/h2&gt;&lt;h4 id=&quot;多任务介绍&quot;&gt;&lt;a href=&quot;#多任务介绍&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+    
+      <category term="Python多任务" scheme="https://yoursite.com/tags/Python%E5%A4%9A%E4%BB%BB%E5%8A%A1/"/>
+    
+  </entry>
+  
+  <entry>
     <title>接口自动化框架之Unittest（3）</title>
     <link href="https://yoursite.com/2020/08/16/interfacetest/%E6%8E%A5%E5%8F%A3%E8%87%AA%E5%8A%A8%E5%8C%96%E6%A1%86%E6%9E%B63%E4%B9%8BUnittest/"/>
     <id>https://yoursite.com/2020/08/16/interfacetest/%E6%8E%A5%E5%8F%A3%E8%87%AA%E5%8A%A8%E5%8C%96%E6%A1%86%E6%9E%B63%E4%B9%8BUnittest/</id>
     <published>2020-08-16T08:38:57.000Z</published>
-    <updated>2020-08-17T12:18:25.653Z</updated>
+    <updated>2020-11-20T09:28:47.376Z</updated>
     
     <summary type="html">
     

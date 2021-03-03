@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+
+
+<html lang="zh-CN" >
+
+
+<head>
+  <meta charset="utf-8" />
+    
+  <meta name="description" content="记录学习分享" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <title>
+    Python多任务之线程 |  Dreaming
+  </title>
+  <meta name="generator" content="hexo-theme-yilia-plus">
+  
+  <link rel="shortcut icon" href="/favicon.ico" />
+  
+  <link rel="stylesheet" href="/dist/main.css">
+  <link rel="stylesheet" href="/css/custom.css">
+  
+  <script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+  
+  
+
+  
+
+<link rel="alternate" href="/atom.xml" title="Dreaming" type="application/atom+xml">
+</head>
+
+</html>
+
+<body>
+  <div id="app">
+    <main class="content on">
+      <section class="outer">
+  <article id="post-pyhton/Python多任务1之线程" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  Python多任务之线程
+</h1>
+ 
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2021/03/03/pyhton/Python%E5%A4%9A%E4%BB%BB%E5%8A%A11%E4%B9%8B%E7%BA%BF%E7%A8%8B/" class="article-date">
+  <time datetime="2021-03-02T16:00:00.000Z" itemprop="datePublished">2021-03-03</time>
+</a>
+      
+      
+      
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> 字数统计:</span>
+            <span class="post-count">4.7k</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> 阅读时长≈</span>
+            <span class="post-count">19 分钟</span>
+        </span>
+    </span>
+</div>
+
+      
+    </div>
+    
+
+    
+    
+    <div class="tocbot"></div>
+
+
+
+
+
+    
+
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+      
+
+      
+      <h2 id="线程"><a href="#线程" class="headerlink" title="线程"></a>线程</h2><h4 id="多任务介绍"><a href="#多任务介绍" class="headerlink" title="多任务介绍"></a>多任务介绍</h4><h5 id="现实中"><a href="#现实中" class="headerlink" title="现实中"></a>现实中</h5><p>很多场景是同时进行的，比如开车的时候，手和脚共同驾驶汽车，再比如唱歌跳舞也是同事进行的；</p>
+<p>试想，如果吧唱歌和跳舞这两件事分开完成的话，估计就比较尴尬了（想一下：先唱歌，唱完再跳舞，￣□￣｜｜）</p>
+<h5 id="程序中"><a href="#程序中" class="headerlink" title="程序中"></a>程序中</h5><p>模拟唱歌跳舞</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="keyword">import</span> threading</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">sing</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="string">"""唱歌 五秒"""</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">5</span>):</span><br><span class="line">        print(<span class="string">"---正在唱歌---%s秒"</span>%i)</span><br><span class="line">        time.sleep(<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">dance</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">5</span>):</span><br><span class="line">        print(<span class="string">"---正在跳舞---%s秒"</span>%i)</span><br><span class="line">        time.sleep(<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span><span class="params">()</span>:</span></span><br><span class="line">    t1 = threading.Thread(target=sing)</span><br><span class="line">    t2 = threading.Thread(target=dance)</span><br><span class="line">    t1.start()</span><br><span class="line">    t2.start()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    main()</span><br></pre></td></tr></table></figure>
+
+<p>执行后打印如下：</p>
+<p><strong>—正在唱歌—0秒<br>—正在跳舞—0秒<br>—正在跳舞—1秒<br>—正在唱歌—1秒<br>—正在跳舞—2秒<br>—正在唱歌—2秒<br>—正在跳舞—3秒<br>—正在唱歌—3秒<br>—正在跳舞—4秒<br>—正在唱歌—4秒</strong></p>
+<h4 id="多任务概念"><a href="#多任务概念" class="headerlink" title="多任务概念"></a>多任务概念</h4><p>什么叫多任务？简单地说，就是操作可以同时进行多个任务，打个比方，你一边在用浏览器上网，一般在听MP3，一边在用Word赶作业，这就是多任务，至少同时有3个任务正在运行。还有很多任务悄悄地在后台运行着，只是桌面上没有显示。</p>
+<p>现在多核CPU已经非常普及了，但是，即使是过去的单核过去的单核CPU，也可以执行多任务。由于CPU执行代码都是顺序执行的，那么，单核CPU是怎么执行多任务呢？</p>
+<p>答案就是操作系统轮流让各个任务交替执行，任务1执行0.01秒，切换到任务2执行0.01秒，再切换到任务3执行0.01秒……这样反复执行下去，表面上看每个任务都是交替执行的，但是由于CPU的执行速度非常的快，我们感觉就像所有任务同事执行一样。</p>
+<p>真正的并行执行多任务只能在多核CPU上实现，但是由于任务数量远远多余CPU的核心数量，所以，操作系统也会自动把多任务轮流调度到每个核心上执行。</p>
+<p>并行：真的多任务（CPU核数大于任务数）</p>
+<p>并发：假的多任务（CPU核数少于任务数）</p>
+<h4 id="查看任务线程数"><a href="#查看任务线程数" class="headerlink" title="查看任务线程数"></a>查看任务线程数</h4><p>enumerate的用法：</p>
+<img src="https://ssd.qiniu.dreamfly95.com/image-20210127174701156.png" alt="image-20210127174701156" style="zoom:50%;" />
+
+<h5 id="1-查看线程数"><a href="#1-查看线程数" class="headerlink" title="1.查看线程数"></a>1.查看线程数</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> threading</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">sing</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">3</span>):</span><br><span class="line">        print(<span class="string">"---test1---%s"</span>%i)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">dance</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">3</span>):</span><br><span class="line">        print(<span class="string">"---test2---%s"</span>%i)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="comment"># 新建线程对象</span></span><br><span class="line">    t1 = threading.Thread(target=sing)</span><br><span class="line">    t2 = threading.Thread(target=dance)</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 执行线程实例</span></span><br><span class="line">    t1.start()</span><br><span class="line">    t2.start()</span><br><span class="line"></span><br><span class="line">    print(threading.enumerate())</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    main()</span><br></pre></td></tr></table></figure>
+
+<p>执行后的结果：</p>
+<p><strong>—test1—0<br>—test2—0<br>—test1—1<br>—test1—2<br>[&lt;_MainThread(MainThread, started 4682526144)&gt;, &lt;Thread(Thread-2, started 123145507770368)&gt;]<br>—test2—1<br>—test2—2</strong></p>
+<p>上面我们明明创建了两个线程，加上主线程是3个，但是为啥 <code>[&lt;_MainThread(MainThread, started 4682526144)&gt;, &lt;Thread(Thread-2, started 123145507770368)&gt;]</code> 列表里只打印出来两个线程呢，而且打印的结果都是杂乱无章的？实际你再执行几次，发现打印的列表里的元素有时1个，有时是2个，有时3个，因为线程的调度是由系统决定的，是无序的，因为执行速度相当快，在执行<code>print(threading.enumerate())</code>时，<code>t1线程</code>已经结束了，所以就只有2个了。</p>
+<h5 id="2-循环查看线程"><a href="#2-循环查看线程" class="headerlink" title="2.循环查看线程"></a>2.循环查看线程</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> threading</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">sing</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">3</span>):</span><br><span class="line">        print(<span class="string">"---test1---%s"</span>%i)</span><br><span class="line">        time.sleep(<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">dance</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">3</span>):</span><br><span class="line">        print(<span class="string">"---test2---%s"</span>%i)</span><br><span class="line">        time.sleep(<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="comment"># 新建线程对象</span></span><br><span class="line">    t1 = threading.Thread(target=sing)</span><br><span class="line">    t2 = threading.Thread(target=dance)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 执行线程实例</span></span><br><span class="line">    t1.start()</span><br><span class="line">    t2.start()</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">        <span class="keyword">if</span> len(threading.enumerate()) &lt;= <span class="number">1</span>:</span><br><span class="line">            print(threading.enumerate())</span><br><span class="line">        time.sleep(<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    main()</span><br></pre></td></tr></table></figure>
+
+<p>输出结果：</p>
+<p><strong>—test1—0<br>—test2—0<br>[&lt;_MainThread(MainThread, started 4703841728)&gt;, &lt;Thread(Thread-1, started 123145482366976)&gt;, &lt;Thread(Thread-2, started 123145487622144)&gt;]<br>—test1—1<br>—test2—1<br>[&lt;_MainThread(MainThread, started 4703841728)&gt;, &lt;Thread(Thread-1, started 123145482366976)&gt;, &lt;Thread(Thread-2, started 123145487622144)&gt;]<br>—test1—2<br>[&lt;_MainThread(MainThread, started 4703841728)&gt;, &lt;Thread(Thread-1, started 123145482366976)&gt;, &lt;Thread(Thread-2, started 123145487622144)&gt;]<br>—test2—2<br>[&lt;_MainThread(MainThread, started 4703841728)&gt;, &lt;Thread(Thread-2, started 123145487622144)&gt;]<br>[&lt;_MainThread(MainThread, started 4703841728)&gt;]</strong></p>
+<p>如果创建的Thread时执行的函数运行结束，那么意味着这个子线程结束了；主线程结束，子线程必结束。</p>
+<h5 id="3-线程开始结束的时机"><a href="#3-线程开始结束的时机" class="headerlink" title="3.线程开始结束的时机"></a>3.线程开始结束的时机</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> threading</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">sing</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">3</span>):</span><br><span class="line">        print(<span class="string">"---test1---%s"</span>%i)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="comment"># 在调用Thread之前先答应线程信息</span></span><br><span class="line">    print(threading.enumerate())</span><br><span class="line">    t1 = threading.Thread(target=sing)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 在调用Thread之后打印</span></span><br><span class="line">    print(threading.enumerate())</span><br><span class="line"></span><br><span class="line">    t1.start()</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 在调用Start之后打印</span></span><br><span class="line">    print(threading.enumerate())</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    main()</span><br></pre></td></tr></table></figure>
+
+<p>输出结果：</p>
+<p><strong>[&lt;_MainThread(MainThread, started 4517064128)&gt;]<br>[&lt;_MainThread(MainThread, started 4517064128)&gt;]<br>—test1—0<br>[&lt;_MainThread(MainThread, started 4517064128)&gt;, &lt;Thread(Thread-1, started 123145429872640)&gt;]<br>—test1—1<br>—test1—2</strong></p>
+<p>从上面可以看出，调用<code>Thread</code>的时候，不会创建线程，当调用Thread创建出来的实例对象的<code>start</code>方法地时候才回创建线程以及让这个线程开始运行。</p>
+<h5 id="4-多线程共享全局变量"><a href="#4-多线程共享全局变量" class="headerlink" title="4.多线程共享全局变量"></a>4.多线程共享全局变量</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> threading</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 定义一个全局变量</span></span><br><span class="line">g_num= <span class="number">100</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">test1</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">global</span> g_num</span><br><span class="line">    g_num += <span class="number">1</span></span><br><span class="line">    print(<span class="string">"----in test1 g_num=%d----"</span>%g_num)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">test2</span><span class="params">()</span>:</span></span><br><span class="line">    print(<span class="string">"----in test2 g_num=%d----"</span>%g_num)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span><span class="params">()</span>:</span></span><br><span class="line">    t1 = threading.Thread(target=test1)</span><br><span class="line">    t2 = threading.Thread(target=test2)</span><br><span class="line"></span><br><span class="line">    t1.start()</span><br><span class="line">    time.sleep(<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">    t2.start()</span><br><span class="line">    time.sleep(<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">    print(<span class="string">"---in main Thread g_num = %d---"</span>%g_num)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    main()</span><br></pre></td></tr></table></figure>
+
+<p>输出结果：</p>
+<p><strong>—-in test1 g_num=101—-<br>—-in test2 g_num=101—-<br>—in main Thread g_num = 101—</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> threading</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">test1</span><span class="params">(temp)</span>:</span></span><br><span class="line">    temp.append(<span class="number">33</span>)</span><br><span class="line">    print(<span class="string">"----in test1 temp=%s----"</span>%temp)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">test2</span><span class="params">(temp)</span>:</span></span><br><span class="line">    print(<span class="string">"----in test2 temp=%s----"</span>%temp)</span><br><span class="line"></span><br><span class="line">g_nums = [<span class="number">11</span>,<span class="number">22</span>]</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="comment"># target 指定将来找个线程去哪个函数执行代码</span></span><br><span class="line">    <span class="comment"># args 指定将来调用函数的时候传递什么数据过去</span></span><br><span class="line">    t1 = threading.Thread(target=test1,args=(g_nums,))</span><br><span class="line">    <span class="comment"># args=(g_nums,)的','必选填写</span></span><br><span class="line">    t2 = threading.Thread(target=test2,args=(g_nums,))</span><br><span class="line"></span><br><span class="line">    t1.start()</span><br><span class="line">    time.sleep(<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">    t2.start()</span><br><span class="line">    time.sleep(<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">    print(<span class="string">"---in main Thread g_nums = %s---"</span>%g_nums)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    main()</span><br></pre></td></tr></table></figure>
+
+<p>输出结果：</p>
+<p><strong>—-in test1 temp=[11, 22, 33]—-<br>—-in test2 temp=[11, 22, 33]—-<br>—in main Thread g_nums = [11, 22, 33]—</strong></p>
+<blockquote>
+<p>在一个函数中，对全局变量进行修改的时候，到底是否需要用<code>global</code>说明，要看是否对全局变量的执行指向进行了修改。</p>
+<p>如果修改了执行，即让全局变量指向了一个新的地址，那么必须使用global，如果仅仅是修改了指向空间中的数据，此时不用必须使用<code>global</code></p>
+</blockquote>
+<p>从上面打印出来的内容能看出，子线程与子线程之间是可以共享全局变量的。</p>
+<h5 id="5-共享全局变量的问题"><a href="#5-共享全局变量的问题" class="headerlink" title="5.共享全局变量的问题"></a>5.共享全局变量的问题</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">mport threading</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line"><span class="comment"># 定义一个全局变量</span></span><br><span class="line">g_num = <span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">test1</span><span class="params">(num)</span>:</span></span><br><span class="line">    <span class="keyword">global</span> g_num</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(num):</span><br><span class="line">        g_num += <span class="number">1</span></span><br><span class="line"></span><br><span class="line">    print(<span class="string">"----in test1 g_num=%d----"</span>%g_num)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">test2</span><span class="params">(num)</span>:</span></span><br><span class="line">    <span class="keyword">global</span> g_num</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(num):</span><br><span class="line">        g_num += <span class="number">1</span></span><br><span class="line"></span><br><span class="line">    print(<span class="string">"----in test2 g_num=%d----"</span> % g_num)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="comment"># target 指定将来找个线程去哪个函数执行代码</span></span><br><span class="line">    <span class="comment"># args 指定将来调用函数的时候传递什么数据过去</span></span><br><span class="line">    t1 = threading.Thread(target=test1,args=(<span class="number">1000</span>,))</span><br><span class="line">    t2 = threading.Thread(target=test2,args=(<span class="number">1000</span>,))</span><br><span class="line"></span><br><span class="line">    t1.start()</span><br><span class="line">    t2.start()</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 等待上面的2个线程执行完毕</span></span><br><span class="line">    time.sleep(<span class="number">5</span>)</span><br><span class="line">    print(<span class="string">"---in main Thread g_nums = %d---"</span>%g_num)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    main()</span><br></pre></td></tr></table></figure>
+
+<p>执行结果为：</p>
+<p><strong>—-in test1 g_num=1000—-<br>—-in test2 g_num=2000—-<br>—in main Thread g_nums = 2000—</strong></p>
+<p>这是我们把代码里的<code>args=(1000,)</code>改成<code>args=(1000000,)</code>，这个时候按常理输出的应该是 <code>g_num = 2000000</code>，我们看代码和执行结果：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> threading</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line"><span class="comment"># 定义一个全局变量</span></span><br><span class="line">g_num = <span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">test1</span><span class="params">(num)</span>:</span></span><br><span class="line">    <span class="keyword">global</span> g_num</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(num):</span><br><span class="line">        g_num += <span class="number">1</span></span><br><span class="line"></span><br><span class="line">    print(<span class="string">"----in test1 g_num=%d----"</span>%g_num)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">test2</span><span class="params">(num)</span>:</span></span><br><span class="line">    <span class="keyword">global</span> g_num</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(num):</span><br><span class="line">        g_num += <span class="number">1</span></span><br><span class="line"></span><br><span class="line">    print(<span class="string">"----in test2 g_num=%d----"</span> % g_num)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="comment"># target 指定将来找个线程去哪个函数执行代码</span></span><br><span class="line">    <span class="comment"># args 指定将来调用函数的时候传递什么数据过去</span></span><br><span class="line">    t1 = threading.Thread(target=test1,args=(<span class="number">1000000</span>,))</span><br><span class="line">    t2 = threading.Thread(target=test2,args=(<span class="number">1000000</span>,))</span><br><span class="line"></span><br><span class="line">    t1.start()</span><br><span class="line">    t2.start()</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 等待上面的2个线程执行完毕</span></span><br><span class="line">    time.sleep(<span class="number">5</span>)</span><br><span class="line">    print(<span class="string">"---in main Thread g_num = %d---"</span>%g_num)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    main()</span><br></pre></td></tr></table></figure>
+
+<p>执行结果：</p>
+<p><strong>—-in test1 g_num=1055778—-<br>—-in test2 g_num=1369744—-<br>—in main Thread g_nums = 1369744—</strong></p>
+<p>实际的打印结果却是<code>g_num = 1369744</code>并不是<code>g_num = 2000000</code>，这是为啥呢？</p>
+<p>在我们执行上面两个线程时，实际可以理解为他们都在执行三句话</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1、获取g_num的值</span><br><span class="line">2、把获取的值 +1</span><br><span class="line">3、把第二步的结果存储到g_num中</span><br></pre></td></tr></table></figure>
+
+<p>但是在Python里面的的多线程是<code>并发</code>而不是<code>并行</code>，两个线程是靠系统CPU循环调度的，当线程1执行一段时间（这个时间相当短）后，系统就会终止线程1，开始执行线程2，这时可能会出现线程1只执行  1，2 两句话，第三句还没来的及执行，就被CPU踢出去，去执行线程2 了，当线程2执行一段时间后，又会回到线程1，这时他才会去执行 第3句，去保存他之前已经算好的 g_num，然后一保存，这时就出问题了，线程2加上的数字就没算进去，所以就会出现上面那种情况。</p>
+<h5 id="6-同步"><a href="#6-同步" class="headerlink" title="6.同步"></a>6.同步</h5><p>同步就是协同步调，按预定的先后次序进行运行，如：你说完，我再说</p>
+<p>“同”字从字面意识容易理解为一起动作</p>
+<p>其实不是，“同”字应是协同、协助、互相配合。</p>
+<p>如进程、线程，可理解为进程或线程A和B，A执行到一定程度时要依靠B的某个结果，于是停下来，示意B运行；B执行，再见结果给A；A再继续</p>
+<p><strong>解决线程同时修改全局变量的方式</strong></p>
+<p>对于上面提出的计算错误的问题，可以通过线程同步来解决</p>
+<p>思路如下：</p>
+<p>1、系统调用t1,然后g_num的值为0，此时上一把锁，即不允许g_num</p>
+<p>2、t1对g_num的值进行+1</p>
+<p>3、t1解锁，此时g_num的值为1，其他线程就可以使用g_num了，而且是g_num的值不是0而是1</p>
+<p>4、同理其他线程对g_num进行修改时，处理完后再解锁，在上锁的整个过程中不允许其他线程访问，就保证了数据的正确性。</p>
+<h5 id="7-互斥锁"><a href="#7-互斥锁" class="headerlink" title="7.互斥锁"></a>7.互斥锁</h5><p>当多个线程几乎同时修改某一个共享数据的时候，需要进行同步的控制。</p>
+<p>线程同步能够保证多个线程安全访问竞争资源，最简单的同步机制是引入互斥锁。</p>
+<p>互斥锁为资源引入的一个状态：锁定/非锁定</p>
+<p>某个线程要更改共享数据是，先将其锁定，此时资源的状态未”锁定“，其他线程不能更改；直到改线程释放资源，将资源的状态变为”非锁定“，其他的线程才能再次锁定该资源，互斥保证了每次只有一个线程进行写入操作，从而保证了多线程情况下数据的正确性。</p>
+<p>threading模块中定义了lock类，可以方便的处理锁定：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 创建锁</span></span><br><span class="line">mutex = threading.Lock()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 锁定</span></span><br><span class="line">mutex.acquire()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 解锁</span></span><br><span class="line">mutex.release()</span><br></pre></td></tr></table></figure>
+
+<p><strong>注意</strong></p>
+<ul>
+<li>如果这个锁之前没有上锁的，那么acquire不会堵塞</li>
+<li>如果在调用acquire对这个锁上锁之前，他已经被其他线程上了锁，此时acquire会堵塞，直到这个锁被解锁为止。</li>
+</ul>
+<p>使用互斥锁完成2个线程对同一个变量加100万次的操作</p>
+<p>方案一：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> threading</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line"><span class="comment"># 定义一个全局变量</span></span><br><span class="line">g_num = <span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">test1</span><span class="params">(num)</span>:</span></span><br><span class="line">    <span class="keyword">global</span> g_num</span><br><span class="line">    <span class="comment"># 上锁，如果之前没有被上锁，那么此时上锁成功</span></span><br><span class="line">    <span class="comment"># 如果上锁之前已经被上锁了，那么此时会堵塞在这里，直到这个锁被解开</span></span><br><span class="line">    mutex.acquire()</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(num):</span><br><span class="line">        g_num += <span class="number">1</span></span><br><span class="line">    <span class="comment"># 解锁</span></span><br><span class="line">    mutex.release()</span><br><span class="line">    print(<span class="string">"----in test1 g_num=%d----"</span>%g_num)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">test2</span><span class="params">(num)</span>:</span></span><br><span class="line">    <span class="keyword">global</span> g_num</span><br><span class="line">    mutex.acquire()</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(num):</span><br><span class="line">        g_num += <span class="number">1</span></span><br><span class="line">    mutex.release()</span><br><span class="line">    print(<span class="string">"----in test2 g_num=%d----"</span> % g_num)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建一个互斥锁，默认是没有上锁的</span></span><br><span class="line">mutex = threading.Lock()</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="comment"># target 指定将来找个线程去哪个函数执行代码</span></span><br><span class="line">    <span class="comment"># args 指定将来调用函数的时候传递什么数据过去</span></span><br><span class="line">    t1 = threading.Thread(target=test1,args=(<span class="number">1000000</span>,))</span><br><span class="line">    t2 = threading.Thread(target=test2,args=(<span class="number">1000000</span>,))</span><br><span class="line"></span><br><span class="line">    t1.start()</span><br><span class="line">    t2.start()</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 等待上面的2个线程执行完毕</span></span><br><span class="line">    time.sleep(<span class="number">3</span>)</span><br><span class="line">    print(<span class="string">"---in main Thread g_num = %d---"</span>%g_num)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    main()</span><br></pre></td></tr></table></figure>
+
+<p>输出结果：</p>
+<p><strong>—-in test1 g_num=1000000—-<br>—-in test2 g_num=2000000—-<br>—in main Thread g_num = 2000000—</strong></p>
+<p>方案一中，上锁的代码是</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 上锁</span></span><br><span class="line">mutex.acquire()</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(num):</span><br><span class="line">    g_num += <span class="number">1</span></span><br><span class="line"><span class="comment"># 解锁</span></span><br><span class="line">mutex.release()</span><br></pre></td></tr></table></figure>
+
+<p>这时，只要两个线程中一个抢先上了锁，那么就必须等这个线程 的 for 循环完全执行完，解锁以后才可以去执行另外一个线程，但是如果其中一个线程执行时间很长，那另一个线程也得等那么长时间，实际是不合理的，因此我们看看方案二</p>
+<p>方案二：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> threading</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line"><span class="comment"># 定义一个全局变量</span></span><br><span class="line">g_num = <span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">test1</span><span class="params">(num)</span>:</span></span><br><span class="line">    <span class="keyword">global</span> g_num</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(num):</span><br><span class="line">        <span class="comment"># 上锁，如果之前没有被上锁，那么此时上锁成功</span></span><br><span class="line">        <span class="comment"># 如果上锁之前已经被上锁了，那么此时会堵塞在这里，直到这个锁被解开</span></span><br><span class="line">        mutex.acquire()</span><br><span class="line">        g_num += <span class="number">1</span><span class="comment"># 解锁</span></span><br><span class="line">        mutex.release()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    print(<span class="string">"----in test1 g_num=%d----"</span>%g_num)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">test2</span><span class="params">(num)</span>:</span></span><br><span class="line">    <span class="keyword">global</span> g_num</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(num):</span><br><span class="line">        mutex.acquire()</span><br><span class="line">        g_num += <span class="number">1</span></span><br><span class="line">        mutex.release()</span><br><span class="line">    print(<span class="string">"----in test2 g_num=%d----"</span> % g_num)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建一个互斥锁，默认是没有上锁的</span></span><br><span class="line">mutex = threading.Lock()</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="comment"># target 指定将来找个线程去哪个函数执行代码</span></span><br><span class="line">    <span class="comment"># args 指定将来调用函数的时候传递什么数据过去</span></span><br><span class="line">    t1 = threading.Thread(target=test1,args=(<span class="number">1000000</span>,))</span><br><span class="line">    t2 = threading.Thread(target=test2,args=(<span class="number">1000000</span>,))</span><br><span class="line"></span><br><span class="line">    t1.start()</span><br><span class="line">    t2.start()</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 等待上面的2个线程执行完毕</span></span><br><span class="line">    time.sleep(<span class="number">3</span>)</span><br><span class="line">    print(<span class="string">"---in main Thread g_num = %d---"</span>%g_num)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    main()</span><br></pre></td></tr></table></figure>
+
+<p>输出结果：</p>
+<p><strong>—-in test2 g_num=1933636—-<br>—-in test1 g_num=2000000—-<br>—in main Thread g_num = 2000000—</strong></p>
+<p>分析：</p>
+<p>方案二中，上锁的代码</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 上锁</span></span><br><span class="line">mutex.acquire()</span><br><span class="line">g_num += <span class="number">1</span></span><br><span class="line"><span class="comment"># 解锁</span></span><br><span class="line">mutex.release()</span><br></pre></td></tr></table></figure>
+
+<p>这时是只要 <code>g_num += 1</code>执行完，两个线程就会开始抢锁，抢到了就继续执行另一个线程的<code>g_num += 1</code>，可是为什么方案一和方案的输出结果不一致呢？</p>
+<p>原因是方案一是一个线程执行完才去执行另一个，而方案二是 <code>g_num += 1</code>执行完，开始抢锁，系统是随机的，所以可能会出现 其中一个线程抢到很多次锁，另一个才能抢到一次，所以，其中一个线程一定会先执行完，但是<code>g_num</code>是两个线程都在写入的，所以就会上面的结果。</p>
+<h5 id="死锁"><a href="#死锁" class="headerlink" title="死锁"></a>死锁</h5><p>在线程间共享多个资源的时候，如果两个线程分别占有一部分资源并且等待对方的资源，就会造成死锁。</p>
+<p>尽管死锁很少发生，但一旦发生就会造成应用的停止响应，下面看一个死锁的例子</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> threading</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyThread1</span><span class="params">(threading.Thread)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">run</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="comment"># 对mutexA上锁</span></span><br><span class="line">        mutexA.acquire()</span><br><span class="line"></span><br><span class="line">        <span class="comment"># mutexA上锁后，延时1秒，等待另外那个线程 把mutexB上锁</span></span><br><span class="line">        print(self.name + <span class="string">'---do1---up---'</span>)</span><br><span class="line">        time.sleep(<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 此时会堵塞，因为这个mutexB已经被另外的线程抢先上锁了</span></span><br><span class="line">        mutexB.acquire()</span><br><span class="line">        print(self.name + <span class="string">'---do1---down---'</span>)</span><br><span class="line">        mutexB.release()</span><br><span class="line"></span><br><span class="line">        mutexA.release()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyThread2</span><span class="params">(threading.Thread)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">run</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="comment"># 对mutexA上锁</span></span><br><span class="line">        mutexB.acquire()</span><br><span class="line"></span><br><span class="line">        <span class="comment"># mutexB上锁后，延时1秒，等待另外那个线程 把mutexA上锁</span></span><br><span class="line">        print(self.name + <span class="string">'---do2---up---'</span>)</span><br><span class="line">        time.sleep(<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 此时会堵塞，因为这个mutexA已经被另外的线程抢先上锁了</span></span><br><span class="line">        mutexA.acquire()</span><br><span class="line">        print(self.name + <span class="string">'---do2---down---'</span>)</span><br><span class="line">        mutexA.release()</span><br><span class="line"></span><br><span class="line">        mutexB.release()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">mutexA = threading.Lock()</span><br><span class="line">mutexB = threading.Lock()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    t1 = MyThread1()</span><br><span class="line">    t2 = MyThread2()</span><br><span class="line">    t1.start()</span><br><span class="line">    t2.start()</span><br></pre></td></tr></table></figure>
+
+<p><strong>避免死锁</strong></p>
+<ul>
+<li>程序设计时尽量避免（<a href="https://baike.baidu.com/item/%E9%93%B6%E8%A1%8C%E5%AE%B6%E7%AE%97%E6%B3%95/1679781?fr=aladdin" target="_blank" rel="noopener">银行家算法</a>）</li>
+<li>添加超时时间，到点就放弃加锁</li>
+</ul>
+<p>当需要创建的子进程熟练不多时，可以直接利用multiprocessing中的Process动态生成多个进程，但如果是上百上千个目标，手动去创建进程的工作量巨大，此时就可以用到multiprocessing提供的Pool方法。</p>
+<p>初始化Pool时，可以指定一个最大的进程数，当有新的请求提交到Pool中时，如果池还没有满，那么久会创建一个新的进程来执行请求；但如果池中的进程数已经达到指定的最大值，那么该请求就会等待，知道池中有进程接胡搜，才会用之前的进程来执行新的任务，代码示例如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding:utf-8 -*-</span></span><br><span class="line"><span class="keyword">from</span> multiprocessing <span class="keyword">import</span> Pool</span><br><span class="line"><span class="keyword">import</span> os,time,random</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">worker</span><span class="params">(msg)</span>:</span></span><br><span class="line">    t_start = time.time()</span><br><span class="line">    print(<span class="string">"%s开始执行，进程号%d"</span>%(msg,os.getppid()))</span><br><span class="line">    <span class="comment"># random.random()随机生成 0~1之间的浮点数</span></span><br><span class="line">    time.sleep(random.random()*<span class="number">2</span>)</span><br><span class="line">    t_stop = time.time()</span><br><span class="line">    print(msg,<span class="string">"执行完毕耗时 %0.2f"</span>%(t_stop-t_start))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">po = Pool(<span class="number">3</span>)</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>,<span class="number">10</span>):</span><br><span class="line">    <span class="comment"># Pool().apply_async(要调用的目标，(传递给目标的参数元组，))</span></span><br><span class="line">    <span class="comment"># 每次循环将会用空闲出来的子进程去调用目标</span></span><br><span class="line">    po.apply_async(worker,(i,))</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line">print(<span class="string">"---start---"</span>)</span><br><span class="line">po.close() <span class="comment"># 关闭进程池，关闭后po不再接收新的请求</span></span><br><span class="line">po.join()  <span class="comment"># 等待po中所有的子进程执行完成，必须放在close之后</span></span><br><span class="line">print(<span class="string">"---end---"</span>)</span><br></pre></td></tr></table></figure>
+
+<p>执行输出：</p>
+<p><strong>—start—<br>0开始执行，进程号11095<br>1开始执行，进程号11096<br>2开始执行，进程号11097<br>2 执行完毕耗时 1.11<br>3开始执行，进程号11097<br>1 执行完毕耗时 1.69<br>4开始执行，进程号11096<br>0 执行完毕耗时 1.72<br>5开始执行，进程号11095<br>4 执行完毕耗时 0.23<br>6开始执行，进程号11096<br>5 执行完毕耗时 0.39<br>7开始执行，进程号11095<br>3 执行完毕耗时 1.12<br>8开始执行，进程号11097<br>7 执行完毕耗时 1.31<br>9开始执行，进程号11095<br>6 执行完毕耗时 1.65<br>8 执行完毕耗时 1.94<br>9 执行完毕耗时 1.78<br>—end—</strong></p>
+<h4 id="应用：文件夹copy器（多线程版）"><a href="#应用：文件夹copy器（多线程版）" class="headerlink" title="应用：文件夹copy器（多线程版）"></a>应用：文件夹copy器（多线程版）</h4><p><strong>需求</strong>: 把一个文件夹内所有的文件全部拷贝到另一个文件夹</p>
+<blockquote>
+<p>查询Python下的模块 ：通过 <code>os.__file__</code> 查看模块所在文件夹</p>
+<p>拷贝老文件夹下指定后缀的文件到新文件夹：<code>cp  老文件夹/*.后缀 新文件夹</code></p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> multiprocessing</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">copy_file</span><span class="params">(queue,file_name,old_floder_name,new_floder_name)</span>:</span></span><br><span class="line">    <span class="string">"""完成文件拷贝"""</span></span><br><span class="line">    <span class="comment"># print("====拷贝文件====从%s 到 %s,文件名：%s"%(old_floder_name,new_floder_name,file_name))</span></span><br><span class="line">    old_f = open(old_floder_name + <span class="string">'/'</span> + file_name,<span class="string">"rb"</span>)</span><br><span class="line">    content = old_f.read()</span><br><span class="line">    old_f.close()</span><br><span class="line">    new_f = open(new_floder_name + <span class="string">'/'</span> + file_name,<span class="string">"wb"</span>)</span><br><span class="line">    new_f.write(content)</span><br><span class="line">    new_f.close()</span><br><span class="line">    time.sleep(<span class="number">0.1</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 如果拷贝完了文件，那么就向队列里面写入一个消息，表示已经完成</span></span><br><span class="line">    queue.put(file_name)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="comment"># 获取用户要copy的文件夹的名字</span></span><br><span class="line">    old_floder_name = input(<span class="string">"请输入要陪copy的文件夹的名字："</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 创建一个新的文件夹</span></span><br><span class="line">    new_floder_name = old_floder_name + <span class="string">"[复件]"</span></span><br><span class="line">    <span class="keyword">if</span> new_floder_name <span class="keyword">not</span> <span class="keyword">in</span> os.listdir(os.getcwd()):</span><br><span class="line">        os.mkdir(new_floder_name)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 获取文件夹的所有需要copy的文件名字 listdir()</span></span><br><span class="line">    file_names = os.listdir(old_floder_name)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 创建一个对队列</span></span><br><span class="line">    queue = multiprocessing.Manager().Queue()</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 创建进程池</span></span><br><span class="line">    po = multiprocessing.Pool(<span class="number">5</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 复制原文件中的文件，到新文件夹中的文件去</span></span><br><span class="line">    <span class="keyword">for</span> file_name <span class="keyword">in</span> file_names:</span><br><span class="line">        po.apply_async(copy_file,args=(queue,file_name,old_floder_name,new_floder_name,))</span><br><span class="line"></span><br><span class="line">    po.close()</span><br><span class="line"></span><br><span class="line">    all_file_num = len(file_names)</span><br><span class="line">    copy_ok = <span class="number">0</span></span><br><span class="line">    <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">        file_name_r = queue.get()</span><br><span class="line">        <span class="comment"># print("已经拷贝完成：%s"%file_name_r)</span></span><br><span class="line"></span><br><span class="line">        copy_ok += <span class="number">1</span></span><br><span class="line">        print(<span class="string">"\r拷贝进度为：%.2f%%"</span> % (copy_ok*<span class="number">100</span> / all_file_num),end= <span class="string">' '</span>)</span><br><span class="line">        <span class="keyword">if</span> copy_ok &gt;= all_file_num:</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    main()</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+      
+      <!-- reward -->
+      
+      <div id="reward-btn">
+        打赏
+      </div>
+      
+    </div>
+    
+    
+      <!-- copyright -->
+      
+        <div class="declare">
+          <ul class="post-copyright">
+            <li>
+              <i class="ri-copyright-line"></i>
+              <strong>版权声明： </strong>
+              本博客所有文章除特别声明外，著作权归作者所有。转载请注明出处！
+            </li>
+          </ul>
+        </div>
+        
+    <footer class="article-footer">
+      
+          
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        分享
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="ri-weibo-fill"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="ri-wechat-fill"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="ri-qq-fill"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="ri-douban-line"></i>
+          </a>
+          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a> -->
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://yoursite.com/2021/03/03/pyhton/Python%E5%A4%9A%E4%BB%BB%E5%8A%A11%E4%B9%8B%E7%BA%BF%E7%A8%8B/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python%E5%A4%9A%E4%BB%BB%E5%8A%A1/" rel="tag">Python多任务</a></li></ul>
+
+
+    </footer>
+
+  </div>
+
+  
+  
+  <nav class="article-nav">
+    
+    
+      <a href="/2020/08/16/interfacetest/%E6%8E%A5%E5%8F%A3%E8%87%AA%E5%8A%A8%E5%8C%96%E6%A1%86%E6%9E%B63%E4%B9%8BUnittest/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">接口自动化框架之Unittest（3）</div>
+      </a>
+    
+  </nav>
+
+
+  
+
+  
+  
+<!-- valine评论 -->
+<div id="vcomments-box">
+    <div id="vcomments">
+    </div>
+</div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='https://cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js'></script>
+<script>
+    new Valine({
+        el: '#vcomments',
+        app_id: '',
+        app_key: '',
+        path: window.location.pathname,
+        notify: 'false',
+        verify: 'false',
+        avatar: 'monsterid',
+        placeholder: '给我的文章加点评论吧~',
+        recordIP: true
+    });
+    const infoEle = document.querySelector('#vcomments .info');
+    if (infoEle && infoEle.childNodes && infoEle.childNodes.length > 0) {
+        infoEle.childNodes.forEach(function (item) {
+            item.parentNode.removeChild(item);
+        });
+    }
+</script>
+<style>
+    #vcomments-box {
+        padding: 5px 30px;
+    }
+
+    @media screen and (max-width: 800px) {
+        #vcomments-box {
+            padding: 5px 0px;
+        }
+    }
+
+    #vcomments-box #vcomments {
+        background-color: #fff;
+    }
+
+    .v .vlist .vcard .vh {
+        padding-right: 20px;
+    }
+
+    .v .vlist .vcard {
+        padding-left: 10px;
+    }
+</style>
+
+  
+
+  
+  
+  
+  
+  
+
+</article>
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul class="list-inline">
+      <li>
+        &copy;
+        2015-2021
+        Dreams
+      </li>
+      <li>
+        
+        Powered by
+        
+        
+        <a href="https://hexo.io" target="_blank">Hexo</a> Theme <a href="https://github.com/Shen-Yu/hexo-theme-ayer" target="_blank">Ayer</a>
+        
+      </li>
+    </ul>
+    <ul class="list-inline">
+      <li>
+        
+        
+        <span>
+  <i>PV:<span id="busuanzi_value_page_pv"></span></i>
+  <i>UV:<span id="busuanzi_value_site_uv"></span></i>
+</span>
+        
+      </li>
+      
+      <li>
+        <!-- cnzz统计 -->
+        
+        <script type="text/javascript" src='https://s9.cnzz.com/z_stat.php?id=1278069914&amp;web_id=1278069914'></script>
+        
+      </li>
+    </ul>
+  </div>
+</footer>
+      <div class="float_btns">
+        <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+
+<div class="todark" id="todark">
+  <i class="ri-moon-line"></i>
+</div>
+
+      </div>
+    </main>
+    <aside class="sidebar on">
+      <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/ayer-side.svg" alt="Dreaming"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories">分类</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags">标签</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="https://dreams_quan.gitee.io/images" target="_blank" rel="noopener">图床</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/about">关于我</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="搜索">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+      <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+        <i class="ri-rss-line"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+    </aside>
+    <script>
+      if (window.matchMedia("(max-width: 768px)").matches) {
+        document.querySelector('.content').classList.remove('on');
+        document.querySelector('.sidebar').classList.remove('on');
+      }
+    </script>
+    <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i>请我喝杯咖啡吧~</p>
+  <div class="reward-box">
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/alipay.jpg">
+      <span class="reward-type">支付宝</span>
+    </div>
+    
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/wechat.jpg">
+      <span class="reward-type">微信</span>
+    </div>
+    
+  </div>
+</div>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/lazyload.min.js"></script>
+
+<script>
+  try {
+    var typed = new Typed("#subtitle", {
+      strings: ['面朝大海，春暖花开', '愿你一生努力，一生被爱', '想要的都拥有，得不到的都释怀'],
+      startDelay: 0,
+      typeSpeed: 200,
+      loop: true,
+      backSpeed: 100,
+      showCursor: true
+    });
+  } catch (err) {
+  }
+
+</script>
+
+
+
+<script src="/js/tocbot.min.js"></script>
+<script>
+  // Tocbot_v4.7.0  http://tscanlin.github.io/tocbot/
+  tocbot.init({
+    tocSelector: '.tocbot',
+    contentSelector: '.article-entry',
+    headingSelector: 'h1, h2, h3, h4, h5, h6',
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: 'main',
+    positionFixedSelector: '.tocbot',
+    positionFixedClass: 'is-position-fixed',
+    fixedSidebarOffset: 'auto'
+  });
+</script>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.css">
+<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js"></script>
+<script src="/dist/main.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css">
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script>
+
+
+
+
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+
+
+<script type="text/javascript" src="https://js.users.51.la/20544303.js"></script>
+
+
+<!-- 复制 -->
+
+  <link rel="stylesheet" href="/css/clipboard.css">
+  <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="ri-file-copy-2-line"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-checkbox-circle-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-checkbox-circle-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-time-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-time-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+
+
+
+
+    
+  </div>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
