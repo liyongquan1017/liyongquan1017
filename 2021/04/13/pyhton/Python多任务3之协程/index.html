@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+
+
+<html lang="zh-CN" >
+
+
+<head>
+  <meta charset="utf-8" />
+    
+  <meta name="description" content="记录学习分享" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <title>
+    Python多任务之协程 |  Dreaming
+  </title>
+  <meta name="generator" content="hexo-theme-yilia-plus">
+  
+  <link rel="shortcut icon" href="/favicon.ico" />
+  
+  <link rel="stylesheet" href="/dist/main.css">
+  <link rel="stylesheet" href="/css/custom.css">
+  
+  <script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+  
+  
+
+  
+
+<link rel="alternate" href="/atom.xml" title="Dreaming" type="application/atom+xml">
+</head>
+
+</html>
+
+<body>
+  <div id="app">
+    <main class="content on">
+      <section class="outer">
+  <article id="post-pyhton/Python多任务3之协程" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  Python多任务之协程
+</h1>
+ 
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2021/04/13/pyhton/Python%E5%A4%9A%E4%BB%BB%E5%8A%A13%E4%B9%8B%E5%8D%8F%E7%A8%8B/" class="article-date">
+  <time datetime="2021-04-12T16:00:00.000Z" itemprop="datePublished">2021-04-13</time>
+</a>
+      
+      
+      
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> 字数统计:</span>
+            <span class="post-count">3.3k</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> 阅读时长≈</span>
+            <span class="post-count">13 分钟</span>
+        </span>
+    </span>
+</div>
+
+      
+    </div>
+    
+
+    
+    
+    <div class="tocbot"></div>
+
+
+
+
+
+    
+
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+      
+
+      
+      <h4 id="迭代器"><a href="#迭代器" class="headerlink" title="迭代器"></a>迭代器</h4><blockquote>
+<p>迭代是访问集合元素的一种方式，迭代器是一个可以记住遍历的位置的对象，迭代器对象从集合的第一个元素开始访问，查到所有元素呗访问完结束，迭代器只能往前不能后退</p>
+</blockquote>
+<h5 id="可迭代对象"><a href="#可迭代对象" class="headerlink" title="可迭代对象"></a>可迭代对象</h5><p>我们已经知道可以对list、tuple、str等类型的数据使用for…in…的循环语法从其中依次拿到数据进行使用，我们这样的过程称为遍历，也叫迭代。</p>
+<p><strong>但是，是否所有的数据类型都可以放到for…in…的语句中，然后让for…in…每次从中取出一条数据提供我们使用，即供我们迭代？</strong></p>
+<p>通过 <code>Iterable</code>模块可以判断一个数据类型是否是可供迭代的，具体代码如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"""判断各个数据类型是否可迭代"""</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> collections.abc <span class="keyword">import</span> Iterable</span><br><span class="line"></span><br><span class="line">a = isinstance([<span class="number">11</span>,<span class="number">2</span>,<span class="number">3</span>],Iterable)</span><br><span class="line">print(<span class="string">"列表是否可迭代：%s"</span>%a)</span><br><span class="line"></span><br><span class="line">b = isinstance(<span class="string">'sddfasfa'</span>,Iterable)</span><br><span class="line">print(<span class="string">"字符串是否可迭代：%s"</span>%b)</span><br><span class="line"></span><br><span class="line">c = isinstance(&#123;<span class="string">"name"</span>:<span class="string">"li"</span>,<span class="string">"age"</span>:<span class="number">18</span>&#125;,Iterable)</span><br><span class="line">print(<span class="string">"字典是否可迭代：%s"</span>%c)</span><br><span class="line"></span><br><span class="line">d = isinstance(<span class="number">1000</span>,Iterable)</span><br><span class="line">print(<span class="string">"int类型是否可迭代：%s"</span>%d)</span><br><span class="line"></span><br><span class="line">f = isinstance(<span class="number">1.23434</span>,Iterable)</span><br><span class="line">print(<span class="string">"浮点类型是否可迭代：%s"</span>%f)</span><br></pre></td></tr></table></figure>
+
+<p>打印结果：</p>
+<p><strong>列表是否可迭代：True<br>字符串是否可迭代：True<br>字典是否可迭代：True<br>int类型是否可迭代：False<br>浮点类型是否可迭代：False</strong></p>
+<p>从上面可以看出列表、字符串、字典都是可迭代的，int和浮点类型是不可迭代的。后续大家可以用<code>Iterable</code>去判断一个数据类型是否是可迭代的。</p>
+<h5 id="自己实现一个可以迭代的对象"><a href="#自己实现一个可以迭代的对象" class="headerlink" title="自己实现一个可以迭代的对象"></a>自己实现一个可以迭代的对象</h5><p>我们定义一个类，然后看看可不可以实现一个可迭代的对象：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Classmate</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.names = list()</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">add</span><span class="params">(self,name)</span>:</span></span><br><span class="line">        self.names.append(name)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 定义一个对象</span></span><br><span class="line">classmate = Classmate()</span><br><span class="line"></span><br><span class="line">classmate.add(<span class="string">"张三"</span>)</span><br><span class="line">classmate.add(<span class="string">"李四"</span>)</span><br><span class="line">classmate.add(<span class="string">"王五"</span>)</span><br><span class="line">classmate.add(<span class="string">"赵六"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 通过for循环查看是否可迭代</span></span><br><span class="line"><span class="keyword">for</span> name <span class="keyword">in</span> classmate:</span><br><span class="line">    print(name)</span><br></pre></td></tr></table></figure>
+
+<p>打印结果：</p>
+<p><strong>Traceback (most recent call last):<br>  File “/Users/liyongquan/Desktop/学习/python多任务进程线程协程/test14_实现一个可以自己迭代的对象.py”, line 19, in module<br>    for name in classmate:<br>TypeError: ‘Classmate’ object is not iterable</strong></p>
+<p>从打印结果看，<code>&#39;Classmate&#39; object is not iterable</code>这样是不行的，一个普通的类是没法实现一个可迭代对象的，这时我们需要给类里面加一个<code>__iter__</code>方法。</p>
+<blockquote>
+<p>在遇到以下一个for循环时，代码的实现过程如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;<span class="keyword">for</span> temp <span class="keyword">in</span> xxxx_obj:</span><br><span class="line">&gt;<span class="keyword">pass</span></span><br></pre></td></tr></table></figure>
+
+<ol>
+<li>判断xxxx_obj是否可以迭代</li>
+<li>在第1步的前提下，用iter函数得到 xxxx_obj对象的<code>__iter__</code>方法的返回值</li>
+<li><code>__iter__</code>方法的返回值是一个迭代器</li>
+</ol>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Classmate</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.names = list()</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">add</span><span class="params">(self,name)</span>:</span></span><br><span class="line">        self.names.append(name)</span><br><span class="line">      </span><br><span class="line">    <span class="comment"># 添加iter方法  </span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__iter__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 定义一个对象</span></span><br><span class="line">classmate = Classmate()</span><br><span class="line"></span><br><span class="line">classmate.add(<span class="string">"张三"</span>)</span><br><span class="line">classmate.add(<span class="string">"李四"</span>)</span><br><span class="line">classmate.add(<span class="string">"王五"</span>)</span><br><span class="line">classmate.add(<span class="string">"赵六"</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> name <span class="keyword">in</span> classmate:</span><br><span class="line">    print(name)</span><br></pre></td></tr></table></figure>
+
+<p>打印结果：</p>
+<p><strong>TypeError: iter() returned non-iterator of type ‘NoneType’</strong></p>
+<p>从上面的打印结果我们可以看出我们创建的类已经可以被创建成一个可迭代的对象了，但是确还是报错<code>iter() returned non-iterator of type &#39;NoneType&#39;</code>，为什么呢？因为我们虽然已经是一个可迭代的对象，但是我们还需要一个对象的有<code>__iter__</code>和<code>__next__</code>方法的引用。</p>
+<p>代码如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> collections.abc <span class="keyword">import</span> Iterator, Iterable</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Classmate</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.names = list()</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">add</span><span class="params">(self, name)</span>:</span></span><br><span class="line">        self.names.append(name)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__iter__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="string">"""如果想要一个对象称为一个可以迭代的对象，即可以使用for,那么必须实现__iter__方法"""</span></span><br><span class="line">        <span class="keyword">return</span> ClassInterator(self.names)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ClassInterator</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, obj)</span>:</span></span><br><span class="line">        self.obj = obj</span><br><span class="line">        self.current_num = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__iter__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__next__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> self.current_num &lt; len(self.obj):</span><br><span class="line">            ret = self.obj[self.current_num]</span><br><span class="line">            self.current_num += <span class="number">1</span></span><br><span class="line">            <span class="keyword">return</span> ret</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">raise</span> StopIteration  <span class="comment"># raise 手动引发一个异常，程序中断</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建一个实例对象</span></span><br><span class="line">classmate = Classmate()</span><br><span class="line"></span><br><span class="line">classmate.add(<span class="string">"张三"</span>)</span><br><span class="line">classmate.add(<span class="string">"李四"</span>)</span><br><span class="line">classmate.add(<span class="string">"王五"</span>)</span><br><span class="line">classmate.add(<span class="string">"赵六"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 判断classmate是否是可迭代的</span></span><br><span class="line">print(<span class="string">"判断classmate是否可以迭代的对象："</span>, isinstance(classmate, Iterable))</span><br><span class="line"></span><br><span class="line">classmate_interor = iter(classmate)</span><br><span class="line">print(<span class="string">"判断classmate_interor是否是迭代器："</span>, isinstance(classmate_interor, Iterator))</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> name <span class="keyword">in</span> classmate:</span><br><span class="line">    time.sleep(<span class="number">1</span>)</span><br><span class="line">    print(name)</span><br></pre></td></tr></table></figure>
+
+<p>上面我们定义了两个类，实际我们可以在一个类中实现：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> collections.abc <span class="keyword">import</span> Iterator,Iterable</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Classmate</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.names = list()</span><br><span class="line">        self.current_num = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">add</span><span class="params">(self,name)</span>:</span></span><br><span class="line">        self.names.append(name)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__iter__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="string">"""如果想要一个对象称为一个可以迭代的对象，即可以使用for,那么必须实现__iter__方法"""</span></span><br><span class="line">        <span class="keyword">return</span> self</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__next__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> self.current_num &lt; len(self.names):</span><br><span class="line">            ret = self.names[self.current_num]</span><br><span class="line">            self.current_num += <span class="number">1</span></span><br><span class="line">            <span class="keyword">return</span> ret</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">raise</span> StopIteration</span><br><span class="line">    </span><br><span class="line"><span class="comment"># 定义一个对象</span></span><br><span class="line">classmate = Classmate()</span><br><span class="line"></span><br><span class="line">classmate.add(<span class="string">"张三"</span>)</span><br><span class="line">classmate.add(<span class="string">"李四"</span>)</span><br><span class="line">classmate.add(<span class="string">"王五"</span>)</span><br><span class="line">classmate.add(<span class="string">"赵六"</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> name <span class="keyword">in</span> classmate:</span><br><span class="line">    time.sleep(<span class="number">1</span>)</span><br><span class="line">    print(name)</span><br></pre></td></tr></table></figure>
+
+<p>打印结果：</p>
+<p><strong>张三<br>李四<br>王五<br>赵六</strong></p>
+<p>到此我们一个可迭代的对象就实现了。</p>
+<h5 id="迭代器的应用场景"><a href="#迭代器的应用场景" class="headerlink" title="迭代器的应用场景"></a>迭代器的应用场景</h5><p> 我们发现迭代器最核心的功能是可以通过next()函数的调用来返回下一个数据值，如果每次返回的数据值不是在一个已有的数据集合中读取的，而是通过程序按照一定的规律计算生成的，那么也就是以为着可以不用再用来一个已有的数据集合，也就是说不用再将所有的数据都一次缓存下来供后续依次读取，这样可以节省大量的存储（内存）空间。</p>
+<p>举个例子，比如数学中的斐波那契数列（Fibonacci）,数列中第一个数为0，第二个数为1，其后的每一个数都可由前两个数相加得到。</p>
+<p>0，1，1，2，3，5，8，13，21，34，…..</p>
+<p>现在我们想要用for…in…循环来遍历迭代斐波那契数列中的前N个数，那么这个斐波那契数列我们就可用迭代器来实现，每次迭代都通过数学计算来生成下一个数。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> collections.abc <span class="keyword">import</span> Iterator, Iterable</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Fabonacci</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self,num)</span>:</span></span><br><span class="line">        self.all_nums = num</span><br><span class="line">        self.current_num = <span class="number">0</span></span><br><span class="line">        self.a = <span class="number">0</span></span><br><span class="line">        self.b = <span class="number">1</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__iter__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="string">"""如果想要一个对象称为一个可以迭代的对象，即可以使用for,那么必须实现__iter__方法"""</span></span><br><span class="line">        <span class="keyword">return</span> self</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__next__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> self.current_num &lt; self.all_nums:</span><br><span class="line">            ret = self.a</span><br><span class="line">            self.a,self.b = self.b,self.a + self.b</span><br><span class="line">            self.current_num += <span class="number">1</span></span><br><span class="line">            <span class="keyword">return</span> ret</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">raise</span> StopIteration</span><br><span class="line"></span><br><span class="line">fabonacci = Fabonacci(<span class="number">4</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> temp <span class="keyword">in</span> fabonacci:</span><br><span class="line">    print(temp)</span><br></pre></td></tr></table></figure>
+
+
+
+<h5 id="并不是只有for循环能接收可迭代的对象"><a href="#并不是只有for循环能接收可迭代的对象" class="headerlink" title="并不是只有for循环能接收可迭代的对象"></a>并不是只有for循环能接收可迭代的对象</h5><p>除了for循环能接收可迭代对象，list和tuple等也能接收</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> collections.abc <span class="keyword">import</span> Iterator, Iterable</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Fabonacci</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self,num)</span>:</span></span><br><span class="line">        self.all_nums = num</span><br><span class="line">        self.current_num = <span class="number">0</span></span><br><span class="line">        self.a = <span class="number">0</span></span><br><span class="line">        self.b = <span class="number">1</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__iter__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="string">"""如果想要一个对象称为一个可以迭代的对象，即可以使用for,那么必须实现__iter__方法"""</span></span><br><span class="line">        <span class="keyword">return</span> self</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__next__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> self.current_num &lt; self.all_nums:</span><br><span class="line">            ret = self.a</span><br><span class="line">            self.a,self.b = self.b,self.a + self.b</span><br><span class="line">            self.current_num += <span class="number">1</span></span><br><span class="line">            <span class="keyword">return</span> ret</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">raise</span> StopIteration</span><br><span class="line"></span><br><span class="line"><span class="comment"># list接收迭代</span></span><br><span class="line"></span><br><span class="line">li = list(Fabonacci(<span class="number">10</span>))</span><br><span class="line">print(li)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 元组接收迭代器</span></span><br><span class="line">tu = tuple(Fabonacci(<span class="number">8</span>))</span><br><span class="line">print(tu)</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="生成器"><a href="#生成器" class="headerlink" title="生成器"></a>生成器</h4><p>利用迭代器，我们可在每次迭代获取数据（通过next方法）时，按照特定的规律进行生成，但是我们再实现一个迭代器时，关于当前迭代器的状态需要我们自己记录，今儿才能根据当前的状态生成下一个数据。为了达到记录当前状态，并配合next()，函数进行迭代使用，我们可以采用跟简便的语法，即生成器（generator），生成器是一种特殊的迭代器。</p>
+<h5 id="创建一个生成器"><a href="#创建一个生成器" class="headerlink" title="创建一个生成器"></a>创建一个生成器</h5><p><strong>第一种方式：</strong></p>
+<p>只要把一个列表生成的<code>[]</code> 换成<code>()</code>就行了</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">num = [x*<span class="number">2</span> <span class="keyword">for</span> x <span class="keyword">in</span> range(<span class="number">10</span>)]</span><br><span class="line">print(<span class="string">"当为 '[]' 时返回的为 ：%s"</span>%num)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">num1 = (x*<span class="number">2</span> <span class="keyword">for</span> x <span class="keyword">in</span> range(<span class="number">10</span>))</span><br><span class="line">print(<span class="string">"当为 '()' 时返回的为 ：%s"</span>%num1)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> num1:</span><br><span class="line">    print(i)</span><br></pre></td></tr></table></figure>
+
+<p>打印结果：</p>
+<p><strong>当为 ‘[]’ 时返回的为 ：[0, 2, 4, 6, 8, 10, 12, 14, 16, 18]<br>当为 ‘()’ 时返回的为 ：&lt;generator object <genexpr> at 0x118f8f9d0&gt;<br>0<br>2<br>4<br>6<br>8<br>10<br>12<br>14<br>16<br>18</strong></p>
+<p>从上面的打印结果可以看出当为<code>()</code>时返回的是<code>generator</code>，是一个对象，且可以通过for循环执行，这就是一个简单的生成器，我们可以按照迭代器的使用方法来使用，但是我们一般不用这种方式。</p>
+<p><strong>第二种方式：</strong></p>
+<p>我们用生成器来实现斐波那契数列：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">create_num</span><span class="params">(all_num)</span>:</span></span><br><span class="line">    a, b = <span class="number">0</span>, <span class="number">1</span></span><br><span class="line">    current_num = <span class="number">0</span></span><br><span class="line">    <span class="keyword">while</span> current_num &lt; all_num:</span><br><span class="line">        <span class="comment"># print(a)</span></span><br><span class="line">        <span class="comment"># 如果一个函数中有yield语句，那么这个就在是函数，而是一个生成器的模板</span></span><br><span class="line">        <span class="keyword">yield</span> a</span><br><span class="line">        a, b = b, a+b</span><br><span class="line">        current_num += <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 如果在调用create_num的时候，发现这个函数中有yield，那么此时，不用再调用函数，而是创建了一个生成器对象</span></span><br><span class="line">obj = create_num(<span class="number">10</span>)</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> obj:</span><br><span class="line">    print(i)</span><br></pre></td></tr></table></figure>
+
+<p><strong>总结</strong></p>
+<ul>
+<li>使用了yield关键字的函数不再是函数，而是生成器。（使用了yield的函数就是生成器）</li>
+<li>yield的关键字的两点作用：<ul>
+<li>保存当前运行状态（断点），然后暂停执行，即将生成器挂起</li>
+<li>将yield关键字后面的表达式作为返回值返回，此时可以理解为起到了return的作用</li>
+</ul>
+</li>
+<li>可以使用next（）函数让生成器从断电处继续执行，即唤醒生成器</li>
+<li>Python3中生成器可以使用return返回最终运行的返回值，而Python2中生成器不允许使用return返回一个返回值（既可以使用return从生成器中退出，但return后不能有任何表达式）</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">create_num</span><span class="params">(all_num)</span>:</span></span><br><span class="line">    a, b = <span class="number">0</span>, <span class="number">1</span></span><br><span class="line">    current_num = <span class="number">0</span></span><br><span class="line">    <span class="keyword">while</span> current_num &lt; all_num:</span><br><span class="line">        <span class="comment"># print(a)</span></span><br><span class="line">        <span class="comment"># 如果一个函数中有yield语句，那么这个就在是函数，而是一个生成器的模板</span></span><br><span class="line">        <span class="keyword">yield</span> a</span><br><span class="line">        a, b = b, a+b</span><br><span class="line">        current_num += <span class="number">1</span></span><br><span class="line">    <span class="keyword">return</span> <span class="string">"ok......"</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 如果在调用create_num的时候，发现这个函数中有yield，那么此时，不用再调用函数，而是创建了一个生成器对象</span></span><br><span class="line">obj = create_num(<span class="number">10</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        ret = next(obj)</span><br><span class="line">    <span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line">        print(e.value)</span><br><span class="line">        <span class="keyword">break</span></span><br></pre></td></tr></table></figure>
+
+<p>打印结果：</p>
+<p><strong>0<br>2<br>4<br>6<br>8<br>10<br>12<br>14<br>16<br>18<br>ok……</strong></p>
+<h5 id="使用send唤醒yield"><a href="#使用send唤醒yield" class="headerlink" title="使用send唤醒yield"></a>使用send唤醒yield</h5><p>我们除了可以用<code>next()</code>函数唤醒生成器继续执行外，还可以使用<code>send()</code>函数来唤醒执行。使用<code>send()</code>函数的一个好处是可以在唤醒的同时想断点处传入一个附加数据</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">create_num</span><span class="params">(all_num)</span>:</span></span><br><span class="line">    a, b = <span class="number">0</span>, <span class="number">1</span></span><br><span class="line">    current_num = <span class="number">0</span></span><br><span class="line">    <span class="keyword">while</span> current_num &lt; all_num:</span><br><span class="line">        ret = <span class="keyword">yield</span> a</span><br><span class="line">        print(<span class="string">"&gt;&gt;&gt;ret&gt;&gt;&gt;"</span>,ret)</span><br><span class="line">        a, b = b, a+b</span><br><span class="line">        current_num += <span class="number">1</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">obj = create_num(<span class="number">10</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">ret = next(obj)</span><br><span class="line">print(ret)</span><br><span class="line"></span><br><span class="line"><span class="comment"># obj.send(None) send一般不会放到第一次启动生成器，如果非要这样做那么传递None</span></span><br><span class="line"><span class="comment"># send里面的数据会传递给第5行，当做yield的结果，然后ret保存这个结果</span></span><br><span class="line"><span class="comment"># send的结果时下一次调用yield时，yield后面的值</span></span><br><span class="line">ret = obj.send(<span class="string">"你好啊"</span>)</span><br><span class="line">print(ret)</span><br></pre></td></tr></table></figure>
+
+
+
+<h5 id="使用yield实现多任务"><a href="#使用yield实现多任务" class="headerlink" title="使用yield实现多任务"></a>使用yield实现多任务</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">task_1</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">        print(<span class="string">"----1----"</span>)</span><br><span class="line">        time.sleep(<span class="number">0.1</span>)</span><br><span class="line">        <span class="keyword">yield</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">task_2</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">        print(<span class="string">"----2----"</span>)</span><br><span class="line">        time.sleep(<span class="number">0.1</span>)</span><br><span class="line">        <span class="keyword">yield</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span><span class="params">()</span>:</span></span><br><span class="line">    t1 = task_1()</span><br><span class="line">    t2 = task_2()</span><br><span class="line">    <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">        next(t1)</span><br><span class="line">        next(t2)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    main()</span><br></pre></td></tr></table></figure>
+
+<p><strong>输出结果：</strong></p>
+<p>—-1—-<br>—-2—-<br>—-1—-<br>—-2—-<br>—-1—-<br>—-2—-<br>—-1—-</p>
+<p>……………..</p>
+<h4 id="协程实现图片下载器"><a href="#协程实现图片下载器" class="headerlink" title="协程实现图片下载器"></a>协程实现图片下载器</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> urllib.request</span><br><span class="line"><span class="keyword">import</span> gevent</span><br><span class="line"><span class="keyword">from</span> gevent <span class="keyword">import</span> monkey</span><br><span class="line"></span><br><span class="line"><span class="comment"># 有耗时操作时需要添加</span></span><br><span class="line">monkey.patch_all()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">download</span><span class="params">(img_name,img_url)</span>:</span></span><br><span class="line">    req = urllib.request.urlopen(img_url)</span><br><span class="line">    img_conten = req.read()</span><br><span class="line">    <span class="keyword">with</span> open(img_name, <span class="string">'wb'</span>) <span class="keyword">as</span> f:</span><br><span class="line">        f.write(img_conten)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span><span class="params">()</span>:</span></span><br><span class="line"></span><br><span class="line">    gevent.joinall([</span><br><span class="line">        gevent.spawn(download,<span class="string">'3.jpg'</span>,<span class="string">"https://img2.baidu.com/it/u=3228549874,2173006364&amp;fm=26&amp;fmt=auto&amp;gp=0.jpg"</span>),</span><br><span class="line">        gevent.spawn(download,<span class="string">'4.jpg'</span>,<span class="string">"https://img2.baidu.com/it/u=3681880960,455182084&amp;fm=26&amp;fmt=auto&amp;gp=0.jpg"</span>)</span><br><span class="line">    ])</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    main()</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="进程、线程、协程对比"><a href="#进程、线程、协程对比" class="headerlink" title="进程、线程、协程对比"></a>进程、线程、协程对比</h4><h5 id="通俗描述"><a href="#通俗描述" class="headerlink" title="通俗描述"></a>通俗描述</h5><ul>
+<li>有一个老板想开一个工厂生产某件商品（如：椅子）</li>
+<li>他需要花一些财力物力制作一条生产线，这个生产线上很多的器件以及材料这些所有的为了能够生产手机而准备的资源称之为：进程</li>
+<li>只有生产线是不能生产的，所以老板需要找工人来进行生产，这个工人能够利用这些材料最终一步步把椅子生产出来，这个做事情的工人就称之为：线程</li>
+<li>这个老板为了提高生产率，想了3种办法：<ol>
+<li>在这条生产线上多招些工人，一起来做椅子，这样效率就成倍增长，即<strong>单进程 多线程</strong>方式</li>
+<li>老板发现一条生产线上不是工人越多越好，因为资源是有限的，所以老板又花了一些钱组建了另外一条生产线，然后再招一些工人，这样效率进一步提高，即<strong>多进程 多线程</strong>方式</li>
+<li>后面老板发现生产过程中，会有工人由于一些客观因素而等待的情况，所以就让工人在这个等待期去做一些其他的事，也就是说：某个线程在等待某些条件时，可以充分利用这个时间去做其他的事情，这就是<strong>协程</strong>方式</li>
+</ol>
+</li>
+</ul>
+<h5 id="简单总结"><a href="#简单总结" class="headerlink" title="简单总结"></a>简单总结</h5><ol>
+<li>进程是资源分配的单位</li>
+<li>线程时操作系统调度的单位</li>
+<li>进程切换需要的资源最大，效率很低</li>
+<li>线程切换需要的资源一般，效率一般（当然是在不考虑GIL的情况下）</li>
+<li>协程切换任务资源很小，效率高</li>
+<li>多进程、多线程根据CPU核数不一样可能是并行的，但是协程是在一个线程中，所以是并发。</li>
+</ol>
+<h3 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h3><p>面朝大海，春暖花开。</p>
+<p>愿你一生努力，一生被爱。</p>
+
+      
+      <!-- reward -->
+      
+      <div id="reward-btn">
+        打赏
+      </div>
+      
+    </div>
+    
+    
+      <!-- copyright -->
+      
+        <div class="declare">
+          <ul class="post-copyright">
+            <li>
+              <i class="ri-copyright-line"></i>
+              <strong>版权声明： </strong>
+              本博客所有文章除特别声明外，著作权归作者所有。转载请注明出处！
+            </li>
+          </ul>
+        </div>
+        
+    <footer class="article-footer">
+      
+          
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        分享
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="ri-weibo-fill"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="ri-wechat-fill"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="ri-qq-fill"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="ri-douban-line"></i>
+          </a>
+          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a> -->
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://yoursite.com/2021/04/13/pyhton/Python%E5%A4%9A%E4%BB%BB%E5%8A%A13%E4%B9%8B%E5%8D%8F%E7%A8%8B/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python%E5%A4%9A%E4%BB%BB%E5%8A%A1/" rel="tag">Python多任务</a></li></ul>
+
+
+    </footer>
+
+  </div>
+
+  
+  
+  <nav class="article-nav">
+    
+    
+      <a href="/2021/03/15/pyhton/Python%E5%A4%9A%E4%BB%BB%E5%8A%A12%E4%B9%8B%E8%BF%9B%E7%A8%8B/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">Python多任务之进程</div>
+      </a>
+    
+  </nav>
+
+
+  
+
+  
+  
+<!-- valine评论 -->
+<div id="vcomments-box">
+    <div id="vcomments">
+    </div>
+</div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='https://cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js'></script>
+<script>
+    new Valine({
+        el: '#vcomments',
+        app_id: '',
+        app_key: '',
+        path: window.location.pathname,
+        notify: 'false',
+        verify: 'false',
+        avatar: 'monsterid',
+        placeholder: '给我的文章加点评论吧~',
+        recordIP: true
+    });
+    const infoEle = document.querySelector('#vcomments .info');
+    if (infoEle && infoEle.childNodes && infoEle.childNodes.length > 0) {
+        infoEle.childNodes.forEach(function (item) {
+            item.parentNode.removeChild(item);
+        });
+    }
+</script>
+<style>
+    #vcomments-box {
+        padding: 5px 30px;
+    }
+
+    @media screen and (max-width: 800px) {
+        #vcomments-box {
+            padding: 5px 0px;
+        }
+    }
+
+    #vcomments-box #vcomments {
+        background-color: #fff;
+    }
+
+    .v .vlist .vcard .vh {
+        padding-right: 20px;
+    }
+
+    .v .vlist .vcard {
+        padding-left: 10px;
+    }
+</style>
+
+  
+
+  
+  
+  
+  
+  
+
+</article>
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul class="list-inline">
+      <li>
+        &copy;
+        2015-2021
+        Dreams
+      </li>
+      <li>
+        
+        Powered by
+        
+        
+        <a href="https://hexo.io" target="_blank">Hexo</a> Theme <a href="https://github.com/Shen-Yu/hexo-theme-ayer" target="_blank">Ayer</a>
+        
+      </li>
+    </ul>
+    <ul class="list-inline">
+      <li>
+        
+        
+        <span>
+  <i>PV:<span id="busuanzi_value_page_pv"></span></i>
+  <i>UV:<span id="busuanzi_value_site_uv"></span></i>
+</span>
+        
+      </li>
+      
+      <li>
+        <!-- cnzz统计 -->
+        
+        <script type="text/javascript" src='https://s9.cnzz.com/z_stat.php?id=1278069914&amp;web_id=1278069914'></script>
+        
+      </li>
+    </ul>
+  </div>
+</footer>
+      <div class="float_btns">
+        <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+
+<div class="todark" id="todark">
+  <i class="ri-moon-line"></i>
+</div>
+
+      </div>
+    </main>
+    <aside class="sidebar on">
+      <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/ayer-side.svg" alt="Dreaming"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories">分类</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags">标签</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="https://dreams_quan.gitee.io/images" target="_blank" rel="noopener">图床</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/about">关于我</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="搜索">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+      <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+        <i class="ri-rss-line"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+    </aside>
+    <script>
+      if (window.matchMedia("(max-width: 768px)").matches) {
+        document.querySelector('.content').classList.remove('on');
+        document.querySelector('.sidebar').classList.remove('on');
+      }
+    </script>
+    <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i>请我喝杯咖啡吧~</p>
+  <div class="reward-box">
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/alipay.jpg">
+      <span class="reward-type">支付宝</span>
+    </div>
+    
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/wechat.jpg">
+      <span class="reward-type">微信</span>
+    </div>
+    
+  </div>
+</div>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/lazyload.min.js"></script>
+
+<script>
+  try {
+    var typed = new Typed("#subtitle", {
+      strings: ['面朝大海，春暖花开', '愿你一生努力，一生被爱', '想要的都拥有，得不到的都释怀'],
+      startDelay: 0,
+      typeSpeed: 200,
+      loop: true,
+      backSpeed: 100,
+      showCursor: true
+    });
+  } catch (err) {
+  }
+
+</script>
+
+
+
+<script src="/js/tocbot.min.js"></script>
+<script>
+  // Tocbot_v4.7.0  http://tscanlin.github.io/tocbot/
+  tocbot.init({
+    tocSelector: '.tocbot',
+    contentSelector: '.article-entry',
+    headingSelector: 'h1, h2, h3, h4, h5, h6',
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: 'main',
+    positionFixedSelector: '.tocbot',
+    positionFixedClass: 'is-position-fixed',
+    fixedSidebarOffset: 'auto'
+  });
+</script>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.css">
+<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js"></script>
+<script src="/dist/main.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css">
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script>
+
+
+
+
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+
+
+<script type="text/javascript" src="https://js.users.51.la/20544303.js"></script>
+
+
+<!-- 复制 -->
+
+  <link rel="stylesheet" href="/css/clipboard.css">
+  <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="ri-file-copy-2-line"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-checkbox-circle-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-checkbox-circle-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-time-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-time-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+
+
+
+
+    
+  </div>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>

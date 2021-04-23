@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://yoursite.com/"/>
-  <updated>2021-03-03T08:45:34.711Z</updated>
+  <updated>2021-04-23T12:00:41.620Z</updated>
   <id>https://yoursite.com/</id>
   
   <author>
@@ -17,11 +17,61 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Python多任务之协程</title>
+    <link href="https://yoursite.com/2021/04/13/pyhton/Python%E5%A4%9A%E4%BB%BB%E5%8A%A13%E4%B9%8B%E5%8D%8F%E7%A8%8B/"/>
+    <id>https://yoursite.com/2021/04/13/pyhton/Python%E5%A4%9A%E4%BB%BB%E5%8A%A13%E4%B9%8B%E5%8D%8F%E7%A8%8B/</id>
+    <published>2021-04-12T16:00:00.000Z</published>
+    <updated>2021-04-23T12:00:41.620Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h4 id=&quot;迭代器&quot;&gt;&lt;a href=&quot;#迭代器&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+    
+      <category term="Python多任务" scheme="https://yoursite.com/tags/Python%E5%A4%9A%E4%BB%BB%E5%8A%A1/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Python多任务之进程</title>
+    <link href="https://yoursite.com/2021/03/15/pyhton/Python%E5%A4%9A%E4%BB%BB%E5%8A%A12%E4%B9%8B%E8%BF%9B%E7%A8%8B/"/>
+    <id>https://yoursite.com/2021/03/15/pyhton/Python%E5%A4%9A%E4%BB%BB%E5%8A%A12%E4%B9%8B%E8%BF%9B%E7%A8%8B/</id>
+    <published>2021-03-14T16:00:00.000Z</published>
+    <updated>2021-04-23T12:00:26.130Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h4 id=&quot;进程以及状态&quot;&gt;&lt;a href=&quot;#进程以及状态&quot; class=&quot;headerlink&quot; title=&quot;进程以及状态&quot;&gt;&lt;/a&gt;进程以及状态&lt;/h4&gt;&lt;blockquote&gt;
+&lt;p&gt;操作系统的调度算法：&lt;/p&gt;
+&lt;p&gt;时间片轮转&lt;/p&gt;
+&lt;p&gt;优先级调度&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h5 id=&quot;进程&quot;&gt;&lt;a href=&quot;#进程&quot; class=&quot;headerlink&quot; title=&quot;进程&quot;&gt;&lt;/a&gt;进程&lt;/h5&gt;&lt;p&gt;程序：例如xxx.py，xxx.exe这是程序，是一个静态的&lt;/p&gt;
+&lt;p&gt;进程：一个程序运行起来后，代码+用到的资源称之为进程，他是操作系统分配资源的基本单元。不进可以通过线程完成多任务，进程也是可以的&lt;/p&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="Python多任务" scheme="https://yoursite.com/tags/Python%E5%A4%9A%E4%BB%BB%E5%8A%A1/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Python多任务之线程</title>
     <link href="https://yoursite.com/2021/03/03/pyhton/Python%E5%A4%9A%E4%BB%BB%E5%8A%A11%E4%B9%8B%E7%BA%BF%E7%A8%8B/"/>
     <id>https://yoursite.com/2021/03/03/pyhton/Python%E5%A4%9A%E4%BB%BB%E5%8A%A11%E4%B9%8B%E7%BA%BF%E7%A8%8B/</id>
     <published>2021-03-02T16:00:00.000Z</published>
-    <updated>2021-03-03T08:45:34.711Z</updated>
+    <updated>2021-04-23T12:00:14.195Z</updated>
     
     <summary type="html">
     
@@ -41,17 +91,11 @@
     <link href="https://yoursite.com/2020/08/16/interfacetest/%E6%8E%A5%E5%8F%A3%E8%87%AA%E5%8A%A8%E5%8C%96%E6%A1%86%E6%9E%B63%E4%B9%8BUnittest/"/>
     <id>https://yoursite.com/2020/08/16/interfacetest/%E6%8E%A5%E5%8F%A3%E8%87%AA%E5%8A%A8%E5%8C%96%E6%A1%86%E6%9E%B63%E4%B9%8BUnittest/</id>
     <published>2020-08-16T08:38:57.000Z</published>
-    <updated>2020-11-20T09:28:47.376Z</updated>
+    <updated>2021-03-03T08:52:35.411Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          &lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot;
-        
-      
+      &lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h3&gt;&lt;p&gt;做接口自动化，要用到Python的单元测试框架Unittest，是Python标准库自带的单元测试工具，也称为PyUnit，是JUnit（Java语言的单元测试）的Python版本。它支持测试自动化，将测试样例聚合到测试集中，并将测试与报告框架独立。&lt;/p&gt;
     
     </summary>
     
@@ -325,7 +369,7 @@
     <link href="https://yoursite.com/2020/04/15/skill/%E6%8A%80%E5%B7%A72-%E8%87%AA%E5%BB%BA%E5%9B%BE%E5%BA%8A/"/>
     <id>https://yoursite.com/2020/04/15/skill/%E6%8A%80%E5%B7%A72-%E8%87%AA%E5%BB%BA%E5%9B%BE%E5%BA%8A/</id>
     <published>2020-04-15T12:32:47.000Z</published>
-    <updated>2020-07-09T08:36:32.027Z</updated>
+    <updated>2021-03-24T08:33:51.446Z</updated>
     
     <summary type="html">
     
@@ -388,26 +432,6 @@
     
     
       <category term="测试" scheme="https://yoursite.com/tags/%E6%B5%8B%E8%AF%95/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>能力陷阱</title>
-    <link href="https://yoursite.com/2019/10/25/readingNotes/%E8%AF%BB%E4%B9%A62-%E8%83%BD%E5%8A%9B%E9%99%B7%E9%98%B1/"/>
-    <id>https://yoursite.com/2019/10/25/readingNotes/%E8%AF%BB%E4%B9%A62-%E8%83%BD%E5%8A%9B%E9%99%B7%E9%98%B1/</id>
-    <published>2019-10-25T08:16:04.000Z</published>
-    <updated>2020-07-09T08:29:12.302Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;img src=&quot;https://ssd.qiniu.dreamfly95.com/NLXJ.png&quot; alt=&quot;NLXJ&quot;&gt;&lt;/p&gt;
-&lt;p&gt;​         本书深刻揭示职场的三大观念陷阱，提出“先行动，后思考”的方法，打破了传统领导者的养成法则，帮助那些渴望成为优秀领导者的人学会如何扩展业务范围，如何提出更好的策略性意见，以及如何扩建人际关系网络并引领他们朝着不同的方向发展自己。&lt;/p&gt;
-    
-    </summary>
-    
-    
-    
-      <category term="读书" scheme="https://yoursite.com/tags/%E8%AF%BB%E4%B9%A6/"/>
     
   </entry>
   
