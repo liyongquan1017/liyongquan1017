@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://yoursite.com/"/>
-  <updated>2021-06-24T11:07:38.570Z</updated>
+  <updated>2021-11-24T06:49:23.509Z</updated>
   <id>https://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,26 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>软件绿色联盟应用体验标准5.0</title>
+    <link href="https://yoursite.com/2021/11/21/testing/QA7-%E5%BA%94%E7%94%A8%E4%BD%93%E9%AA%8C%E6%A0%87%E5%87%865.0/"/>
+    <id>https://yoursite.com/2021/11/21/testing/QA7-%E5%BA%94%E7%94%A8%E4%BD%93%E9%AA%8C%E6%A0%87%E5%87%865.0/</id>
+    <published>2021-11-21T11:31:09.000Z</published>
+    <updated>2021-11-24T06:49:23.509Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;strong&gt;绿标5.0发布的意义是什么？&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;绿标5.0不仅进一步增强了五项标准的技术要求及检测能力，更在安卓应用基础上拓展到泛智能终端应用的范畴。旨在通过绿标系列标准的制定与推广，为用户带来更安全、更安心的使用体验。&lt;/p&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="测试" scheme="https://yoursite.com/tags/%E6%B5%8B%E8%AF%95/"/>
+    
+  </entry>
   
   <entry>
     <title>QA周刊3</title>
@@ -393,28 +413,6 @@
     
     
       <category term="技巧" scheme="https://yoursite.com/tags/%E6%8A%80%E5%B7%A7/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Python之构造请求参数（1）</title>
-    <link href="https://yoursite.com/2020/05/25/pyhton/Python1%E4%B9%8B%E6%9E%84%E9%80%A0%E5%8F%82%E6%95%B0/"/>
-    <id>https://yoursite.com/2020/05/25/pyhton/Python1%E4%B9%8B%E6%9E%84%E9%80%A0%E5%8F%82%E6%95%B0/</id>
-    <published>2020-05-25T08:38:57.000Z</published>
-    <updated>2020-09-08T12:02:17.107Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h3&gt;&lt;p&gt;接口测试中，我们需要去手动输入请求参数组合，因为输入法等问题，可能会造成标点或括号等输错，最后出错后，还不大好排查。因此我们通过构造请求参数，能大大避免这类问题的发生。这也是最基础的知识，&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;另我们使用Postman输入请求参数时，也可以先用Python构造请求参数，然后再使用。不过这个因人而异，如果你对自己有信心，直接手拼也OK。&lt;/p&gt;
-&lt;/blockquote&gt;
-    
-    </summary>
-    
-    
-    
-      <category term="接口测试" scheme="https://yoursite.com/tags/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/"/>
     
   </entry>
   
