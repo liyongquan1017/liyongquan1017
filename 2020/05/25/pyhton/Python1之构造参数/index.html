@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html  lang="zh-CN" >
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, maximum-scale=5, viewport-fit=cover">
+    <title>Python之构造请求参数（1） | Dreaming</title>
+    <meta name="description" content="前言接口测试中，我们需要去手动输入请求参数组合，因为输入法等问题，可能会造成标点或括号等输错，最后出错后，还不大好排查。因此我们通过构造请求参数，能大大避免这类问题的发生。这也是最基础的知识，  另我们使用Postman输入请求参数时，也可以先用Python构造请求参数，然后再使用。不过这个因人而异，如果你对自己有信心，直接手拼也OK。">
+<meta name="keywords" content="接口测试">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python之构造请求参数（1）">
+<meta property="og:url" content="https:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;05&#x2F;25&#x2F;pyhton&#x2F;Python1%E4%B9%8B%E6%9E%84%E9%80%A0%E5%8F%82%E6%95%B0&#x2F;index.html">
+<meta property="og:site_name" content="Dreaming">
+<meta property="og:description" content="前言接口测试中，我们需要去手动输入请求参数组合，因为输入法等问题，可能会造成标点或括号等输错，最后出错后，还不大好排查。因此我们通过构造请求参数，能大大避免这类问题的发生。这也是最基础的知识，  另我们使用Postman输入请求参数时，也可以先用Python构造请求参数，然后再使用。不过这个因人而异，如果你对自己有信心，直接手拼也OK。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2020-09-08T12:02:17.107Z">
+<meta name="twitter:card" content="summary">
+
+    <link rel="alternate" type="application/atom+xml" href="/atom.xml">
+    <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
+
+    <link rel="stylesheet" href="/css/common.min.css">
+
+
+    
+    
+    
+    
+        <link href="//cdn.jsdelivr.net/npm/lightgallery.js@1.1.3/dist/css/lightgallery.min.css" rel="stylesheet">
+    
+    
+    <link rel="stylesheet" href="/css/iconfont.min.css">
+    
+</head>
+
+    <body>
+        <header class="header header-fixture">
+    <div class="profile-search-wrap flex sm:block">
+        
+        
+        <div class="profile sm:text-center md:px-1 lg:px-3 sm:pb-4 sm:pt-6">
+            <a id="avatar" role="link" href="https://github.com/fengkx" class="inline-block lg:w-16 lg:h-16 w-8 h-8 m-2" target="_blank" rel="noopener" rel="noreferrer" >
+                <img src="https://www.gravatar.com/avatar/0bc83cb571cd1c50ba6f3e8a78ef1346?s=128" class="rounded-full" alt="avatar">
+            </a>
+            <h2 id="name" class="hidden lg:block">fengkx</h2>
+            <h3 id="title" class="hidden xl:block">Student &amp; Coder</h3>
+            
+            <small id="location" class="hidden lg:block">
+                <i class="iconfont icon-map-icon"></i>
+                Guangzhou, China
+            </small>
+            
+        </div>
+        
+        
+<div class="search flex-1 flex lg:inline-block sm:hidden lg:px-4 lg:mt-2 lg:mb-4 lg:w-full">
+    <form id="search-form" class="my-auto flex-1 lg:border lg:border-solid lg:border-gray-200">
+        <div class="input-group table bg-gray-100 lg:bg-white w-full">
+            <input id="search-input" type="text" placeholder="搜索" class="inline-block w-full bg-gray-100 lg:bg-white">
+            <span class="table-cell">
+                <button name="search tigger button" disabled>
+                    <i class="iconfont icon-search m-2"></i>
+                </button>
+            </span>
+        </div>
+    </form>
+        
+<div id="content-json" data-placeholder="搜索" class="invisible hidden">/content.json</div>
+<script id="search-teamplate" type="text/html" data-path="/content.json">
+    <div>
+        <div class="search-header bg-gray-400">
+            <input id="actual-search-input" model="keyword" ref="input" class="inline-block w-full h-10 px-2 py-1" placeholder="搜索" type="text">
+        </div>
+        <div class="search-result bg-gray-200">
+            {{#each searchPosts}}
+            <a href="/{{ path }}" class="result-item block px-2 pb-3 mb-1 pt-1 hover:bg-indigo-100">
+                <i class="iconfont icon-file"></i>
+                <h1 class="result-title inline font-medium text-lg">{{ title }}</h1>
+                <p class="result-content text-gray-600 text-sm">{{{ text }}}</p>
+            </a>
+            {{/each}}
+        </div>
+    </div>
+</script>
+
+</div>
+
+
+        <button name="menu toogle button" id="menu-toggle-btn" class="block sm:hidden p-3" role="button" aria-expanded="false">
+            <i class="iconfont icon-hamburger"></i>
+        </button>
+    </div>
+    <nav id="menu-nav" class="hidden sm:flex flex-col">
+        
+        
+            <div class="menu-item menu-home" role="menuitem">
+                <a href="/.">
+                    <i class="iconfont icon-home" aria-hidden="true"></i>
+                    <span class="menu-title">首页</span>
+                </a>
+            </div>
+        
+        
+            <div class="menu-item menu-archives" role="menuitem">
+                <a href="/archives">
+                    <i class="iconfont icon-archive" aria-hidden="true"></i>
+                    <span class="menu-title">归档</span>
+                </a>
+            </div>
+        
+        
+            <div class="menu-item menu-categories" role="menuitem">
+                <a href="/categories">
+                    <i class="iconfont icon-folder" aria-hidden="true"></i>
+                    <span class="menu-title">分类</span>
+                </a>
+            </div>
+        
+        
+            <div class="menu-item menu-tags" role="menuitem">
+                <a href="/tags">
+                    <i class="iconfont icon-tag" aria-hidden="true"></i>
+                    <span class="menu-title">标签</span>
+                </a>
+            </div>
+        
+        
+            <div class="menu-item menu-repository" role="menuitem">
+                <a href="/repository">
+                    <i class="iconfont icon-project" aria-hidden="true"></i>
+                    <span class="menu-title">项目</span>
+                </a>
+            </div>
+        
+        
+            <div class="menu-item menu-links" role="menuitem">
+                <a href="/links">
+                    <i class="iconfont icon-friend" aria-hidden="true"></i>
+                    <span class="menu-title">友链</span>
+                </a>
+            </div>
+        
+        
+            <div class="menu-item menu-about" role="menuitem">
+                <a href="/about">
+                    <i class="iconfont icon-cup" aria-hidden="true"></i>
+                    <span class="menu-title">关于</span>
+                </a>
+            </div>
+        
+        
+<div class="social-links flex sm:flex-col lg:hidden mt-5">
+    
+        <span class="social-item text-center">
+            <a href="https://github.com/fengkx" target="_blank" rel="noopener">
+                <i class="iconfont social-icon icon-github"></i>
+                <span class="menu-title hidden lg:inline">menu.github</span>
+            </a>
+        </span>
+    
+        <span class="social-item text-center">
+            <a href="https://t.me/fengkx" target="_blank" rel="noopener">
+                <i class="iconfont social-icon icon-telegram"></i>
+                <span class="menu-title hidden lg:inline">menu.telegram</span>
+            </a>
+        </span>
+    
+        <span class="social-item text-center">
+            <a href="https://twitter.com/example" target="_blank" rel="noopener">
+                <i class="iconfont social-icon icon-twitter"></i>
+                <span class="menu-title hidden lg:inline">menu.twitter</span>
+            </a>
+        </span>
+    
+        <span class="social-item text-center">
+            <a href="/atom.xml">
+                <i class="iconfont social-icon icon-rss"></i>
+                <span class="menu-title hidden lg:inline">menu.rss</span>
+            </a>
+        </span>
+    
+</div>
+
+
+    </nav>
+</header>
+
+        <section class="main-section">
+            
+    <main class="flex-1 px-4 py-14 md:px-5 lg:px-8 lg:py-4 relative min-h-screen">
+    
+
+    <article class="content article article-archives article-type-list" itemscope="">
+        <header class="article-header">
+            
+    
+        <h1 class="article-title text-lg" itemprop="name">
+            Python之构造请求参数（1）
+        </h1>
+    
+
+
+
+            <p class="article-meta mb-3 text-xs">
+                <span class="article-date">
+    <i class="iconfont icon-calendar-check"></i>
+	<a href="/2020/05/25/pyhton/Python1%E4%B9%8B%E6%9E%84%E9%80%A0%E5%8F%82%E6%95%B0/" class="article-date">
+	  <time datetime="2020-05-25T08:38:57.000Z" itemprop="datePublished">5月 25</time>
+	</a>
+</span>
+
+                
+
+                
+    <span class="article-tags">
+    <i class="iconfont icon-tag"></i>
+    <a class="article-tag-link" href="/tags/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/" rel="tag">接口测试</a>
+  </span>
+
+
+                <span class="_partial/post-comment"><i class="icon icon-comment"></i>
+                    <a href="/2020/05/25/pyhton/Python1%E4%B9%8B%E6%9E%84%E9%80%A0%E5%8F%82%E6%95%B0/#comments" class="article-comment-link">
+                        评论
+                    </a>
+                </span>
+                
+    
+        <span class="post-wordcount" itemprop="wordCount">字数统计: 1.1k(字)</span>
+    
+    
+        <span class="post-readcount" itemprop="timeRequired">阅读时长: 4(分)</span>
+    
+
+
+            </p>
+        </header>
+        <div class="marked-body article-body">
+            <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>接口测试中，我们需要去手动输入请求参数组合，因为输入法等问题，可能会造成标点或括号等输错，最后出错后，还不大好排查。因此我们通过构造请求参数，能大大避免这类问题的发生。这也是最基础的知识，</p>
+<blockquote>
+<p>另我们使用Postman输入请求参数时，也可以先用Python构造请求参数，然后再使用。不过这个因人而异，如果你对自己有信心，直接手拼也OK。</p>
+</blockquote>
+<a id="more"></a>
+
+<h3 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h3><ol>
+<li>Python3.0 + 编译工具（推荐Pycharm）</li>
+<li>了解Python  <a href="https://www.runoob.com/python/python-dictionary.html" target="_blank" rel="noopener">dict（字典)</a>，<a href="https://www.runoob.com/python/python-lists.html" target="_blank" rel="noopener">list（列表)</a>，<a href="https://www.runoob.com/python/python-json.html" target="_blank" rel="noopener">json</a>等的基本知识</li>
+</ol>
+<h3 id="具体示例"><a href="#具体示例" class="headerlink" title="具体示例"></a>具体示例</h3><p>假如一个请求内的请求参数表如下，我们无需去管这个是哪个接口的参数，也不用管里面的内容，我们的目的是了解参数的构造，以及对一些基本知识的应用。</p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>类型</th>
+<th>是否必传</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>id</td>
+<td>string</td>
+<td>是</td>
+<td>用户ID。例如：520</td>
+</tr>
+<tr>
+<td>comment</td>
+<td>string</td>
+<td>是</td>
+<td>发布内容</td>
+</tr>
+<tr>
+<td>tagIdList</td>
+<td>Jsonlist</td>
+<td>是</td>
+<td>使用标签，标签ID可传多个。如       [{‘tagid’:1},{‘tagid’:2}]</td>
+</tr>
+<tr>
+<td>otherIDinfo</td>
+<td>Jsonlist</td>
+<td>是</td>
+<td>@其他的人信息                      [{‘id’:’123’,’name’:’梦想’},{‘id:’456’,’name’:’飞翔’}]</td>
+</tr>
+<tr>
+<td>button_type</td>
+<td>String</td>
+<td>是</td>
+<td>按钮位置   朋友圈：friend   广场：square</td>
+</tr>
+<tr>
+<td>type</td>
+<td>Int</td>
+<td>是</td>
+<td>是否开放   开放：1     不开放：0</td>
+</tr>
+</tbody></table>
+<p>具体代码如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> json</span><br><span class="line"></span><br><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="string">接下来我们我们开始构造一个请求参数，具体需要传入的值如下：</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">用户ID为             456</span></span><br><span class="line"><span class="string">发布内容为            构造参数</span></span><br><span class="line"><span class="string">使用的标签ID为        1，2和3</span></span><br><span class="line"><span class="string">@的人的信息为(前面为名字，后面为ID)    梦想，123  飞翔，456</span></span><br><span class="line"><span class="string">开放类型为           不开放</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="comment"># 1.定义一个字典类型testDict，用于存放整个请求参数</span></span><br><span class="line">testDict = &#123;&#125;</span><br><span class="line"><span class="comment"># 2.请求参数中加入用户ID,ID为string类型</span></span><br><span class="line">testDict[<span class="string">'id'</span>] = <span class="string">'456'</span></span><br><span class="line"><span class="comment"># 3.请求参数中加入发布内容comment，为string类型</span></span><br><span class="line">testDict[<span class="string">'comment'</span>]= <span class="string">'构造参数'</span></span><br><span class="line"><span class="comment"># 4.请求参数中加入标签tagIdList，因为标签是list类型，因为我们要传入三个标签，所以需要拼接</span></span><br><span class="line">tagIdlists = []     <span class="comment">#定义一个存放标签集的list</span></span><br><span class="line">tagids = &#123;&#125;         <span class="comment">#定义一个存放ID的字典</span></span><br><span class="line">tagids[<span class="string">'tagid'</span>] =<span class="number">1</span>  <span class="comment">#加入标签为1的标签</span></span><br><span class="line"><span class="comment">#把标签为1拼接 到标签集里面，使用json.dumps的原因是把字典转换为字符串格式，避免后面tagids['tagid']赋值时把前面覆盖</span></span><br><span class="line">tagIdlists.append(json.dumps(tagids))</span><br><span class="line">tagids[<span class="string">'tagid'</span>] =<span class="number">2</span></span><br><span class="line">tagIdlists.append(json.dumps(tagids))  <span class="comment">#把标签为2拼接 到标签集里面</span></span><br><span class="line">tagids[<span class="string">'tagid'</span>] =<span class="number">3</span></span><br><span class="line">tagIdlists.append(json.dumps(tagids))  <span class="comment">#把标签为3拼接 到标签集里面</span></span><br><span class="line">testDict[<span class="string">'tagIdList'</span>] = tagIdlists  <span class="comment"># 把标签集加入到我们的请求参数内</span></span><br><span class="line"><span class="comment"># 5.请求参数中加入需要@的人的信息otherIDinfo,基本和步骤四类似</span></span><br><span class="line">otherInfos =[]</span><br><span class="line">otherIn = &#123;&#125;</span><br><span class="line">otherIn[<span class="string">'id'</span>] = <span class="string">'123'</span></span><br><span class="line">otherIn[<span class="string">'name'</span>] = <span class="string">'梦想'</span></span><br><span class="line">otherInfos.append(json.dumps(otherIn,ensure_ascii=<span class="literal">False</span>))</span><br><span class="line">otherIn[<span class="string">'id'</span>] = <span class="string">'456'</span></span><br><span class="line">otherIn[<span class="string">'name'</span>] = <span class="string">'飞翔'</span></span><br><span class="line">otherInfos.append(json.dumps(otherIn,ensure_ascii=<span class="literal">False</span>))</span><br><span class="line">testDict[<span class="string">'otherIDinfo'</span>] = otherInfos <span class="comment"># 把需要@的人的信加入到我们的请求参数内</span></span><br><span class="line"><span class="comment"># 6.请求参数中加入 是否开放的信息</span></span><br><span class="line">testDict[<span class="string">'type'</span>] = <span class="number">0</span></span><br><span class="line"><span class="comment"># 7.把请求参数转换为json格式</span></span><br><span class="line">print(testDict)</span><br></pre></td></tr></table></figure>
+
+<p>此时打印出来的为：</p>
+<blockquote>
+<p>{‘id’: ‘456’, ‘comment’: ‘构造参数’, ‘tagIdList’: [‘{“tagid”: 1}’, ‘{“tagid”: 2}’, ‘{“tagid”: 3}’], ‘otherIDinfo’: [‘{“id”: “123”, “name”: “梦想”}’, ‘{“id”: “456”, “name”: “飞翔”}’], ‘type’: 0}</p>
+</blockquote>
+<p>这时我们打印出来的实际为字典类型，实际中我们需要传入的请求参数为json格式，所以我们需要把字典转换为json格式，我们可以在代码最后加入两行</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment"># 7.把请求参数转换为json格式</span></span><br><span class="line">testDict = json.dumps(testDict)</span><br><span class="line">print(testDict)</span><br></pre></td></tr></table></figure>
+
+<p>这时打印出来的如下</p>
+<blockquote>
+<p>{“id”: “456”, “comment”: “\u6784\u9020\u53c2\u6570”, “tagIdList”: [“{&quot;tagid&quot;: 1}”, “{&quot;tagid&quot;: 2}”, “{&quot;tagid&quot;: 3}”], “otherIDinfo”: [“{&quot;id&quot;: &quot;123&quot;, &quot;name&quot;: &quot;\u68a6\u60f3&quot;}”, “{&quot;id&quot;: &quot;456&quot;, &quot;name&quot;: &quot;\u98de\u7fd4&quot;}”], “type”: 0}</p>
+</blockquote>
+<p>我们发现转换后出现，汉字变为Unicode码的问题，这时我们需要在转换时，加入一个参数<code>ensure_ascii=False</code>避免中文转为Unicode码。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 7.把请求参数转换为json格式</span></span><br><span class="line">testDict = json.dumps(testDict,ensure_ascii=<span class="literal">False</span>)</span><br><span class="line">print(testDict)</span><br></pre></td></tr></table></figure>
+
+<p>这时打印出来的就是符合规范的请求参数</p>
+<blockquote>
+<p>{“id”: “456”, “comment”: “构造参数”, “tagIdList”: [“{&quot;tagid&quot;: 1}”, “{&quot;tagid&quot;: 2}”, “{&quot;tagid&quot;: 3}”], “otherIDinfo”: [“{&quot;id&quot;: &quot;123&quot;, &quot;name&quot;: &quot;梦想&quot;}”, “{&quot;id&quot;: &quot;456&quot;, &quot;name&quot;: &quot;飞翔&quot;}”], “type”: 0}</p>
+</blockquote>
+<h3 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h3><p>面朝大海，春暖花开。</p>
+<p>愿你一生努力，一生被爱。</p>
+
+        </div>
+        
+<blockquote class="copyright">
+    <p><strong>本文链接 : </strong><a class="permalink" href="https://yoursite.com/2020/05/25/pyhton/Python1%E4%B9%8B%E6%9E%84%E9%80%A0%E5%8F%82%E6%95%B0/">https://yoursite.com/2020/05/25/pyhton/Python1之构造参数/</a></p>
+    <p><strong>This article is available under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener noreferrer">Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)</a> License</strong></p>
+</blockquote>
+
+
+    </article>
+    
+    <section id="comments">
+        
+    </section>
+
+
+    
+
+</main>
+
+
+<aside style="" id="sidebar" class="aside aside-fixture">
+    <div class="toc-sidebar">
+        <nav id="toc" class="article-toc">
+            <h3 class="toc-title">文章目录</h3>
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#准备"><span class="toc-number">2.</span> <span class="toc-text">准备</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#具体示例"><span class="toc-number">3.</span> <span class="toc-text">具体示例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#结语"><span class="toc-number">4.</span> <span class="toc-text">结语</span></a></li></ol>
+        </nav>
+    </div>
+</aside>
+
+
+
+
+
+        </section>
+        <footer class="hidden lg:block fixed bottom-0 left-0 sm:w-1/12 lg:w-1/6 bg-gray-100 z-40">
+    
+    <div class="footer-social-links">
+        
+            <a href="https://github.com/fengkx" target="_blank" rel="noopener">
+                <i class="iconfont icon-github"></i>
+            </a>
+        
+            <a href="https://t.me/fengkx" target="_blank" rel="noopener">
+                <i class="iconfont icon-telegram"></i>
+            </a>
+        
+            <a href="https://twitter.com/example" target="_blank" rel="noopener">
+                <i class="iconfont icon-twitter"></i>
+            </a>
+        
+            <a href="/atom.xml">
+                <i class="iconfont icon-rss"></i>
+            </a>
+        
+    </div>
+    
+    
+</footer>
+
+        <div id="mask" class="hidden mask fixed inset-0 bg-gray-900 opacity-75 z-40"></div>
+        <div id="search-view-container" class="hidden shadow-xl"></div>
+        <script src="/js/dom-event.min.js"></script>
+
+<script src="/js/local-search.min.js"></script>
+
+
+    <script src="//cdn.jsdelivr.net/npm/lightgallery.js@1.1.3/dist/js/lightgallery.min.js"></script>
+    <script src="/js/light-gallery.min.js"></script>
+
+
+
+
+
+    <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>

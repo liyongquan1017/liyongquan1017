@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html  lang="zh-CN" >
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, maximum-scale=5, viewport-fit=cover">
+    <title>Dreaming</title>
+    <meta name="description" content="记录学习分享">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Dreaming">
+<meta property="og:url" content="https:&#x2F;&#x2F;yoursite.com&#x2F;page&#x2F;3&#x2F;index.html">
+<meta property="og:site_name" content="Dreaming">
+<meta property="og:description" content="记录学习分享">
+<meta property="og:locale" content="zh-CN">
+<meta name="twitter:card" content="summary">
+
+    <link rel="alternate" type="application/atom+xml" href="/atom.xml">
+    <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
+
+    <link rel="stylesheet" href="/css/common.min.css">
+
+
+    
+    
+    <link rel="stylesheet" href="/css/iconfont.min.css">
+    
+</head>
+
+    <body>
+        <header class="header header-fixture">
+    <div class="profile-search-wrap flex sm:block">
+        
+        
+        <div class="profile sm:text-center md:px-1 lg:px-3 sm:pb-4 sm:pt-6">
+            <a id="avatar" role="link" href="https://github.com/fengkx" class="inline-block lg:w-16 lg:h-16 w-8 h-8 m-2" target="_blank" rel="noopener" rel="noreferrer" >
+                <img src="https://www.gravatar.com/avatar/0bc83cb571cd1c50ba6f3e8a78ef1346?s=128" class="rounded-full" alt="avatar">
+            </a>
+            <h2 id="name" class="hidden lg:block">fengkx</h2>
+            <h3 id="title" class="hidden xl:block">Student &amp; Coder</h3>
+            
+            <small id="location" class="hidden lg:block">
+                <i class="iconfont icon-map-icon"></i>
+                Guangzhou, China
+            </small>
+            
+        </div>
+        
+        
+<div class="search flex-1 flex lg:inline-block sm:hidden lg:px-4 lg:mt-2 lg:mb-4 lg:w-full">
+    <form id="search-form" class="my-auto flex-1 lg:border lg:border-solid lg:border-gray-200">
+        <div class="input-group table bg-gray-100 lg:bg-white w-full">
+            <input id="search-input" type="text" placeholder="搜索" class="inline-block w-full bg-gray-100 lg:bg-white">
+            <span class="table-cell">
+                <button name="search tigger button" disabled>
+                    <i class="iconfont icon-search m-2"></i>
+                </button>
+            </span>
+        </div>
+    </form>
+        
+<div id="content-json" data-placeholder="搜索" class="invisible hidden">/content.json</div>
+<script id="search-teamplate" type="text/html" data-path="/content.json">
+    <div>
+        <div class="search-header bg-gray-400">
+            <input id="actual-search-input" model="keyword" ref="input" class="inline-block w-full h-10 px-2 py-1" placeholder="搜索" type="text">
+        </div>
+        <div class="search-result bg-gray-200">
+            {{#each searchPosts}}
+            <a href="/{{ path }}" class="result-item block px-2 pb-3 mb-1 pt-1 hover:bg-indigo-100">
+                <i class="iconfont icon-file"></i>
+                <h1 class="result-title inline font-medium text-lg">{{ title }}</h1>
+                <p class="result-content text-gray-600 text-sm">{{{ text }}}</p>
+            </a>
+            {{/each}}
+        </div>
+    </div>
+</script>
+
+</div>
+
+
+        <button name="menu toogle button" id="menu-toggle-btn" class="block sm:hidden p-3" role="button" aria-expanded="false">
+            <i class="iconfont icon-hamburger"></i>
+        </button>
+    </div>
+    <nav id="menu-nav" class="hidden sm:flex flex-col">
+        
+        
+            <div class="menu-item menu-home" role="menuitem">
+                <a href="/.">
+                    <i class="iconfont icon-home" aria-hidden="true"></i>
+                    <span class="menu-title">首页</span>
+                </a>
+            </div>
+        
+        
+            <div class="menu-item menu-archives" role="menuitem">
+                <a href="/archives">
+                    <i class="iconfont icon-archive" aria-hidden="true"></i>
+                    <span class="menu-title">归档</span>
+                </a>
+            </div>
+        
+        
+            <div class="menu-item menu-categories" role="menuitem">
+                <a href="/categories">
+                    <i class="iconfont icon-folder" aria-hidden="true"></i>
+                    <span class="menu-title">分类</span>
+                </a>
+            </div>
+        
+        
+            <div class="menu-item menu-tags" role="menuitem">
+                <a href="/tags">
+                    <i class="iconfont icon-tag" aria-hidden="true"></i>
+                    <span class="menu-title">标签</span>
+                </a>
+            </div>
+        
+        
+            <div class="menu-item menu-repository" role="menuitem">
+                <a href="/repository">
+                    <i class="iconfont icon-project" aria-hidden="true"></i>
+                    <span class="menu-title">项目</span>
+                </a>
+            </div>
+        
+        
+            <div class="menu-item menu-links" role="menuitem">
+                <a href="/links">
+                    <i class="iconfont icon-friend" aria-hidden="true"></i>
+                    <span class="menu-title">友链</span>
+                </a>
+            </div>
+        
+        
+            <div class="menu-item menu-about" role="menuitem">
+                <a href="/about">
+                    <i class="iconfont icon-cup" aria-hidden="true"></i>
+                    <span class="menu-title">关于</span>
+                </a>
+            </div>
+        
+        
+<div class="social-links flex sm:flex-col lg:hidden mt-5">
+    
+        <span class="social-item text-center">
+            <a href="https://github.com/fengkx" target="_blank" rel="noopener">
+                <i class="iconfont social-icon icon-github"></i>
+                <span class="menu-title hidden lg:inline">menu.github</span>
+            </a>
+        </span>
+    
+        <span class="social-item text-center">
+            <a href="https://t.me/fengkx" target="_blank" rel="noopener">
+                <i class="iconfont social-icon icon-telegram"></i>
+                <span class="menu-title hidden lg:inline">menu.telegram</span>
+            </a>
+        </span>
+    
+        <span class="social-item text-center">
+            <a href="https://twitter.com/example" target="_blank" rel="noopener">
+                <i class="iconfont social-icon icon-twitter"></i>
+                <span class="menu-title hidden lg:inline">menu.twitter</span>
+            </a>
+        </span>
+    
+        <span class="social-item text-center">
+            <a href="/atom.xml">
+                <i class="iconfont social-icon icon-rss"></i>
+                <span class="menu-title hidden lg:inline">menu.rss</span>
+            </a>
+        </span>
+    
+</div>
+
+
+    </nav>
+</header>
+
+        <section class="main-section">
+            <main class="flex-1 px-4 py-14 md:px-5 lg:px-8 lg:py-4 relative min-h-screen">
+    <div class="content article-list">
+    
+        <article class="article border-b border-solid border-gray-200">
+    <div class="article-header mb-4 mt-5">
+        
+    
+        <h1 itemprop="name">
+            <a class="article-title text-lg" href="/2020/05/25/pyhton/Python1%E4%B9%8B%E6%9E%84%E9%80%A0%E5%8F%82%E6%95%B0/">Python之构造请求参数（1）</a>
+        </h1>
+    
+
+
+
+    </div>
+    
+        <div class="article-excerpt text-gray-600 mb-3" itemprop="description">
+            <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>接口测试中，我们需要去手动输入请求参数组合，因为输入法等问题，可能会造成标点或括号等输错，最后出错后，还不大好排查。因此我们通过构造请求参数，能大大避免这类问题的发生。这也是最基础的知识，</p>
+<blockquote>
+<p>另我们使用Postman输入请求参数时，也可以先用Python构造请求参数，然后再使用。不过这个因人而异，如果你对自己有信心，直接手拼也OK。</p>
+</blockquote>
+        </div>
+    
+    <p class="article-meta mb-3 text-xs">
+        <span class="article-date">
+    <i class="iconfont icon-calendar-check"></i>
+	<a href="/2020/05/25/pyhton/Python1%E4%B9%8B%E6%9E%84%E9%80%A0%E5%8F%82%E6%95%B0/" class="article-date">
+	  <time datetime="2020-05-25T08:38:57.000Z" itemprop="datePublished">5月 25</time>
+	</a>
+</span>
+
+        
+
+        
+    <span class="article-tags">
+    <i class="iconfont icon-tag"></i>
+    <a class="article-tag-link" href="/tags/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/" rel="tag">接口测试</a>
+  </span>
+
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2020/05/25/pyhton/Python1%E4%B9%8B%E6%9E%84%E9%80%A0%E5%8F%82%E6%95%B0/#comments" class="article-comment-link">评论</a></span>
+        
+    
+        <span class="post-wordcount" itemprop="wordCount">字数统计: 1.1k(字)</span>
+    
+    
+        <span class="post-readcount" itemprop="timeRequired">阅读时长: 4(分)</span>
+    
+
+
+    </p>
+
+</article>
+
+    
+        <article class="article border-b border-solid border-gray-200">
+    <div class="article-header mb-4 mt-5">
+        
+    
+        <h1 itemprop="name">
+            <a class="article-title text-lg" href="/2020/04/15/skill/%E6%8A%80%E5%B7%A72-%E8%87%AA%E5%BB%BA%E5%9B%BE%E5%BA%8A/">使用gitee自建图床</a>
+        </h1>
+    
+
+
+
+    </div>
+    
+        <div class="article-excerpt text-gray-600 mb-3" itemprop="description">
+            <h3 id="使用gitee建自己图床的好处："><a href="#使用gitee建自己图床的好处：" class="headerlink" title="使用gitee建自己图床的好处："></a>使用gitee建自己图床的好处：</h3><ol>
+<li><p>都在自己账号内，好管理。</p>
+</li>
+<li><p>支持https，避免使用HTTP而打开时网站提示不安全。</p>
+</li>
+<li><p>丢失概率低</p>
+</li>
+</ol>
+        </div>
+    
+    <p class="article-meta mb-3 text-xs">
+        <span class="article-date">
+    <i class="iconfont icon-calendar-check"></i>
+	<a href="/2020/04/15/skill/%E6%8A%80%E5%B7%A72-%E8%87%AA%E5%BB%BA%E5%9B%BE%E5%BA%8A/" class="article-date">
+	  <time datetime="2020-04-15T12:32:47.000Z" itemprop="datePublished">4月 15</time>
+	</a>
+</span>
+
+        
+
+        
+    <span class="article-tags">
+    <i class="iconfont icon-tag"></i>
+    <a class="article-tag-link" href="/tags/%E6%8A%80%E5%B7%A7/" rel="tag">技巧</a>
+  </span>
+
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2020/04/15/skill/%E6%8A%80%E5%B7%A72-%E8%87%AA%E5%BB%BA%E5%9B%BE%E5%BA%8A/#comments" class="article-comment-link">评论</a></span>
+        
+    
+        <span class="post-wordcount" itemprop="wordCount">字数统计: 571(字)</span>
+    
+    
+        <span class="post-readcount" itemprop="timeRequired">阅读时长: 2(分)</span>
+    
+
+
+    </p>
+
+</article>
+
+    
+        <article class="article border-b border-solid border-gray-200">
+    <div class="article-header mb-4 mt-5">
+        
+    
+        <h1 itemprop="name">
+            <a class="article-title text-lg" href="/2019/10/25/skill/%E6%8A%80%E5%B7%A71-%E4%BB%A3%E7%A0%81%E7%AE%A1%E7%90%86%E5%B9%B3%E5%8F%B0%E9%85%8D%E7%BD%AEssh/">代码管理(git,gitee,coding等)平台配置ssh</a>
+        </h1>
+    
+
+
+
+    </div>
+    
+        <div class="article-excerpt text-gray-600 mb-3" itemprop="description">
+            <h1 id="git-gitee-coding等平台配置ssh"><a href="#git-gitee-coding等平台配置ssh" class="headerlink" title="git,gitee,coding等平台配置ssh"></a>git,gitee,coding等平台配置ssh</h1><h3 id="git-gitee-coding等托管平台配置ssh的目的："><a href="#git-gitee-coding等托管平台配置ssh的目的：" class="headerlink" title="git,gitee,coding等托管平台配置ssh的目的："></a>git,gitee,coding等托管平台配置ssh的目的：</h3><p>配置好ssh后可以让你的电脑和git,gitee,coding等平台通讯的时候建立可信任的安全连接</p>
+        </div>
+    
+    <p class="article-meta mb-3 text-xs">
+        <span class="article-date">
+    <i class="iconfont icon-calendar-check"></i>
+	<a href="/2019/10/25/skill/%E6%8A%80%E5%B7%A71-%E4%BB%A3%E7%A0%81%E7%AE%A1%E7%90%86%E5%B9%B3%E5%8F%B0%E9%85%8D%E7%BD%AEssh/" class="article-date">
+	  <time datetime="2019-10-25T08:16:04.626Z" itemprop="datePublished">10月 25</time>
+	</a>
+</span>
+
+        
+
+        
+    <span class="article-tags">
+    <i class="iconfont icon-tag"></i>
+    <a class="article-tag-link" href="/tags/%E6%8A%80%E5%B7%A7/" rel="tag">技巧</a>
+  </span>
+
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2019/10/25/skill/%E6%8A%80%E5%B7%A71-%E4%BB%A3%E7%A0%81%E7%AE%A1%E7%90%86%E5%B9%B3%E5%8F%B0%E9%85%8D%E7%BD%AEssh/#comments" class="article-comment-link">评论</a></span>
+        
+    
+        <span class="post-wordcount" itemprop="wordCount">字数统计: 276(字)</span>
+    
+    
+        <span class="post-readcount" itemprop="timeRequired">阅读时长: 1(分)</span>
+    
+
+
+    </p>
+
+</article>
+
+    
+        <article class="article border-b border-solid border-gray-200">
+    <div class="article-header mb-4 mt-5">
+        
+    
+        <h1 itemprop="name">
+            <a class="article-title text-lg" href="/2019/10/25/readingNotes/%E8%AF%BB%E4%B9%A62-%E8%83%BD%E5%8A%9B%E9%99%B7%E9%98%B1/">能力陷阱</a>
+        </h1>
+    
+
+
+
+    </div>
+    
+        <div class="article-excerpt text-gray-600 mb-3" itemprop="description">
+            <p><img src="https://ssd.qiniu.dreamfly95.com/NLXJ.png" alt="NLXJ"></p>
+<p>​         本书深刻揭示职场的三大观念陷阱，提出“先行动，后思考”的方法，打破了传统领导者的养成法则，帮助那些渴望成为优秀领导者的人学会如何扩展业务范围，如何提出更好的策略性意见，以及如何扩建人际关系网络并引领他们朝着不同的方向发展自己。</p>
+        </div>
+    
+    <p class="article-meta mb-3 text-xs">
+        <span class="article-date">
+    <i class="iconfont icon-calendar-check"></i>
+	<a href="/2019/10/25/readingNotes/%E8%AF%BB%E4%B9%A62-%E8%83%BD%E5%8A%9B%E9%99%B7%E9%98%B1/" class="article-date">
+	  <time datetime="2019-10-25T08:16:04.000Z" itemprop="datePublished">10月 25</time>
+	</a>
+</span>
+
+        
+
+        
+    <span class="article-tags">
+    <i class="iconfont icon-tag"></i>
+    <a class="article-tag-link" href="/tags/%E8%AF%BB%E4%B9%A6/" rel="tag">读书</a>
+  </span>
+
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2019/10/25/readingNotes/%E8%AF%BB%E4%B9%A62-%E8%83%BD%E5%8A%9B%E9%99%B7%E9%98%B1/#comments" class="article-comment-link">评论</a></span>
+        
+    
+        <span class="post-wordcount" itemprop="wordCount">字数统计: 772(字)</span>
+    
+    
+        <span class="post-readcount" itemprop="timeRequired">阅读时长: 2(分)</span>
+    
+
+
+    </p>
+
+</article>
+
+    
+        <article class="article border-b border-solid border-gray-200">
+    <div class="article-header mb-4 mt-5">
+        
+    
+        <h1 itemprop="name">
+            <a class="article-title text-lg" href="/2019/10/25/testing/QA4-%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B%E8%AE%BE%E8%AE%A1%E6%96%B9%E6%B3%95/">测试用例的编写</a>
+        </h1>
+    
+
+
+
+    </div>
+    
+        <div class="article-excerpt text-gray-600 mb-3" itemprop="description">
+            <h3 id="测试用例设计方法"><a href="#测试用例设计方法" class="headerlink" title="测试用例设计方法"></a>测试用例设计方法</h3><ul>
+<li><p>逐级细分法</p>
+</li>
+<li><p>输入域测试法</p>
+</li>
+<li><p>输出域分析法</p>
+</li>
+<li><p>正交试验设计法</p>
+        </div>
+    
+    <p class="article-meta mb-3 text-xs">
+        <span class="article-date">
+    <i class="iconfont icon-calendar-check"></i>
+	<a href="/2019/10/25/testing/QA4-%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B%E8%AE%BE%E8%AE%A1%E6%96%B9%E6%B3%95/" class="article-date">
+	  <time datetime="2019-10-25T08:16:04.000Z" itemprop="datePublished">10月 25</time>
+	</a>
+</span>
+
+        
+
+        
+    <span class="article-tags">
+    <i class="iconfont icon-tag"></i>
+    <a class="article-tag-link" href="/tags/%E6%B5%8B%E8%AF%95/" rel="tag">测试</a>
+  </span>
+
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2019/10/25/testing/QA4-%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B%E8%AE%BE%E8%AE%A1%E6%96%B9%E6%B3%95/#comments" class="article-comment-link">评论</a></span>
+        
+    
+        <span class="post-wordcount" itemprop="wordCount">字数统计: 1.7k(字)</span>
+    
+    
+        <span class="post-readcount" itemprop="timeRequired">阅读时长: 5(分)</span>
+    
+
+
+    </p>
+
+</article>
+
+    
+</div>
+
+    
+<nav class="pagination bottom-0 px-5 mb-3 absolute w-full inset-x-0" data-stick-bottom>
+    <div class="flex justify-between leading-tight">
+        <span class="pager">
+            
+                <button class="prev">
+                    <a href="/page/2/">
+                        <i class="iconfont icon-angle-left"></i>
+                        上一页
+                    </a>
+                </button>
+            
+            
+                <button class="next disabled">
+                    <a href="#">
+                        下一页
+                        <i class="iconfont icon-angle-right"></i>
+                    </a>
+                </button>
+            
+        </span>
+        <div class="total-article bar-right">Page 3 of 3</div>
+    </div>
+</nav>
+
+
+</main>
+<aside style="" id="sidebar" class="aside aside-fixture">
+    <div class="widgets">
+        
+            
+
+        
+            
+    <div class="widget">
+        <h3 class="widget-title">
+            标签
+        </h3>
+        <div class="widget-body">
+            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python%E5%A4%9A%E4%BB%BB%E5%8A%A1/" rel="tag">Python多任务</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8A%80%E5%B7%A7/" rel="tag">技巧</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/" rel="tag">接口测试</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B5%8B%E8%AF%95/" rel="tag">测试</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AF%BB%E4%B9%A6/" rel="tag">读书</a><span class="tag-list-count">2</span></li></ul>
+        </div>
+    </div>
+
+
+        
+            
+    <div class="widget">
+        
+        <h3 class="widget-title">标签云</h3>
+        
+        <div class="widget-body tagcloud">
+            <a href="/tags/Python%E5%A4%9A%E4%BB%BB%E5%8A%A1/" style="font-size: 13.25px;">Python多任务</a> <a href="/tags/%E6%8A%80%E5%B7%A7/" style="font-size: 13.5px;">技巧</a> <a href="/tags/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/" style="font-size: 13.75px;">接口测试</a> <a href="/tags/%E6%B5%8B%E8%AF%95/" style="font-size: 14px;">测试</a> <a href="/tags/%E8%AF%BB%E4%B9%A6/" style="font-size: 13px;">读书</a>
+        </div>
+    </div>
+
+
+        
+            
+    <div class="widget">
+        <h3 class="widget-title">归档</h3>
+        <div class="widget-body">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/11/">十一月 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/">五月 2021</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">四月 2021</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">三月 2021</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">八月 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">七月 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">六月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">五月 2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">四月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">十月 2019</a><span class="archive-list-count">3</span></li></ul>
+        </div>
+    </div>
+
+
+        
+            
+<div class="widget">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget-body">
+        <ul class="recent-post-list list-unstyled">
+            
+                <li>
+                    <div class="recent-post">
+                        <p class="item-category">
+                            
+                        </p>
+                        <p class="item-title">
+                            <a href="/2021/11/21/testing/QA7-%E5%BA%94%E7%94%A8%E4%BD%93%E9%AA%8C%E6%A0%87%E5%87%865.0/" class="title">软件绿色联盟应用体验标准5.0</a>
+                        </p>
+                        <p class="item-date">
+                            <time datetime="2021-11-21T11:31:09.000Z" itemprop="datePublished">2021-11-21</time>
+                        </p>
+                    </div>
+                </li>
+            
+                <li>
+                    <div class="recent-post">
+                        <p class="item-category">
+                            
+                        </p>
+                        <p class="item-title">
+                            <a href="/2021/05/21/testing/QA6-%E5%91%A8%E5%88%8A3/" class="title">QA周刊3</a>
+                        </p>
+                        <p class="item-date">
+                            <time datetime="2021-05-21T12:18:21.000Z" itemprop="datePublished">2021-05-21</time>
+                        </p>
+                    </div>
+                </li>
+            
+                <li>
+                    <div class="recent-post">
+                        <p class="item-category">
+                            
+                        </p>
+                        <p class="item-title">
+                            <a href="/2021/05/12/testing/QA6-%E5%91%A8%E5%88%8A2/" class="title">QA周刊2</a>
+                        </p>
+                        <p class="item-date">
+                            <time datetime="2021-05-12T11:20:01.000Z" itemprop="datePublished">2021-05-12</time>
+                        </p>
+                    </div>
+                </li>
+            
+                <li>
+                    <div class="recent-post">
+                        <p class="item-category">
+                            
+                        </p>
+                        <p class="item-title">
+                            <a href="/2021/04/29/testing/QA5-%E5%91%A8%E5%88%8A1/" class="title">QA周刊1</a>
+                        </p>
+                        <p class="item-date">
+                            <time datetime="2021-04-29T12:31:01.000Z" itemprop="datePublished">2021-04-29</time>
+                        </p>
+                    </div>
+                </li>
+            
+                <li>
+                    <div class="recent-post">
+                        <p class="item-category">
+                            
+                        </p>
+                        <p class="item-title">
+                            <a href="/2021/04/13/pyhton/Python%E5%A4%9A%E4%BB%BB%E5%8A%A13%E4%B9%8B%E5%8D%8F%E7%A8%8B/" class="title">Python多任务之协程</a>
+                        </p>
+                        <p class="item-date">
+                            <time datetime="2021-04-12T16:00:00.000Z" itemprop="datePublished">2021-04-13</time>
+                        </p>
+                    </div>
+                </li>
+            
+        </ul>
+    </div>
+</div>
+
+
+        
+    </div>
+</aside>
+
+
+        </section>
+        <footer class="hidden lg:block fixed bottom-0 left-0 sm:w-1/12 lg:w-1/6 bg-gray-100 z-40">
+    
+    <div class="footer-social-links">
+        
+            <a href="https://github.com/fengkx" target="_blank" rel="noopener">
+                <i class="iconfont icon-github"></i>
+            </a>
+        
+            <a href="https://t.me/fengkx" target="_blank" rel="noopener">
+                <i class="iconfont icon-telegram"></i>
+            </a>
+        
+            <a href="https://twitter.com/example" target="_blank" rel="noopener">
+                <i class="iconfont icon-twitter"></i>
+            </a>
+        
+            <a href="/atom.xml">
+                <i class="iconfont icon-rss"></i>
+            </a>
+        
+    </div>
+    
+    
+</footer>
+
+        <div id="mask" class="hidden mask fixed inset-0 bg-gray-900 opacity-75 z-40"></div>
+        <div id="search-view-container" class="hidden shadow-xl"></div>
+        <script src="/js/dom-event.min.js"></script>
+
+<script src="/js/local-search.min.js"></script>
+
+
+    <script src="//cdn.jsdelivr.net/npm/lightgallery.js@1.1.3/dist/js/lightgallery.min.js"></script>
+    <script src="/js/light-gallery.min.js"></script>
+
+
+
+
+
+    <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>

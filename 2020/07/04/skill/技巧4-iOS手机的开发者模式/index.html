@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html  lang="zh-CN" >
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, maximum-scale=5, viewport-fit=cover">
+    <title>怎么打开iOS手机的开发者模式 | Dreaming</title>
+    <meta name="description" content="前言iPhone手机也有开发者选项，这个功能开发或者测试同学都有很大的帮助，今天我们就把这个功能个如何打开，如何关闭，以及各个功能到底有什么作用给大家列一下。">
+<meta name="keywords" content="技巧">
+<meta property="og:type" content="article">
+<meta property="og:title" content="怎么打开iOS手机的开发者模式">
+<meta property="og:url" content="https:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;07&#x2F;04&#x2F;skill&#x2F;%E6%8A%80%E5%B7%A74-iOS%E6%89%8B%E6%9C%BA%E7%9A%84%E5%BC%80%E5%8F%91%E8%80%85%E6%A8%A1%E5%BC%8F&#x2F;index.html">
+<meta property="og:site_name" content="Dreaming">
+<meta property="og:description" content="前言iPhone手机也有开发者选项，这个功能开发或者测试同学都有很大的帮助，今天我们就把这个功能个如何打开，如何关闭，以及各个功能到底有什么作用给大家列一下。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https:&#x2F;&#x2F;ssd.qiniu.dreamfly95.com&#x2F;image-20200704175313401.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;ssd.qiniu.dreamfly95.com&#x2F;image-20200704175458221.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;ssd.qiniu.dreamfly95.com&#x2F;image-20200704175643841.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;ssd.qiniu.dreamfly95.com&#x2F;image-20200704175829746.png">
+<meta property="og:updated_time" content="2020-07-09T08:37:10.088Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;ssd.qiniu.dreamfly95.com&#x2F;image-20200704175313401.png">
+
+    <link rel="alternate" type="application/atom+xml" href="/atom.xml">
+    <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
+
+    <link rel="stylesheet" href="/css/common.min.css">
+
+
+    
+    
+    
+    
+        <link href="//cdn.jsdelivr.net/npm/lightgallery.js@1.1.3/dist/css/lightgallery.min.css" rel="stylesheet">
+    
+    
+    <link rel="stylesheet" href="/css/iconfont.min.css">
+    
+</head>
+
+    <body>
+        <header class="header header-fixture">
+    <div class="profile-search-wrap flex sm:block">
+        
+        
+        <div class="profile sm:text-center md:px-1 lg:px-3 sm:pb-4 sm:pt-6">
+            <a id="avatar" role="link" href="https://github.com/fengkx" class="inline-block lg:w-16 lg:h-16 w-8 h-8 m-2" target="_blank" rel="noopener" rel="noreferrer" >
+                <img src="https://www.gravatar.com/avatar/0bc83cb571cd1c50ba6f3e8a78ef1346?s=128" class="rounded-full" alt="avatar">
+            </a>
+            <h2 id="name" class="hidden lg:block">fengkx</h2>
+            <h3 id="title" class="hidden xl:block">Student &amp; Coder</h3>
+            
+            <small id="location" class="hidden lg:block">
+                <i class="iconfont icon-map-icon"></i>
+                Guangzhou, China
+            </small>
+            
+        </div>
+        
+        
+<div class="search flex-1 flex lg:inline-block sm:hidden lg:px-4 lg:mt-2 lg:mb-4 lg:w-full">
+    <form id="search-form" class="my-auto flex-1 lg:border lg:border-solid lg:border-gray-200">
+        <div class="input-group table bg-gray-100 lg:bg-white w-full">
+            <input id="search-input" type="text" placeholder="搜索" class="inline-block w-full bg-gray-100 lg:bg-white">
+            <span class="table-cell">
+                <button name="search tigger button" disabled>
+                    <i class="iconfont icon-search m-2"></i>
+                </button>
+            </span>
+        </div>
+    </form>
+        
+<div id="content-json" data-placeholder="搜索" class="invisible hidden">/content.json</div>
+<script id="search-teamplate" type="text/html" data-path="/content.json">
+    <div>
+        <div class="search-header bg-gray-400">
+            <input id="actual-search-input" model="keyword" ref="input" class="inline-block w-full h-10 px-2 py-1" placeholder="搜索" type="text">
+        </div>
+        <div class="search-result bg-gray-200">
+            {{#each searchPosts}}
+            <a href="/{{ path }}" class="result-item block px-2 pb-3 mb-1 pt-1 hover:bg-indigo-100">
+                <i class="iconfont icon-file"></i>
+                <h1 class="result-title inline font-medium text-lg">{{ title }}</h1>
+                <p class="result-content text-gray-600 text-sm">{{{ text }}}</p>
+            </a>
+            {{/each}}
+        </div>
+    </div>
+</script>
+
+</div>
+
+
+        <button name="menu toogle button" id="menu-toggle-btn" class="block sm:hidden p-3" role="button" aria-expanded="false">
+            <i class="iconfont icon-hamburger"></i>
+        </button>
+    </div>
+    <nav id="menu-nav" class="hidden sm:flex flex-col">
+        
+        
+            <div class="menu-item menu-home" role="menuitem">
+                <a href="/.">
+                    <i class="iconfont icon-home" aria-hidden="true"></i>
+                    <span class="menu-title">首页</span>
+                </a>
+            </div>
+        
+        
+            <div class="menu-item menu-archives" role="menuitem">
+                <a href="/archives">
+                    <i class="iconfont icon-archive" aria-hidden="true"></i>
+                    <span class="menu-title">归档</span>
+                </a>
+            </div>
+        
+        
+            <div class="menu-item menu-categories" role="menuitem">
+                <a href="/categories">
+                    <i class="iconfont icon-folder" aria-hidden="true"></i>
+                    <span class="menu-title">分类</span>
+                </a>
+            </div>
+        
+        
+            <div class="menu-item menu-tags" role="menuitem">
+                <a href="/tags">
+                    <i class="iconfont icon-tag" aria-hidden="true"></i>
+                    <span class="menu-title">标签</span>
+                </a>
+            </div>
+        
+        
+            <div class="menu-item menu-repository" role="menuitem">
+                <a href="/repository">
+                    <i class="iconfont icon-project" aria-hidden="true"></i>
+                    <span class="menu-title">项目</span>
+                </a>
+            </div>
+        
+        
+            <div class="menu-item menu-links" role="menuitem">
+                <a href="/links">
+                    <i class="iconfont icon-friend" aria-hidden="true"></i>
+                    <span class="menu-title">友链</span>
+                </a>
+            </div>
+        
+        
+            <div class="menu-item menu-about" role="menuitem">
+                <a href="/about">
+                    <i class="iconfont icon-cup" aria-hidden="true"></i>
+                    <span class="menu-title">关于</span>
+                </a>
+            </div>
+        
+        
+<div class="social-links flex sm:flex-col lg:hidden mt-5">
+    
+        <span class="social-item text-center">
+            <a href="https://github.com/fengkx" target="_blank" rel="noopener">
+                <i class="iconfont social-icon icon-github"></i>
+                <span class="menu-title hidden lg:inline">menu.github</span>
+            </a>
+        </span>
+    
+        <span class="social-item text-center">
+            <a href="https://t.me/fengkx" target="_blank" rel="noopener">
+                <i class="iconfont social-icon icon-telegram"></i>
+                <span class="menu-title hidden lg:inline">menu.telegram</span>
+            </a>
+        </span>
+    
+        <span class="social-item text-center">
+            <a href="https://twitter.com/example" target="_blank" rel="noopener">
+                <i class="iconfont social-icon icon-twitter"></i>
+                <span class="menu-title hidden lg:inline">menu.twitter</span>
+            </a>
+        </span>
+    
+        <span class="social-item text-center">
+            <a href="/atom.xml">
+                <i class="iconfont social-icon icon-rss"></i>
+                <span class="menu-title hidden lg:inline">menu.rss</span>
+            </a>
+        </span>
+    
+</div>
+
+
+    </nav>
+</header>
+
+        <section class="main-section">
+            
+    <main class="flex-1 px-4 py-14 md:px-5 lg:px-8 lg:py-4 relative min-h-screen">
+    
+
+    <article class="content article article-archives article-type-list" itemscope="">
+        <header class="article-header">
+            
+    
+        <h1 class="article-title text-lg" itemprop="name">
+            怎么打开iOS手机的开发者模式
+        </h1>
+    
+
+
+
+            <p class="article-meta mb-3 text-xs">
+                <span class="article-date">
+    <i class="iconfont icon-calendar-check"></i>
+	<a href="/2020/07/04/skill/%E6%8A%80%E5%B7%A74-iOS%E6%89%8B%E6%9C%BA%E7%9A%84%E5%BC%80%E5%8F%91%E8%80%85%E6%A8%A1%E5%BC%8F/" class="article-date">
+	  <time datetime="2020-07-04T08:55:48.000Z" itemprop="datePublished">7月 4</time>
+	</a>
+</span>
+
+                
+
+                
+    <span class="article-tags">
+    <i class="iconfont icon-tag"></i>
+    <a class="article-tag-link" href="/tags/%E6%8A%80%E5%B7%A7/" rel="tag">技巧</a>
+  </span>
+
+
+                <span class="_partial/post-comment"><i class="icon icon-comment"></i>
+                    <a href="/2020/07/04/skill/%E6%8A%80%E5%B7%A74-iOS%E6%89%8B%E6%9C%BA%E7%9A%84%E5%BC%80%E5%8F%91%E8%80%85%E6%A8%A1%E5%BC%8F/#comments" class="article-comment-link">
+                        评论
+                    </a>
+                </span>
+                
+    
+        <span class="post-wordcount" itemprop="wordCount">字数统计: 516(字)</span>
+    
+    
+        <span class="post-readcount" itemprop="timeRequired">阅读时长: 2(分)</span>
+    
+
+
+            </p>
+        </header>
+        <div class="marked-body article-body">
+            <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>iPhone手机也有开发者选项，这个功能开发或者测试同学都有很大的帮助，今天我们就把这个功能个如何打开，如何关闭，以及各个功能到底有什么作用给大家列一下。</p>
+<a id="more"></a>
+
+<h3 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h3><p>1.Xcode （本次文档中使用是 Xcode Version 11.5）</p>
+<p>2.iPhone （本次文档中使用是 iPhone XR iOS13.5.1）</p>
+<h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>开发者每个选项的作用：</p>
+<p><strong>PAIRED DEVICES</strong> </p>
+<p>Clear Trusted Computers 清除受信任的计算机</p>
+<p><strong>INSTRUMENTS</strong></p>
+<p> Logging 点击进入  可以对电量和网络记录情况进行记录 记录的内容可以使用instruments查看。<a href="https://links.jianshu.com/go?to=http%3A%2F%2Fwww.cocoachina.com%2Fios%2F20180806%2F24469.html" target="_blank" rel="noopener">使用方法</a></p>
+<p><strong>Enable UI Automation</strong>  是否允许UI自动化测试</p>
+<p> <a href="https://www.jianshu.com/p/0e28ae1bd2c2" target="_blank" rel="noopener">iOS自动化测试 UI Automation</a></p>
+<p><strong>NETWORKING</strong><br> Network Link Conditioner 网络链接调节器  模拟各种网络情况，可以对APP进行弱网测试。</p>
+<p><strong>AD DEVELOPER APP TESTING</strong> 广告开发者 app测试<br> Fill Rate 填充率<br> Ad Refresh Rate 广告刷新间隔<br> Highlight Clipped Banners  突出显示剪贴横幅<br> Unlimited Ad Presentation  无限广告展示</p>
+<p><strong>PASSKIT TESTING</strong> 测试<br> Addtional Logging 附加登录<br> Allow HTTP Services 允许http服务<br> Disable Rate Limiting  禁止限制速率<br> NFC Pass Key Optional NFC密码可选<br> <a href="https://links.jianshu.com/go?to=https%3A%2F%2Fdeveloper.apple.com%2Fwallet%2F" target="_blank" rel="noopener">官方链接</a></p>
+<p><strong>NEWS TESTING</strong><br> Reset Local Data on Next Launch. 下次启动时重置本地数据<br> Reset layouts,images,and other cached elements. Private data will not be affected.<br> 重置布局、图像和其他缓存元素。私有数据不会受到影响。</p>
+<h3 id="打开方式"><a href="#打开方式" class="headerlink" title="打开方式"></a>打开方式</h3><ol>
+<li><p>用数据线连接mac和iPhone</p>
+</li>
+<li><p>打开Xcode，选择 Xcode -&gt; window -&gt; Devices and Simulators，如图：</p>
+</li>
+</ol>
+<p><img src="https://ssd.qiniu.dreamfly95.com/image-20200704175313401.png" alt="image-20200704175313401"></p>
+<ol start="3">
+<li>选择自己的手机，右键单击选择Show Provisioning Profiles…，如图：</li>
+</ol>
+<p><img src="https://ssd.qiniu.dreamfly95.com/image-20200704175458221.png" alt="image-20200704175458221"></p>
+<ol start="4">
+<li><p>在弹窗中的列表中查看，是否有开发者证书，如果没有，就点击“+”，添加开发者证书，完成后点击“Done”。如图：</p>
+<p><img src="https://ssd.qiniu.dreamfly95.com/image-20200704175643841.png" alt="image-20200704175643841"></p>
+</li>
+<li><p>打开手机设置，在列表里就能看到开发者选项了。</p>
+<p><img src="https://ssd.qiniu.dreamfly95.com/image-20200704175829746.png" alt="image-20200704175829746"></p>
+</li>
+</ol>
+<h3 id="关闭开发者选项"><a href="#关闭开发者选项" class="headerlink" title="关闭开发者选项"></a>关闭开发者选项</h3><p>在未连接mac时，手机关机重启，开发者选项就消失。</p>
+<h3 id="资料来源"><a href="#资料来源" class="headerlink" title="资料来源"></a>资料来源</h3><p><a href="https://www.jianshu.com/p/8dc5787b4728" target="_blank" rel="noopener">https://www.jianshu.com/p/8dc5787b4728</a></p>
+<h3 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h3><p>面朝大海，春暖花开。</p>
+<p>愿你一生努力，一生被爱。</p>
+
+        </div>
+        
+<blockquote class="copyright">
+    <p><strong>本文链接 : </strong><a class="permalink" href="https://yoursite.com/2020/07/04/skill/%E6%8A%80%E5%B7%A74-iOS%E6%89%8B%E6%9C%BA%E7%9A%84%E5%BC%80%E5%8F%91%E8%80%85%E6%A8%A1%E5%BC%8F/">https://yoursite.com/2020/07/04/skill/技巧4-iOS手机的开发者模式/</a></p>
+    <p><strong>This article is available under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener noreferrer">Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)</a> License</strong></p>
+</blockquote>
+
+
+    </article>
+    
+    <section id="comments">
+        
+    </section>
+
+
+    
+
+</main>
+
+
+<aside style="" id="sidebar" class="aside aside-fixture">
+    <div class="toc-sidebar">
+        <nav id="toc" class="article-toc">
+            <h3 class="toc-title">文章目录</h3>
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#准备"><span class="toc-number">2.</span> <span class="toc-text">准备</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#作用"><span class="toc-number">3.</span> <span class="toc-text">作用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#打开方式"><span class="toc-number">4.</span> <span class="toc-text">打开方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#关闭开发者选项"><span class="toc-number">5.</span> <span class="toc-text">关闭开发者选项</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#资料来源"><span class="toc-number">6.</span> <span class="toc-text">资料来源</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#结语"><span class="toc-number">7.</span> <span class="toc-text">结语</span></a></li></ol>
+        </nav>
+    </div>
+</aside>
+
+
+
+
+
+        </section>
+        <footer class="hidden lg:block fixed bottom-0 left-0 sm:w-1/12 lg:w-1/6 bg-gray-100 z-40">
+    
+    <div class="footer-social-links">
+        
+            <a href="https://github.com/fengkx" target="_blank" rel="noopener">
+                <i class="iconfont icon-github"></i>
+            </a>
+        
+            <a href="https://t.me/fengkx" target="_blank" rel="noopener">
+                <i class="iconfont icon-telegram"></i>
+            </a>
+        
+            <a href="https://twitter.com/example" target="_blank" rel="noopener">
+                <i class="iconfont icon-twitter"></i>
+            </a>
+        
+            <a href="/atom.xml">
+                <i class="iconfont icon-rss"></i>
+            </a>
+        
+    </div>
+    
+    
+</footer>
+
+        <div id="mask" class="hidden mask fixed inset-0 bg-gray-900 opacity-75 z-40"></div>
+        <div id="search-view-container" class="hidden shadow-xl"></div>
+        <script src="/js/dom-event.min.js"></script>
+
+<script src="/js/local-search.min.js"></script>
+
+
+    <script src="//cdn.jsdelivr.net/npm/lightgallery.js@1.1.3/dist/js/lightgallery.min.js"></script>
+    <script src="/js/light-gallery.min.js"></script>
+
+
+
+
+
+    <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>

@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+<html  lang="zh-CN" >
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, maximum-scale=5, viewport-fit=cover">
+    <title>Dreaming</title>
+    <meta name="description" content="记录学习分享">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Dreaming">
+<meta property="og:url" content="https:&#x2F;&#x2F;yoursite.com&#x2F;index.html">
+<meta property="og:site_name" content="Dreaming">
+<meta property="og:description" content="记录学习分享">
+<meta property="og:locale" content="zh-CN">
+<meta name="twitter:card" content="summary">
+
+    <link rel="alternate" type="application/atom+xml" href="/atom.xml">
+    <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
+
+    <link rel="stylesheet" href="/css/common.min.css">
+
+
+    
+    
+    <link rel="stylesheet" href="/css/iconfont.min.css">
+    
+</head>
+
+    <body>
+        <header class="header header-fixture">
+    <div class="profile-search-wrap flex sm:block">
+        
+        
+        <div class="profile sm:text-center md:px-1 lg:px-3 sm:pb-4 sm:pt-6">
+            <a id="avatar" role="link" href="https://github.com/fengkx" class="inline-block lg:w-16 lg:h-16 w-8 h-8 m-2" target="_blank" rel="noopener" rel="noreferrer" >
+                <img src="https://www.gravatar.com/avatar/0bc83cb571cd1c50ba6f3e8a78ef1346?s=128" class="rounded-full" alt="avatar">
+            </a>
+            <h2 id="name" class="hidden lg:block">fengkx</h2>
+            <h3 id="title" class="hidden xl:block">Student &amp; Coder</h3>
+            
+            <small id="location" class="hidden lg:block">
+                <i class="iconfont icon-map-icon"></i>
+                Guangzhou, China
+            </small>
+            
+        </div>
+        
+        
+<div class="search flex-1 flex lg:inline-block sm:hidden lg:px-4 lg:mt-2 lg:mb-4 lg:w-full">
+    <form id="search-form" class="my-auto flex-1 lg:border lg:border-solid lg:border-gray-200">
+        <div class="input-group table bg-gray-100 lg:bg-white w-full">
+            <input id="search-input" type="text" placeholder="搜索" class="inline-block w-full bg-gray-100 lg:bg-white">
+            <span class="table-cell">
+                <button name="search tigger button" disabled>
+                    <i class="iconfont icon-search m-2"></i>
+                </button>
+            </span>
+        </div>
+    </form>
+        
+<div id="content-json" data-placeholder="搜索" class="invisible hidden">/content.json</div>
+<script id="search-teamplate" type="text/html" data-path="/content.json">
+    <div>
+        <div class="search-header bg-gray-400">
+            <input id="actual-search-input" model="keyword" ref="input" class="inline-block w-full h-10 px-2 py-1" placeholder="搜索" type="text">
+        </div>
+        <div class="search-result bg-gray-200">
+            {{#each searchPosts}}
+            <a href="/{{ path }}" class="result-item block px-2 pb-3 mb-1 pt-1 hover:bg-indigo-100">
+                <i class="iconfont icon-file"></i>
+                <h1 class="result-title inline font-medium text-lg">{{ title }}</h1>
+                <p class="result-content text-gray-600 text-sm">{{{ text }}}</p>
+            </a>
+            {{/each}}
+        </div>
+    </div>
+</script>
+
+</div>
+
+
+        <button name="menu toogle button" id="menu-toggle-btn" class="block sm:hidden p-3" role="button" aria-expanded="false">
+            <i class="iconfont icon-hamburger"></i>
+        </button>
+    </div>
+    <nav id="menu-nav" class="hidden sm:flex flex-col">
+        
+        
+            <div class="menu-item menu-home" role="menuitem">
+                <a href="/.">
+                    <i class="iconfont icon-home" aria-hidden="true"></i>
+                    <span class="menu-title">首页</span>
+                </a>
+            </div>
+        
+        
+            <div class="menu-item menu-archives" role="menuitem">
+                <a href="/archives">
+                    <i class="iconfont icon-archive" aria-hidden="true"></i>
+                    <span class="menu-title">归档</span>
+                </a>
+            </div>
+        
+        
+            <div class="menu-item menu-categories" role="menuitem">
+                <a href="/categories">
+                    <i class="iconfont icon-folder" aria-hidden="true"></i>
+                    <span class="menu-title">分类</span>
+                </a>
+            </div>
+        
+        
+            <div class="menu-item menu-tags" role="menuitem">
+                <a href="/tags">
+                    <i class="iconfont icon-tag" aria-hidden="true"></i>
+                    <span class="menu-title">标签</span>
+                </a>
+            </div>
+        
+        
+            <div class="menu-item menu-repository" role="menuitem">
+                <a href="/repository">
+                    <i class="iconfont icon-project" aria-hidden="true"></i>
+                    <span class="menu-title">项目</span>
+                </a>
+            </div>
+        
+        
+            <div class="menu-item menu-links" role="menuitem">
+                <a href="/links">
+                    <i class="iconfont icon-friend" aria-hidden="true"></i>
+                    <span class="menu-title">友链</span>
+                </a>
+            </div>
+        
+        
+            <div class="menu-item menu-about" role="menuitem">
+                <a href="/about">
+                    <i class="iconfont icon-cup" aria-hidden="true"></i>
+                    <span class="menu-title">关于</span>
+                </a>
+            </div>
+        
+        
+<div class="social-links flex sm:flex-col lg:hidden mt-5">
+    
+        <span class="social-item text-center">
+            <a href="https://github.com/fengkx" target="_blank" rel="noopener">
+                <i class="iconfont social-icon icon-github"></i>
+                <span class="menu-title hidden lg:inline">menu.github</span>
+            </a>
+        </span>
+    
+        <span class="social-item text-center">
+            <a href="https://t.me/fengkx" target="_blank" rel="noopener">
+                <i class="iconfont social-icon icon-telegram"></i>
+                <span class="menu-title hidden lg:inline">menu.telegram</span>
+            </a>
+        </span>
+    
+        <span class="social-item text-center">
+            <a href="https://twitter.com/example" target="_blank" rel="noopener">
+                <i class="iconfont social-icon icon-twitter"></i>
+                <span class="menu-title hidden lg:inline">menu.twitter</span>
+            </a>
+        </span>
+    
+        <span class="social-item text-center">
+            <a href="/atom.xml">
+                <i class="iconfont social-icon icon-rss"></i>
+                <span class="menu-title hidden lg:inline">menu.rss</span>
+            </a>
+        </span>
+    
+</div>
+
+
+    </nav>
+</header>
+
+        <section class="main-section">
+            <main class="flex-1 px-4 py-14 md:px-5 lg:px-8 lg:py-4 relative min-h-screen">
+    <div class="content article-list">
+    
+        <article class="article border-b border-solid border-gray-200">
+    <div class="article-header mb-4 mt-5">
+        
+    
+        <h1 itemprop="name">
+            <a class="article-title text-lg" href="/2021/11/21/testing/QA7-%E5%BA%94%E7%94%A8%E4%BD%93%E9%AA%8C%E6%A0%87%E5%87%865.0/">软件绿色联盟应用体验标准5.0</a>
+        </h1>
+    
+
+
+
+    </div>
+    
+        <div class="article-excerpt text-gray-600 mb-3" itemprop="description">
+            <h4 id="绿标5-0发布的意义是什么？"><a href="#绿标5-0发布的意义是什么？" class="headerlink" title="绿标5.0发布的意义是什么？"></a>绿标5.0发布的意义是什么？</h4><p>绿标5.0不仅进一步增强了五项标准的技术要求及检测能力，更在安卓应用基础上拓展到泛智能终端应用的范畴。旨在通过绿标系列标准的制定与推广，为用户带来更安全、更安心的使用体验。</p>
+        </div>
+    
+    <p class="article-meta mb-3 text-xs">
+        <span class="article-date">
+    <i class="iconfont icon-calendar-check"></i>
+	<a href="/2021/11/21/testing/QA7-%E5%BA%94%E7%94%A8%E4%BD%93%E9%AA%8C%E6%A0%87%E5%87%865.0/" class="article-date">
+	  <time datetime="2021-11-21T11:31:09.000Z" itemprop="datePublished">11月 21</time>
+	</a>
+</span>
+
+        
+
+        
+    <span class="article-tags">
+    <i class="iconfont icon-tag"></i>
+    <a class="article-tag-link" href="/tags/%E6%B5%8B%E8%AF%95/" rel="tag">测试</a>
+  </span>
+
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2021/11/21/testing/QA7-%E5%BA%94%E7%94%A8%E4%BD%93%E9%AA%8C%E6%A0%87%E5%87%865.0/#comments" class="article-comment-link">评论</a></span>
+        
+    
+        <span class="post-wordcount" itemprop="wordCount">字数统计: 156(字)</span>
+    
+    
+        <span class="post-readcount" itemprop="timeRequired">阅读时长: 1(分)</span>
+    
+
+
+    </p>
+
+</article>
+
+    
+        <article class="article border-b border-solid border-gray-200">
+    <div class="article-header mb-4 mt-5">
+        
+    
+        <h1 itemprop="name">
+            <a class="article-title text-lg" href="/2021/05/21/testing/QA6-%E5%91%A8%E5%88%8A3/">QA周刊3</a>
+        </h1>
+    
+
+
+
+    </div>
+    
+        <div class="article-excerpt text-gray-600 mb-3" itemprop="description">
+            <p>了解业内最新动态，提升QA认知，扩展思维。</p>
+        </div>
+    
+    <p class="article-meta mb-3 text-xs">
+        <span class="article-date">
+    <i class="iconfont icon-calendar-check"></i>
+	<a href="/2021/05/21/testing/QA6-%E5%91%A8%E5%88%8A3/" class="article-date">
+	  <time datetime="2021-05-21T12:18:21.000Z" itemprop="datePublished">5月 21</time>
+	</a>
+</span>
+
+        
+
+        
+    <span class="article-tags">
+    <i class="iconfont icon-tag"></i>
+    <a class="article-tag-link" href="/tags/%E6%B5%8B%E8%AF%95/" rel="tag">测试</a>
+  </span>
+
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2021/05/21/testing/QA6-%E5%91%A8%E5%88%8A3/#comments" class="article-comment-link">评论</a></span>
+        
+    
+        <span class="post-wordcount" itemprop="wordCount">字数统计: 130(字)</span>
+    
+    
+        <span class="post-readcount" itemprop="timeRequired">阅读时长: 1(分)</span>
+    
+
+
+    </p>
+
+</article>
+
+    
+        <article class="article border-b border-solid border-gray-200">
+    <div class="article-header mb-4 mt-5">
+        
+    
+        <h1 itemprop="name">
+            <a class="article-title text-lg" href="/2021/05/12/testing/QA6-%E5%91%A8%E5%88%8A2/">QA周刊2</a>
+        </h1>
+    
+
+
+
+    </div>
+    
+        <div class="article-excerpt text-gray-600 mb-3" itemprop="description">
+            <p>了解业内最新动态，提升QA认知，扩展思维。</p>
+        </div>
+    
+    <p class="article-meta mb-3 text-xs">
+        <span class="article-date">
+    <i class="iconfont icon-calendar-check"></i>
+	<a href="/2021/05/12/testing/QA6-%E5%91%A8%E5%88%8A2/" class="article-date">
+	  <time datetime="2021-05-12T11:20:01.000Z" itemprop="datePublished">5月 12</time>
+	</a>
+</span>
+
+        
+
+        
+    <span class="article-tags">
+    <i class="iconfont icon-tag"></i>
+    <a class="article-tag-link" href="/tags/%E6%B5%8B%E8%AF%95/" rel="tag">测试</a>
+  </span>
+
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2021/05/12/testing/QA6-%E5%91%A8%E5%88%8A2/#comments" class="article-comment-link">评论</a></span>
+        
+    
+        <span class="post-wordcount" itemprop="wordCount">字数统计: 105(字)</span>
+    
+    
+        <span class="post-readcount" itemprop="timeRequired">阅读时长: 1(分)</span>
+    
+
+
+    </p>
+
+</article>
+
+    
+        <article class="article border-b border-solid border-gray-200">
+    <div class="article-header mb-4 mt-5">
+        
+    
+        <h1 itemprop="name">
+            <a class="article-title text-lg" href="/2021/04/29/testing/QA5-%E5%91%A8%E5%88%8A1/">QA周刊1</a>
+        </h1>
+    
+
+
+
+    </div>
+    
+        <div class="article-excerpt text-gray-600 mb-3" itemprop="description">
+            <p>了解业内最新动态，提升QA认知，扩展思维。</p>
+        </div>
+    
+    <p class="article-meta mb-3 text-xs">
+        <span class="article-date">
+    <i class="iconfont icon-calendar-check"></i>
+	<a href="/2021/04/29/testing/QA5-%E5%91%A8%E5%88%8A1/" class="article-date">
+	  <time datetime="2021-04-29T12:31:01.000Z" itemprop="datePublished">4月 29</time>
+	</a>
+</span>
+
+        
+
+        
+    <span class="article-tags">
+    <i class="iconfont icon-tag"></i>
+    <a class="article-tag-link" href="/tags/%E6%B5%8B%E8%AF%95/" rel="tag">测试</a>
+  </span>
+
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2021/04/29/testing/QA5-%E5%91%A8%E5%88%8A1/#comments" class="article-comment-link">评论</a></span>
+        
+    
+        <span class="post-wordcount" itemprop="wordCount">字数统计: 107(字)</span>
+    
+    
+        <span class="post-readcount" itemprop="timeRequired">阅读时长: 1(分)</span>
+    
+
+
+    </p>
+
+</article>
+
+    
+        <article class="article border-b border-solid border-gray-200">
+    <div class="article-header mb-4 mt-5">
+        
+    
+        <h1 itemprop="name">
+            <a class="article-title text-lg" href="/2021/04/13/pyhton/Python%E5%A4%9A%E4%BB%BB%E5%8A%A13%E4%B9%8B%E5%8D%8F%E7%A8%8B/">Python多任务之协程</a>
+        </h1>
+    
+
+
+
+    </div>
+    
+        <div class="article-excerpt text-gray-600 mb-3" itemprop="description">
+            <h4 id="迭代器"><a href="#迭代器" class="headerlink" title="迭代器"></a>迭代器</h4><blockquote>
+<p>迭代是访问集合元素的一种方式，迭代器是一个可以记住遍历的位置的对象，迭代器对象从集合的第一个元素开始访问，查到所有元素呗访问完结束，迭代器只能往前不能后退</p>
+</blockquote>
+<h5 id="可迭代对象"><a href="#可迭代对象" class="headerlink" title="可迭代对象"></a>可迭代对象</h5><p>我们已经知道可以对list、tuple、str等类型的数据使用for…in…的循环语法从其中依次拿到数据进行使用，我们这样的过程称为遍历，也叫迭代。</p>
+        </div>
+    
+    <p class="article-meta mb-3 text-xs">
+        <span class="article-date">
+    <i class="iconfont icon-calendar-check"></i>
+	<a href="/2021/04/13/pyhton/Python%E5%A4%9A%E4%BB%BB%E5%8A%A13%E4%B9%8B%E5%8D%8F%E7%A8%8B/" class="article-date">
+	  <time datetime="2021-04-12T16:00:00.000Z" itemprop="datePublished">4月 13</time>
+	</a>
+</span>
+
+        
+
+        
+    <span class="article-tags">
+    <i class="iconfont icon-tag"></i>
+    <a class="article-tag-link" href="/tags/Python%E5%A4%9A%E4%BB%BB%E5%8A%A1/" rel="tag">Python多任务</a>
+  </span>
+
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2021/04/13/pyhton/Python%E5%A4%9A%E4%BB%BB%E5%8A%A13%E4%B9%8B%E5%8D%8F%E7%A8%8B/#comments" class="article-comment-link">评论</a></span>
+        
+    
+        <span class="post-wordcount" itemprop="wordCount">字数统计: 3.3k(字)</span>
+    
+    
+        <span class="post-readcount" itemprop="timeRequired">阅读时长: 13(分)</span>
+    
+
+
+    </p>
+
+</article>
+
+    
+        <article class="article border-b border-solid border-gray-200">
+    <div class="article-header mb-4 mt-5">
+        
+    
+        <h1 itemprop="name">
+            <a class="article-title text-lg" href="/2021/03/15/pyhton/Python%E5%A4%9A%E4%BB%BB%E5%8A%A12%E4%B9%8B%E8%BF%9B%E7%A8%8B/">Python多任务之进程</a>
+        </h1>
+    
+
+
+
+    </div>
+    
+        <div class="article-excerpt text-gray-600 mb-3" itemprop="description">
+            <h4 id="进程以及状态"><a href="#进程以及状态" class="headerlink" title="进程以及状态"></a>进程以及状态</h4><blockquote>
+<p>操作系统的调度算法：</p>
+<p>时间片轮转</p>
+<p>优先级调度</p>
+</blockquote>
+<h5 id="进程"><a href="#进程" class="headerlink" title="进程"></a>进程</h5><p>程序：例如xxx.py，xxx.exe这是程序，是一个静态的</p>
+<p>进程：一个程序运行起来后，代码+用到的资源称之为进程，他是操作系统分配资源的基本单元。不进可以通过线程完成多任务，进程也是可以的</p>
+        </div>
+    
+    <p class="article-meta mb-3 text-xs">
+        <span class="article-date">
+    <i class="iconfont icon-calendar-check"></i>
+	<a href="/2021/03/15/pyhton/Python%E5%A4%9A%E4%BB%BB%E5%8A%A12%E4%B9%8B%E8%BF%9B%E7%A8%8B/" class="article-date">
+	  <time datetime="2021-03-14T16:00:00.000Z" itemprop="datePublished">3月 15</time>
+	</a>
+</span>
+
+        
+
+        
+    <span class="article-tags">
+    <i class="iconfont icon-tag"></i>
+    <a class="article-tag-link" href="/tags/Python%E5%A4%9A%E4%BB%BB%E5%8A%A1/" rel="tag">Python多任务</a>
+  </span>
+
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2021/03/15/pyhton/Python%E5%A4%9A%E4%BB%BB%E5%8A%A12%E4%B9%8B%E8%BF%9B%E7%A8%8B/#comments" class="article-comment-link">评论</a></span>
+        
+    
+        <span class="post-wordcount" itemprop="wordCount">字数统计: 1.9k(字)</span>
+    
+    
+        <span class="post-readcount" itemprop="timeRequired">阅读时长: 7(分)</span>
+    
+
+
+    </p>
+
+</article>
+
+    
+        <article class="article border-b border-solid border-gray-200">
+    <div class="article-header mb-4 mt-5">
+        
+    
+        <h1 itemprop="name">
+            <a class="article-title text-lg" href="/2021/03/03/pyhton/Python%E5%A4%9A%E4%BB%BB%E5%8A%A11%E4%B9%8B%E7%BA%BF%E7%A8%8B/">Python多任务之线程</a>
+        </h1>
+    
+
+
+
+    </div>
+    
+        <div class="article-excerpt text-gray-600 mb-3" itemprop="description">
+            <h2 id="线程"><a href="#线程" class="headerlink" title="线程"></a>线程</h2><h4 id="多任务介绍"><a href="#多任务介绍" class="headerlink" title="多任务介绍"></a>多任务介绍</h4><h5 id="现实中"><a href="#现实中" class="headerlink" title="现实中"></a>现实中</h5><p>很多场景是同时进行的，比如开车的时候，手和脚共同驾驶汽车，再比如唱歌跳舞也是同事进行的；</p>
+<p>试想，如果吧唱歌和跳舞这两件事分开完成的话，估计就比较尴尬了（想一下：先唱歌，唱完再跳舞，￣□￣｜｜）</p>
+        </div>
+    
+    <p class="article-meta mb-3 text-xs">
+        <span class="article-date">
+    <i class="iconfont icon-calendar-check"></i>
+	<a href="/2021/03/03/pyhton/Python%E5%A4%9A%E4%BB%BB%E5%8A%A11%E4%B9%8B%E7%BA%BF%E7%A8%8B/" class="article-date">
+	  <time datetime="2021-03-02T16:00:00.000Z" itemprop="datePublished">3月 3</time>
+	</a>
+</span>
+
+        
+
+        
+    <span class="article-tags">
+    <i class="iconfont icon-tag"></i>
+    <a class="article-tag-link" href="/tags/Python%E5%A4%9A%E4%BB%BB%E5%8A%A1/" rel="tag">Python多任务</a>
+  </span>
+
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2021/03/03/pyhton/Python%E5%A4%9A%E4%BB%BB%E5%8A%A11%E4%B9%8B%E7%BA%BF%E7%A8%8B/#comments" class="article-comment-link">评论</a></span>
+        
+    
+        <span class="post-wordcount" itemprop="wordCount">字数统计: 4.7k(字)</span>
+    
+    
+        <span class="post-readcount" itemprop="timeRequired">阅读时长: 19(分)</span>
+    
+
+
+    </p>
+
+</article>
+
+    
+        <article class="article border-b border-solid border-gray-200">
+    <div class="article-header mb-4 mt-5">
+        
+    
+        <h1 itemprop="name">
+            <a class="article-title text-lg" href="/2020/08/16/interfacetest/%E6%8E%A5%E5%8F%A3%E8%87%AA%E5%8A%A8%E5%8C%96%E6%A1%86%E6%9E%B63%E4%B9%8BUnittest/">接口自动化框架之Unittest（3）</a>
+        </h1>
+    
+
+
+
+    </div>
+    
+        <div class="article-excerpt text-gray-600 mb-3" itemprop="description">
+            <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>做接口自动化，要用到Python的单元测试框架Unittest，是Python标准库自带的单元测试工具，也称为PyUnit，是JUnit（Java语言的单元测试）的Python版本。它支持测试自动化，将测试样例聚合到测试集中，并将测试与报告框架独立。</p>
+        </div>
+    
+    <p class="article-meta mb-3 text-xs">
+        <span class="article-date">
+    <i class="iconfont icon-calendar-check"></i>
+	<a href="/2020/08/16/interfacetest/%E6%8E%A5%E5%8F%A3%E8%87%AA%E5%8A%A8%E5%8C%96%E6%A1%86%E6%9E%B63%E4%B9%8BUnittest/" class="article-date">
+	  <time datetime="2020-08-16T08:38:57.000Z" itemprop="datePublished">8月 16</time>
+	</a>
+</span>
+
+        
+
+        
+    <span class="article-tags">
+    <i class="iconfont icon-tag"></i>
+    <a class="article-tag-link" href="/tags/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/" rel="tag">接口测试</a>
+  </span>
+
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2020/08/16/interfacetest/%E6%8E%A5%E5%8F%A3%E8%87%AA%E5%8A%A8%E5%8C%96%E6%A1%86%E6%9E%B63%E4%B9%8BUnittest/#comments" class="article-comment-link">评论</a></span>
+        
+    
+        <span class="post-wordcount" itemprop="wordCount">字数统计: 229(字)</span>
+    
+    
+        <span class="post-readcount" itemprop="timeRequired">阅读时长: 1(分)</span>
+    
+
+
+    </p>
+
+</article>
+
+    
+        <article class="article border-b border-solid border-gray-200">
+    <div class="article-header mb-4 mt-5">
+        
+    
+        <h1 itemprop="name">
+            <a class="article-title text-lg" href="/2020/08/08/interfacetest/%E6%8E%A5%E5%8F%A3%E8%87%AA%E5%8A%A8%E5%8C%96%E6%A1%86%E6%9E%B62%E4%B9%8BRequest%E6%A8%A1%E5%9D%97/">接口自动化框架之Request模块（2）</a>
+        </h1>
+    
+
+
+
+    </div>
+    
+        <div class="article-excerpt text-gray-600 mb-3" itemprop="description">
+            <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>要学接口自动化，或者爬虫等，Requests库的使用是必备知识，也是给你打开自动化大门的一把钥匙。</p>
+<p>Requests的口号是为人类服务，也是唯一的一个<strong>非转基因</strong>的 Python HTTP 库，人类可以安全享用。</p>
+        </div>
+    
+    <p class="article-meta mb-3 text-xs">
+        <span class="article-date">
+    <i class="iconfont icon-calendar-check"></i>
+	<a href="/2020/08/08/interfacetest/%E6%8E%A5%E5%8F%A3%E8%87%AA%E5%8A%A8%E5%8C%96%E6%A1%86%E6%9E%B62%E4%B9%8BRequest%E6%A8%A1%E5%9D%97/" class="article-date">
+	  <time datetime="2020-08-08T08:44:46.000Z" itemprop="datePublished">8月 8</time>
+	</a>
+</span>
+
+        
+
+        
+    <span class="article-tags">
+    <i class="iconfont icon-tag"></i>
+    <a class="article-tag-link" href="/tags/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/" rel="tag">接口测试</a>
+  </span>
+
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2020/08/08/interfacetest/%E6%8E%A5%E5%8F%A3%E8%87%AA%E5%8A%A8%E5%8C%96%E6%A1%86%E6%9E%B62%E4%B9%8BRequest%E6%A8%A1%E5%9D%97/#comments" class="article-comment-link">评论</a></span>
+        
+    
+        <span class="post-wordcount" itemprop="wordCount">字数统计: 563(字)</span>
+    
+    
+        <span class="post-readcount" itemprop="timeRequired">阅读时长: 2(分)</span>
+    
+
+
+    </p>
+
+</article>
+
+    
+        <article class="article border-b border-solid border-gray-200">
+    <div class="article-header mb-4 mt-5">
+        
+    
+        <h1 itemprop="name">
+            <a class="article-title text-lg" href="/2020/08/08/interfacetest/%E6%8E%A5%E5%8F%A3%E8%87%AA%E5%8A%A8%E5%8C%96%E6%A1%86%E6%9E%B61%E4%B9%8B%E7%9B%AE%E5%BD%95%E8%A7%84%E8%8C%83/">接口自动化框架之目录规范（1）</a>
+        </h1>
+    
+
+
+
+    </div>
+    
+        <div class="article-excerpt text-gray-600 mb-3" itemprop="description">
+            <p>我们要写一个接口自动化框架，首先要把python自动化测试框架层级结构理清楚，这样有利于我们后续的维护，也能方便他人的沿用。</p>
+        </div>
+    
+    <p class="article-meta mb-3 text-xs">
+        <span class="article-date">
+    <i class="iconfont icon-calendar-check"></i>
+	<a href="/2020/08/08/interfacetest/%E6%8E%A5%E5%8F%A3%E8%87%AA%E5%8A%A8%E5%8C%96%E6%A1%86%E6%9E%B61%E4%B9%8B%E7%9B%AE%E5%BD%95%E8%A7%84%E8%8C%83/" class="article-date">
+	  <time datetime="2020-08-08T06:12:25.000Z" itemprop="datePublished">8月 8</time>
+	</a>
+</span>
+
+        
+
+        
+    <span class="article-tags">
+    <i class="iconfont icon-tag"></i>
+    <a class="article-tag-link" href="/tags/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/" rel="tag">接口测试</a>
+  </span>
+
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2020/08/08/interfacetest/%E6%8E%A5%E5%8F%A3%E8%87%AA%E5%8A%A8%E5%8C%96%E6%A1%86%E6%9E%B61%E4%B9%8B%E7%9B%AE%E5%BD%95%E8%A7%84%E8%8C%83/#comments" class="article-comment-link">评论</a></span>
+        
+    
+        <span class="post-wordcount" itemprop="wordCount">字数统计: 331(字)</span>
+    
+    
+        <span class="post-readcount" itemprop="timeRequired">阅读时长: 1(分)</span>
+    
+
+
+    </p>
+
+</article>
+
+    
+</div>
+
+    
+<nav class="pagination bottom-0 px-5 mb-3 absolute w-full inset-x-0" data-stick-bottom>
+    <div class="flex justify-between leading-tight">
+        <span class="pager">
+            
+                <button class="prev disabled">
+                    <a href="#">
+                        <i class="iconfont icon-angle-left"></i>
+                        上一页
+                    </a>
+                </button>
+            
+            
+                <button class="next">
+                    <a href="/page/2/">
+                        下一页
+                        <i class="iconfont icon-angle-right"></i>
+                    </a>
+                </button>
+            
+        </span>
+        <div class="total-article bar-right">Page 1 of 3</div>
+    </div>
+</nav>
+
+
+</main>
+<aside style="" id="sidebar" class="aside aside-fixture">
+    <div class="widgets">
+        
+            
+
+        
+            
+    <div class="widget">
+        <h3 class="widget-title">
+            标签
+        </h3>
+        <div class="widget-body">
+            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python%E5%A4%9A%E4%BB%BB%E5%8A%A1/" rel="tag">Python多任务</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8A%80%E5%B7%A7/" rel="tag">技巧</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/" rel="tag">接口测试</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B5%8B%E8%AF%95/" rel="tag">测试</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AF%BB%E4%B9%A6/" rel="tag">读书</a><span class="tag-list-count">2</span></li></ul>
+        </div>
+    </div>
+
+
+        
+            
+    <div class="widget">
+        
+        <h3 class="widget-title">标签云</h3>
+        
+        <div class="widget-body tagcloud">
+            <a href="/tags/Python%E5%A4%9A%E4%BB%BB%E5%8A%A1/" style="font-size: 13.25px;">Python多任务</a> <a href="/tags/%E6%8A%80%E5%B7%A7/" style="font-size: 13.5px;">技巧</a> <a href="/tags/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/" style="font-size: 13.75px;">接口测试</a> <a href="/tags/%E6%B5%8B%E8%AF%95/" style="font-size: 14px;">测试</a> <a href="/tags/%E8%AF%BB%E4%B9%A6/" style="font-size: 13px;">读书</a>
+        </div>
+    </div>
+
+
+        
+            
+    <div class="widget">
+        <h3 class="widget-title">归档</h3>
+        <div class="widget-body">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/11/">十一月 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/">五月 2021</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">四月 2021</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">三月 2021</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">八月 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">七月 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">六月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">五月 2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">四月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">十月 2019</a><span class="archive-list-count">3</span></li></ul>
+        </div>
+    </div>
+
+
+        
+            
+<div class="widget">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget-body">
+        <ul class="recent-post-list list-unstyled">
+            
+                <li>
+                    <div class="recent-post">
+                        <p class="item-category">
+                            
+                        </p>
+                        <p class="item-title">
+                            <a href="/2021/11/21/testing/QA7-%E5%BA%94%E7%94%A8%E4%BD%93%E9%AA%8C%E6%A0%87%E5%87%865.0/" class="title">软件绿色联盟应用体验标准5.0</a>
+                        </p>
+                        <p class="item-date">
+                            <time datetime="2021-11-21T11:31:09.000Z" itemprop="datePublished">2021-11-21</time>
+                        </p>
+                    </div>
+                </li>
+            
+                <li>
+                    <div class="recent-post">
+                        <p class="item-category">
+                            
+                        </p>
+                        <p class="item-title">
+                            <a href="/2021/05/21/testing/QA6-%E5%91%A8%E5%88%8A3/" class="title">QA周刊3</a>
+                        </p>
+                        <p class="item-date">
+                            <time datetime="2021-05-21T12:18:21.000Z" itemprop="datePublished">2021-05-21</time>
+                        </p>
+                    </div>
+                </li>
+            
+                <li>
+                    <div class="recent-post">
+                        <p class="item-category">
+                            
+                        </p>
+                        <p class="item-title">
+                            <a href="/2021/05/12/testing/QA6-%E5%91%A8%E5%88%8A2/" class="title">QA周刊2</a>
+                        </p>
+                        <p class="item-date">
+                            <time datetime="2021-05-12T11:20:01.000Z" itemprop="datePublished">2021-05-12</time>
+                        </p>
+                    </div>
+                </li>
+            
+                <li>
+                    <div class="recent-post">
+                        <p class="item-category">
+                            
+                        </p>
+                        <p class="item-title">
+                            <a href="/2021/04/29/testing/QA5-%E5%91%A8%E5%88%8A1/" class="title">QA周刊1</a>
+                        </p>
+                        <p class="item-date">
+                            <time datetime="2021-04-29T12:31:01.000Z" itemprop="datePublished">2021-04-29</time>
+                        </p>
+                    </div>
+                </li>
+            
+                <li>
+                    <div class="recent-post">
+                        <p class="item-category">
+                            
+                        </p>
+                        <p class="item-title">
+                            <a href="/2021/04/13/pyhton/Python%E5%A4%9A%E4%BB%BB%E5%8A%A13%E4%B9%8B%E5%8D%8F%E7%A8%8B/" class="title">Python多任务之协程</a>
+                        </p>
+                        <p class="item-date">
+                            <time datetime="2021-04-12T16:00:00.000Z" itemprop="datePublished">2021-04-13</time>
+                        </p>
+                    </div>
+                </li>
+            
+        </ul>
+    </div>
+</div>
+
+
+        
+    </div>
+</aside>
+
+
+        </section>
+        <footer class="hidden lg:block fixed bottom-0 left-0 sm:w-1/12 lg:w-1/6 bg-gray-100 z-40">
+    
+    <div class="footer-social-links">
+        
+            <a href="https://github.com/fengkx" target="_blank" rel="noopener">
+                <i class="iconfont icon-github"></i>
+            </a>
+        
+            <a href="https://t.me/fengkx" target="_blank" rel="noopener">
+                <i class="iconfont icon-telegram"></i>
+            </a>
+        
+            <a href="https://twitter.com/example" target="_blank" rel="noopener">
+                <i class="iconfont icon-twitter"></i>
+            </a>
+        
+            <a href="/atom.xml">
+                <i class="iconfont icon-rss"></i>
+            </a>
+        
+    </div>
+    
+    
+</footer>
+
+        <div id="mask" class="hidden mask fixed inset-0 bg-gray-900 opacity-75 z-40"></div>
+        <div id="search-view-container" class="hidden shadow-xl"></div>
+        <script src="/js/dom-event.min.js"></script>
+
+<script src="/js/local-search.min.js"></script>
+
+
+    <script src="//cdn.jsdelivr.net/npm/lightgallery.js@1.1.3/dist/js/lightgallery.min.js"></script>
+    <script src="/js/light-gallery.min.js"></script>
+
+
+
+
+
+    <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
