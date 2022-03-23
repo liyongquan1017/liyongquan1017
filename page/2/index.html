@@ -1,878 +1,1128 @@
 <!DOCTYPE html>
-<html  lang="zh-CN" >
-    <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, maximum-scale=5, viewport-fit=cover">
-    <title>Dreaming</title>
-    <meta name="description" content="记录学习分享">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Dreaming">
-<meta property="og:url" content="https:&#x2F;&#x2F;yoursite.com&#x2F;page&#x2F;2&#x2F;index.html">
-<meta property="og:site_name" content="Dreaming">
-<meta property="og:description" content="记录学习分享">
-<meta property="og:locale" content="zh-CN">
-<meta name="twitter:card" content="summary">
-
-    <link rel="alternate" type="application/atom+xml" href="/atom.xml">
-    <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
-
-    <link rel="stylesheet" href="/css/common.min.css">
 
 
+<html lang="zh-CN" >
+
+
+<head>
+  <meta charset="utf-8" />
     
-    
-    <link rel="stylesheet" href="/css/iconfont.min.css">
-    
+  <meta name="description" content="记录学习分享" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <title>
+     Dreaming
+  </title>
+  <meta name="generator" content="hexo-theme-yilia-plus">
+  
+  <link rel="shortcut icon" href="/favicon.ico" />
+  
+  <link rel="stylesheet" href="/dist/main.css">
+  <link rel="stylesheet" href="/css/custom.css">
+  
+  <script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+  
+  
+
+  
+
+<link rel="alternate" href="/atom.xml" title="Dreaming" type="application/atom+xml">
 </head>
 
-    <body>
-        <header class="header header-fixture">
-    <div class="profile-search-wrap flex sm:block">
-        
-        
-        <div class="profile sm:text-center md:px-1 lg:px-3 sm:pb-4 sm:pt-6">
-            <a id="avatar" role="link" href="https://github.com/fengkx" class="inline-block lg:w-16 lg:h-16 w-8 h-8 m-2" target="_blank" rel="noopener" rel="noreferrer" >
-                <img src="https://www.gravatar.com/avatar/0bc83cb571cd1c50ba6f3e8a78ef1346?s=128" class="rounded-full" alt="avatar">
-            </a>
-            <h2 id="name" class="hidden lg:block">fengkx</h2>
-            <h3 id="title" class="hidden xl:block">Student &amp; Coder</h3>
-            
-            <small id="location" class="hidden lg:block">
-                <i class="iconfont icon-map-icon"></i>
-                Guangzhou, China
-            </small>
-            
-        </div>
-        
-        
-<div class="search flex-1 flex lg:inline-block sm:hidden lg:px-4 lg:mt-2 lg:mb-4 lg:w-full">
-    <form id="search-form" class="my-auto flex-1 lg:border lg:border-solid lg:border-gray-200">
-        <div class="input-group table bg-gray-100 lg:bg-white w-full">
-            <input id="search-input" type="text" placeholder="搜索" class="inline-block w-full bg-gray-100 lg:bg-white">
-            <span class="table-cell">
-                <button name="search tigger button" disabled>
-                    <i class="iconfont icon-search m-2"></i>
-                </button>
-            </span>
-        </div>
-    </form>
-        
-<div id="content-json" data-placeholder="搜索" class="invisible hidden">/content.json</div>
-<script id="search-teamplate" type="text/html" data-path="/content.json">
-    <div>
-        <div class="search-header bg-gray-400">
-            <input id="actual-search-input" model="keyword" ref="input" class="inline-block w-full h-10 px-2 py-1" placeholder="搜索" type="text">
-        </div>
-        <div class="search-result bg-gray-200">
-            {{#each searchPosts}}
-            <a href="/{{ path }}" class="result-item block px-2 pb-3 mb-1 pt-1 hover:bg-indigo-100">
-                <i class="iconfont icon-file"></i>
-                <h1 class="result-title inline font-medium text-lg">{{ title }}</h1>
-                <p class="result-content text-gray-600 text-sm">{{{ text }}}</p>
-            </a>
-            {{/each}}
-        </div>
+</html>
+
+<body>
+  <div id="app">
+    <main class="content on">
+      
+<section class="cover">
+    
+  <div class="cover-frame">
+    <div class="bg-box">
+      <img src="/images/cover1.jpg" alt="image frame" />
     </div>
-</script>
-
-</div>
-
-
-        <button name="menu toogle button" id="menu-toggle-btn" class="block sm:hidden p-3" role="button" aria-expanded="false">
-            <i class="iconfont icon-hamburger"></i>
-        </button>
+    <div class="cover-inner text-center text-white">
+      <h1><a href="/">Dreaming</a></h1>
+      <div id="subtitle-box">
+        
+        <span id="subtitle"></span>
+        
+      </div>
+      <div>
+        
+      </div>
     </div>
-    <nav id="menu-nav" class="hidden sm:flex flex-col">
-        
-        
-            <div class="menu-item menu-home" role="menuitem">
-                <a href="/.">
-                    <i class="iconfont icon-home" aria-hidden="true"></i>
-                    <span class="menu-title">首页</span>
-                </a>
-            </div>
-        
-        
-            <div class="menu-item menu-archives" role="menuitem">
-                <a href="/archives">
-                    <i class="iconfont icon-archive" aria-hidden="true"></i>
-                    <span class="menu-title">归档</span>
-                </a>
-            </div>
-        
-        
-            <div class="menu-item menu-categories" role="menuitem">
-                <a href="/categories">
-                    <i class="iconfont icon-folder" aria-hidden="true"></i>
-                    <span class="menu-title">分类</span>
-                </a>
-            </div>
-        
-        
-            <div class="menu-item menu-tags" role="menuitem">
-                <a href="/tags">
-                    <i class="iconfont icon-tag" aria-hidden="true"></i>
-                    <span class="menu-title">标签</span>
-                </a>
-            </div>
-        
-        
-            <div class="menu-item menu-repository" role="menuitem">
-                <a href="/repository">
-                    <i class="iconfont icon-project" aria-hidden="true"></i>
-                    <span class="menu-title">项目</span>
-                </a>
-            </div>
-        
-        
-            <div class="menu-item menu-links" role="menuitem">
-                <a href="/links">
-                    <i class="iconfont icon-friend" aria-hidden="true"></i>
-                    <span class="menu-title">友链</span>
-                </a>
-            </div>
-        
-        
-            <div class="menu-item menu-about" role="menuitem">
-                <a href="/about">
-                    <i class="iconfont icon-cup" aria-hidden="true"></i>
-                    <span class="menu-title">关于</span>
-                </a>
-            </div>
-        
-        
-<div class="social-links flex sm:flex-col lg:hidden mt-5">
-    
-        <span class="social-item text-center">
-            <a href="https://github.com/fengkx" target="_blank" rel="noopener">
-                <i class="iconfont social-icon icon-github"></i>
-                <span class="menu-title hidden lg:inline">menu.github</span>
-            </a>
-        </span>
-    
-        <span class="social-item text-center">
-            <a href="https://t.me/fengkx" target="_blank" rel="noopener">
-                <i class="iconfont social-icon icon-telegram"></i>
-                <span class="menu-title hidden lg:inline">menu.telegram</span>
-            </a>
-        </span>
-    
-        <span class="social-item text-center">
-            <a href="https://twitter.com/example" target="_blank" rel="noopener">
-                <i class="iconfont social-icon icon-twitter"></i>
-                <span class="menu-title hidden lg:inline">menu.twitter</span>
-            </a>
-        </span>
-    
-        <span class="social-item text-center">
-            <a href="/atom.xml">
-                <i class="iconfont social-icon icon-rss"></i>
-                <span class="menu-title hidden lg:inline">menu.rss</span>
-            </a>
-        </span>
-    
-</div>
-
-
-    </nav>
-</header>
-
-        <section class="main-section">
-            <main class="flex-1 px-4 py-14 md:px-5 lg:px-8 lg:py-4 relative min-h-screen">
-    <div class="content article-list">
-    
-        <article class="article border-b border-solid border-gray-200">
-    <div class="article-header mb-4 mt-5">
-        
-    
-        <h1 itemprop="name">
-            <a class="article-title text-lg" href="/2020/08/01/interfacetest/%E6%8E%A5%E5%8F%A3%E8%87%AA%E5%8A%A8%E5%8C%96%E6%A1%86%E6%9E%B60%E4%B9%8B%E5%AD%A6%E4%B9%A0%E8%B7%AF%E5%BE%84/">接口自动化框架之学习路径(0)</a>
-        </h1>
-    
+  </div>
+  <div class="cover-learn-more">
+    <a href="javascript:void(0)" class="anchor"><i class="ri-arrow-down-line"></i></a>
+  </div>
+</section>
 
 
 
+<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js"></script>
+
+<div id="main">
+  <section class="outer">
+  <article class="articles">
+    
+    
+    
+    
+    <article id="post-interfacetest/接口自动化框架0之学习路径" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2020/08/01/interfacetest/%E6%8E%A5%E5%8F%A3%E8%87%AA%E5%8A%A8%E5%8C%96%E6%A1%86%E6%9E%B60%E4%B9%8B%E5%AD%A6%E4%B9%A0%E8%B7%AF%E5%BE%84/"
+    >接口自动化框架之学习路径(0)</a> 
+</h2>
+ 
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2020/08/01/interfacetest/%E6%8E%A5%E5%8F%A3%E8%87%AA%E5%8A%A8%E5%8C%96%E6%A1%86%E6%9E%B60%E4%B9%8B%E5%AD%A6%E4%B9%A0%E8%B7%AF%E5%BE%84/" class="article-date">
+  <time datetime="2020-08-01T03:12:21.000Z" itemprop="datePublished">2020-08-01</time>
+</a>
+      
+      
+      
+      
     </div>
     
-        <div class="article-excerpt text-gray-600 mb-3" itemprop="description">
-            <p>我们要学习写一个完整的接口自动化框架，首先要有一个学习规划，要分一块一块来学，下面是我整理的一个学习思路，大家可以参考下。</p>
-        </div>
-    
-    <p class="article-meta mb-3 text-xs">
-        <span class="article-date">
-    <i class="iconfont icon-calendar-check"></i>
-	<a href="/2020/08/01/interfacetest/%E6%8E%A5%E5%8F%A3%E8%87%AA%E5%8A%A8%E5%8C%96%E6%A1%86%E6%9E%B60%E4%B9%8B%E5%AD%A6%E4%B9%A0%E8%B7%AF%E5%BE%84/" class="article-date">
-	  <time datetime="2020-08-01T03:12:21.000Z" itemprop="datePublished">8月 1</time>
-	</a>
-</span>
 
-        
-
-        
-    <span class="article-tags">
-    <i class="iconfont icon-tag"></i>
-    <a class="article-tag-link" href="/tags/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/" rel="tag">接口测试</a>
-  </span>
-
-
-        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2020/08/01/interfacetest/%E6%8E%A5%E5%8F%A3%E8%87%AA%E5%8A%A8%E5%8C%96%E6%A1%86%E6%9E%B60%E4%B9%8B%E5%AD%A6%E4%B9%A0%E8%B7%AF%E5%BE%84/#comments" class="article-comment-link">评论</a></span>
-        
-    
-        <span class="post-wordcount" itemprop="wordCount">字数统计: 373(字)</span>
-    
-    
-        <span class="post-readcount" itemprop="timeRequired">阅读时长: 1(分)</span>
     
 
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+      
 
-    </p>
+      
+      <p>我们要学习写一个完整的接口自动化框架，首先要有一个学习规划，要分一块一块来学，下面是我整理的一个学习思路，大家可以参考下。</p>
+      
+      <a class="article-more-link" href="/2020/08/01/interfacetest/%E6%8E%A5%E5%8F%A3%E8%87%AA%E5%8A%A8%E5%8C%96%E6%A1%86%E6%9E%B60%E4%B9%8B%E5%AD%A6%E4%B9%A0%E8%B7%AF%E5%BE%84/">阅读更多...</a>
+      
+      
+      <!-- reward -->
+      
+    </div>
+    
+    
+      <!-- copyright -->
+      
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/" rel="tag">接口测试</a></li></ul>
+
+
+    </footer>
+
+  </div>
+
+  
+
+  
+  
+  
+
+  
+  
+  
 
 </article>
+    
+    <article id="post-readingNotes/读书1-我的祖国" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2020/07/23/readingNotes/%E8%AF%BB%E4%B9%A61-%E6%88%91%E7%9A%84%E7%A5%96%E5%9B%BD/"
+    >我的祖国</a> 
+</h2>
+ 
+
+    </header>
+    
 
     
-        <article class="article border-b border-solid border-gray-200">
-    <div class="article-header mb-4 mt-5">
-        
-    
-        <h1 itemprop="name">
-            <a class="article-title text-lg" href="/2020/07/23/readingNotes/%E8%AF%BB%E4%B9%A61-%E6%88%91%E7%9A%84%E7%A5%96%E5%9B%BD/">我的祖国</a>
-        </h1>
-    
-
-
-
+    <div class="article-meta">
+      <a href="/2020/07/23/readingNotes/%E8%AF%BB%E4%B9%A61-%E6%88%91%E7%9A%84%E7%A5%96%E5%9B%BD/" class="article-date">
+  <time datetime="2020-07-23T14:30:45.000Z" itemprop="datePublished">2020-07-23</time>
+</a>
+      
+      
+      
+      
     </div>
     
-        <div class="article-excerpt text-gray-600 mb-3" itemprop="description">
-            <p><img src="https://ssd.qiniu.dreamfly95.com/china.jpg" alt="china"></p>
+
+    
+
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+      
+
+      
+      <p><img src="https://ssd.qiniu.dreamfly95.com/china.jpg" alt="china"></p>
 <p>我和我的祖国</p>
 <p>一刻也不能分割</p>
 <p>无论我走到哪里</p>
 <p>都流出一首赞歌</p>
-        </div>
-    
-    <p class="article-meta mb-3 text-xs">
-        <span class="article-date">
-    <i class="iconfont icon-calendar-check"></i>
-	<a href="/2020/07/23/readingNotes/%E8%AF%BB%E4%B9%A61-%E6%88%91%E7%9A%84%E7%A5%96%E5%9B%BD/" class="article-date">
-	  <time datetime="2020-07-23T14:30:45.000Z" itemprop="datePublished">7月 23</time>
-	</a>
-</span>
-
-        
-
-        
-    <span class="article-tags">
-    <i class="iconfont icon-tag"></i>
-    <a class="article-tag-link" href="/tags/%E8%AF%BB%E4%B9%A6/" rel="tag">读书</a>
-  </span>
-
-
-        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2020/07/23/readingNotes/%E8%AF%BB%E4%B9%A61-%E6%88%91%E7%9A%84%E7%A5%96%E5%9B%BD/#comments" class="article-comment-link">评论</a></span>
-        
-    
-        <span class="post-wordcount" itemprop="wordCount">字数统计: 167(字)</span>
-    
-    
-        <span class="post-readcount" itemprop="timeRequired">阅读时长: 1(分)</span>
-    
-
-
-    </p>
-
-</article>
-
-    
-        <article class="article border-b border-solid border-gray-200">
-    <div class="article-header mb-4 mt-5">
-        
-    
-        <h1 itemprop="name">
-            <a class="article-title text-lg" href="/2020/07/23/testing/QA1-%E8%B4%A8%E9%87%8F%E7%AE%A1%E7%90%86%E5%92%8C%E4%BF%9D%E9%9A%9C/">软件质量的管理和保障</a>
-        </h1>
-    
-
-
-
+      
+      <a class="article-more-link" href="/2020/07/23/readingNotes/%E8%AF%BB%E4%B9%A61-%E6%88%91%E7%9A%84%E7%A5%96%E5%9B%BD/">阅读更多...</a>
+      
+      
+      <!-- reward -->
+      
     </div>
     
-        <div class="article-excerpt text-gray-600 mb-3" itemprop="description">
-            <p>互联网企业的发展，离不开用户的需求，而质量问题是用户的需求很重要的一个指标，对于企业而言，软件质量的管理和保障是其中必不可少的一环。从事测试行业多年，对于软件质量的管理和保障也有了一定的认识，下面我谈一下我对这块的看法，也欢迎大家一起进行探讨，学习。</p>
-        </div>
     
-    <p class="article-meta mb-3 text-xs">
-        <span class="article-date">
-    <i class="iconfont icon-calendar-check"></i>
-	<a href="/2020/07/23/testing/QA1-%E8%B4%A8%E9%87%8F%E7%AE%A1%E7%90%86%E5%92%8C%E4%BF%9D%E9%9A%9C/" class="article-date">
-	  <time datetime="2020-07-23T13:30:25.000Z" itemprop="datePublished">7月 23</time>
-	</a>
-</span>
-
-        
-
-        
-    <span class="article-tags">
-    <i class="iconfont icon-tag"></i>
-    <a class="article-tag-link" href="/tags/%E6%B5%8B%E8%AF%95/" rel="tag">测试</a>
-  </span>
+      <!-- copyright -->
+      
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%AF%BB%E4%B9%A6/" rel="tag">读书</a></li></ul>
 
 
-        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2020/07/23/testing/QA1-%E8%B4%A8%E9%87%8F%E7%AE%A1%E7%90%86%E5%92%8C%E4%BF%9D%E9%9A%9C/#comments" class="article-comment-link">评论</a></span>
-        
-    
-        <span class="post-wordcount" itemprop="wordCount">字数统计: 594(字)</span>
-    
-    
-        <span class="post-readcount" itemprop="timeRequired">阅读时长: 2(分)</span>
-    
+    </footer>
 
+  </div>
 
-    </p>
+  
+
+  
+  
+  
+
+  
+  
+  
 
 </article>
+    
+    <article id="post-testing/QA1-质量管理和保障" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2020/07/23/testing/QA1-%E8%B4%A8%E9%87%8F%E7%AE%A1%E7%90%86%E5%92%8C%E4%BF%9D%E9%9A%9C/"
+    >软件质量的管理和保障</a> 
+</h2>
+ 
+
+    </header>
+    
 
     
-        <article class="article border-b border-solid border-gray-200">
-    <div class="article-header mb-4 mt-5">
-        
-    
-        <h1 itemprop="name">
-            <a class="article-title text-lg" href="/2020/07/04/skill/%E6%8A%80%E5%B7%A75-markdown%E5%9B%BE%E7%89%87%E8%87%AA%E5%8A%A8%E4%B8%8A%E4%BC%A0/">markdown图片自动上传</a>
-        </h1>
-    
-
-
-
+    <div class="article-meta">
+      <a href="/2020/07/23/testing/QA1-%E8%B4%A8%E9%87%8F%E7%AE%A1%E7%90%86%E5%92%8C%E4%BF%9D%E9%9A%9C/" class="article-date">
+  <time datetime="2020-07-23T13:30:25.000Z" itemprop="datePublished">2020-07-23</time>
+</a>
+      
+      
+      
+      
     </div>
     
-        <div class="article-excerpt text-gray-600 mb-3" itemprop="description">
-            <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>我们写markdown时，里面需要用到的图片，需要上传生成链接后在放到文档里面，图片一旦多了会很麻烦。</p>
+
+    
+
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+      
+
+      
+      <p>互联网企业的发展，离不开用户的需求，而质量问题是用户的需求很重要的一个指标，对于企业而言，软件质量的管理和保障是其中必不可少的一环。从事测试行业多年，对于软件质量的管理和保障也有了一定的认识，下面我谈一下我对这块的看法，也欢迎大家一起进行探讨，学习。</p>
+      
+      <a class="article-more-link" href="/2020/07/23/testing/QA1-%E8%B4%A8%E9%87%8F%E7%AE%A1%E7%90%86%E5%92%8C%E4%BF%9D%E9%9A%9C/">阅读更多...</a>
+      
+      
+      <!-- reward -->
+      
+    </div>
+    
+    
+      <!-- copyright -->
+      
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%B5%8B%E8%AF%95/" rel="tag">测试</a></li></ul>
+
+
+    </footer>
+
+  </div>
+
+  
+
+  
+  
+  
+
+  
+  
+  
+
+</article>
+    
+    <article id="post-skill/技巧5-markdown图片自动上传" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2020/07/04/skill/%E6%8A%80%E5%B7%A75-markdown%E5%9B%BE%E7%89%87%E8%87%AA%E5%8A%A8%E4%B8%8A%E4%BC%A0/"
+    >markdown图片自动上传</a> 
+</h2>
+ 
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2020/07/04/skill/%E6%8A%80%E5%B7%A75-markdown%E5%9B%BE%E7%89%87%E8%87%AA%E5%8A%A8%E4%B8%8A%E4%BC%A0/" class="article-date">
+  <time datetime="2020-07-04T10:04:47.000Z" itemprop="datePublished">2020-07-04</time>
+</a>
+      
+      
+      
+      
+    </div>
+    
+
+    
+
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+      
+
+      
+      <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>我们写markdown时，里面需要用到的图片，需要上传生成链接后在放到文档里面，图片一旦多了会很麻烦。</p>
 <p>今天给大家推荐两款应用，结合使用，可以直接把要用的图片直接拖到markdown编写工具内，图片就会自动上传。</p>
-        </div>
-    
-    <p class="article-meta mb-3 text-xs">
-        <span class="article-date">
-    <i class="iconfont icon-calendar-check"></i>
-	<a href="/2020/07/04/skill/%E6%8A%80%E5%B7%A75-markdown%E5%9B%BE%E7%89%87%E8%87%AA%E5%8A%A8%E4%B8%8A%E4%BC%A0/" class="article-date">
-	  <time datetime="2020-07-04T10:04:47.000Z" itemprop="datePublished">7月 4</time>
-	</a>
-</span>
-
-        
-
-        
-    <span class="article-tags">
-    <i class="iconfont icon-tag"></i>
-    <a class="article-tag-link" href="/tags/%E6%8A%80%E5%B7%A7/" rel="tag">技巧</a>
-  </span>
-
-
-        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2020/07/04/skill/%E6%8A%80%E5%B7%A75-markdown%E5%9B%BE%E7%89%87%E8%87%AA%E5%8A%A8%E4%B8%8A%E4%BC%A0/#comments" class="article-comment-link">评论</a></span>
-        
-    
-        <span class="post-wordcount" itemprop="wordCount">字数统计: 244(字)</span>
-    
-    
-        <span class="post-readcount" itemprop="timeRequired">阅读时长: 1(分)</span>
-    
-
-
-    </p>
-
-</article>
-
-    
-        <article class="article border-b border-solid border-gray-200">
-    <div class="article-header mb-4 mt-5">
-        
-    
-        <h1 itemprop="name">
-            <a class="article-title text-lg" href="/2020/07/04/skill/%E6%8A%80%E5%B7%A74-iOS%E6%89%8B%E6%9C%BA%E7%9A%84%E5%BC%80%E5%8F%91%E8%80%85%E6%A8%A1%E5%BC%8F/">怎么打开iOS手机的开发者模式</a>
-        </h1>
-    
-
-
-
+      
+      <a class="article-more-link" href="/2020/07/04/skill/%E6%8A%80%E5%B7%A75-markdown%E5%9B%BE%E7%89%87%E8%87%AA%E5%8A%A8%E4%B8%8A%E4%BC%A0/">阅读更多...</a>
+      
+      
+      <!-- reward -->
+      
     </div>
     
-        <div class="article-excerpt text-gray-600 mb-3" itemprop="description">
-            <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>iPhone手机也有开发者选项，这个功能开发或者测试同学都有很大的帮助，今天我们就把这个功能个如何打开，如何关闭，以及各个功能到底有什么作用给大家列一下。</p>
-        </div>
     
-    <p class="article-meta mb-3 text-xs">
-        <span class="article-date">
-    <i class="iconfont icon-calendar-check"></i>
-	<a href="/2020/07/04/skill/%E6%8A%80%E5%B7%A74-iOS%E6%89%8B%E6%9C%BA%E7%9A%84%E5%BC%80%E5%8F%91%E8%80%85%E6%A8%A1%E5%BC%8F/" class="article-date">
-	  <time datetime="2020-07-04T08:55:48.000Z" itemprop="datePublished">7月 4</time>
-	</a>
-</span>
-
-        
-
-        
-    <span class="article-tags">
-    <i class="iconfont icon-tag"></i>
-    <a class="article-tag-link" href="/tags/%E6%8A%80%E5%B7%A7/" rel="tag">技巧</a>
-  </span>
+      <!-- copyright -->
+      
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%8A%80%E5%B7%A7/" rel="tag">技巧</a></li></ul>
 
 
-        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2020/07/04/skill/%E6%8A%80%E5%B7%A74-iOS%E6%89%8B%E6%9C%BA%E7%9A%84%E5%BC%80%E5%8F%91%E8%80%85%E6%A8%A1%E5%BC%8F/#comments" class="article-comment-link">评论</a></span>
-        
-    
-        <span class="post-wordcount" itemprop="wordCount">字数统计: 516(字)</span>
-    
-    
-        <span class="post-readcount" itemprop="timeRequired">阅读时长: 2(分)</span>
-    
+    </footer>
 
+  </div>
 
-    </p>
+  
+
+  
+  
+  
+
+  
+  
+  
 
 </article>
+    
+    <article id="post-skill/技巧4-iOS手机的开发者模式" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2020/07/04/skill/%E6%8A%80%E5%B7%A74-iOS%E6%89%8B%E6%9C%BA%E7%9A%84%E5%BC%80%E5%8F%91%E8%80%85%E6%A8%A1%E5%BC%8F/"
+    >怎么打开iOS手机的开发者模式</a> 
+</h2>
+ 
+
+    </header>
+    
 
     
-        <article class="article border-b border-solid border-gray-200">
-    <div class="article-header mb-4 mt-5">
-        
-    
-        <h1 itemprop="name">
-            <a class="article-title text-lg" href="/2020/06/02/testing/QA3-%E6%B5%8B%E8%AF%95%E5%85%A8%E6%B5%81%E7%A8%8B%E5%9B%BE%E8%A7%A3/">测试全流程图解</a>
-        </h1>
-    
-
-
-
+    <div class="article-meta">
+      <a href="/2020/07/04/skill/%E6%8A%80%E5%B7%A74-iOS%E6%89%8B%E6%9C%BA%E7%9A%84%E5%BC%80%E5%8F%91%E8%80%85%E6%A8%A1%E5%BC%8F/" class="article-date">
+  <time datetime="2020-07-04T08:55:48.000Z" itemprop="datePublished">2020-07-04</time>
+</a>
+      
+      
+      
+      
     </div>
     
-        <div class="article-excerpt text-gray-600 mb-3" itemprop="description">
-            <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>对于测试流程，大部分做测试的同学都能说个七七八八，但是对于一些细节，可能还是一知半解的，以下是对测试全流程整理的一个图谱，应该可以给大家带来一些帮助，如有不妥的地方，烦请指正。</p>
-        </div>
-    
-    <p class="article-meta mb-3 text-xs">
-        <span class="article-date">
-    <i class="iconfont icon-calendar-check"></i>
-	<a href="/2020/06/02/testing/QA3-%E6%B5%8B%E8%AF%95%E5%85%A8%E6%B5%81%E7%A8%8B%E5%9B%BE%E8%A7%A3/" class="article-date">
-	  <time datetime="2020-06-02T07:00:52.000Z" itemprop="datePublished">6月 2</time>
-	</a>
-</span>
 
-        
-
-        
-    <span class="article-tags">
-    <i class="iconfont icon-tag"></i>
-    <a class="article-tag-link" href="/tags/%E6%B5%8B%E8%AF%95/" rel="tag">测试</a>
-  </span>
-
-
-        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2020/06/02/testing/QA3-%E6%B5%8B%E8%AF%95%E5%85%A8%E6%B5%81%E7%A8%8B%E5%9B%BE%E8%A7%A3/#comments" class="article-comment-link">评论</a></span>
-        
-    
-        <span class="post-wordcount" itemprop="wordCount">字数统计: 104(字)</span>
-    
-    
-        <span class="post-readcount" itemprop="timeRequired">阅读时长: 1(分)</span>
     
 
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+      
 
-    </p>
+      
+      <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>iPhone手机也有开发者选项，这个功能开发或者测试同学都有很大的帮助，今天我们就把这个功能个如何打开，如何关闭，以及各个功能到底有什么作用给大家列一下。</p>
+      
+      <a class="article-more-link" href="/2020/07/04/skill/%E6%8A%80%E5%B7%A74-iOS%E6%89%8B%E6%9C%BA%E7%9A%84%E5%BC%80%E5%8F%91%E8%80%85%E6%A8%A1%E5%BC%8F/">阅读更多...</a>
+      
+      
+      <!-- reward -->
+      
+    </div>
+    
+    
+      <!-- copyright -->
+      
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%8A%80%E5%B7%A7/" rel="tag">技巧</a></li></ul>
+
+
+    </footer>
+
+  </div>
+
+  
+
+  
+  
+  
+
+  
+  
+  
 
 </article>
+    
+    <article id="post-testing/QA3-测试全流程图解" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2020/06/02/testing/QA3-%E6%B5%8B%E8%AF%95%E5%85%A8%E6%B5%81%E7%A8%8B%E5%9B%BE%E8%A7%A3/"
+    >测试全流程图解</a> 
+</h2>
+ 
+
+    </header>
+    
 
     
-        <article class="article border-b border-solid border-gray-200">
-    <div class="article-header mb-4 mt-5">
-        
-    
-        <h1 itemprop="name">
-            <a class="article-title text-lg" href="/2020/05/31/pyhton/Pyhton3%E4%B9%8B%E6%A8%A1%E6%8B%9F%E6%8A%BD%E5%A5%96%E6%A6%82%E7%8E%87%E8%AE%A1%E7%AE%97/">Python之模拟抽奖概率计算（3）</a>
-        </h1>
-    
-
-
-
+    <div class="article-meta">
+      <a href="/2020/06/02/testing/QA3-%E6%B5%8B%E8%AF%95%E5%85%A8%E6%B5%81%E7%A8%8B%E5%9B%BE%E8%A7%A3/" class="article-date">
+  <time datetime="2020-06-02T07:00:52.000Z" itemprop="datePublished">2020-06-02</time>
+</a>
+      
+      
+      
+      
     </div>
     
-        <div class="article-excerpt text-gray-600 mb-3" itemprop="description">
-            <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>在很多公司测试过程中会有抽奖概率测试，如果用手动去模拟，会很不现实，一般都是从接口入手，模拟跑1万到10万次或者更多，来计算概率是否符合预期。本教程先不涉及接口，只是单纯的去了解一下怎么取计算抽奖概率。</p>
-        </div>
-    
-    <p class="article-meta mb-3 text-xs">
-        <span class="article-date">
-    <i class="iconfont icon-calendar-check"></i>
-	<a href="/2020/05/31/pyhton/Pyhton3%E4%B9%8B%E6%A8%A1%E6%8B%9F%E6%8A%BD%E5%A5%96%E6%A6%82%E7%8E%87%E8%AE%A1%E7%AE%97/" class="article-date">
-	  <time datetime="2020-05-31T14:54:21.000Z" itemprop="datePublished">5月 31</time>
-	</a>
-</span>
 
-        
-
-        
-    <span class="article-tags">
-    <i class="iconfont icon-tag"></i>
-    <a class="article-tag-link" href="/tags/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/" rel="tag">接口测试</a>
-  </span>
-
-
-        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2020/05/31/pyhton/Pyhton3%E4%B9%8B%E6%A8%A1%E6%8B%9F%E6%8A%BD%E5%A5%96%E6%A6%82%E7%8E%87%E8%AE%A1%E7%AE%97/#comments" class="article-comment-link">评论</a></span>
-        
-    
-        <span class="post-wordcount" itemprop="wordCount">字数统计: 927(字)</span>
-    
-    
-        <span class="post-readcount" itemprop="timeRequired">阅读时长: 3(分)</span>
     
 
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+      
 
-    </p>
+      
+      <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>对于测试流程，大部分做测试的同学都能说个七七八八，但是对于一些细节，可能还是一知半解的，以下是对测试全流程整理的一个图谱，应该可以给大家带来一些帮助，如有不妥的地方，烦请指正。</p>
+      
+      <a class="article-more-link" href="/2020/06/02/testing/QA3-%E6%B5%8B%E8%AF%95%E5%85%A8%E6%B5%81%E7%A8%8B%E5%9B%BE%E8%A7%A3/">阅读更多...</a>
+      
+      
+      <!-- reward -->
+      
+    </div>
+    
+    
+      <!-- copyright -->
+      
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%B5%8B%E8%AF%95/" rel="tag">测试</a></li></ul>
+
+
+    </footer>
+
+  </div>
+
+  
+
+  
+  
+  
+
+  
+  
+  
 
 </article>
+    
+    <article id="post-pyhton/Pyhton3之模拟抽奖概率计算" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2020/05/31/pyhton/Pyhton3%E4%B9%8B%E6%A8%A1%E6%8B%9F%E6%8A%BD%E5%A5%96%E6%A6%82%E7%8E%87%E8%AE%A1%E7%AE%97/"
+    >Python之模拟抽奖概率计算（3）</a> 
+</h2>
+ 
+
+    </header>
+    
 
     
-        <article class="article border-b border-solid border-gray-200">
-    <div class="article-header mb-4 mt-5">
-        
-    
-        <h1 itemprop="name">
-            <a class="article-title text-lg" href="/2020/05/30/testing/QA2-%E6%B5%8B%E8%AF%95%E5%B7%A5%E7%A8%8B%E5%B8%88%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1/">测试工程师知识图谱</a>
-        </h1>
-    
-
-
-
+    <div class="article-meta">
+      <a href="/2020/05/31/pyhton/Pyhton3%E4%B9%8B%E6%A8%A1%E6%8B%9F%E6%8A%BD%E5%A5%96%E6%A6%82%E7%8E%87%E8%AE%A1%E7%AE%97/" class="article-date">
+  <time datetime="2020-05-31T14:54:21.000Z" itemprop="datePublished">2020-05-31</time>
+</a>
+      
+      
+      
+      
     </div>
     
-        <div class="article-excerpt text-gray-600 mb-3" itemprop="description">
-            <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>有很多同学对于测试工程师必备的测试技能不是很清晰，对自己以后的规划也不是很明了，不知道自己到底该从哪个方向努力或发展，下面是我从其他大佬那找的测试工程师必备知识图谱，也许能能给大家带来一些帮助。</p>
-        </div>
-    
-    <p class="article-meta mb-3 text-xs">
-        <span class="article-date">
-    <i class="iconfont icon-calendar-check"></i>
-	<a href="/2020/05/30/testing/QA2-%E6%B5%8B%E8%AF%95%E5%B7%A5%E7%A8%8B%E5%B8%88%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1/" class="article-date">
-	  <time datetime="2020-05-30T07:00:52.000Z" itemprop="datePublished">5月 30</time>
-	</a>
-</span>
 
-        
-
-        
-    <span class="article-tags">
-    <i class="iconfont icon-tag"></i>
-    <a class="article-tag-link" href="/tags/%E6%B5%8B%E8%AF%95/" rel="tag">测试</a>
-  </span>
-
-
-        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2020/05/30/testing/QA2-%E6%B5%8B%E8%AF%95%E5%B7%A5%E7%A8%8B%E5%B8%88%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1/#comments" class="article-comment-link">评论</a></span>
-        
-    
-        <span class="post-wordcount" itemprop="wordCount">字数统计: 126(字)</span>
-    
-    
-        <span class="post-readcount" itemprop="timeRequired">阅读时长: 1(分)</span>
     
 
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+      
 
-    </p>
+      
+      <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>在很多公司测试过程中会有抽奖概率测试，如果用手动去模拟，会很不现实，一般都是从接口入手，模拟跑1万到10万次或者更多，来计算概率是否符合预期。本教程先不涉及接口，只是单纯的去了解一下怎么取计算抽奖概率。</p>
+      
+      <a class="article-more-link" href="/2020/05/31/pyhton/Pyhton3%E4%B9%8B%E6%A8%A1%E6%8B%9F%E6%8A%BD%E5%A5%96%E6%A6%82%E7%8E%87%E8%AE%A1%E7%AE%97/">阅读更多...</a>
+      
+      
+      <!-- reward -->
+      
+    </div>
+    
+    
+      <!-- copyright -->
+      
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/" rel="tag">接口测试</a></li></ul>
+
+
+    </footer>
+
+  </div>
+
+  
+
+  
+  
+  
+
+  
+  
+  
 
 </article>
+    
+    <article id="post-testing/QA2-测试工程师知识图谱" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2020/05/30/testing/QA2-%E6%B5%8B%E8%AF%95%E5%B7%A5%E7%A8%8B%E5%B8%88%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1/"
+    >测试工程师知识图谱</a> 
+</h2>
+ 
+
+    </header>
+    
 
     
-        <article class="article border-b border-solid border-gray-200">
-    <div class="article-header mb-4 mt-5">
-        
-    
-        <h1 itemprop="name">
-            <a class="article-title text-lg" href="/2020/05/27/pyhton/Python2%E4%B9%8BRequests%E7%94%A8%E6%B3%95/">Pyhton之Requests用法（2）</a>
-        </h1>
-    
-
-
-
+    <div class="article-meta">
+      <a href="/2020/05/30/testing/QA2-%E6%B5%8B%E8%AF%95%E5%B7%A5%E7%A8%8B%E5%B8%88%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1/" class="article-date">
+  <time datetime="2020-05-30T07:00:52.000Z" itemprop="datePublished">2020-05-30</time>
+</a>
+      
+      
+      
+      
     </div>
     
-        <div class="article-excerpt text-gray-600 mb-3" itemprop="description">
-            <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>要学接口自动化，或者爬虫等，Requests库的使用是必备知识，也是给你打开自动化大门的一把钥匙。</p>
+
+    
+
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+      
+
+      
+      <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>有很多同学对于测试工程师必备的测试技能不是很清晰，对自己以后的规划也不是很明了，不知道自己到底该从哪个方向努力或发展，下面是我从其他大佬那找的测试工程师必备知识图谱，也许能能给大家带来一些帮助。</p>
+      
+      <a class="article-more-link" href="/2020/05/30/testing/QA2-%E6%B5%8B%E8%AF%95%E5%B7%A5%E7%A8%8B%E5%B8%88%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1/">阅读更多...</a>
+      
+      
+      <!-- reward -->
+      
+    </div>
+    
+    
+      <!-- copyright -->
+      
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%B5%8B%E8%AF%95/" rel="tag">测试</a></li></ul>
+
+
+    </footer>
+
+  </div>
+
+  
+
+  
+  
+  
+
+  
+  
+  
+
+</article>
+    
+    <article id="post-pyhton/Python2之Requests用法" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2020/05/27/pyhton/Python2%E4%B9%8BRequests%E7%94%A8%E6%B3%95/"
+    >Pyhton之Requests用法（2）</a> 
+</h2>
+ 
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2020/05/27/pyhton/Python2%E4%B9%8BRequests%E7%94%A8%E6%B3%95/" class="article-date">
+  <time datetime="2020-05-27T14:54:21.000Z" itemprop="datePublished">2020-05-27</time>
+</a>
+      
+      
+      
+      
+    </div>
+    
+
+    
+
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+      
+
+      
+      <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>要学接口自动化，或者爬虫等，Requests库的使用是必备知识，也是给你打开自动化大门的一把钥匙。</p>
 <p>Requests的口号是为人类服务，也是唯一的一个<strong>非转基因</strong>的 Python HTTP 库，人类可以安全享用。</p>
-        </div>
-    
-    <p class="article-meta mb-3 text-xs">
-        <span class="article-date">
-    <i class="iconfont icon-calendar-check"></i>
-	<a href="/2020/05/27/pyhton/Python2%E4%B9%8BRequests%E7%94%A8%E6%B3%95/" class="article-date">
-	  <time datetime="2020-05-27T14:54:21.000Z" itemprop="datePublished">5月 27</time>
-	</a>
-</span>
-
-        
-
-        
-    <span class="article-tags">
-    <i class="iconfont icon-tag"></i>
-    <a class="article-tag-link" href="/tags/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/" rel="tag">接口测试</a>
-  </span>
-
-
-        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2020/05/27/pyhton/Python2%E4%B9%8BRequests%E7%94%A8%E6%B3%95/#comments" class="article-comment-link">评论</a></span>
-        
-    
-        <span class="post-wordcount" itemprop="wordCount">字数统计: 563(字)</span>
-    
-    
-        <span class="post-readcount" itemprop="timeRequired">阅读时长: 2(分)</span>
-    
-
-
-    </p>
-
-</article>
-
-    
-        <article class="article border-b border-solid border-gray-200">
-    <div class="article-header mb-4 mt-5">
-        
-    
-        <h1 itemprop="name">
-            <a class="article-title text-lg" href="/2020/05/26/skill/%E6%8A%80%E5%B7%A73-Markdown%E7%9A%84%E4%BD%BF%E7%94%A8/">Markdown的使用</a>
-        </h1>
-    
-
-
-
+      
+      <a class="article-more-link" href="/2020/05/27/pyhton/Python2%E4%B9%8BRequests%E7%94%A8%E6%B3%95/">阅读更多...</a>
+      
+      
+      <!-- reward -->
+      
     </div>
     
-        <div class="article-excerpt text-gray-600 mb-3" itemprop="description">
-            <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>Markdown 是一种轻量级标记语言，它允许人们使用易读易写的纯文本格式编写文档。</p>
+    
+      <!-- copyright -->
+      
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/" rel="tag">接口测试</a></li></ul>
+
+
+    </footer>
+
+  </div>
+
+  
+
+  
+  
+  
+
+  
+  
+  
+
+</article>
+    
+    <article id="post-skill/技巧3-Markdown的使用" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2020/05/26/skill/%E6%8A%80%E5%B7%A73-Markdown%E7%9A%84%E4%BD%BF%E7%94%A8/"
+    >Markdown的使用</a> 
+</h2>
+ 
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2020/05/26/skill/%E6%8A%80%E5%B7%A73-Markdown%E7%9A%84%E4%BD%BF%E7%94%A8/" class="article-date">
+  <time datetime="2020-05-26T15:14:06.000Z" itemprop="datePublished">2020-05-26</time>
+</a>
+      
+      
+      
+      
+    </div>
+    
+
+    
+
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+      
+
+      
+      <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>Markdown 是一种轻量级标记语言，它允许人们使用易读易写的纯文本格式编写文档。</p>
 <p>Markdown 编写的文档后缀为 <code>.md</code>, <code>.markdown</code>，可以导出 HTML 、Word、图像、PDF、Epub 等多种格式的文档。当前许多网站都广泛使用 Markdown 来撰写帮助文档或是用于论坛上发表消息。例如：GitHub、简书等。</p>
 <p>通俗一点讲，使用Markdown写文档可以让你的文档格式比较规范明了，看着比较优美，本文的教程就是用Markdown写的。</p>
-        </div>
-    
-    <p class="article-meta mb-3 text-xs">
-        <span class="article-date">
-    <i class="iconfont icon-calendar-check"></i>
-	<a href="/2020/05/26/skill/%E6%8A%80%E5%B7%A73-Markdown%E7%9A%84%E4%BD%BF%E7%94%A8/" class="article-date">
-	  <time datetime="2020-05-26T15:14:06.000Z" itemprop="datePublished">5月 26</time>
-	</a>
-</span>
-
-        
-
-        
-    <span class="article-tags">
-    <i class="iconfont icon-tag"></i>
-    <a class="article-tag-link" href="/tags/%E6%8A%80%E5%B7%A7/" rel="tag">技巧</a>
-  </span>
-
-
-        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2020/05/26/skill/%E6%8A%80%E5%B7%A73-Markdown%E7%9A%84%E4%BD%BF%E7%94%A8/#comments" class="article-comment-link">评论</a></span>
-        
-    
-        <span class="post-wordcount" itemprop="wordCount">字数统计: 588(字)</span>
+      
+      <a class="article-more-link" href="/2020/05/26/skill/%E6%8A%80%E5%B7%A73-Markdown%E7%9A%84%E4%BD%BF%E7%94%A8/">阅读更多...</a>
+      
+      
+      <!-- reward -->
+      
+    </div>
     
     
-        <span class="post-readcount" itemprop="timeRequired">阅读时长: 2(分)</span>
-    
+      <!-- copyright -->
+      
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%8A%80%E5%B7%A7/" rel="tag">技巧</a></li></ul>
 
 
-    </p>
+    </footer>
+
+  </div>
+
+  
+
+  
+  
+  
+
+  
+  
+  
 
 </article>
-
     
+  </article>
+  
+
+  
+  <nav class="page-nav">
+    
+    <a class="extend prev" rel="prev" href="/">上一页</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">下一页</a>
+  </nav>
+  
+</section>
 </div>
 
-    
-<nav class="pagination bottom-0 px-5 mb-3 absolute w-full inset-x-0" data-stick-bottom>
-    <div class="flex justify-between leading-tight">
-        <span class="pager">
-            
-                <button class="prev">
-                    <a href="/">
-                        <i class="iconfont icon-angle-left"></i>
-                        上一页
-                    </a>
-                </button>
-            
-            
-                <button class="next">
-                    <a href="/page/3/">
-                        下一页
-                        <i class="iconfont icon-angle-right"></i>
-                    </a>
-                </button>
-            
-        </span>
-        <div class="total-article bar-right">Page 2 of 3</div>
-    </div>
-</nav>
-
-
-</main>
-<aside style="" id="sidebar" class="aside aside-fixture">
-    <div class="widgets">
+      <footer class="footer">
+  <div class="outer">
+    <ul class="list-inline">
+      <li>
+        &copy;
+        2015-2022
+        Dreams
+      </li>
+      <li>
         
-            
-
+        Powered by
         
-            
-    <div class="widget">
-        <h3 class="widget-title">
-            标签
-        </h3>
-        <div class="widget-body">
-            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python%E5%A4%9A%E4%BB%BB%E5%8A%A1/" rel="tag">Python多任务</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8A%80%E5%B7%A7/" rel="tag">技巧</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/" rel="tag">接口测试</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B5%8B%E8%AF%95/" rel="tag">测试</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AF%BB%E4%B9%A6/" rel="tag">读书</a><span class="tag-list-count">2</span></li></ul>
-        </div>
-    </div>
-
-
         
-            
-    <div class="widget">
+        <a href="https://hexo.io" target="_blank">Hexo</a> Theme <a href="https://github.com/Shen-Yu/hexo-theme-ayer" target="_blank">Ayer</a>
         
-        <h3 class="widget-title">标签云</h3>
+      </li>
+    </ul>
+    <ul class="list-inline">
+      <li>
         
-        <div class="widget-body tagcloud">
-            <a href="/tags/Python%E5%A4%9A%E4%BB%BB%E5%8A%A1/" style="font-size: 13.25px;">Python多任务</a> <a href="/tags/%E6%8A%80%E5%B7%A7/" style="font-size: 13.5px;">技巧</a> <a href="/tags/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/" style="font-size: 13.75px;">接口测试</a> <a href="/tags/%E6%B5%8B%E8%AF%95/" style="font-size: 14px;">测试</a> <a href="/tags/%E8%AF%BB%E4%B9%A6/" style="font-size: 13px;">读书</a>
-        </div>
-    </div>
-
-
+      </li>
+      
+      <li>
+        <a href="https://beian.miit.gov.cn/" target="_black">京ICP备19043771号-1</a>
+      </li>
+      
+      <li>
+        <!-- cnzz统计 -->
         
-            
-    <div class="widget">
-        <h3 class="widget-title">归档</h3>
-        <div class="widget-body">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/11/">十一月 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/">五月 2021</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">四月 2021</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">三月 2021</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">八月 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">七月 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">六月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">五月 2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">四月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">十月 2019</a><span class="archive-list-count">3</span></li></ul>
-        </div>
-    </div>
-
-
-        
-            
-<div class="widget">
-    <h3 class="widget-title">最新文章</h3>
-    <div class="widget-body">
-        <ul class="recent-post-list list-unstyled">
-            
-                <li>
-                    <div class="recent-post">
-                        <p class="item-category">
-                            
-                        </p>
-                        <p class="item-title">
-                            <a href="/2021/11/21/testing/QA7-%E5%BA%94%E7%94%A8%E4%BD%93%E9%AA%8C%E6%A0%87%E5%87%865.0/" class="title">软件绿色联盟应用体验标准5.0</a>
-                        </p>
-                        <p class="item-date">
-                            <time datetime="2021-11-21T11:31:09.000Z" itemprop="datePublished">2021-11-21</time>
-                        </p>
-                    </div>
-                </li>
-            
-                <li>
-                    <div class="recent-post">
-                        <p class="item-category">
-                            
-                        </p>
-                        <p class="item-title">
-                            <a href="/2021/05/21/testing/QA6-%E5%91%A8%E5%88%8A3/" class="title">QA周刊3</a>
-                        </p>
-                        <p class="item-date">
-                            <time datetime="2021-05-21T12:18:21.000Z" itemprop="datePublished">2021-05-21</time>
-                        </p>
-                    </div>
-                </li>
-            
-                <li>
-                    <div class="recent-post">
-                        <p class="item-category">
-                            
-                        </p>
-                        <p class="item-title">
-                            <a href="/2021/05/12/testing/QA6-%E5%91%A8%E5%88%8A2/" class="title">QA周刊2</a>
-                        </p>
-                        <p class="item-date">
-                            <time datetime="2021-05-12T11:20:01.000Z" itemprop="datePublished">2021-05-12</time>
-                        </p>
-                    </div>
-                </li>
-            
-                <li>
-                    <div class="recent-post">
-                        <p class="item-category">
-                            
-                        </p>
-                        <p class="item-title">
-                            <a href="/2021/04/29/testing/QA5-%E5%91%A8%E5%88%8A1/" class="title">QA周刊1</a>
-                        </p>
-                        <p class="item-date">
-                            <time datetime="2021-04-29T12:31:01.000Z" itemprop="datePublished">2021-04-29</time>
-                        </p>
-                    </div>
-                </li>
-            
-                <li>
-                    <div class="recent-post">
-                        <p class="item-category">
-                            
-                        </p>
-                        <p class="item-title">
-                            <a href="/2021/04/13/pyhton/Python%E5%A4%9A%E4%BB%BB%E5%8A%A13%E4%B9%8B%E5%8D%8F%E7%A8%8B/" class="title">Python多任务之协程</a>
-                        </p>
-                        <p class="item-date">
-                            <time datetime="2021-04-12T16:00:00.000Z" itemprop="datePublished">2021-04-13</time>
-                        </p>
-                    </div>
-                </li>
-            
-        </ul>
-    </div>
-</div>
-
-
-        
-    </div>
-</aside>
-
-
-        </section>
-        <footer class="hidden lg:block fixed bottom-0 left-0 sm:w-1/12 lg:w-1/6 bg-gray-100 z-40">
-    
-    <div class="footer-social-links">
-        
-            <a href="https://github.com/fengkx" target="_blank" rel="noopener">
-                <i class="iconfont icon-github"></i>
-            </a>
-        
-            <a href="https://t.me/fengkx" target="_blank" rel="noopener">
-                <i class="iconfont icon-telegram"></i>
-            </a>
-        
-            <a href="https://twitter.com/example" target="_blank" rel="noopener">
-                <i class="iconfont icon-twitter"></i>
-            </a>
-        
-            <a href="/atom.xml">
-                <i class="iconfont icon-rss"></i>
-            </a>
-        
-    </div>
-    
-    
+      </li>
+    </ul>
+  </div>
 </footer>
+      <div class="float_btns">
+        <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
 
-        <div id="mask" class="hidden mask fixed inset-0 bg-gray-900 opacity-75 z-40"></div>
-        <div id="search-view-container" class="hidden shadow-xl"></div>
-        <script src="/js/dom-event.min.js"></script>
+<div class="todark" id="todark">
+  <i class="ri-moon-line"></i>
+</div>
 
-<script src="/js/local-search.min.js"></script>
+      </div>
+    </main>
+    <aside class="sidebar on">
+      <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/ayer-side.svg" alt="Dreaming"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories">分类</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags">标签</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="https://picgo.github.io/PicGo-Doc/" target="_blank" rel="noopener">图床</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/about">关于我</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="搜索">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+      <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+        <i class="ri-rss-line"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+    </aside>
+    <script>
+      if (window.matchMedia("(max-width: 768px)").matches) {
+        document.querySelector('.content').classList.remove('on');
+        document.querySelector('.sidebar').classList.remove('on');
+      }
+    </script>
+    <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i>请我喝杯咖啡吧~</p>
+  <div class="reward-box">
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/alipay.jpg">
+      <span class="reward-type">支付宝</span>
+    </div>
+    
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/wechat.jpg">
+      <span class="reward-type">微信</span>
+    </div>
+    
+  </div>
+</div>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/lazyload.min.js"></script>
+
+<script>
+  try {
+    var typed = new Typed("#subtitle", {
+      strings: ['面朝大海，春暖花开', '愿你一生努力，一生被爱', '想要的都拥有，得不到的都释怀'],
+      startDelay: 0,
+      typeSpeed: 200,
+      loop: true,
+      backSpeed: 100,
+      showCursor: true
+    });
+  } catch (err) {
+  }
+
+</script>
 
 
-    <script src="//cdn.jsdelivr.net/npm/lightgallery.js@1.1.3/dist/js/lightgallery.min.js"></script>
-    <script src="/js/light-gallery.min.js"></script>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.css">
+<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js"></script>
+<script src="/dist/main.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css">
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script>
 
 
 
 
 
-    <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+<script type="text/javascript" src="https://js.users.51.la/20544303.js"></script>
+
+
+<!-- 复制 -->
+
+  <link rel="stylesheet" href="/css/clipboard.css">
+  <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="ri-file-copy-2-line"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-checkbox-circle-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-checkbox-circle-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-time-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-time-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+
+
+
+
+    
+  </div>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
 </html>
