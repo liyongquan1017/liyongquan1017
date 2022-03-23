@@ -1,33 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>接口自动化框架之学习路径(0)</title>
-    <url>/2020/08/01/interfacetest/%E6%8E%A5%E5%8F%A3%E8%87%AA%E5%8A%A8%E5%8C%96%E6%A1%86%E6%9E%B60%E4%B9%8B%E5%AD%A6%E4%B9%A0%E8%B7%AF%E5%BE%84/</url>
-    <content><![CDATA[<p>我们要学习写一个完整的接口自动化框架，首先要有一个学习规划，要分一块一块来学，下面是我整理的一个学习思路，大家可以参考下。</p>
+    <title>接口自动化框架之Unittest（3）</title>
+    <url>/2020/08/16/interfacetest/%E6%8E%A5%E5%8F%A3%E8%87%AA%E5%8A%A8%E5%8C%96%E6%A1%86%E6%9E%B63%E4%B9%8BUnittest/</url>
+    <content><![CDATA[<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>做接口自动化，要用到Python的单元测试框架Unittest，是Python标准库自带的单元测试工具，也称为PyUnit，是JUnit（Java语言的单元测试）的Python版本。它支持测试自动化，将测试样例聚合到测试集中，并将测试与报告框架独立。</p>
 <a id="more"></a>
 
-<blockquote>
-<p>注意点：</p>
-<ol>
-<li>学习时一定切忌好高骛远，一步一步来，一块学完再一块，别一锅烩。</li>
-<li>文档只是辅助，自己一定要多练，另外B站上有很多视频课程大家学到一个模块也可以去看看</li>
-<li>一定要活学活用，一旦发现有些功能实现起来麻烦或者不会开发时，就去百度或者谷歌，你会有不一样的收获。</li>
+<h3 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h3><ol>
+<li><a href="https://docs.python.org/zh-cn/3.8/library/unittest.html" target="_blank" rel="noopener">Unittest官方文档</a></li>
+<li><a href="https://www.bilibili.com/video/BV1xJ411v7Eb" target="_blank" rel="noopener">优质视频教程</a></li>
 </ol>
-</blockquote>
-<p>具体的学习思路如下（仅供参考）：</p>
-<ol>
-<li>接口框架的目录规范，这个大家可以按自己的习惯自行创建。</li>
-<li>Request模块学习</li>
-<li>Pytest 学习</li>
-<li>Python操作数据库</li>
-<li>Python 操作Redis</li>
-<li>生成自动化测试报告，目前推荐使用BeautifulReport</li>
-<li>发送邮件，先学习原生自带的模块 smtplib和email，原生自带的相对难学，但是尽量学会，然后再使用第三方框架 yagmail</li>
-<li>把上面所有的集成，最后就是一个完整的自动化测试框架了</li>
-</ol>
-<p>最后给大家一个个人总结的学习方法：</p>
-<p>第一阶段：照着抄   第二阶段：默写    第三阶段：不停地查，了解原理</p>
-<p>加油啦！！！</p>
+<h3 id="具体示例"><a href="#具体示例" class="headerlink" title="具体示例"></a>具体示例</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> unittest</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="keyword">from</span> selenium <span class="keyword">import</span> webdriver</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">forTest2</span><span class="params">(unittest.TestCase)</span>:</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">setUp</span><span class="params">(self)</span> -&gt; <span class="keyword">None</span>:</span></span><br><span class="line">        self.driver = webdriver.Chrome()</span><br><span class="line">        print(<span class="string">"开始"</span>)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">tearDown</span><span class="params">(self)</span> -&gt; <span class="keyword">None</span>:</span></span><br><span class="line">        time.sleep(<span class="number">5</span>)</span><br><span class="line">        self.driver.quit()</span><br><span class="line">        print(<span class="string">"结束"</span>)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">test_1</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="string">'百度搜索玩吧'</span></span><br><span class="line">        self.driver.get(<span class="string">'https://www.baidu.com/'</span>)</span><br><span class="line">        self.driver.find_element_by_id(<span class="string">'kw'</span>).send_keys(<span class="string">'玩吧'</span>)</span><br><span class="line">        self.driver.find_element_by_id(<span class="string">'su'</span>).click()</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">test_2</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="string">'百度搜索测试工程师'</span></span><br><span class="line">        self.driver.get(<span class="string">'https://www.baidu.com/'</span>)</span><br><span class="line">        self.driver.find_element_by_id(<span class="string">'kw'</span>).send_keys(<span class="string">'测试工程师'</span>)</span><br><span class="line">        self.driver.find_element_by_id(<span class="string">'su'</span>).click()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    <span class="comment"># 运行上面所有用例</span></span><br><span class="line">    unittest.main()</span><br></pre></td></tr></table></figure>
+
+
+
+
+
 <h3 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h3><p>面朝大海，春暖花开。</p>
 <p>愿你一生努力，一生被爱。</p>
 ]]></content>
@@ -65,7 +53,7 @@
 <a id="more"></a>
 
 <p>以下目录结构供大家参考和记录：</p>
-<p><img src="https://ssd.qiniu.dreamfly95.com/image-20200724162336021.png" alt="image-20200724162336021"></p>
+<p><img src="https://ssd.qiniu.dreamfly95.com/image-20200724162336021.png" alt="image-20200724162336021" loading="lazy"></p>
 <ol>
 <li>bin目录</li>
 </ol>
@@ -99,21 +87,584 @@
       </tags>
   </entry>
   <entry>
-    <title>Pyhton之Requests用法（2）</title>
-    <url>/2020/05/27/pyhton/Python2%E4%B9%8BRequests%E7%94%A8%E6%B3%95/</url>
-    <content><![CDATA[<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>要学接口自动化，或者爬虫等，Requests库的使用是必备知识，也是给你打开自动化大门的一把钥匙。</p>
-<p>Requests的口号是为人类服务，也是唯一的一个<strong>非转基因</strong>的 Python HTTP 库，人类可以安全享用。</p>
+    <title>软件质量的管理和保障</title>
+    <url>/2020/07/23/testing/QA1-%E8%B4%A8%E9%87%8F%E7%AE%A1%E7%90%86%E5%92%8C%E4%BF%9D%E9%9A%9C/</url>
+    <content><![CDATA[<p>互联网企业的发展，离不开用户的需求，而质量问题是用户的需求很重要的一个指标，对于企业而言，软件质量的管理和保障是其中必不可少的一环。从事测试行业多年，对于软件质量的管理和保障也有了一定的认识，下面我谈一下我对这块的看法，也欢迎大家一起进行探讨，学习。</p>
 <a id="more"></a>
 
-<h3 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h3><p>1.<a href="https://cn.python-requests.org/zh_CN/latest/user/install.html" target="_blank" rel="noopener">安装Requests库方法</a></p>
-<p>2.<a href="https://cn.python-requests.org/zh_CN/latest/user/quickstart.html" target="_blank" rel="noopener">Requests的官方文档</a></p>
-<p>3.可用于练习的免费接口：<a href="https://www.juhe.cn/docs" target="_blank" rel="noopener">聚合数据免费接口</a>（打开在筛选页，选择免费的，然后申请下就可以用了），<a href="https://api.apiopen.top/api.html" target="_blank" rel="noopener">其他免费接口</a>（由于被人乱刷，导致部分接口已被封禁）</p>
-<p>4.了解<a href="https://www.jianshu.com/p/55c8708da06c" target="_blank" rel="noopener">get和post的区别</a></p>
-<h3 id="具体示例"><a href="#具体示例" class="headerlink" title="具体示例"></a>具体示例</h3><p>我们已 qq号测吉凶为例来演示Requests的基本用法，<a href="https://www.juhe.cn/docs/api/id/166" target="_blank" rel="noopener">qq号测吉凶API地址</a>。</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"></span><br><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="string">网址：https://www.juhe.cn/docs/api/id/166</span></span><br><span class="line"><span class="string">接口地址：http://japi.juhe.cn/qqevaluate/qq</span></span><br><span class="line"><span class="string">返回格式：json</span></span><br><span class="line"><span class="string">请求方式：get post</span></span><br><span class="line"><span class="string">请求示例：http://japi.juhe.cn/qqevaluate/qq?key=您申请的appKey&amp;qq=295424589</span></span><br><span class="line"><span class="string">接口备注：根据传入的参数qq号码和您申请的appKey测试qq的吉凶</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">名称 必填 类型 说明</span></span><br><span class="line"><span class="string">key    是  string 您申请的appKey</span></span><br><span class="line"><span class="string">qq 是  string 需要测试的QQ号码</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">该接口支持get和 post请求</span></span><br><span class="line"><span class="string">上面key需要自己注册账号后申请，是免费的。</span></span><br><span class="line"><span class="string">'''</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 1.先来联系get请求,</span></span><br><span class="line"><span class="comment"># 方式一：直接请求,在请求地址后面直接拼接请求参数</span></span><br><span class="line">rGet1 = requests.get(<span class="string">'http://japi.juhe.cn/qqevaluate/qq?key=你申请的appkey&amp;qq=要测试的QQ'</span>).json()</span><br><span class="line"><span class="comment"># print(rGet1)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 方式二：定义请求参数，然后使用get请求</span></span><br><span class="line">params = &#123;<span class="string">'key'</span>:<span class="string">'你申请的appkey'</span>,</span><br><span class="line">          <span class="string">'qq'</span>:<span class="string">'要测试的QQ'</span>&#125;</span><br><span class="line">rGet2 = requests.get(<span class="string">'http://japi.juhe.cn/qqevaluate/qq'</span>,params=params).json()</span><br><span class="line"><span class="comment"># print(rGet2)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 2.用post请求来</span></span><br><span class="line">data = &#123;<span class="string">'key'</span>:<span class="string">'你申请的appkey'</span>,</span><br><span class="line">          <span class="string">'qq'</span>:<span class="string">'要测试的QQ'</span>&#125;</span><br><span class="line">rPost = requests.post(<span class="string">'http://japi.juhe.cn/qqevaluate/qq'</span>,data=data).json()</span><br><span class="line">print(rPost)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 取出QQ的测试结果</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 方式一</span></span><br><span class="line">qqResult = rPost[<span class="string">'result'</span>][<span class="string">'data'</span>][<span class="string">'conclusion'</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 方式二，具体为何用get可以自行查阅资料</span></span><br><span class="line">qqResult1 = rPost.get(<span class="string">'result'</span>).get(<span class="string">'data'</span>).get(<span class="string">'conclusion'</span>)</span><br><span class="line"></span><br><span class="line">print(qqResult1)</span><br></pre></td></tr></table></figure>
+<p>对于保证软件质量，我们分为三步：</p>
+<ol>
+<li>测试流程的巩固</li>
+<li>测试技能的提升</li>
+<li>测试理念的建立&amp;固化</li>
+</ol>
+<p><img src="https://ssd.qiniu.dreamfly95.com/image-20200723211903213.png" alt="image-20200723211903213" loading="lazy"></p>
+<ol>
+<li>为什么把测试流程放到第一步呢？因为我们一个测试组会有很多人，大家的测试技能、测试理念是参差不齐的，这时保证质量的最基本的手段就是，把整个测试流程执行好，能很大程度的保证软件的质量。</li>
+<li>对于测试技能<ul>
+<li>测试用例的编写是最重要的，提升起来也是最困难的，需要不停的磨炼和探索，平时也可以提倡组内用例写的好的同学分享自己写用例的心得等。</li>
+<li>对于测试工具 Charles，Postman，Perfdog，Airtest相对来说学起来比较容易，基本也能满足我们对接口，性能等的测试。对于Python语言的学习是一个漫长的过程，可能需要坚持半年甚至几年，并每天都花一定时间的学习，才能有点小成，这个有点看个人意愿了。</li>
+</ul>
+</li>
+<li>测试理念和职责的固化和调整，这个偏软实力，要从一个测试达到一个QA的标准，实际最重要的就是这方面，需要慢慢的在工作中磨炼，并树立一个要保证整个工作流（非测试流程）的顺利进行的思想，且要对一些体验性问题保持敏感，真正的站到用户角度去思考，而并不是只是说说而已。</li>
+</ol>
+<p>以上是我整理的自己的一些看法，里面应该还有很多可以优化和提升的地方，大家有什么意见或看法，可以到公众号给我留言，感谢！！！</p>
+<p><strong>公众号：LiQ的低语</strong></p>
+<h3 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h3><p>面朝大海，春暖花开。</p>
+<p>愿你一生努力，一生被爱。</p>
+]]></content>
+      <tags>
+        <tag>测试</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>接口自动化框架之学习路径(0)</title>
+    <url>/2020/08/01/interfacetest/%E6%8E%A5%E5%8F%A3%E8%87%AA%E5%8A%A8%E5%8C%96%E6%A1%86%E6%9E%B60%E4%B9%8B%E5%AD%A6%E4%B9%A0%E8%B7%AF%E5%BE%84/</url>
+    <content><![CDATA[<p>我们要学习写一个完整的接口自动化框架，首先要有一个学习规划，要分一块一块来学，下面是我整理的一个学习思路，大家可以参考下。</p>
+<a id="more"></a>
 
-<p>以上就是Requests 的基本用法，以后在编码过程中也要学会查看函数参数和方法。</p>
-<p>学会Requests的用法就可以对接口做一些基本的操作了。</p>
+<blockquote>
+<p>注意点：</p>
+<ol>
+<li>学习时一定切忌好高骛远，一步一步来，一块学完再一块，别一锅烩。</li>
+<li>文档只是辅助，自己一定要多练，另外B站上有很多视频课程大家学到一个模块也可以去看看</li>
+<li>一定要活学活用，一旦发现有些功能实现起来麻烦或者不会开发时，就去百度或者谷歌，你会有不一样的收获。</li>
+</ol>
+</blockquote>
+<p>具体的学习思路如下（仅供参考）：</p>
+<ol>
+<li>接口框架的目录规范，这个大家可以按自己的习惯自行创建。</li>
+<li>Request模块学习</li>
+<li>Pytest 学习</li>
+<li>Python操作数据库</li>
+<li>Python 操作Redis</li>
+<li>生成自动化测试报告，目前推荐使用BeautifulReport</li>
+<li>发送邮件，先学习原生自带的模块 smtplib和email，原生自带的相对难学，但是尽量学会，然后再使用第三方框架 yagmail</li>
+<li>把上面所有的集成，最后就是一个完整的自动化测试框架了</li>
+</ol>
+<p>最后给大家一个个人总结的学习方法：</p>
+<p>第一阶段：照着抄   第二阶段：默写    第三阶段：不停地查，了解原理</p>
+<p>加油啦！！！</p>
+<h3 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h3><p>面朝大海，春暖花开。</p>
+<p>愿你一生努力，一生被爱。</p>
+]]></content>
+      <tags>
+        <tag>接口测试</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>测试工程师知识图谱</title>
+    <url>/2020/05/30/testing/QA2-%E6%B5%8B%E8%AF%95%E5%B7%A5%E7%A8%8B%E5%B8%88%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1/</url>
+    <content><![CDATA[<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>有很多同学对于测试工程师必备的测试技能不是很清晰，对自己以后的规划也不是很明了，不知道自己到底该从哪个方向努力或发展，下面是我从其他大佬那找的测试工程师必备知识图谱，也许能能给大家带来一些帮助。</p>
+<a id="more"></a>
+
+<h3 id="图谱"><a href="#图谱" class="headerlink" title="图谱"></a>图谱</h3><p><img src="https://ssd.qiniu.dreamfly95.com/TesterSkillMap3.png" alt="TesterSkillMap3" loading="lazy"></p>
+<p><img src="https://ssd.qiniu.dreamfly95.com/TesterSkillMap2.png" alt="TesterSkillMap2" loading="lazy">)<img src="https://ssd.qiniu.dreamfly95.com/TesterSkillMap1.png" alt="TesterSkillMap1" loading="lazy"></p>
+<p>​    来源：<a href="https://blog.csdn.net/timeorspace/article/details/69225354" target="_blank" rel="noopener">https://blog.csdn.net/timeorspace/article/details/69225354</a></p>
+<h3 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h3><p>面朝大海，春暖花开。</p>
+<p>愿你一生努力，一生被爱。</p>
+]]></content>
+      <tags>
+        <tag>测试</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>测试用例的编写</title>
+    <url>/2019/10/25/testing/QA4-%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B%E8%AE%BE%E8%AE%A1%E6%96%B9%E6%B3%95/</url>
+    <content><![CDATA[<h3 id="测试用例设计方法"><a href="#测试用例设计方法" class="headerlink" title="测试用例设计方法"></a>测试用例设计方法</h3><ul>
+<li><p>逐级细分法</p>
+</li>
+<li><p>输入域测试法</p>
+</li>
+<li><p>输出域分析法</p>
+</li>
+<li><p>正交试验设计法</p>
+<a id="more"></a>
+</li>
+<li><p>业务流程分析法</p>
+</li>
+<li><p>状态迁移法</p>
+</li>
+<li><p>因果图法</p>
+</li>
+<li><p>判定表法</p>
+</li>
+<li><p>错误猜测法</p>
+</li>
+<li><p>等价类划分法 （等价类划分方法，是将所有可能的输入数据划分成若干个子集，在每个子集中，如果任意一个输入数据对于揭露程序中潜在错误都具有同等效果，那么这样的子集就构成了一个等价类。后续只要从每个等价类中任意选取一个值进行测试，就可以用少量具有代表性的测试输入取得较好的测试覆盖结果）</p>
+</li>
+<li><p>边界值分析法（边界值分析方法，是选取输入、输出的边界值进行测试。因为通常大量的软件错误是发生在输入或输出范围的边界上，所以需要对边界值进行重点测试，通常选取正好等于、刚刚大于或刚刚小于边界的值作为测试数据。 从方法论上可以看出来，边界值分析是对等价类划分的补充，所以这两种测试方法经常结合起来使用。</p>
+</li>
+</ul>
+<hr>
+<h4 id="‘用户登录’设计测试用例"><a href="#‘用户登录’设计测试用例" class="headerlink" title="‘用户登录’设计测试用例"></a>‘用户登录’设计测试用例</h4><blockquote>
+<p>目标是要保证系统在各种应用场景下的功能是符合设计要求的，这样考虑的测试用例就需要更多、更全面。</p>
+</blockquote>
+<h5 id="基于等价类划分和边界值分析方法，我们设计的测试用例包括："><a href="#基于等价类划分和边界值分析方法，我们设计的测试用例包括：" class="headerlink" title="基于等价类划分和边界值分析方法，我们设计的测试用例包括："></a>基于等价类划分和边界值分析方法，我们设计的测试用例包括：</h5><ol>
+<li>输入已注册的用户名和正确的密码，验证是否登录成功</li>
+<li>输入已注册的用户名和不正确的密码，验证是否登录失败，并且提示信息正确</li>
+<li>输入未注册的用户名和任意密码，验证是否登录失败，并且提示信息正确；</li>
+<li>用户名和密码两者都为空，验证是否登录失败，并且提示信息正确</li>
+<li>用户名和密码两者之一为空，验证是否登录失败，并且提示信息正确；</li>
+<li>如果登录功能启用了验证码功能，在用户名和密码正确的前提下，输入正确的验证码，验证是否登录成功；</li>
+<li>如果登录功能启用了验证码功能，在用户名和密码正确的前提下，输入错误的验证码，验证是否登录失败，并且提示信息正确。</li>
+</ol>
+<h5 id="需要弥补的测试用例"><a href="#需要弥补的测试用例" class="headerlink" title="需要弥补的测试用例"></a>需要弥补的测试用例</h5><ol>
+<li>用户名和密码是否大小写敏感；</li>
+<li>页面上的密码框是否加密显示；</li>
+<li>后台系统创建的用户第一次登录成功时，是否提示修改密码</li>
+<li>忘记用户名和忘记密码的功能是否可用</li>
+<li>前端页面是否根据设计要求限制用户名和密码长度；</li>
+<li>如果登录功能需要验证码，点击验证码图片是否可以更换验证码，更换后的验证码是否可用</li>
+<li>刷新页面是否会刷新验证码；</li>
+<li>如果验证码具有时效性，需要分别验证时效内和时效外验证码的有效性</li>
+<li>用户登录成功但是会话超时后，继续操作是否会重定向到用户登录界面</li>
+<li>不同级别的用户，比如管理员用户和普通用户，登录系统后的权限是否正确</li>
+<li>页面默认焦点是否定位在用户名的输入框中</li>
+<li>快捷键Tab和Enter等，是否可以正常使用</li>
+</ol>
+<h5 id="安全性测试用例包括"><a href="#安全性测试用例包括" class="headerlink" title="安全性测试用例包括"></a>安全性测试用例包括</h5><blockquote>
+<p>一个质量过硬的软件系统，除了显式功能性需求以外，其他的非功能性需求即隐式功能性需求也是极其关键的。</p>
+</blockquote>
+<blockquote>
+<p>显式功能性需求（Functional requirement）的含义从字面上就可以很好地理解，指的是软件本身需要实现的具体功能， 比如“正常用户使用正确的用户名和密码可以成功登录”、“非注册用户无法登录”等，这都是属于典型的显式功能性需求描述。</p>
+</blockquote>
+<blockquote>
+<p>那什么是非功能性需求（Non-functional requirement）呢？从软件测试的维度来看，非功能性需求主要涉及安全性、性能以及兼容性三大方面。</p>
+</blockquote>
+<ol>
+<li>用户密码后台存储是否加密</li>
+<li>用户密码在网络传输过程中是否加密</li>
+<li>密码是否具有有效期，密码有效期到期后，是否提示需要修改密码</li>
+<li>不登录的情况下，在浏览器中直接输入登录后的URL地址，验证是否会重新定向到用户登录界面；</li>
+<li>密码输入框是否不支持复制和粘贴；</li>
+<li>密码输入框内输入的密码是否都可以在页面源码模式下被查看；</li>
+<li>用户名和密码的输入框中分别输入典型的“SQL注入攻击”字符串，验证系统的返回页面；</li>
+<li>用户名和密码的输入框中分别输入典型的“XSS跨站脚本攻击”字符串，验证系统行为是否被篡改；</li>
+<li>连续多次登录失败情况下，系统是否会阻止后续的尝试以应对暴力破解；</li>\n 同一用户在同一终端的多种浏览器上登录，验证登录功能的互斥性是否符合设计预期；</li>
+<li>同一用户先后在多台终端的浏览器上登录，验证登录是否具有互斥性。</li>
+</ol>
+<h5 id="性能压力测试用例包括"><a href="#性能压力测试用例包括" class="headerlink" title="性能压力测试用例包括:"></a>性能压力测试用例包括:</h5><ol>
+<li>单用户登录的响应时间是否小于3秒；</li>
+<li>单用户登录时，后台请求数量是否过多；</li>
+<li>高并发场景下用户登录的响应时间是否小于5秒；</li>
+<li>高并发场景下服务端的监控指标是否符合预期；</li>
+<li>高集合点并发场景下，是否存在资源死锁和不合理的资源等待；</li>
+<li>长时间大量用户连续登录和登出，服务器端是否存在内存泄漏。</li>
+</ol>
+<h5 id="兼容性测试用例包括："><a href="#兼容性测试用例包括：" class="headerlink" title="兼容性测试用例包括："></a>兼容性测试用例包括：</h5><ol>
+<li>不同浏览器下，验证登录页面的显示以及功能正确性；</li>
+<li>相同浏览器的不同版本下，验证登录页面的显示以及功能正确性；</li>
+<li>不同移动设备终端的不同浏览器下，验证登录页面的显示以及功能正确性；</li>
+<li>不同分辨率的界面下，验证登录页面的显示以及功能正确性。</li>
+</ol>
+]]></content>
+      <tags>
+        <tag>测试</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>测试全流程图解</title>
+    <url>/2020/06/02/testing/QA3-%E6%B5%8B%E8%AF%95%E5%85%A8%E6%B5%81%E7%A8%8B%E5%9B%BE%E8%A7%A3/</url>
+    <content><![CDATA[<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>对于测试流程，大部分做测试的同学都能说个七七八八，但是对于一些细节，可能还是一知半解的，以下是对测试全流程整理的一个图谱，应该可以给大家带来一些帮助，如有不妥的地方，烦请指正。</p>
+<a id="more"></a>
+
+<h3 id="图谱"><a href="#图谱" class="headerlink" title="图谱"></a>图谱</h3><p><img src="https://ssd.qiniu.dreamfly95.com/image-20200530184050663.png" alt="image-20200530184050663" loading="lazy"></p>
+<h3 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h3><p>面朝大海，春暖花开。</p>
+<p>愿你一生努力，一生被爱。</p>
+]]></content>
+      <tags>
+        <tag>测试</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>QA周刊3</title>
+    <url>/2021/05/21/testing/QA6-%E5%91%A8%E5%88%8A3/</url>
+    <content><![CDATA[<p>了解业内最新动态，提升QA认知，扩展思维。</p>
+<a id="more"></a>
+
+
+
+<ol>
+<li><a href="https://mp.weixin.qq.com/s/_KlPUqNoJTfO3C8igPG49w" target="_blank" rel="noopener">一起看 I/O | Android 12 Beta 版发布，诸多亮点不容错过</a></li>
+</ol>
+<ol start="2">
+<li><a href="https://mp.weixin.qq.com/s/CryMC11QVWmGDSO8Afnobw" target="_blank" rel="noopener">CI/CD DevOps 简单论述</a></li>
+</ol>
+<ol start="3">
+<li><a href="https://zhuanlan.zhihu.com/p/72896309" target="_blank" rel="noopener">熵增定律：为什么那么多人因此顿悟了</a></li>
+</ol>
+<ol start="4">
+<li><a href="https://mp.weixin.qq.com/s/3rRY-XWMiVqs3rpkbfRspw" target="_blank" rel="noopener">字节跳动遭遇腾讯屏蔽和封禁大事记</a></li>
+</ol>
+<ol start="5">
+<li><a href="https://mp.weixin.qq.com/s/dVdJPQSgoXym2oUSrpio0w" target="_blank" rel="noopener">如何做好个人资产规划？</a></li>
+</ol>
+<ol start="6">
+<li><a href="https://mp.weixin.qq.com/s/Ub8tYdPm3lQy7hnBGoJwvg" target="_blank" rel="noopener">什么是安全性测试（security testing）</a></li>
+</ol>
+<ol start="7">
+<li><a href="https://mp.weixin.qq.com/s/ZzJ4L5wL1U77mU0RKgAOYA" target="_blank" rel="noopener">比勤奋更重要的，是深度思考的能力</a></li>
+</ol>
+<h3 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h3><p>面朝大海，春暖花开。</p>
+<p>愿你一生努力，一生被爱。</p>
+]]></content>
+      <tags>
+        <tag>测试</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>QA周刊1</title>
+    <url>/2021/04/29/testing/QA5-%E5%91%A8%E5%88%8A1/</url>
+    <content><![CDATA[<p>了解业内最新动态，提升QA认知，扩展思维。</p>
+<a id="more"></a>
+
+
+
+<ol>
+<li><a href="https://book.douban.com/review/6196782/" target="_blank" rel="noopener">旧测试已死</a></li>
+</ol>
+<ol start="2">
+<li><a href="https://baijiahao.baidu.com/s?id=1590728706876159827&wfr=spider&for=pc" target="_blank" rel="noopener">游戏分类简称大全1</a>     </li>
+</ol>
+<ol start="3">
+<li><a href="https://www.sohu.com/a/255913827_100204787" target="_blank" rel="noopener">游戏分类简称大全2</a></li>
+</ol>
+<ol start="4">
+<li><a href="https://blog.csdn.net/xiadanying/article/details/91581700?utm_medium=distribute.pc_relevant_t0.none-task-blog-2%7Edefault%7EBlogCommendFromMachineLearnPai2%7Edefault-1.control&dist_request_id=1328769.11534.16173460419114229&depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-2%7Edefault%7EBlogCommendFromMachineLearnPai2%7Edefault-1.control" target="_blank" rel="noopener">手游测试</a></li>
+</ol>
+<ol start="5">
+<li><a href="https://mp.weixin.qq.com/s/1hs9yKp68M8U1M65KWCf3w" target="_blank" rel="noopener">当厌倦测试时，我们可以做的16件事</a></li>
+</ol>
+<ol start="6">
+<li><a href="https://blog.csdn.net/chengzhi1947/article/details/100788845" target="_blank" rel="noopener">QA意识的建立</a></li>
+</ol>
+<ol start="7">
+<li><a href="https://www.bilibili.com/video/BV14i4y1c7Jo?from=search&seid=5043178568997271854" target="_blank" rel="noopener">pytest自动化测试框架教程</a></li>
+</ol>
+<ol start="8">
+<li><a href="https://www.bilibili.com/video/BV1np4y1s7fo?from=search&seid=15132239919207457813" target="_blank" rel="noopener">结构思考力,视频讲解 6小时</a></li>
+</ol>
+<h3 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h3><p>面朝大海，春暖花开。</p>
+<p>愿你一生努力，一生被爱。</p>
+]]></content>
+      <tags>
+        <tag>测试</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>QA周刊2</title>
+    <url>/2021/05/12/testing/QA6-%E5%91%A8%E5%88%8A2/</url>
+    <content><![CDATA[<p>了解业内最新动态，提升QA认知，扩展思维。</p>
+<a id="more"></a>
+
+
+
+<ol>
+<li>【 <a href="https://blog.csdn.net/kami_ochin_akane/article/details/111630261" target="_blank" rel="noopener">测试分层</a> 】 【 <a href="https://www.cnblogs.com/syhshare/p/10721568.html" target="_blank" rel="noopener">分层测试2</a> 】  【 <a href="https://www.jianshu.com/p/c629baffb19c" target="_blank" rel="noopener">分层测试3</a> 】</li>
+</ol>
+<ol start="2">
+<li><a href="https://mp.weixin.qq.com/s/wpqTHdQzQtBZXEdtR4_cvg" target="_blank" rel="noopener">聊天功能如何测试？</a></li>
+</ol>
+<ol start="3">
+<li><a href="https://mp.weixin.qq.com/s/WBPYEeT2QJT61qGo7rOhNA" target="_blank" rel="noopener">字节跳动首次揭秘A/B测试</a></li>
+</ol>
+<ol start="4">
+<li><a href="https://www.linuxcool.com/" target="_blank" rel="noopener">Linux命令大全(手册)</a></li>
+</ol>
+<ol start="5">
+<li><a href="http://redisdoc.com/index.html" target="_blank" rel="noopener">Redis 命令参考</a></li>
+</ol>
+<ol start="6">
+<li><a href="https://mp.weixin.qq.com/s/ZPICGqhdqAAeJfH3ESiytA" target="_blank" rel="noopener">真正决定人生高度的，是你做事的速度</a></li>
+</ol>
+<ol start="7">
+<li><a href="https://www.cnblogs.com/UncleYong/p/10836607.html" target="_blank" rel="noopener">全栈测试笔记</a></li>
+</ol>
+<h3 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h3><p>面朝大海，春暖花开。</p>
+<p>愿你一生努力，一生被爱。</p>
+]]></content>
+      <tags>
+        <tag>测试</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>怎么打开iOS手机的开发者模式</title>
+    <url>/2020/07/04/skill/%E6%8A%80%E5%B7%A74-iOS%E6%89%8B%E6%9C%BA%E7%9A%84%E5%BC%80%E5%8F%91%E8%80%85%E6%A8%A1%E5%BC%8F/</url>
+    <content><![CDATA[<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>iPhone手机也有开发者选项，这个功能开发或者测试同学都有很大的帮助，今天我们就把这个功能个如何打开，如何关闭，以及各个功能到底有什么作用给大家列一下。</p>
+<a id="more"></a>
+
+<h3 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h3><p>1.Xcode （本次文档中使用是 Xcode Version 11.5）</p>
+<p>2.iPhone （本次文档中使用是 iPhone XR iOS13.5.1）</p>
+<h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>开发者每个选项的作用：</p>
+<p><strong>PAIRED DEVICES</strong> </p>
+<p>Clear Trusted Computers 清除受信任的计算机</p>
+<p><strong>INSTRUMENTS</strong></p>
+<p> Logging 点击进入  可以对电量和网络记录情况进行记录 记录的内容可以使用instruments查看。<a href="https://links.jianshu.com/go?to=http%3A%2F%2Fwww.cocoachina.com%2Fios%2F20180806%2F24469.html" target="_blank" rel="noopener">使用方法</a></p>
+<p><strong>Enable UI Automation</strong>  是否允许UI自动化测试</p>
+<p> <a href="https://www.jianshu.com/p/0e28ae1bd2c2" target="_blank" rel="noopener">iOS自动化测试 UI Automation</a></p>
+<p><strong>NETWORKING</strong><br> Network Link Conditioner 网络链接调节器  模拟各种网络情况，可以对APP进行弱网测试。</p>
+<p><strong>AD DEVELOPER APP TESTING</strong> 广告开发者 app测试<br> Fill Rate 填充率<br> Ad Refresh Rate 广告刷新间隔<br> Highlight Clipped Banners  突出显示剪贴横幅<br> Unlimited Ad Presentation  无限广告展示</p>
+<p><strong>PASSKIT TESTING</strong> 测试<br> Addtional Logging 附加登录<br> Allow HTTP Services 允许http服务<br> Disable Rate Limiting  禁止限制速率<br> NFC Pass Key Optional NFC密码可选<br> <a href="https://links.jianshu.com/go?to=https%3A%2F%2Fdeveloper.apple.com%2Fwallet%2F" target="_blank" rel="noopener">官方链接</a></p>
+<p><strong>NEWS TESTING</strong><br> Reset Local Data on Next Launch. 下次启动时重置本地数据<br> Reset layouts,images,and other cached elements. Private data will not be affected.<br> 重置布局、图像和其他缓存元素。私有数据不会受到影响。</p>
+<h3 id="打开方式"><a href="#打开方式" class="headerlink" title="打开方式"></a>打开方式</h3><ol>
+<li><p>用数据线连接mac和iPhone</p>
+</li>
+<li><p>打开Xcode，选择 Xcode -&gt; window -&gt; Devices and Simulators，如图：</p>
+</li>
+</ol>
+<p><img src="https://ssd.qiniu.dreamfly95.com/image-20200704175313401.png" alt="image-20200704175313401" loading="lazy"></p>
+<ol start="3">
+<li>选择自己的手机，右键单击选择Show Provisioning Profiles…，如图：</li>
+</ol>
+<p><img src="https://ssd.qiniu.dreamfly95.com/image-20200704175458221.png" alt="image-20200704175458221" loading="lazy"></p>
+<ol start="4">
+<li><p>在弹窗中的列表中查看，是否有开发者证书，如果没有，就点击“+”，添加开发者证书，完成后点击“Done”。如图：</p>
+<p><img src="https://ssd.qiniu.dreamfly95.com/image-20200704175643841.png" alt="image-20200704175643841" loading="lazy"></p>
+</li>
+<li><p>打开手机设置，在列表里就能看到开发者选项了。</p>
+<p><img src="https://ssd.qiniu.dreamfly95.com/image-20200704175829746.png" alt="image-20200704175829746" loading="lazy"></p>
+</li>
+</ol>
+<h3 id="关闭开发者选项"><a href="#关闭开发者选项" class="headerlink" title="关闭开发者选项"></a>关闭开发者选项</h3><p>在未连接mac时，手机关机重启，开发者选项就消失。</p>
+<h3 id="资料来源"><a href="#资料来源" class="headerlink" title="资料来源"></a>资料来源</h3><p><a href="https://www.jianshu.com/p/8dc5787b4728" target="_blank" rel="noopener">https://www.jianshu.com/p/8dc5787b4728</a></p>
+<h3 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h3><p>面朝大海，春暖花开。</p>
+<p>愿你一生努力，一生被爱。</p>
+]]></content>
+      <tags>
+        <tag>技巧</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>代码管理(git,gitee,coding等)平台配置ssh</title>
+    <url>/2019/10/25/skill/%E6%8A%80%E5%B7%A71-%E4%BB%A3%E7%A0%81%E7%AE%A1%E7%90%86%E5%B9%B3%E5%8F%B0%E9%85%8D%E7%BD%AEssh/</url>
+    <content><![CDATA[<h1 id="git-gitee-coding等平台配置ssh"><a href="#git-gitee-coding等平台配置ssh" class="headerlink" title="git,gitee,coding等平台配置ssh"></a>git,gitee,coding等平台配置ssh</h1><h3 id="git-gitee-coding等托管平台配置ssh的目的："><a href="#git-gitee-coding等托管平台配置ssh的目的：" class="headerlink" title="git,gitee,coding等托管平台配置ssh的目的："></a>git,gitee,coding等托管平台配置ssh的目的：</h3><p>配置好ssh后可以让你的电脑和git,gitee,coding等平台通讯的时候建立可信任的安全连接</p>
+<a id="more"></a>
+
+<p>###步骤：</p>
+<ol>
+<li><p>打开终端（windows下载<a href="https://gitforwindows.org/" target="_blank" rel="noopener">git windows 终端</a>，Mac直接用原生自带的terminal就OK）。</p>
+<ul>
+<li>输入<code>cd ~/.ssh</code></li>
+<li>然后输入<code>ls</code>,查看是否有<code>id_rsa</code>和<code>id_rsa.pub</code></li>
+</ul>
+<p><img src="https://ssd.qiniu.dreamfly95.com/cdssh.png" alt="cdssh" loading="lazy"></p>
+<ul>
+<li>如果有则执行第2部，如果没有上述两个文件就执行 <code>ssh-keygen -trsa -C xxxxx@XXX.com</code>(xxxxx@XXX.com为你注册github时的邮箱)，然后开始执行第二部</li>
+</ul>
+<!--注意：如果已有id_rsa和id_rsa.pub文件时，不要执行 ssh-keygen，不然会把你原有的ssh文件冲掉，原来配置过ssh的地方就失效了-->
+</li>
+<li><p>查看公钥内容</p>
+<ul>
+<li><p>执行<code>cat ~/.ssh/id_rsa.pub</code></p>
+<p><img src="https://ssd.qiniu.dreamfly95.com/catssh.png" alt="catssh" loading="lazy"></p>
+</li>
+</ul>
+</li>
+<li><p>复制公钥内容，全部内容，以ssh-rsa开头的全部内容。粘贴至你所要建立安全连接的平台，这里咦gitee为例：</p>
+<ul>
+<li><p>打开<a href="https://gitee.com/" target="_blank" rel="noopener">gitee</a>并登陆账户,按下图操作</p>
+<p><img src="https://ssd.qiniu.dreamfly95.com/giteessh1.png" alt="giteessh1" loading="lazy"></p>
+</li>
+</ul>
+</li>
+</ol>
+<p>   <img src="https://ssd.qiniu.dreamfly95.com/giteessh2.png" alt="giteessh2" loading="lazy"></p>
+<ul>
+<li>然后点击保存就OK了，其他例如 github,gitlab等都一样</li>
+</ul>
+<ol start="4">
+<li><p>测试是否连接成功</p>
+<ul>
+<li><p>终端执行 <code>ssh -T git@gitee.com</code>   (@后面的可以换成你想要连接的平台的网址就OK)</p>
+</li>
+<li><p>如果成功则会提示 You’ve successfully<img src="https://ssd.qiniu.dreamfly95.com/giteessh3.png" alt="giteessh3" loading="lazy"></p>
+</li>
+</ul>
+</li>
+</ol>
+<ol start="5">
+<li>完工！！！</li>
+</ol>
+]]></content>
+      <tags>
+        <tag>技巧</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>使用gitee自建图床</title>
+    <url>/2020/04/15/skill/%E6%8A%80%E5%B7%A72-%E8%87%AA%E5%BB%BA%E5%9B%BE%E5%BA%8A/</url>
+    <content><![CDATA[<h3 id="使用gitee建自己图床的好处："><a href="#使用gitee建自己图床的好处：" class="headerlink" title="使用gitee建自己图床的好处："></a>使用gitee建自己图床的好处：</h3><ol>
+<li><p>都在自己账号内，好管理。</p>
+</li>
+<li><p>支持https，避免使用HTTP而打开时网站提示不安全。</p>
+</li>
+<li><p>丢失概率低</p>
+</li>
+</ol>
+<a id="more"></a>
+
+<h3 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h3><ol>
+<li>创建一个属于自己的<a href="https://gitee.com/" target="_blank" rel="noopener">gitee账户</a></li>
+<li>然后就本地有git，这里有较为详细的<a href="https://www.liaoxuefeng.com/wiki/896043488029600" target="_blank" rel="noopener">git教程</a></li>
+<li>然后配置本体ssh,并与远程库建立可信任连接</li>
+</ol>
+<h3 id="开始搭建图床"><a href="#开始搭建图床" class="headerlink" title="开始搭建图床"></a>开始搭建图床</h3><ol>
+<li>打开自己的gitee,新建一个仓库</li>
+</ol>
+<p>   <img src="https://ssd.qiniu.dreamfly95.com/makeGitee1.png" alt="makeGitee1" loading="lazy"></p>
+<p>   <img src="https://ssd.qiniu.dreamfly95.com/makeGitee2.png" alt="makeGitee2" loading="lazy"></p>
+<ol start="2">
+<li><p>创建完成后，新建一个文件，必须是index.html</p>
+<img src="https://ssd.qiniu.dreamfly95.com/makeGitee3.png" alt="makeGitee3" style="zoom:50%;" / loading="lazy">
+
+
+
+
+
+</li>
+</ol>
+<p>   <img src="https://ssd.qiniu.dreamfly95.com/makeGitee4.png" alt="makeGitee4" loading="lazy"></p>
+   <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">&lt;meta charset=&quot;utf-8&quot;&gt;</span><br><span class="line">&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;</span><br><span class="line">&lt;title&gt;我的图床首页&lt;/title&gt;</span><br><span class="line">&lt;meta name=&quot;description&quot; content=&quot;&quot;&gt;</span><br><span class="line">&lt;meta name=&quot;author&quot; content=&quot;&quot;&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+<ol start="3">
+<li>保存后，点击仓库上方的，服务=》‘Gitee Pages’，然后进去点击更新，等几秒钟，然后点击网站地址，就会跳转到一个空白的网页，图床基本就搭建完成了。</li>
+</ol>
+<p>   <img src="https://ssd.qiniu.dreamfly95.com/makeGitee6.png" alt="makeGitee6" loading="lazy"></p>
+<ol start="4">
+<li><p>然后自己搭建本地库，关联自己刚新建的gitee仓库，到时在自己的本地库新建个文件夹保存图片，保存完push到自己的远程 gitee库（或者直接在gitee自己建的仓库内）。</p>
+<!--注意：每次push完或上传完图片都需要把第三步执行一遍，这样图片才能通过你的图床正常访问-->
+
+<p>例如：我的网址是 ：<a href="https://dreams_quan.gitee.io/images，我新建的问价夹名字为images，图片名为" target="_blank" rel="noopener">https://dreams_quan.gitee.io/images，我新建的问价夹名字为images，图片名为</a> china.jpg，这时在执行完上面步骤后，你的图片就可以通过网址访问了 <a href="https://dreams_quan.gitee.io/images/images/china.jpg" target="_blank" rel="noopener">https://dreams_quan.gitee.io/images/images/china.jpg</a></p>
+<blockquote>
+<p>小技巧：你写macdown等文档时，可以先使用本地保存的图片，等文档写完后，把图片统一上传，然后把文档内的图片地址的前缀替换为链接地址就OK。例如本地地址为   /Desktop/image/images/blog/china.jpg，你只要把  /Desktop/image/images/blog/  全部替换为   <a href="https://dreams_quan.gitee.io/images/images/" target="_blank" rel="noopener">https://dreams_quan.gitee.io/images/images/</a>  就OK了</p>
+</blockquote>
+</li>
+</ol>
+<ol start="5">
+<li>如果自己想让自己的图床首页好看点，就自己网上找个静态网页模板，然后自己动手改改里面的内容，push上去然后更新就OK。</li>
+</ol>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>像自建图床啦，自己搭建博客网站等，都可以自己练习的去整一下，每一个积累都会是你的财富，加油！！！</p>
+]]></content>
+      <tags>
+        <tag>技巧</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>软件绿色联盟应用体验标准5.0</title>
+    <url>/2021/11/21/testing/QA7-%E5%BA%94%E7%94%A8%E4%BD%93%E9%AA%8C%E6%A0%87%E5%87%865.0/</url>
+    <content><![CDATA[<h4 id="绿标5-0发布的意义是什么？"><a href="#绿标5-0发布的意义是什么？" class="headerlink" title="绿标5.0发布的意义是什么？"></a>绿标5.0发布的意义是什么？</h4><p>绿标5.0不仅进一步增强了五项标准的技术要求及检测能力，更在安卓应用基础上拓展到泛智能终端应用的范畴。旨在通过绿标系列标准的制定与推广，为用户带来更安全、更安心的使用体验。</p>
+<a id="more"></a>
+
+<h4 id="五大标准"><a href="#五大标准" class="headerlink" title="五大标准"></a>五大标准</h4><p>1、兼容性标准</p>
+<p><img src="https://ssd.qiniu.dreamfly95.com/%E5%85%BC%E5%AE%B9%E6%80%A7%E6%A0%87%E5%87%86.jpeg" alt="兼容性标准" loading="lazy"></p>
+<p>2、稳定性标准</p>
+<p><img src="https://ssd.qiniu.dreamfly95.com/%E7%A8%B3%E5%AE%9A%E6%80%A7%E6%A0%87%E5%87%86.jpeg" alt="稳定性标准" loading="lazy"></p>
+<p>3、功耗标准</p>
+<p><img src="https://ssd.qiniu.dreamfly95.com/%E5%8A%9F%E8%80%97%E6%A0%87%E5%87%86.jpeg" alt="功耗标准" loading="lazy"></p>
+<p>4、性能标准</p>
+<p><img src="https://ssd.qiniu.dreamfly95.com/%E6%80%A7%E8%83%BD%E6%A0%87%E5%87%86.jpeg" alt="性能标准" loading="lazy"></p>
+<p>5、安全标准</p>
+<p><img src="https://ssd.qiniu.dreamfly95.com/%E5%AE%89%E5%85%A8%E6%A0%87%E5%87%86.jpeg" alt="安全标准" loading="lazy"></p>
+<p>来源：<a href="https://www.china-sga.com/sga/news/journalism/journalism-20211122175620697.html" target="_blank" rel="noopener">https://www.china-sga.com/sga/news/journalism/journalism-20211122175620697.html</a></p>
+<h3 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h3><p>面朝大海，春暖花开。</p>
+<p>愿你一生努力，一生被爱。</p>
+]]></content>
+      <tags>
+        <tag>测试</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>markdown图片自动上传</title>
+    <url>/2020/07/04/skill/%E6%8A%80%E5%B7%A75-markdown%E5%9B%BE%E7%89%87%E8%87%AA%E5%8A%A8%E4%B8%8A%E4%BC%A0/</url>
+    <content><![CDATA[<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>我们写markdown时，里面需要用到的图片，需要上传生成链接后在放到文档里面，图片一旦多了会很麻烦。</p>
+<p>今天给大家推荐两款应用，结合使用，可以直接把要用的图片直接拖到markdown编写工具内，图片就会自动上传。</p>
+<a id="more"></a>
+
+<h3 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h3><p>1.<a href="https://github.com/Molunerfinn/PicGo" target="_blank" rel="noopener">PicGo 图床管理工具</a></p>
+<p>2.<a href="https://www.typora.io/" target="_blank" rel="noopener">Typore markdown编写工具</a></p>
+<blockquote>
+<p>本次使用的mac电脑，window电脑操作方式应该大体也一样</p>
+</blockquote>
+<h3 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h3><p>1.配置PicGo 图床管理工具，<a href="https://picgo.github.io/PicGo-Doc/zh/guide/getting-started.html" target="_blank" rel="noopener">使用文档</a></p>
+<p>2.打开Typore，选择 Typore =&gt; 偏好设置 =&gt; 图像，然后做如图配置：</p>
+<p><img src="https://ssd.qiniu.dreamfly95.com/image-20200704181634536.png" alt="image-20200704181634536" loading="lazy"></p>
+<p>3.点击验证图片上传选项，出现如图验证成功提示，就配置完成了。</p>
+<p><img src="https://ssd.qiniu.dreamfly95.com/image-20200704181826122.png" alt="image-20200704181826122" loading="lazy"></p>
+<p>4.这时就可以把本地图片拖到Typore里，图片就会自动传到云端了，大家快去体验一下吧。</p>
+<h3 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h3><p>面朝大海，春暖花开。</p>
+<p>愿你一生努力，一生被爱。</p>
+]]></content>
+      <tags>
+        <tag>技巧</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Markdown的使用</title>
+    <url>/2020/05/26/skill/%E6%8A%80%E5%B7%A73-Markdown%E7%9A%84%E4%BD%BF%E7%94%A8/</url>
+    <content><![CDATA[<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>Markdown 是一种轻量级标记语言，它允许人们使用易读易写的纯文本格式编写文档。</p>
+<p>Markdown 编写的文档后缀为 <code>.md</code>, <code>.markdown</code>，可以导出 HTML 、Word、图像、PDF、Epub 等多种格式的文档。当前许多网站都广泛使用 Markdown 来撰写帮助文档或是用于论坛上发表消息。例如：GitHub、简书等。</p>
+<p>通俗一点讲，使用Markdown写文档可以让你的文档格式比较规范明了，看着比较优美，本文的教程就是用Markdown写的。</p>
+<a id="more"></a>
+
+<h3 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h3><p>1.在线练习工具<a href="https://www.zybuluo.com/mdeditor" target="_blank" rel="noopener">Cmd Markdown 编辑阅读器</a></p>
+<p>2.客户端编写软件 <a href="https://typora.io/" target="_blank" rel="noopener">Typora</a></p>
+<blockquote>
+<p>注意 在线练习工具Cmd Markdown 编辑阅读器 和 客户端软件 Typora 有些语法会有差异大家自行甄别。</p>
+</blockquote>
+<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><p>给介绍几个常用的语法和最终的展示效果，具体的一些可以在 <a href="https://www.zybuluo.com/mdeditor" target="_blank" rel="noopener">Cmd Markdown 编辑阅读器</a> 中查阅</p>
+<h4 id="1-标题"><a href="#1-标题" class="headerlink" title="1.标题"></a>1.标题</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">语法：</span><br><span class="line"># 这是一级标题</span><br><span class="line">## 这是二级标题</span><br><span class="line">### 这是三级标题</span><br><span class="line">#### 这是四级标题</span><br><span class="line">##### 这是五级标题</span><br><span class="line">###### 这是六级标题</span><br></pre></td></tr></table></figure>
+
+<p>展示效果：</p>
+<p><img src="https://ssd.qiniu.dreamfly95.com/Markdown1.png" alt="" loading="lazy"></p>
+<h4 id="2-字体"><a href="#2-字体" class="headerlink" title="2.字体"></a>2.字体</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">语法：</span><br><span class="line">**这是加粗的文字**</span><br><span class="line">*这是倾斜的文字*`</span><br><span class="line">***这是斜体加粗的文字***</span><br><span class="line">~~这是加删除线的文字~~</span><br></pre></td></tr></table></figure>
+
+<p>展示效果：</p>
+<p><img src="https://ssd.qiniu.dreamfly95.com/Markdown2.png" alt="" loading="lazy"></p>
+<h4 id="3-引用"><a href="#3-引用" class="headerlink" title="3.引用"></a>3.引用</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">语法：</span><br><span class="line">&gt;这是引用的内容</span><br></pre></td></tr></table></figure>
+
+<p>展示效果：</p>
+<p><img src="https://ssd.qiniu.dreamfly95.com/Markdown3.png" alt="" loading="lazy"></p>
+<h4 id="4-超链接"><a href="#4-超链接" class="headerlink" title="4.超链接"></a>4.超链接</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">语法</span><br><span class="line">[超链接名](超链接地址 &quot;超链接title&quot;)</span><br><span class="line"></span><br><span class="line">示例：</span><br><span class="line">[百度](http://baidu.com)</span><br></pre></td></tr></table></figure>
+
+<p>展示效果：</p>
+<p><img src="https://ssd.qiniu.dreamfly95.com/Markdown4.png" alt="" loading="lazy"></p>
+<h4 id="5-图片"><a href="#5-图片" class="headerlink" title="5.图片"></a>5.图片</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">![图片描述](图片地址 &apos;&apos;图片title&apos;&apos;)</span><br><span class="line"></span><br><span class="line">图片alt就是显示在图片下面的文字，相当于对图片内容的解释，可加可不加</span><br><span class="line">图片title是图片的标题，当鼠标移到图片上时显示的内容。title可加可不加</span><br><span class="line"></span><br><span class="line">示例：</span><br><span class="line"></span><br><span class="line">![风景](https://ss0.bdstatic.com/94oJfD_bAAcT8t7mm9GUKT-xh_/timg?image&amp;quality=100&amp;size=b4000_4000&amp;sec=1590818510&amp;di=f0e6467d2588dd1434e9fbb151653570&amp;src=http://www.wndhw.com/fengjing/shanshui/images/ss003t4.jpg &quot;风景&quot;)</span><br></pre></td></tr></table></figure>
+
+<p>展示效果：</p>
+<p><img src="https://ssd.qiniu.dreamfly95.com/Markdown5.png" alt="" loading="lazy"></p>
+<h4 id="6-代码块"><a href="#6-代码块" class="headerlink" title="6.代码块"></a>6.代码块</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">语法：</span><br><span class="line"></span><br><span class="line">`代码内容`</span><br></pre></td></tr></table></figure>
+<p> 我是代码块<br> 我是代码块<br> 我是代码块<br> 我是代码块<br> <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+<p>展示效果：</p>
+<p><img src="https://ssd.qiniu.dreamfly95.com/Markdown6.png" alt="" loading="lazy"></p>
+<p>以上是一些基本常用的。其他的语法大家可以在  <a href="https://www.zybuluo.com/mdeditor" target="_blank" rel="noopener">Cmd Markdown 编辑阅读器</a> 中查阅。</p>
+<h3 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h3><p>面朝大海，春暖花开。</p>
+<p>愿你一生努力，一生被爱。</p>
+]]></content>
+      <tags>
+        <tag>技巧</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Python之模拟抽奖概率计算（3）</title>
+    <url>/2020/05/31/pyhton/Pyhton3%E4%B9%8B%E6%A8%A1%E6%8B%9F%E6%8A%BD%E5%A5%96%E6%A6%82%E7%8E%87%E8%AE%A1%E7%AE%97/</url>
+    <content><![CDATA[<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>在很多公司测试过程中会有抽奖概率测试，如果用手动去模拟，会很不现实，一般都是从接口入手，模拟跑1万到10万次或者更多，来计算概率是否符合预期。本教程先不涉及接口，只是单纯的去了解一下怎么取计算抽奖概率。</p>
+<a id="more"></a>
+
+<h3 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h3><p>1.一个包含各种奖项的奖池。</p>
+<p>2.了解随机模块<a href="https://www.runoob.com/python/func-number-random.html" target="_blank" rel="noopener">random</a>的用法</p>
+<p>3.了解 <a href="https://blog.csdn.net/u013216667/article/details/51316971" target="_blank" rel="noopener">python格式化%s,%d,%f</a></p>
+<h3 id="具体示例"><a href="#具体示例" class="headerlink" title="具体示例"></a>具体示例</h3><p>我们这里设计一个含有6种不同奖项的列表，然后随机抽取1万次，然后计算各个奖品的概率，具体如下：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> random</span><br><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="string">奖项列表：</span></span><br><span class="line"><span class="string">编号  奖品</span></span><br><span class="line"><span class="string">1    土豪女友/男友</span></span><br><span class="line"><span class="string">2    私人庄园</span></span><br><span class="line"><span class="string">3    海景别墅</span></span><br><span class="line"><span class="string">4    劳斯莱斯</span></span><br><span class="line"><span class="string">5    iPhone12</span></span><br><span class="line"><span class="string">6    纸巾一包</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">设计思路：</span></span><br><span class="line"><span class="string">把所有奖品ID放一个列表，然后随机抽取，一共抽10000次，计算抽奖结果。</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="comment"># 1.定义一个抽奖列表，有抽奖编号组成</span></span><br><span class="line">rewardIds = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>]</span><br><span class="line"><span class="comment"># 2.抽取10000次，并把抽到的结果放到一个列表内，</span></span><br><span class="line"><span class="comment"># 定义单次抽奖列表组合为lotteryResult,抽奖次数为：num1</span></span><br><span class="line">lotteryResultSimple = []</span><br><span class="line">num1 = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">10000</span>):</span><br><span class="line">    <span class="comment"># 每次只抽一个奖品时</span></span><br><span class="line">    <span class="string">'''</span></span><br><span class="line"><span class="string">    从每次随机从列表取一个元素，用 random.choice(),</span></span><br><span class="line"><span class="string">    取出的元素类型为元素本身的类型</span></span><br><span class="line"><span class="string">    '''</span></span><br><span class="line">    a = random.choice(rewardIds)</span><br><span class="line">    lotteryResultSimple.append(a)</span><br><span class="line">    num1+=<span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 定义每次抽多个奖品，抽奖奖励集合为lotteryResultMore,抽奖次数为：num2</span></span><br><span class="line">lotteryResultMore = []</span><br><span class="line">num2 = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> j <span class="keyword">in</span> range(<span class="number">10000</span>):</span><br><span class="line">    <span class="comment">#每次只抽一个奖品时</span></span><br><span class="line">    <span class="string">'''</span></span><br><span class="line"><span class="string">    从每次随机从列表取n个元素，用 random.sample(list,N)</span></span><br><span class="line"><span class="string">    list所要去随机元素的数列，N为每次要取的数</span></span><br><span class="line"><span class="string">    这时取出的随机元素，是一个数列</span></span><br><span class="line"><span class="string">    '''</span></span><br><span class="line">    b = random.sample(rewardIds,<span class="number">2</span>)</span><br><span class="line">    <span class="comment"># 因为b是一个数列，所以不能用append把抽奖结果加进去了</span></span><br><span class="line">    lotteryResultMore = lotteryResultMore + b</span><br><span class="line">    num2 += <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 定义总抽奖次数为 num,所有奖品集合为lotteryResult</span></span><br><span class="line">num = num1 + num2</span><br><span class="line">lotteryResult = lotteryResultMore + lotteryResultSimple</span><br><span class="line"></span><br><span class="line"><span class="comment"># 总共抽到的奖品数量为 lotteryResultCount</span></span><br><span class="line">lotteryResultCount = len(lotteryResult)</span><br><span class="line"><span class="comment"># 抽到土豪女友/男友的次数</span></span><br><span class="line">rewardId1 = lotteryResult.count(<span class="number">1</span>)</span><br><span class="line"><span class="comment"># 抽到私人庄园的次数</span></span><br><span class="line">rewardId2 = lotteryResult.count(<span class="number">2</span>)</span><br><span class="line"><span class="comment"># 抽到海景别墅的次数</span></span><br><span class="line">rewardId3 = lotteryResult.count(<span class="number">3</span>)</span><br><span class="line"><span class="comment"># 抽到劳斯莱斯的次数</span></span><br><span class="line">rewardId4 = lotteryResult.count(<span class="number">4</span>)</span><br><span class="line"><span class="comment"># 抽到iPhone12的次数</span></span><br><span class="line">rewardId5 = lotteryResult.count(<span class="number">5</span>)</span><br><span class="line"><span class="comment"># 抽到纸巾的次数</span></span><br><span class="line">rewardId6 = lotteryResult.count(<span class="number">6</span>)</span><br><span class="line"></span><br><span class="line">print(<span class="string">'共抽奖%s次，其中单抽%s次，二连抽%s次，共抽到奖品%s个'</span>%(num,num1,num2,lotteryResultCount))</span><br><span class="line">print(<span class="string">"*"</span>*<span class="number">30</span>)  <span class="comment"># 此处就是打印一个分割线</span></span><br><span class="line">print(<span class="string">'抽到土豪女友/男友的概率为    %.2f%%'</span>%(rewardId1/lotteryResultCount*<span class="number">100</span>))</span><br><span class="line">print(<span class="string">'抽到私人庄园的概率为        %.2f%%'</span>%(rewardId2/lotteryResultCount*<span class="number">100</span>))</span><br><span class="line">print(<span class="string">'抽到海景别墅的概率为        %.2f%%'</span>%(rewardId3/lotteryResultCount*<span class="number">100</span>))</span><br><span class="line">print(<span class="string">'抽到劳斯莱斯的概率为        %.2f%%'</span>%(rewardId4/lotteryResultCount*<span class="number">100</span>))</span><br><span class="line">print(<span class="string">'抽到iPhone12的概率为      %.2f%%'</span>%(rewardId5/lotteryResultCount*<span class="number">100</span>))</span><br><span class="line">print(<span class="string">'抽到纸巾的概率为           %.2f%%'</span>%(rewardId6/lotteryResultCount*<span class="number">100</span>))</span><br></pre></td></tr></table></figure>
+
+<p>以上就是一个概率的计算，以及结果的展示，具体用到的也就是一些基础知识，实际使用抽奖接口去抽奖并计算概率时，需要考虑的东西还有很多，我们后续再讲。</p>
+<p><strong>小知识</strong></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment">#其他输出格式化例如 %s啦，%d基本大同小异，大家自行搜索练习 </span></span><br><span class="line"></span><br><span class="line">a = <span class="number">0.222222222</span></span><br><span class="line">print(<span class="string">"a显示小数点后两位：%.2f"</span>%a)</span><br><span class="line"><span class="comment"># 输出为： a显示小数点后两位：0.22</span></span><br><span class="line"></span><br><span class="line">print(<span class="string">"a显示小数点后5位： %.5f"</span>%a)</span><br><span class="line"><span class="comment"># 输出为：a显示小数点后5位： 0.22222</span></span><br><span class="line"></span><br><span class="line">print(<span class="string">"以百分号形式输出并保留小数点后两位 %.2f%%"</span>%(a*<span class="number">100</span>))</span><br><span class="line"><span class="comment"># 输出为： 以百分号形式输出并保留小数点后两位 22.22%</span></span><br></pre></td></tr></table></figure>
+
+
+
 <h3 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h3><p>面朝大海，春暖花开。</p>
 <p>愿你一生努力，一生被爱。</p>
 ]]></content>
@@ -210,46 +761,21 @@
       </tags>
   </entry>
   <entry>
-    <title>接口自动化框架之Unittest（3）</title>
-    <url>/2020/08/16/interfacetest/%E6%8E%A5%E5%8F%A3%E8%87%AA%E5%8A%A8%E5%8C%96%E6%A1%86%E6%9E%B63%E4%B9%8BUnittest/</url>
-    <content><![CDATA[<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>做接口自动化，要用到Python的单元测试框架Unittest，是Python标准库自带的单元测试工具，也称为PyUnit，是JUnit（Java语言的单元测试）的Python版本。它支持测试自动化，将测试样例聚合到测试集中，并将测试与报告框架独立。</p>
+    <title>Pyhton之Requests用法（2）</title>
+    <url>/2020/05/27/pyhton/Python2%E4%B9%8BRequests%E7%94%A8%E6%B3%95/</url>
+    <content><![CDATA[<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>要学接口自动化，或者爬虫等，Requests库的使用是必备知识，也是给你打开自动化大门的一把钥匙。</p>
+<p>Requests的口号是为人类服务，也是唯一的一个<strong>非转基因</strong>的 Python HTTP 库，人类可以安全享用。</p>
 <a id="more"></a>
 
-<h3 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h3><ol>
-<li><a href="https://docs.python.org/zh-cn/3.8/library/unittest.html" target="_blank" rel="noopener">Unittest官方文档</a></li>
-<li><a href="https://www.bilibili.com/video/BV1xJ411v7Eb" target="_blank" rel="noopener">优质视频教程</a></li>
-</ol>
-<h3 id="具体示例"><a href="#具体示例" class="headerlink" title="具体示例"></a>具体示例</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> unittest</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="keyword">from</span> selenium <span class="keyword">import</span> webdriver</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">forTest2</span><span class="params">(unittest.TestCase)</span>:</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">setUp</span><span class="params">(self)</span> -&gt; <span class="keyword">None</span>:</span></span><br><span class="line">        self.driver = webdriver.Chrome()</span><br><span class="line">        print(<span class="string">"开始"</span>)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">tearDown</span><span class="params">(self)</span> -&gt; <span class="keyword">None</span>:</span></span><br><span class="line">        time.sleep(<span class="number">5</span>)</span><br><span class="line">        self.driver.quit()</span><br><span class="line">        print(<span class="string">"结束"</span>)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">test_1</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="string">'百度搜索玩吧'</span></span><br><span class="line">        self.driver.get(<span class="string">'https://www.baidu.com/'</span>)</span><br><span class="line">        self.driver.find_element_by_id(<span class="string">'kw'</span>).send_keys(<span class="string">'玩吧'</span>)</span><br><span class="line">        self.driver.find_element_by_id(<span class="string">'su'</span>).click()</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">test_2</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="string">'百度搜索测试工程师'</span></span><br><span class="line">        self.driver.get(<span class="string">'https://www.baidu.com/'</span>)</span><br><span class="line">        self.driver.find_element_by_id(<span class="string">'kw'</span>).send_keys(<span class="string">'测试工程师'</span>)</span><br><span class="line">        self.driver.find_element_by_id(<span class="string">'su'</span>).click()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    <span class="comment"># 运行上面所有用例</span></span><br><span class="line">    unittest.main()</span><br></pre></td></tr></table></figure>
+<h3 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h3><p>1.<a href="https://cn.python-requests.org/zh_CN/latest/user/install.html" target="_blank" rel="noopener">安装Requests库方法</a></p>
+<p>2.<a href="https://cn.python-requests.org/zh_CN/latest/user/quickstart.html" target="_blank" rel="noopener">Requests的官方文档</a></p>
+<p>3.可用于练习的免费接口：<a href="https://www.juhe.cn/docs" target="_blank" rel="noopener">聚合数据免费接口</a>（打开在筛选页，选择免费的，然后申请下就可以用了），<a href="https://api.apiopen.top/api.html" target="_blank" rel="noopener">其他免费接口</a>（由于被人乱刷，导致部分接口已被封禁）</p>
+<p>4.了解<a href="https://www.jianshu.com/p/55c8708da06c" target="_blank" rel="noopener">get和post的区别</a></p>
+<h3 id="具体示例"><a href="#具体示例" class="headerlink" title="具体示例"></a>具体示例</h3><p>我们已 qq号测吉凶为例来演示Requests的基本用法，<a href="https://www.juhe.cn/docs/api/id/166" target="_blank" rel="noopener">qq号测吉凶API地址</a>。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"></span><br><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="string">网址：https://www.juhe.cn/docs/api/id/166</span></span><br><span class="line"><span class="string">接口地址：http://japi.juhe.cn/qqevaluate/qq</span></span><br><span class="line"><span class="string">返回格式：json</span></span><br><span class="line"><span class="string">请求方式：get post</span></span><br><span class="line"><span class="string">请求示例：http://japi.juhe.cn/qqevaluate/qq?key=您申请的appKey&amp;qq=295424589</span></span><br><span class="line"><span class="string">接口备注：根据传入的参数qq号码和您申请的appKey测试qq的吉凶</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">名称 必填 类型 说明</span></span><br><span class="line"><span class="string">key    是  string 您申请的appKey</span></span><br><span class="line"><span class="string">qq 是  string 需要测试的QQ号码</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">该接口支持get和 post请求</span></span><br><span class="line"><span class="string">上面key需要自己注册账号后申请，是免费的。</span></span><br><span class="line"><span class="string">'''</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 1.先来联系get请求,</span></span><br><span class="line"><span class="comment"># 方式一：直接请求,在请求地址后面直接拼接请求参数</span></span><br><span class="line">rGet1 = requests.get(<span class="string">'http://japi.juhe.cn/qqevaluate/qq?key=你申请的appkey&amp;qq=要测试的QQ'</span>).json()</span><br><span class="line"><span class="comment"># print(rGet1)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 方式二：定义请求参数，然后使用get请求</span></span><br><span class="line">params = &#123;<span class="string">'key'</span>:<span class="string">'你申请的appkey'</span>,</span><br><span class="line">          <span class="string">'qq'</span>:<span class="string">'要测试的QQ'</span>&#125;</span><br><span class="line">rGet2 = requests.get(<span class="string">'http://japi.juhe.cn/qqevaluate/qq'</span>,params=params).json()</span><br><span class="line"><span class="comment"># print(rGet2)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 2.用post请求来</span></span><br><span class="line">data = &#123;<span class="string">'key'</span>:<span class="string">'你申请的appkey'</span>,</span><br><span class="line">          <span class="string">'qq'</span>:<span class="string">'要测试的QQ'</span>&#125;</span><br><span class="line">rPost = requests.post(<span class="string">'http://japi.juhe.cn/qqevaluate/qq'</span>,data=data).json()</span><br><span class="line">print(rPost)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 取出QQ的测试结果</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 方式一</span></span><br><span class="line">qqResult = rPost[<span class="string">'result'</span>][<span class="string">'data'</span>][<span class="string">'conclusion'</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 方式二，具体为何用get可以自行查阅资料</span></span><br><span class="line">qqResult1 = rPost.get(<span class="string">'result'</span>).get(<span class="string">'data'</span>).get(<span class="string">'conclusion'</span>)</span><br><span class="line"></span><br><span class="line">print(qqResult1)</span><br></pre></td></tr></table></figure>
 
-
-
-
-
-<h3 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h3><p>面朝大海，春暖花开。</p>
-<p>愿你一生努力，一生被爱。</p>
-]]></content>
-      <tags>
-        <tag>接口测试</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Python之模拟抽奖概率计算（3）</title>
-    <url>/2020/05/31/pyhton/Pyhton3%E4%B9%8B%E6%A8%A1%E6%8B%9F%E6%8A%BD%E5%A5%96%E6%A6%82%E7%8E%87%E8%AE%A1%E7%AE%97/</url>
-    <content><![CDATA[<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>在很多公司测试过程中会有抽奖概率测试，如果用手动去模拟，会很不现实，一般都是从接口入手，模拟跑1万到10万次或者更多，来计算概率是否符合预期。本教程先不涉及接口，只是单纯的去了解一下怎么取计算抽奖概率。</p>
-<a id="more"></a>
-
-<h3 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h3><p>1.一个包含各种奖项的奖池。</p>
-<p>2.了解随机模块<a href="https://www.runoob.com/python/func-number-random.html" target="_blank" rel="noopener">random</a>的用法</p>
-<p>3.了解 <a href="https://blog.csdn.net/u013216667/article/details/51316971" target="_blank" rel="noopener">python格式化%s,%d,%f</a></p>
-<h3 id="具体示例"><a href="#具体示例" class="headerlink" title="具体示例"></a>具体示例</h3><p>我们这里设计一个含有6种不同奖项的列表，然后随机抽取1万次，然后计算各个奖品的概率，具体如下：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> random</span><br><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="string">奖项列表：</span></span><br><span class="line"><span class="string">编号  奖品</span></span><br><span class="line"><span class="string">1    土豪女友/男友</span></span><br><span class="line"><span class="string">2    私人庄园</span></span><br><span class="line"><span class="string">3    海景别墅</span></span><br><span class="line"><span class="string">4    劳斯莱斯</span></span><br><span class="line"><span class="string">5    iPhone12</span></span><br><span class="line"><span class="string">6    纸巾一包</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">设计思路：</span></span><br><span class="line"><span class="string">把所有奖品ID放一个列表，然后随机抽取，一共抽10000次，计算抽奖结果。</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="comment"># 1.定义一个抽奖列表，有抽奖编号组成</span></span><br><span class="line">rewardIds = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>]</span><br><span class="line"><span class="comment"># 2.抽取10000次，并把抽到的结果放到一个列表内，</span></span><br><span class="line"><span class="comment"># 定义单次抽奖列表组合为lotteryResult,抽奖次数为：num1</span></span><br><span class="line">lotteryResultSimple = []</span><br><span class="line">num1 = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">10000</span>):</span><br><span class="line">    <span class="comment"># 每次只抽一个奖品时</span></span><br><span class="line">    <span class="string">'''</span></span><br><span class="line"><span class="string">    从每次随机从列表取一个元素，用 random.choice(),</span></span><br><span class="line"><span class="string">    取出的元素类型为元素本身的类型</span></span><br><span class="line"><span class="string">    '''</span></span><br><span class="line">    a = random.choice(rewardIds)</span><br><span class="line">    lotteryResultSimple.append(a)</span><br><span class="line">    num1+=<span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 定义每次抽多个奖品，抽奖奖励集合为lotteryResultMore,抽奖次数为：num2</span></span><br><span class="line">lotteryResultMore = []</span><br><span class="line">num2 = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> j <span class="keyword">in</span> range(<span class="number">10000</span>):</span><br><span class="line">    <span class="comment">#每次只抽一个奖品时</span></span><br><span class="line">    <span class="string">'''</span></span><br><span class="line"><span class="string">    从每次随机从列表取n个元素，用 random.sample(list,N)</span></span><br><span class="line"><span class="string">    list所要去随机元素的数列，N为每次要取的数</span></span><br><span class="line"><span class="string">    这时取出的随机元素，是一个数列</span></span><br><span class="line"><span class="string">    '''</span></span><br><span class="line">    b = random.sample(rewardIds,<span class="number">2</span>)</span><br><span class="line">    <span class="comment"># 因为b是一个数列，所以不能用append把抽奖结果加进去了</span></span><br><span class="line">    lotteryResultMore = lotteryResultMore + b</span><br><span class="line">    num2 += <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 定义总抽奖次数为 num,所有奖品集合为lotteryResult</span></span><br><span class="line">num = num1 + num2</span><br><span class="line">lotteryResult = lotteryResultMore + lotteryResultSimple</span><br><span class="line"></span><br><span class="line"><span class="comment"># 总共抽到的奖品数量为 lotteryResultCount</span></span><br><span class="line">lotteryResultCount = len(lotteryResult)</span><br><span class="line"><span class="comment"># 抽到土豪女友/男友的次数</span></span><br><span class="line">rewardId1 = lotteryResult.count(<span class="number">1</span>)</span><br><span class="line"><span class="comment"># 抽到私人庄园的次数</span></span><br><span class="line">rewardId2 = lotteryResult.count(<span class="number">2</span>)</span><br><span class="line"><span class="comment"># 抽到海景别墅的次数</span></span><br><span class="line">rewardId3 = lotteryResult.count(<span class="number">3</span>)</span><br><span class="line"><span class="comment"># 抽到劳斯莱斯的次数</span></span><br><span class="line">rewardId4 = lotteryResult.count(<span class="number">4</span>)</span><br><span class="line"><span class="comment"># 抽到iPhone12的次数</span></span><br><span class="line">rewardId5 = lotteryResult.count(<span class="number">5</span>)</span><br><span class="line"><span class="comment"># 抽到纸巾的次数</span></span><br><span class="line">rewardId6 = lotteryResult.count(<span class="number">6</span>)</span><br><span class="line"></span><br><span class="line">print(<span class="string">'共抽奖%s次，其中单抽%s次，二连抽%s次，共抽到奖品%s个'</span>%(num,num1,num2,lotteryResultCount))</span><br><span class="line">print(<span class="string">"*"</span>*<span class="number">30</span>)  <span class="comment"># 此处就是打印一个分割线</span></span><br><span class="line">print(<span class="string">'抽到土豪女友/男友的概率为    %.2f%%'</span>%(rewardId1/lotteryResultCount*<span class="number">100</span>))</span><br><span class="line">print(<span class="string">'抽到私人庄园的概率为        %.2f%%'</span>%(rewardId2/lotteryResultCount*<span class="number">100</span>))</span><br><span class="line">print(<span class="string">'抽到海景别墅的概率为        %.2f%%'</span>%(rewardId3/lotteryResultCount*<span class="number">100</span>))</span><br><span class="line">print(<span class="string">'抽到劳斯莱斯的概率为        %.2f%%'</span>%(rewardId4/lotteryResultCount*<span class="number">100</span>))</span><br><span class="line">print(<span class="string">'抽到iPhone12的概率为      %.2f%%'</span>%(rewardId5/lotteryResultCount*<span class="number">100</span>))</span><br><span class="line">print(<span class="string">'抽到纸巾的概率为           %.2f%%'</span>%(rewardId6/lotteryResultCount*<span class="number">100</span>))</span><br></pre></td></tr></table></figure>
-
-<p>以上就是一个概率的计算，以及结果的展示，具体用到的也就是一些基础知识，实际使用抽奖接口去抽奖并计算概率时，需要考虑的东西还有很多，我们后续再讲。</p>
-<p><strong>小知识</strong></p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment">#其他输出格式化例如 %s啦，%d基本大同小异，大家自行搜索练习 </span></span><br><span class="line"></span><br><span class="line">a = <span class="number">0.222222222</span></span><br><span class="line">print(<span class="string">"a显示小数点后两位：%.2f"</span>%a)</span><br><span class="line"><span class="comment"># 输出为： a显示小数点后两位：0.22</span></span><br><span class="line"></span><br><span class="line">print(<span class="string">"a显示小数点后5位： %.5f"</span>%a)</span><br><span class="line"><span class="comment"># 输出为：a显示小数点后5位： 0.22222</span></span><br><span class="line"></span><br><span class="line">print(<span class="string">"以百分号形式输出并保留小数点后两位 %.2f%%"</span>%(a*<span class="number">100</span>))</span><br><span class="line"><span class="comment"># 输出为： 以百分号形式输出并保留小数点后两位 22.22%</span></span><br></pre></td></tr></table></figure>
-
-
-
+<p>以上就是Requests 的基本用法，以后在编码过程中也要学会查看函数参数和方法。</p>
+<p>学会Requests的用法就可以对接口做一些基本的操作了。</p>
 <h3 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h3><p>面朝大海，春暖花开。</p>
 <p>愿你一生努力，一生被爱。</p>
 ]]></content>
@@ -260,7 +786,7 @@
   <entry>
     <title>我的祖国</title>
     <url>/2020/07/23/readingNotes/%E8%AF%BB%E4%B9%A61-%E6%88%91%E7%9A%84%E7%A5%96%E5%9B%BD/</url>
-    <content><![CDATA[<p><img src="https://ssd.qiniu.dreamfly95.com/china.jpg" alt="china"></p>
+    <content><![CDATA[<p><img src="https://ssd.qiniu.dreamfly95.com/china.jpg" alt="china" loading="lazy"></p>
 <p>我和我的祖国</p>
 <p>一刻也不能分割</p>
 <p>无论我走到哪里</p>
@@ -290,259 +816,6 @@
 ]]></content>
       <tags>
         <tag>读书</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>能力陷阱</title>
-    <url>/2019/10/25/readingNotes/%E8%AF%BB%E4%B9%A62-%E8%83%BD%E5%8A%9B%E9%99%B7%E9%98%B1/</url>
-    <content><![CDATA[<p><img src="https://ssd.qiniu.dreamfly95.com/NLXJ.png" alt="NLXJ"></p>
-<p>​         本书深刻揭示职场的三大观念陷阱，提出“先行动，后思考”的方法，打破了传统领导者的养成法则，帮助那些渴望成为优秀领导者的人学会如何扩展业务范围，如何提出更好的策略性意见，以及如何扩建人际关系网络并引领他们朝着不同的方向发展自己。</p>
-<a id="more"></a>
-
-<ol>
-<li><p>很多需要紧急处理的事情限制着你，让你没有办法去做那些更重要的事。但是在努力学会做好一个领导者的问题上，你面临着一个更大的挑战：那就是只有先行动起来，你才能知道关于自己，关于工作你需要做些什么，而不仅仅是思考。</p>
-</li>
-<li><p>如果我们想要成为一名优秀的领导者，就要学会“先行动后思考”。这与我们普遍所熟知的学习顺序的矛盾在于，在改变的过程中，我们会先看到结果，即改变让我们产生了什么样的感受，身边的人对我们的改变有什么样的反应，之后我们才会开始思考，把外在经历内在化。换句话说，我们要先在行为上表现得像一个领导者，而后才会像领导者一样去思考。</p>
-</li>
-<li><p>做领导者所做的工作会引发两个重要的转变过程：一是外在转变过程；二是内在转变过程。它们之间是紧密相连的。外在转变过程指的是建立起一个有潜力或有能力的好名声，这能够在很大程度上改变我们的自我认知；而内在转变过程涉及内在动机和自我定位的转变，这种转变并不是独立发生的，而是在与他人所建立的关系中渐渐发生的转变。</p>
-</li>
-<li><p>为了成为一名优秀的领导者，你要学会像领导者一样去思考。</p>
-</li>
-<li><p>你思考的方式来源于你过去的经历。</p>
-</li>
-<li><p>改变你想法的唯一方法就是去做与之前不一样的事情。</p>
-</li>
-<li><p>去做——而不仅仅是去想——才会增强你的外在表现力，而这些外在表现力是一个领导者所必需的。</p>
-</li>
-<li><p>稳定的“三脚架”（tripod）关系能提升你的外在表现力：新工作、新关系以及新自我。</p>
-</li>
-<li><p>我们很乐于去做那些我们擅长的事，于是就会一直去做，最终就使得我们会一直擅长那些事。做得越多，就越擅长，越擅长就越愿意去做。这样的一个循环能让我们在这方面获得更多的经验。而它就像是毒品一样，我们被它深深吸引，因为我们的快乐和自信都来源于它。它还会让我们产生误区，让我们相信我们擅长的事就是最有价值的且最重要的事，所以值得我们花时间去做。</p>
-</li>
-</ol>
-]]></content>
-      <tags>
-        <tag>读书</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>代码管理(git,gitee,coding等)平台配置ssh</title>
-    <url>/2019/10/25/skill/%E6%8A%80%E5%B7%A71-%E4%BB%A3%E7%A0%81%E7%AE%A1%E7%90%86%E5%B9%B3%E5%8F%B0%E9%85%8D%E7%BD%AEssh/</url>
-    <content><![CDATA[<h1 id="git-gitee-coding等平台配置ssh"><a href="#git-gitee-coding等平台配置ssh" class="headerlink" title="git,gitee,coding等平台配置ssh"></a>git,gitee,coding等平台配置ssh</h1><h3 id="git-gitee-coding等托管平台配置ssh的目的："><a href="#git-gitee-coding等托管平台配置ssh的目的：" class="headerlink" title="git,gitee,coding等托管平台配置ssh的目的："></a>git,gitee,coding等托管平台配置ssh的目的：</h3><p>配置好ssh后可以让你的电脑和git,gitee,coding等平台通讯的时候建立可信任的安全连接</p>
-<a id="more"></a>
-
-<p>###步骤：</p>
-<ol>
-<li><p>打开终端（windows下载<a href="https://gitforwindows.org/" target="_blank" rel="noopener">git windows 终端</a>，Mac直接用原生自带的terminal就OK）。</p>
-<ul>
-<li>输入<code>cd ~/.ssh</code></li>
-<li>然后输入<code>ls</code>,查看是否有<code>id_rsa</code>和<code>id_rsa.pub</code></li>
-</ul>
-<p><img src="https://ssd.qiniu.dreamfly95.com/cdssh.png" alt="cdssh"></p>
-<ul>
-<li>如果有则执行第2部，如果没有上述两个文件就执行 <code>ssh-keygen -trsa -C xxxxx@XXX.com</code>(xxxxx@XXX.com为你注册github时的邮箱)，然后开始执行第二部</li>
-</ul>
-<!--注意：如果已有id_rsa和id_rsa.pub文件时，不要执行 ssh-keygen，不然会把你原有的ssh文件冲掉，原来配置过ssh的地方就失效了-->
-</li>
-<li><p>查看公钥内容</p>
-<ul>
-<li><p>执行<code>cat ~/.ssh/id_rsa.pub</code></p>
-<p><img src="https://ssd.qiniu.dreamfly95.com/catssh.png" alt="catssh"></p>
-</li>
-</ul>
-</li>
-<li><p>复制公钥内容，全部内容，以ssh-rsa开头的全部内容。粘贴至你所要建立安全连接的平台，这里咦gitee为例：</p>
-<ul>
-<li><p>打开<a href="https://gitee.com/" target="_blank" rel="noopener">gitee</a>并登陆账户,按下图操作</p>
-<p><img src="https://ssd.qiniu.dreamfly95.com/giteessh1.png" alt="giteessh1"></p>
-</li>
-</ul>
-</li>
-</ol>
-<p>   <img src="https://ssd.qiniu.dreamfly95.com/giteessh2.png" alt="giteessh2"></p>
-<ul>
-<li>然后点击保存就OK了，其他例如 github,gitlab等都一样</li>
-</ul>
-<ol start="4">
-<li><p>测试是否连接成功</p>
-<ul>
-<li><p>终端执行 <code>ssh -T git@gitee.com</code>   (@后面的可以换成你想要连接的平台的网址就OK)</p>
-</li>
-<li><p>如果成功则会提示 You’ve successfully<img src="https://ssd.qiniu.dreamfly95.com/giteessh3.png" alt="giteessh3"></p>
-</li>
-</ul>
-</li>
-</ol>
-<ol start="5">
-<li>完工！！！</li>
-</ol>
-]]></content>
-      <tags>
-        <tag>技巧</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Markdown的使用</title>
-    <url>/2020/05/26/skill/%E6%8A%80%E5%B7%A73-Markdown%E7%9A%84%E4%BD%BF%E7%94%A8/</url>
-    <content><![CDATA[<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>Markdown 是一种轻量级标记语言，它允许人们使用易读易写的纯文本格式编写文档。</p>
-<p>Markdown 编写的文档后缀为 <code>.md</code>, <code>.markdown</code>，可以导出 HTML 、Word、图像、PDF、Epub 等多种格式的文档。当前许多网站都广泛使用 Markdown 来撰写帮助文档或是用于论坛上发表消息。例如：GitHub、简书等。</p>
-<p>通俗一点讲，使用Markdown写文档可以让你的文档格式比较规范明了，看着比较优美，本文的教程就是用Markdown写的。</p>
-<a id="more"></a>
-
-<h3 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h3><p>1.在线练习工具<a href="https://www.zybuluo.com/mdeditor" target="_blank" rel="noopener">Cmd Markdown 编辑阅读器</a></p>
-<p>2.客户端编写软件 <a href="https://typora.io/" target="_blank" rel="noopener">Typora</a></p>
-<blockquote>
-<p>注意 在线练习工具Cmd Markdown 编辑阅读器 和 客户端软件 Typora 有些语法会有差异大家自行甄别。</p>
-</blockquote>
-<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><p>给介绍几个常用的语法和最终的展示效果，具体的一些可以在 <a href="https://www.zybuluo.com/mdeditor" target="_blank" rel="noopener">Cmd Markdown 编辑阅读器</a> 中查阅</p>
-<h4 id="1-标题"><a href="#1-标题" class="headerlink" title="1.标题"></a>1.标题</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">语法：</span><br><span class="line"># 这是一级标题</span><br><span class="line">## 这是二级标题</span><br><span class="line">### 这是三级标题</span><br><span class="line">#### 这是四级标题</span><br><span class="line">##### 这是五级标题</span><br><span class="line">###### 这是六级标题</span><br></pre></td></tr></table></figure>
-
-<p>展示效果：</p>
-<p><img src="https://ssd.qiniu.dreamfly95.com/Markdown1.png" alt=""></p>
-<h4 id="2-字体"><a href="#2-字体" class="headerlink" title="2.字体"></a>2.字体</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">语法：</span><br><span class="line">**这是加粗的文字**</span><br><span class="line">*这是倾斜的文字*`</span><br><span class="line">***这是斜体加粗的文字***</span><br><span class="line">~~这是加删除线的文字~~</span><br></pre></td></tr></table></figure>
-
-<p>展示效果：</p>
-<p><img src="https://ssd.qiniu.dreamfly95.com/Markdown2.png" alt=""></p>
-<h4 id="3-引用"><a href="#3-引用" class="headerlink" title="3.引用"></a>3.引用</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">语法：</span><br><span class="line">&gt;这是引用的内容</span><br></pre></td></tr></table></figure>
-
-<p>展示效果：</p>
-<p><img src="https://ssd.qiniu.dreamfly95.com/Markdown3.png" alt=""></p>
-<h4 id="4-超链接"><a href="#4-超链接" class="headerlink" title="4.超链接"></a>4.超链接</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">语法</span><br><span class="line">[超链接名](超链接地址 &quot;超链接title&quot;)</span><br><span class="line"></span><br><span class="line">示例：</span><br><span class="line">[百度](http://baidu.com)</span><br></pre></td></tr></table></figure>
-
-<p>展示效果：</p>
-<p><img src="https://ssd.qiniu.dreamfly95.com/Markdown4.png" alt=""></p>
-<h4 id="5-图片"><a href="#5-图片" class="headerlink" title="5.图片"></a>5.图片</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">![图片描述](图片地址 &apos;&apos;图片title&apos;&apos;)</span><br><span class="line"></span><br><span class="line">图片alt就是显示在图片下面的文字，相当于对图片内容的解释，可加可不加</span><br><span class="line">图片title是图片的标题，当鼠标移到图片上时显示的内容。title可加可不加</span><br><span class="line"></span><br><span class="line">示例：</span><br><span class="line"></span><br><span class="line">![风景](https://ss0.bdstatic.com/94oJfD_bAAcT8t7mm9GUKT-xh_/timg?image&amp;quality=100&amp;size=b4000_4000&amp;sec=1590818510&amp;di=f0e6467d2588dd1434e9fbb151653570&amp;src=http://www.wndhw.com/fengjing/shanshui/images/ss003t4.jpg &quot;风景&quot;)</span><br></pre></td></tr></table></figure>
-
-<p>展示效果：</p>
-<p><img src="https://ssd.qiniu.dreamfly95.com/Markdown5.png" alt=""></p>
-<h4 id="6-代码块"><a href="#6-代码块" class="headerlink" title="6.代码块"></a>6.代码块</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">语法：</span><br><span class="line"></span><br><span class="line">`代码内容`</span><br></pre></td></tr></table></figure>
-<p> 我是代码块<br> 我是代码块<br> 我是代码块<br> 我是代码块<br> <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
-<p>展示效果：</p>
-<p><img src="https://ssd.qiniu.dreamfly95.com/Markdown6.png" alt=""></p>
-<p>以上是一些基本常用的。其他的语法大家可以在  <a href="https://www.zybuluo.com/mdeditor" target="_blank" rel="noopener">Cmd Markdown 编辑阅读器</a> 中查阅。</p>
-<h3 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h3><p>面朝大海，春暖花开。</p>
-<p>愿你一生努力，一生被爱。</p>
-]]></content>
-      <tags>
-        <tag>技巧</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>怎么打开iOS手机的开发者模式</title>
-    <url>/2020/07/04/skill/%E6%8A%80%E5%B7%A74-iOS%E6%89%8B%E6%9C%BA%E7%9A%84%E5%BC%80%E5%8F%91%E8%80%85%E6%A8%A1%E5%BC%8F/</url>
-    <content><![CDATA[<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>iPhone手机也有开发者选项，这个功能开发或者测试同学都有很大的帮助，今天我们就把这个功能个如何打开，如何关闭，以及各个功能到底有什么作用给大家列一下。</p>
-<a id="more"></a>
-
-<h3 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h3><p>1.Xcode （本次文档中使用是 Xcode Version 11.5）</p>
-<p>2.iPhone （本次文档中使用是 iPhone XR iOS13.5.1）</p>
-<h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>开发者每个选项的作用：</p>
-<p><strong>PAIRED DEVICES</strong> </p>
-<p>Clear Trusted Computers 清除受信任的计算机</p>
-<p><strong>INSTRUMENTS</strong></p>
-<p> Logging 点击进入  可以对电量和网络记录情况进行记录 记录的内容可以使用instruments查看。<a href="https://links.jianshu.com/go?to=http%3A%2F%2Fwww.cocoachina.com%2Fios%2F20180806%2F24469.html" target="_blank" rel="noopener">使用方法</a></p>
-<p><strong>Enable UI Automation</strong>  是否允许UI自动化测试</p>
-<p> <a href="https://www.jianshu.com/p/0e28ae1bd2c2" target="_blank" rel="noopener">iOS自动化测试 UI Automation</a></p>
-<p><strong>NETWORKING</strong><br> Network Link Conditioner 网络链接调节器  模拟各种网络情况，可以对APP进行弱网测试。</p>
-<p><strong>AD DEVELOPER APP TESTING</strong> 广告开发者 app测试<br> Fill Rate 填充率<br> Ad Refresh Rate 广告刷新间隔<br> Highlight Clipped Banners  突出显示剪贴横幅<br> Unlimited Ad Presentation  无限广告展示</p>
-<p><strong>PASSKIT TESTING</strong> 测试<br> Addtional Logging 附加登录<br> Allow HTTP Services 允许http服务<br> Disable Rate Limiting  禁止限制速率<br> NFC Pass Key Optional NFC密码可选<br> <a href="https://links.jianshu.com/go?to=https%3A%2F%2Fdeveloper.apple.com%2Fwallet%2F" target="_blank" rel="noopener">官方链接</a></p>
-<p><strong>NEWS TESTING</strong><br> Reset Local Data on Next Launch. 下次启动时重置本地数据<br> Reset layouts,images,and other cached elements. Private data will not be affected.<br> 重置布局、图像和其他缓存元素。私有数据不会受到影响。</p>
-<h3 id="打开方式"><a href="#打开方式" class="headerlink" title="打开方式"></a>打开方式</h3><ol>
-<li><p>用数据线连接mac和iPhone</p>
-</li>
-<li><p>打开Xcode，选择 Xcode -&gt; window -&gt; Devices and Simulators，如图：</p>
-</li>
-</ol>
-<p><img src="https://ssd.qiniu.dreamfly95.com/image-20200704175313401.png" alt="image-20200704175313401"></p>
-<ol start="3">
-<li>选择自己的手机，右键单击选择Show Provisioning Profiles…，如图：</li>
-</ol>
-<p><img src="https://ssd.qiniu.dreamfly95.com/image-20200704175458221.png" alt="image-20200704175458221"></p>
-<ol start="4">
-<li><p>在弹窗中的列表中查看，是否有开发者证书，如果没有，就点击“+”，添加开发者证书，完成后点击“Done”。如图：</p>
-<p><img src="https://ssd.qiniu.dreamfly95.com/image-20200704175643841.png" alt="image-20200704175643841"></p>
-</li>
-<li><p>打开手机设置，在列表里就能看到开发者选项了。</p>
-<p><img src="https://ssd.qiniu.dreamfly95.com/image-20200704175829746.png" alt="image-20200704175829746"></p>
-</li>
-</ol>
-<h3 id="关闭开发者选项"><a href="#关闭开发者选项" class="headerlink" title="关闭开发者选项"></a>关闭开发者选项</h3><p>在未连接mac时，手机关机重启，开发者选项就消失。</p>
-<h3 id="资料来源"><a href="#资料来源" class="headerlink" title="资料来源"></a>资料来源</h3><p><a href="https://www.jianshu.com/p/8dc5787b4728" target="_blank" rel="noopener">https://www.jianshu.com/p/8dc5787b4728</a></p>
-<h3 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h3><p>面朝大海，春暖花开。</p>
-<p>愿你一生努力，一生被爱。</p>
-]]></content>
-      <tags>
-        <tag>技巧</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>markdown图片自动上传</title>
-    <url>/2020/07/04/skill/%E6%8A%80%E5%B7%A75-markdown%E5%9B%BE%E7%89%87%E8%87%AA%E5%8A%A8%E4%B8%8A%E4%BC%A0/</url>
-    <content><![CDATA[<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>我们写markdown时，里面需要用到的图片，需要上传生成链接后在放到文档里面，图片一旦多了会很麻烦。</p>
-<p>今天给大家推荐两款应用，结合使用，可以直接把要用的图片直接拖到markdown编写工具内，图片就会自动上传。</p>
-<a id="more"></a>
-
-<h3 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h3><p>1.<a href="https://github.com/Molunerfinn/PicGo" target="_blank" rel="noopener">PicGo 图床管理工具</a></p>
-<p>2.<a href="https://www.typora.io/" target="_blank" rel="noopener">Typore markdown编写工具</a></p>
-<blockquote>
-<p>本次使用的mac电脑，window电脑操作方式应该大体也一样</p>
-</blockquote>
-<h3 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h3><p>1.配置PicGo 图床管理工具，<a href="https://picgo.github.io/PicGo-Doc/zh/guide/getting-started.html" target="_blank" rel="noopener">使用文档</a></p>
-<p>2.打开Typore，选择 Typore =&gt; 偏好设置 =&gt; 图像，然后做如图配置：</p>
-<p><img src="https://ssd.qiniu.dreamfly95.com/image-20200704181634536.png" alt="image-20200704181634536"></p>
-<p>3.点击验证图片上传选项，出现如图验证成功提示，就配置完成了。</p>
-<p><img src="https://ssd.qiniu.dreamfly95.com/image-20200704181826122.png" alt="image-20200704181826122"></p>
-<p>4.这时就可以把本地图片拖到Typore里，图片就会自动传到云端了，大家快去体验一下吧。</p>
-<h3 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h3><p>面朝大海，春暖花开。</p>
-<p>愿你一生努力，一生被爱。</p>
-]]></content>
-      <tags>
-        <tag>技巧</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>软件质量的管理和保障</title>
-    <url>/2020/07/23/testing/QA1-%E8%B4%A8%E9%87%8F%E7%AE%A1%E7%90%86%E5%92%8C%E4%BF%9D%E9%9A%9C/</url>
-    <content><![CDATA[<p>互联网企业的发展，离不开用户的需求，而质量问题是用户的需求很重要的一个指标，对于企业而言，软件质量的管理和保障是其中必不可少的一环。从事测试行业多年，对于软件质量的管理和保障也有了一定的认识，下面我谈一下我对这块的看法，也欢迎大家一起进行探讨，学习。</p>
-<a id="more"></a>
-
-<p>对于保证软件质量，我们分为三步：</p>
-<ol>
-<li>测试流程的巩固</li>
-<li>测试技能的提升</li>
-<li>测试理念的建立&amp;固化</li>
-</ol>
-<p><img src="https://ssd.qiniu.dreamfly95.com/image-20200723211903213.png" alt="image-20200723211903213"></p>
-<ol>
-<li>为什么把测试流程放到第一步呢？因为我们一个测试组会有很多人，大家的测试技能、测试理念是参差不齐的，这时保证质量的最基本的手段就是，把整个测试流程执行好，能很大程度的保证软件的质量。</li>
-<li>对于测试技能<ul>
-<li>测试用例的编写是最重要的，提升起来也是最困难的，需要不停的磨炼和探索，平时也可以提倡组内用例写的好的同学分享自己写用例的心得等。</li>
-<li>对于测试工具 Charles，Postman，Perfdog，Airtest相对来说学起来比较容易，基本也能满足我们对接口，性能等的测试。对于Python语言的学习是一个漫长的过程，可能需要坚持半年甚至几年，并每天都花一定时间的学习，才能有点小成，这个有点看个人意愿了。</li>
-</ul>
-</li>
-<li>测试理念和职责的固化和调整，这个偏软实力，要从一个测试达到一个QA的标准，实际最重要的就是这方面，需要慢慢的在工作中磨炼，并树立一个要保证整个工作流（非测试流程）的顺利进行的思想，且要对一些体验性问题保持敏感，真正的站到用户角度去思考，而并不是只是说说而已。</li>
-</ol>
-<p>以上是我整理的自己的一些看法，里面应该还有很多可以优化和提升的地方，大家有什么意见或看法，可以到公众号给我留言，感谢！！！</p>
-<p><strong>公众号：LiQ的低语</strong></p>
-<h3 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h3><p>面朝大海，春暖花开。</p>
-<p>愿你一生努力，一生被爱。</p>
-]]></content>
-      <tags>
-        <tag>测试</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>测试工程师知识图谱</title>
-    <url>/2020/05/30/testing/QA2-%E6%B5%8B%E8%AF%95%E5%B7%A5%E7%A8%8B%E5%B8%88%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1/</url>
-    <content><![CDATA[<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>有很多同学对于测试工程师必备的测试技能不是很清晰，对自己以后的规划也不是很明了，不知道自己到底该从哪个方向努力或发展，下面是我从其他大佬那找的测试工程师必备知识图谱，也许能能给大家带来一些帮助。</p>
-<a id="more"></a>
-
-<h3 id="图谱"><a href="#图谱" class="headerlink" title="图谱"></a>图谱</h3><p><img src="https://ssd.qiniu.dreamfly95.com/TesterSkillMap3.png" alt="TesterSkillMap3"></p>
-<p><img src="https://ssd.qiniu.dreamfly95.com/TesterSkillMap2.png" alt="TesterSkillMap2">)<img src="https://ssd.qiniu.dreamfly95.com/TesterSkillMap1.png" alt="TesterSkillMap1"></p>
-<p>​    来源：<a href="https://blog.csdn.net/timeorspace/article/details/69225354" target="_blank" rel="noopener">https://blog.csdn.net/timeorspace/article/details/69225354</a></p>
-<h3 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h3><p>面朝大海，春暖花开。</p>
-<p>愿你一生努力，一生被爱。</p>
-]]></content>
-      <tags>
-        <tag>测试</tag>
       </tags>
   </entry>
   <entry>
@@ -672,148 +945,70 @@
       </tags>
   </entry>
   <entry>
-    <title>测试全流程图解</title>
-    <url>/2020/06/02/testing/QA3-%E6%B5%8B%E8%AF%95%E5%85%A8%E6%B5%81%E7%A8%8B%E5%9B%BE%E8%A7%A3/</url>
-    <content><![CDATA[<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>对于测试流程，大部分做测试的同学都能说个七七八八，但是对于一些细节，可能还是一知半解的，以下是对测试全流程整理的一个图谱，应该可以给大家带来一些帮助，如有不妥的地方，烦请指正。</p>
+    <title>Python多任务之进程</title>
+    <url>/2021/03/15/pyhton/Python%E5%A4%9A%E4%BB%BB%E5%8A%A12%E4%B9%8B%E8%BF%9B%E7%A8%8B/</url>
+    <content><![CDATA[<h4 id="进程以及状态"><a href="#进程以及状态" class="headerlink" title="进程以及状态"></a>进程以及状态</h4><blockquote>
+<p>操作系统的调度算法：</p>
+<p>时间片轮转</p>
+<p>优先级调度</p>
+</blockquote>
+<h5 id="进程"><a href="#进程" class="headerlink" title="进程"></a>进程</h5><p>程序：例如xxx.py，xxx.exe这是程序，是一个静态的</p>
+<p>进程：一个程序运行起来后，代码+用到的资源称之为进程，他是操作系统分配资源的基本单元。不进可以通过线程完成多任务，进程也是可以的</p>
 <a id="more"></a>
 
-<h3 id="图谱"><a href="#图谱" class="headerlink" title="图谱"></a>图谱</h3><p><img src="https://ssd.qiniu.dreamfly95.com/image-20200530184050663.png" alt="image-20200530184050663"></p>
-<h3 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h3><p>面朝大海，春暖花开。</p>
-<p>愿你一生努力，一生被爱。</p>
-]]></content>
-      <tags>
-        <tag>测试</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>测试用例的编写</title>
-    <url>/2019/10/25/testing/QA4-%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B%E8%AE%BE%E8%AE%A1%E6%96%B9%E6%B3%95/</url>
-    <content><![CDATA[<h3 id="测试用例设计方法"><a href="#测试用例设计方法" class="headerlink" title="测试用例设计方法"></a>测试用例设计方法</h3><ul>
-<li><p>逐级细分法</p>
-</li>
-<li><p>输入域测试法</p>
-</li>
-<li><p>输出域分析法</p>
-</li>
-<li><p>正交试验设计法</p>
-<a id="more"></a>
-</li>
-<li><p>业务流程分析法</p>
-</li>
-<li><p>状态迁移法</p>
-</li>
-<li><p>因果图法</p>
-</li>
-<li><p>判定表法</p>
-</li>
-<li><p>错误猜测法</p>
-</li>
-<li><p>等价类划分法 （等价类划分方法，是将所有可能的输入数据划分成若干个子集，在每个子集中，如果任意一个输入数据对于揭露程序中潜在错误都具有同等效果，那么这样的子集就构成了一个等价类。后续只要从每个等价类中任意选取一个值进行测试，就可以用少量具有代表性的测试输入取得较好的测试覆盖结果）</p>
-</li>
-<li><p>边界值分析法（边界值分析方法，是选取输入、输出的边界值进行测试。因为通常大量的软件错误是发生在输入或输出范围的边界上，所以需要对边界值进行重点测试，通常选取正好等于、刚刚大于或刚刚小于边界的值作为测试数据。 从方法论上可以看出来，边界值分析是对等价类划分的补充，所以这两种测试方法经常结合起来使用。</p>
-</li>
+<h5 id="进程的状态"><a href="#进程的状态" class="headerlink" title="进程的状态"></a>进程的状态</h5><p> 工作中，任务数往往大于CPU数，即一定有一些任务正在执行，而另外一些任务在等待CPU进行执行，因此导致了有不同的状态</p>
+<p><img src="https://ssd.qiniu.dreamfly95.com/%E6%9C%AA%E5%91%BD%E5%90%8D%E6%96%87%E4%BB%B6.png" alt="流程图" loading="lazy"></p>
+<ul>
+<li>就绪态：运行的条件都已就绪，正在等待在CPU执行</li>
+<li>执行态：CPU 正在执行其功能</li>
+<li>等待态：等待某些条件满足，例如一个程序sleep了，此处就处于等待态</li>
 </ul>
-<hr>
-<h4 id="‘用户登录’设计测试用例"><a href="#‘用户登录’设计测试用例" class="headerlink" title="‘用户登录’设计测试用例"></a>‘用户登录’设计测试用例</h4><blockquote>
-<p>目标是要保证系统在各种应用场景下的功能是符合设计要求的，这样考虑的测试用例就需要更多、更全面。</p>
-</blockquote>
-<h5 id="基于等价类划分和边界值分析方法，我们设计的测试用例包括："><a href="#基于等价类划分和边界值分析方法，我们设计的测试用例包括：" class="headerlink" title="基于等价类划分和边界值分析方法，我们设计的测试用例包括："></a>基于等价类划分和边界值分析方法，我们设计的测试用例包括：</h5><ol>
-<li>输入已注册的用户名和正确的密码，验证是否登录成功</li>
-<li>输入已注册的用户名和不正确的密码，验证是否登录失败，并且提示信息正确</li>
-<li>输入未注册的用户名和任意密码，验证是否登录失败，并且提示信息正确；</li>
-<li>用户名和密码两者都为空，验证是否登录失败，并且提示信息正确</li>
-<li>用户名和密码两者之一为空，验证是否登录失败，并且提示信息正确；</li>
-<li>如果登录功能启用了验证码功能，在用户名和密码正确的前提下，输入正确的验证码，验证是否登录成功；</li>
-<li>如果登录功能启用了验证码功能，在用户名和密码正确的前提下，输入错误的验证码，验证是否登录失败，并且提示信息正确。</li>
-</ol>
-<h5 id="需要弥补的测试用例"><a href="#需要弥补的测试用例" class="headerlink" title="需要弥补的测试用例"></a>需要弥补的测试用例</h5><ol>
-<li>用户名和密码是否大小写敏感；</li>
-<li>页面上的密码框是否加密显示；</li>
-<li>后台系统创建的用户第一次登录成功时，是否提示修改密码</li>
-<li>忘记用户名和忘记密码的功能是否可用</li>
-<li>前端页面是否根据设计要求限制用户名和密码长度；</li>
-<li>如果登录功能需要验证码，点击验证码图片是否可以更换验证码，更换后的验证码是否可用</li>
-<li>刷新页面是否会刷新验证码；</li>
-<li>如果验证码具有时效性，需要分别验证时效内和时效外验证码的有效性</li>
-<li>用户登录成功但是会话超时后，继续操作是否会重定向到用户登录界面</li>
-<li>不同级别的用户，比如管理员用户和普通用户，登录系统后的权限是否正确</li>
-<li>页面默认焦点是否定位在用户名的输入框中</li>
-<li>快捷键Tab和Enter等，是否可以正常使用</li>
-</ol>
-<h5 id="安全性测试用例包括"><a href="#安全性测试用例包括" class="headerlink" title="安全性测试用例包括"></a>安全性测试用例包括</h5><blockquote>
-<p>一个质量过硬的软件系统，除了显式功能性需求以外，其他的非功能性需求即隐式功能性需求也是极其关键的。</p>
-</blockquote>
+<h4 id="进程的创建"><a href="#进程的创建" class="headerlink" title="进程的创建"></a>进程的创建</h4><p>multiprocessing模块是跨平台的多进程模块，提供了一个Process类来代表一个进程对象，这个对象可以理解为是一个独立的进程，可以执行另外的事情</p>
+<h5 id="2个while循环一起执行"><a href="#2个while循环一起执行" class="headerlink" title="2个while循环一起执行"></a>2个while循环一起执行</h5><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> multiprocessing <span class="keyword">import</span> Process</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">run_poc</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="string">"""子进程要执行的代码"""</span></span><br><span class="line">    <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">        print(<span class="string">"----2----"</span>)</span><br><span class="line">        time.sleep(<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    p = Process(target=run_poc)</span><br><span class="line">    p.start()</span><br><span class="line">    <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">        print(<span class="string">"---1---"</span>)</span><br><span class="line">        time.sleep(<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
+
+<p>创建子进程，只需要传入一个执行函数和函数的参数，创建一个Process实例，用start()方法启动。</p>
+<h4 id="进程和线程的对比"><a href="#进程和线程的对比" class="headerlink" title="进程和线程的对比"></a>进程和线程的对比</h4><h5 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h5><ul>
+<li>进程，能够完成多任务，比如在一台电脑上能够同时运行多个QQ</li>
+<li>线程，能够完成多任务，比如在一个QQ中的多个聊天窗口</li>
+</ul>
+<h5 id="定义的不同"><a href="#定义的不同" class="headerlink" title="定义的不同"></a>定义的不同</h5><ul>
+<li>进程是系统进行资源分配和调度的一个独立单位</li>
+<li>线程是进程的一个实体，是CPU调度和分派的基本单位，他是比进程更小的能独立运行的基本单位，线程自己基本上不拥有系统资源，只拥有一点在运行中必不可少的资源（如程序计算器，一组寄存器和栈），但是他可与同属一个进程的其他线程共享进程所拥有的全部资源.</li>
+</ul>
+<h5 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h5><ul>
+<li>一个程序至少有一个进程，一个进程至少有一个线程</li>
+<li>线程的划分尺度小于进程（资源比进程少），使得多线程程序的并发性高。</li>
+<li>进程在执行过程中拥有独立的内存单元，而多个线程共享内存，从而极大地提高了程序的运行效率。</li>
+<li>线程不能独立执行，必须已存在进程中</li>
+<li>可以将进程理解为一条流水线，而其中的线程就是这个流水线上的工人。</li>
+</ul>
+<h5 id="优缺点"><a href="#优缺点" class="headerlink" title="优缺点"></a>优缺点</h5><p>线程和进程在使用上各有优缺点：线程执行开销小，单不利于自愿的管理和保护；而进程正好相反。</p>
+<h4 id="进程间的通信-Queue"><a href="#进程间的通信-Queue" class="headerlink" title="进程间的通信-Queue"></a>进程间的通信-Queue</h4><p>Process之间有时需要通信，操作系统提供了很多机制来实现记成间的通信。</p>
+<h5 id="Queue的使用"><a href="#Queue的使用" class="headerlink" title="Queue的使用"></a>Queue的使用</h5><p>可以用multiprocessing模块的Queue实现多进程之间的数据传递，Queue本身是一个消息队列程序，代码实现如下：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> multiprocessing</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_data</span><span class="params">(q)</span>:</span></span><br><span class="line">    <span class="string">"""下载数据"""</span></span><br><span class="line">    <span class="comment"># 模拟从网上下载数据</span></span><br><span class="line">    data = [<span class="number">11</span>,<span class="number">22</span>,<span class="number">33</span>,<span class="number">44</span>]</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 向队列里写入数据</span></span><br><span class="line">    <span class="keyword">for</span> temp <span class="keyword">in</span> data:</span><br><span class="line">        q.put(temp)</span><br><span class="line"></span><br><span class="line">    print(<span class="string">"---下载器已经下载完了数据并存入队列中---"</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">analysis_data</span><span class="params">(q)</span>:</span></span><br><span class="line">    <span class="string">""" 数据处理 """</span></span><br><span class="line">    waitting_analysis_data = list()</span><br><span class="line">    <span class="comment"># 从对列中取出数据</span></span><br><span class="line">    <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">        data = q.get()</span><br><span class="line">        waitting_analysis_data.append(data)</span><br><span class="line">        <span class="keyword">if</span> q.empty():</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">    <span class="comment"># 模拟数据处理</span></span><br><span class="line">    print(waitting_analysis_data)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="comment"># 创建一个对列</span></span><br><span class="line">    q = multiprocessing.Queue()</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 创建多个进程，将队列的引用当做参数进行传递到里面</span></span><br><span class="line">    p1 = multiprocessing.Process(target=get_data,args=(q,))</span><br><span class="line">    p2 = multiprocessing.Process(target=analysis_data,args=(q,))</span><br><span class="line">    p1.start()</span><br><span class="line">    p2.start()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    main()</span><br></pre></td></tr></table></figure>
+
+<p>打印结果：</p>
+<p><strong>—下载器已经下载完了数据并存入队列中—<br>[11, 22, 33, 44]</strong></p>
+<h4 id="进程的创建-进程池Pool"><a href="#进程的创建-进程池Pool" class="headerlink" title="进程的创建-进程池Pool"></a>进程的创建-进程池Pool</h4><p>当需要创建的子进程熟练不多时，可以直接利用multiprocessing中的Process动态生成多个进程，但如果是上百上千个目标，手动去创建进程的工作量巨大，此时就可以用到multiprocessing提供的Pool方法。</p>
+<p>初始化Pool时，可以指定一个最大的进程数，当有新的请求提交到Pool中时，如果池还没有满，那么久会创建一个新的进程来执行请求；但如果池中的进程数已经达到指定的最大值，那么该请求就会等待，知道池中有进程接胡搜，才会用之前的进程来执行新的任务，代码示例如下：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># -*- coding:utf-8 -*-</span></span><br><span class="line"><span class="keyword">from</span> multiprocessing <span class="keyword">import</span> Pool</span><br><span class="line"><span class="keyword">import</span> os,time,random</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">worker</span><span class="params">(msg)</span>:</span></span><br><span class="line">    t_start = time.time()</span><br><span class="line">    print(<span class="string">"%s开始执行，进程号%d"</span>%(msg,os.getppid()))</span><br><span class="line">    <span class="comment"># random.random()随机生成 0~1之间的浮点数</span></span><br><span class="line">    time.sleep(random.random()*<span class="number">2</span>)</span><br><span class="line">    t_stop = time.time()</span><br><span class="line">    print(msg,<span class="string">"执行完毕耗时 %0.2f"</span>%(t_stop-t_start))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">po = Pool(<span class="number">3</span>)</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>,<span class="number">10</span>):</span><br><span class="line">    <span class="comment"># Pool().apply_async(要调用的目标，(传递给目标的参数元组，))</span></span><br><span class="line">    <span class="comment"># 每次循环将会用空闲出来的子进程去调用目标</span></span><br><span class="line">    po.apply_async(worker,(i,))</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line">print(<span class="string">"---start---"</span>)</span><br><span class="line">po.close() <span class="comment"># 关闭进程池，关闭后po不再接收新的请求</span></span><br><span class="line">po.join()  <span class="comment"># 等待po中所有的子进程执行完成，必须放在close之后</span></span><br><span class="line">print(<span class="string">"---end---"</span>)</span><br></pre></td></tr></table></figure>
+
+<p>执行输出：</p>
+<p><strong>—start—<br>0开始执行，进程号11095<br>1开始执行，进程号11096<br>2开始执行，进程号11097<br>2 执行完毕耗时 1.11<br>3开始执行，进程号11097<br>1 执行完毕耗时 1.69<br>4开始执行，进程号11096<br>0 执行完毕耗时 1.72<br>5开始执行，进程号11095<br>4 执行完毕耗时 0.23<br>6开始执行，进程号11096<br>5 执行完毕耗时 0.39<br>7开始执行，进程号11095<br>3 执行完毕耗时 1.12<br>8开始执行，进程号11097<br>7 执行完毕耗时 1.31<br>9开始执行，进程号11095<br>6 执行完毕耗时 1.65<br>8 执行完毕耗时 1.94<br>9 执行完毕耗时 1.78<br>—end—</strong></p>
+<h4 id="应用：文件夹copy器（多线程版）"><a href="#应用：文件夹copy器（多线程版）" class="headerlink" title="应用：文件夹copy器（多线程版）"></a>应用：文件夹copy器（多线程版）</h4><p><strong>需求</strong>: 把一个文件夹内所有的文件全部拷贝到另一个文件夹</p>
 <blockquote>
-<p>显式功能性需求（Functional requirement）的含义从字面上就可以很好地理解，指的是软件本身需要实现的具体功能， 比如“正常用户使用正确的用户名和密码可以成功登录”、“非注册用户无法登录”等，这都是属于典型的显式功能性需求描述。</p>
+<p>查询Python下的模块 ：通过 <code>os.__file__</code> 查看模块所在文件夹</p>
+<p>拷贝老文件夹下指定后缀的文件到新文件夹：<code>cp  老文件夹/*.后缀 新文件夹</code></p>
 </blockquote>
-<blockquote>
-<p>那什么是非功能性需求（Non-functional requirement）呢？从软件测试的维度来看，非功能性需求主要涉及安全性、性能以及兼容性三大方面。</p>
-</blockquote>
-<ol>
-<li>用户密码后台存储是否加密</li>
-<li>用户密码在网络传输过程中是否加密</li>
-<li>密码是否具有有效期，密码有效期到期后，是否提示需要修改密码</li>
-<li>不登录的情况下，在浏览器中直接输入登录后的URL地址，验证是否会重新定向到用户登录界面；</li>
-<li>密码输入框是否不支持复制和粘贴；</li>
-<li>密码输入框内输入的密码是否都可以在页面源码模式下被查看；</li>
-<li>用户名和密码的输入框中分别输入典型的“SQL注入攻击”字符串，验证系统的返回页面；</li>
-<li>用户名和密码的输入框中分别输入典型的“XSS跨站脚本攻击”字符串，验证系统行为是否被篡改；</li>
-<li>连续多次登录失败情况下，系统是否会阻止后续的尝试以应对暴力破解；</li>\n 同一用户在同一终端的多种浏览器上登录，验证登录功能的互斥性是否符合设计预期；</li>
-<li>同一用户先后在多台终端的浏览器上登录，验证登录是否具有互斥性。</li>
-</ol>
-<h5 id="性能压力测试用例包括"><a href="#性能压力测试用例包括" class="headerlink" title="性能压力测试用例包括:"></a>性能压力测试用例包括:</h5><ol>
-<li>单用户登录的响应时间是否小于3秒；</li>
-<li>单用户登录时，后台请求数量是否过多；</li>
-<li>高并发场景下用户登录的响应时间是否小于5秒；</li>
-<li>高并发场景下服务端的监控指标是否符合预期；</li>
-<li>高集合点并发场景下，是否存在资源死锁和不合理的资源等待；</li>
-<li>长时间大量用户连续登录和登出，服务器端是否存在内存泄漏。</li>
-</ol>
-<h5 id="兼容性测试用例包括："><a href="#兼容性测试用例包括：" class="headerlink" title="兼容性测试用例包括："></a>兼容性测试用例包括：</h5><ol>
-<li>不同浏览器下，验证登录页面的显示以及功能正确性；</li>
-<li>相同浏览器的不同版本下，验证登录页面的显示以及功能正确性；</li>
-<li>不同移动设备终端的不同浏览器下，验证登录页面的显示以及功能正确性；</li>
-<li>不同分辨率的界面下，验证登录页面的显示以及功能正确性。</li>
-</ol>
-]]></content>
-      <tags>
-        <tag>测试</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>QA周刊3</title>
-    <url>/2021/05/21/testing/QA6-%E5%91%A8%E5%88%8A3/</url>
-    <content><![CDATA[<p>了解业内最新动态，提升QA认知，扩展思维。</p>
-<a id="more"></a>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> multiprocessing</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">copy_file</span><span class="params">(queue,file_name,old_floder_name,new_floder_name)</span>:</span></span><br><span class="line">    <span class="string">"""完成文件拷贝"""</span></span><br><span class="line">    <span class="comment"># print("====拷贝文件====从%s 到 %s,文件名：%s"%(old_floder_name,new_floder_name,file_name))</span></span><br><span class="line">    old_f = open(old_floder_name + <span class="string">'/'</span> + file_name,<span class="string">"rb"</span>)</span><br><span class="line">    content = old_f.read()</span><br><span class="line">    old_f.close()</span><br><span class="line">    new_f = open(new_floder_name + <span class="string">'/'</span> + file_name,<span class="string">"wb"</span>)</span><br><span class="line">    new_f.write(content)</span><br><span class="line">    new_f.close()</span><br><span class="line">    time.sleep(<span class="number">0.1</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 如果拷贝完了文件，那么就向队列里面写入一个消息，表示已经完成</span></span><br><span class="line">    queue.put(file_name)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="comment"># 获取用户要copy的文件夹的名字</span></span><br><span class="line">    old_floder_name = input(<span class="string">"请输入要陪copy的文件夹的名字："</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 创建一个新的文件夹</span></span><br><span class="line">    new_floder_name = old_floder_name + <span class="string">"[复件]"</span></span><br><span class="line">    <span class="keyword">if</span> new_floder_name <span class="keyword">not</span> <span class="keyword">in</span> os.listdir(os.getcwd()):</span><br><span class="line">        os.mkdir(new_floder_name)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 获取文件夹的所有需要copy的文件名字 listdir()</span></span><br><span class="line">    file_names = os.listdir(old_floder_name)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 创建一个对队列</span></span><br><span class="line">    queue = multiprocessing.Manager().Queue()</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 创建进程池</span></span><br><span class="line">    po = multiprocessing.Pool(<span class="number">5</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 复制原文件中的文件，到新文件夹中的文件去</span></span><br><span class="line">    <span class="keyword">for</span> file_name <span class="keyword">in</span> file_names:</span><br><span class="line">        po.apply_async(copy_file,args=(queue,file_name,old_floder_name,new_floder_name,))</span><br><span class="line"></span><br><span class="line">    po.close()</span><br><span class="line"></span><br><span class="line">    all_file_num = len(file_names)</span><br><span class="line">    copy_ok = <span class="number">0</span></span><br><span class="line">    <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">        file_name_r = queue.get()</span><br><span class="line">        <span class="comment"># print("已经拷贝完成：%s"%file_name_r)</span></span><br><span class="line"></span><br><span class="line">        copy_ok += <span class="number">1</span></span><br><span class="line">        print(<span class="string">"\r拷贝进度为：%.2f%%"</span> % (copy_ok*<span class="number">100</span> / all_file_num),end= <span class="string">' '</span>)</span><br><span class="line">        <span class="keyword">if</span> copy_ok &gt;= all_file_num:</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    main()</span><br></pre></td></tr></table></figure>
 
 
 
-<ol>
-<li><a href="https://mp.weixin.qq.com/s/_KlPUqNoJTfO3C8igPG49w" target="_blank" rel="noopener">一起看 I/O | Android 12 Beta 版发布，诸多亮点不容错过</a></li>
-</ol>
-<ol start="2">
-<li><a href="https://mp.weixin.qq.com/s/CryMC11QVWmGDSO8Afnobw" target="_blank" rel="noopener">CI/CD DevOps 简单论述</a></li>
-</ol>
-<ol start="3">
-<li><a href="https://zhuanlan.zhihu.com/p/72896309" target="_blank" rel="noopener">熵增定律：为什么那么多人因此顿悟了</a></li>
-</ol>
-<ol start="4">
-<li><a href="https://mp.weixin.qq.com/s/3rRY-XWMiVqs3rpkbfRspw" target="_blank" rel="noopener">字节跳动遭遇腾讯屏蔽和封禁大事记</a></li>
-</ol>
-<ol start="5">
-<li><a href="https://mp.weixin.qq.com/s/dVdJPQSgoXym2oUSrpio0w" target="_blank" rel="noopener">如何做好个人资产规划？</a></li>
-</ol>
-<ol start="6">
-<li><a href="https://mp.weixin.qq.com/s/Ub8tYdPm3lQy7hnBGoJwvg" target="_blank" rel="noopener">什么是安全性测试（security testing）</a></li>
-</ol>
-<ol start="7">
-<li><a href="https://mp.weixin.qq.com/s/ZzJ4L5wL1U77mU0RKgAOYA" target="_blank" rel="noopener">比勤奋更重要的，是深度思考的能力</a></li>
-</ol>
 <h3 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h3><p>面朝大海，春暖花开。</p>
 <p>愿你一生努力，一生被爱。</p>
 ]]></content>
       <tags>
-        <tag>测试</tag>
+        <tag>Python多任务</tag>
       </tags>
   </entry>
   <entry>
@@ -835,7 +1030,7 @@
 <p>并行：真的多任务（CPU核数大于任务数）</p>
 <p>并发：假的多任务（CPU核数少于任务数）</p>
 <h4 id="查看任务线程数"><a href="#查看任务线程数" class="headerlink" title="查看任务线程数"></a>查看任务线程数</h4><p>enumerate的用法：</p>
-<img src="https://ssd.qiniu.dreamfly95.com/image-20210127174701156.png" alt="image-20210127174701156" style="zoom:50%;" />
+<img src="https://ssd.qiniu.dreamfly95.com/image-20210127174701156.png" alt="image-20210127174701156" style="zoom:50%;" / loading="lazy">
 
 <h5 id="1-查看线程数"><a href="#1-查看线程数" class="headerlink" title="1.查看线程数"></a>1.查看线程数</h5><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> threading</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">sing</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">3</span>):</span><br><span class="line">        print(<span class="string">"---test1---%s"</span>%i)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">dance</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">3</span>):</span><br><span class="line">        print(<span class="string">"---test2---%s"</span>%i)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="comment"># 新建线程对象</span></span><br><span class="line">    t1 = threading.Thread(target=sing)</span><br><span class="line">    t2 = threading.Thread(target=dance)</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 执行线程实例</span></span><br><span class="line">    t1.start()</span><br><span class="line">    t2.start()</span><br><span class="line"></span><br><span class="line">    print(threading.enumerate())</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    main()</span><br></pre></td></tr></table></figure>
 
@@ -955,230 +1150,35 @@
       </tags>
   </entry>
   <entry>
-    <title>Python多任务之进程</title>
-    <url>/2021/03/15/pyhton/Python%E5%A4%9A%E4%BB%BB%E5%8A%A12%E4%B9%8B%E8%BF%9B%E7%A8%8B/</url>
-    <content><![CDATA[<h4 id="进程以及状态"><a href="#进程以及状态" class="headerlink" title="进程以及状态"></a>进程以及状态</h4><blockquote>
-<p>操作系统的调度算法：</p>
-<p>时间片轮转</p>
-<p>优先级调度</p>
-</blockquote>
-<h5 id="进程"><a href="#进程" class="headerlink" title="进程"></a>进程</h5><p>程序：例如xxx.py，xxx.exe这是程序，是一个静态的</p>
-<p>进程：一个程序运行起来后，代码+用到的资源称之为进程，他是操作系统分配资源的基本单元。不进可以通过线程完成多任务，进程也是可以的</p>
+    <title>能力陷阱</title>
+    <url>/2019/10/25/readingNotes/%E8%AF%BB%E4%B9%A62-%E8%83%BD%E5%8A%9B%E9%99%B7%E9%98%B1/</url>
+    <content><![CDATA[<p><img src="https://ssd.qiniu.dreamfly95.com/NLXJ.png" alt="NLXJ" loading="lazy"></p>
+<p>​         本书深刻揭示职场的三大观念陷阱，提出“先行动，后思考”的方法，打破了传统领导者的养成法则，帮助那些渴望成为优秀领导者的人学会如何扩展业务范围，如何提出更好的策略性意见，以及如何扩建人际关系网络并引领他们朝着不同的方向发展自己。</p>
 <a id="more"></a>
-
-<h5 id="进程的状态"><a href="#进程的状态" class="headerlink" title="进程的状态"></a>进程的状态</h5><p> 工作中，任务数往往大于CPU数，即一定有一些任务正在执行，而另外一些任务在等待CPU进行执行，因此导致了有不同的状态</p>
-<p><img src="https://ssd.qiniu.dreamfly95.com/%E6%9C%AA%E5%91%BD%E5%90%8D%E6%96%87%E4%BB%B6.png" alt="流程图"></p>
-<ul>
-<li>就绪态：运行的条件都已就绪，正在等待在CPU执行</li>
-<li>执行态：CPU 正在执行其功能</li>
-<li>等待态：等待某些条件满足，例如一个程序sleep了，此处就处于等待态</li>
-</ul>
-<h4 id="进程的创建"><a href="#进程的创建" class="headerlink" title="进程的创建"></a>进程的创建</h4><p>multiprocessing模块是跨平台的多进程模块，提供了一个Process类来代表一个进程对象，这个对象可以理解为是一个独立的进程，可以执行另外的事情</p>
-<h5 id="2个while循环一起执行"><a href="#2个while循环一起执行" class="headerlink" title="2个while循环一起执行"></a>2个while循环一起执行</h5><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> multiprocessing <span class="keyword">import</span> Process</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">run_poc</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="string">"""子进程要执行的代码"""</span></span><br><span class="line">    <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">        print(<span class="string">"----2----"</span>)</span><br><span class="line">        time.sleep(<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    p = Process(target=run_poc)</span><br><span class="line">    p.start()</span><br><span class="line">    <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">        print(<span class="string">"---1---"</span>)</span><br><span class="line">        time.sleep(<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
-
-<p>创建子进程，只需要传入一个执行函数和函数的参数，创建一个Process实例，用start()方法启动。</p>
-<h4 id="进程和线程的对比"><a href="#进程和线程的对比" class="headerlink" title="进程和线程的对比"></a>进程和线程的对比</h4><h5 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h5><ul>
-<li>进程，能够完成多任务，比如在一台电脑上能够同时运行多个QQ</li>
-<li>线程，能够完成多任务，比如在一个QQ中的多个聊天窗口</li>
-</ul>
-<h5 id="定义的不同"><a href="#定义的不同" class="headerlink" title="定义的不同"></a>定义的不同</h5><ul>
-<li>进程是系统进行资源分配和调度的一个独立单位</li>
-<li>线程是进程的一个实体，是CPU调度和分派的基本单位，他是比进程更小的能独立运行的基本单位，线程自己基本上不拥有系统资源，只拥有一点在运行中必不可少的资源（如程序计算器，一组寄存器和栈），但是他可与同属一个进程的其他线程共享进程所拥有的全部资源.</li>
-</ul>
-<h5 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h5><ul>
-<li>一个程序至少有一个进程，一个进程至少有一个线程</li>
-<li>线程的划分尺度小于进程（资源比进程少），使得多线程程序的并发性高。</li>
-<li>进程在执行过程中拥有独立的内存单元，而多个线程共享内存，从而极大地提高了程序的运行效率。</li>
-<li>线程不能独立执行，必须已存在进程中</li>
-<li>可以将进程理解为一条流水线，而其中的线程就是这个流水线上的工人。</li>
-</ul>
-<h5 id="优缺点"><a href="#优缺点" class="headerlink" title="优缺点"></a>优缺点</h5><p>线程和进程在使用上各有优缺点：线程执行开销小，单不利于自愿的管理和保护；而进程正好相反。</p>
-<h4 id="进程间的通信-Queue"><a href="#进程间的通信-Queue" class="headerlink" title="进程间的通信-Queue"></a>进程间的通信-Queue</h4><p>Process之间有时需要通信，操作系统提供了很多机制来实现记成间的通信。</p>
-<h5 id="Queue的使用"><a href="#Queue的使用" class="headerlink" title="Queue的使用"></a>Queue的使用</h5><p>可以用multiprocessing模块的Queue实现多进程之间的数据传递，Queue本身是一个消息队列程序，代码实现如下：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> multiprocessing</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_data</span><span class="params">(q)</span>:</span></span><br><span class="line">    <span class="string">"""下载数据"""</span></span><br><span class="line">    <span class="comment"># 模拟从网上下载数据</span></span><br><span class="line">    data = [<span class="number">11</span>,<span class="number">22</span>,<span class="number">33</span>,<span class="number">44</span>]</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 向队列里写入数据</span></span><br><span class="line">    <span class="keyword">for</span> temp <span class="keyword">in</span> data:</span><br><span class="line">        q.put(temp)</span><br><span class="line"></span><br><span class="line">    print(<span class="string">"---下载器已经下载完了数据并存入队列中---"</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">analysis_data</span><span class="params">(q)</span>:</span></span><br><span class="line">    <span class="string">""" 数据处理 """</span></span><br><span class="line">    waitting_analysis_data = list()</span><br><span class="line">    <span class="comment"># 从对列中取出数据</span></span><br><span class="line">    <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">        data = q.get()</span><br><span class="line">        waitting_analysis_data.append(data)</span><br><span class="line">        <span class="keyword">if</span> q.empty():</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">    <span class="comment"># 模拟数据处理</span></span><br><span class="line">    print(waitting_analysis_data)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="comment"># 创建一个对列</span></span><br><span class="line">    q = multiprocessing.Queue()</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 创建多个进程，将队列的引用当做参数进行传递到里面</span></span><br><span class="line">    p1 = multiprocessing.Process(target=get_data,args=(q,))</span><br><span class="line">    p2 = multiprocessing.Process(target=analysis_data,args=(q,))</span><br><span class="line">    p1.start()</span><br><span class="line">    p2.start()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    main()</span><br></pre></td></tr></table></figure>
-
-<p>打印结果：</p>
-<p><strong>—下载器已经下载完了数据并存入队列中—<br>[11, 22, 33, 44]</strong></p>
-<h4 id="进程的创建-进程池Pool"><a href="#进程的创建-进程池Pool" class="headerlink" title="进程的创建-进程池Pool"></a>进程的创建-进程池Pool</h4><p>当需要创建的子进程熟练不多时，可以直接利用multiprocessing中的Process动态生成多个进程，但如果是上百上千个目标，手动去创建进程的工作量巨大，此时就可以用到multiprocessing提供的Pool方法。</p>
-<p>初始化Pool时，可以指定一个最大的进程数，当有新的请求提交到Pool中时，如果池还没有满，那么久会创建一个新的进程来执行请求；但如果池中的进程数已经达到指定的最大值，那么该请求就会等待，知道池中有进程接胡搜，才会用之前的进程来执行新的任务，代码示例如下：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># -*- coding:utf-8 -*-</span></span><br><span class="line"><span class="keyword">from</span> multiprocessing <span class="keyword">import</span> Pool</span><br><span class="line"><span class="keyword">import</span> os,time,random</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">worker</span><span class="params">(msg)</span>:</span></span><br><span class="line">    t_start = time.time()</span><br><span class="line">    print(<span class="string">"%s开始执行，进程号%d"</span>%(msg,os.getppid()))</span><br><span class="line">    <span class="comment"># random.random()随机生成 0~1之间的浮点数</span></span><br><span class="line">    time.sleep(random.random()*<span class="number">2</span>)</span><br><span class="line">    t_stop = time.time()</span><br><span class="line">    print(msg,<span class="string">"执行完毕耗时 %0.2f"</span>%(t_stop-t_start))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">po = Pool(<span class="number">3</span>)</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>,<span class="number">10</span>):</span><br><span class="line">    <span class="comment"># Pool().apply_async(要调用的目标，(传递给目标的参数元组，))</span></span><br><span class="line">    <span class="comment"># 每次循环将会用空闲出来的子进程去调用目标</span></span><br><span class="line">    po.apply_async(worker,(i,))</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line">print(<span class="string">"---start---"</span>)</span><br><span class="line">po.close() <span class="comment"># 关闭进程池，关闭后po不再接收新的请求</span></span><br><span class="line">po.join()  <span class="comment"># 等待po中所有的子进程执行完成，必须放在close之后</span></span><br><span class="line">print(<span class="string">"---end---"</span>)</span><br></pre></td></tr></table></figure>
-
-<p>执行输出：</p>
-<p><strong>—start—<br>0开始执行，进程号11095<br>1开始执行，进程号11096<br>2开始执行，进程号11097<br>2 执行完毕耗时 1.11<br>3开始执行，进程号11097<br>1 执行完毕耗时 1.69<br>4开始执行，进程号11096<br>0 执行完毕耗时 1.72<br>5开始执行，进程号11095<br>4 执行完毕耗时 0.23<br>6开始执行，进程号11096<br>5 执行完毕耗时 0.39<br>7开始执行，进程号11095<br>3 执行完毕耗时 1.12<br>8开始执行，进程号11097<br>7 执行完毕耗时 1.31<br>9开始执行，进程号11095<br>6 执行完毕耗时 1.65<br>8 执行完毕耗时 1.94<br>9 执行完毕耗时 1.78<br>—end—</strong></p>
-<h4 id="应用：文件夹copy器（多线程版）"><a href="#应用：文件夹copy器（多线程版）" class="headerlink" title="应用：文件夹copy器（多线程版）"></a>应用：文件夹copy器（多线程版）</h4><p><strong>需求</strong>: 把一个文件夹内所有的文件全部拷贝到另一个文件夹</p>
-<blockquote>
-<p>查询Python下的模块 ：通过 <code>os.__file__</code> 查看模块所在文件夹</p>
-<p>拷贝老文件夹下指定后缀的文件到新文件夹：<code>cp  老文件夹/*.后缀 新文件夹</code></p>
-</blockquote>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> multiprocessing</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">copy_file</span><span class="params">(queue,file_name,old_floder_name,new_floder_name)</span>:</span></span><br><span class="line">    <span class="string">"""完成文件拷贝"""</span></span><br><span class="line">    <span class="comment"># print("====拷贝文件====从%s 到 %s,文件名：%s"%(old_floder_name,new_floder_name,file_name))</span></span><br><span class="line">    old_f = open(old_floder_name + <span class="string">'/'</span> + file_name,<span class="string">"rb"</span>)</span><br><span class="line">    content = old_f.read()</span><br><span class="line">    old_f.close()</span><br><span class="line">    new_f = open(new_floder_name + <span class="string">'/'</span> + file_name,<span class="string">"wb"</span>)</span><br><span class="line">    new_f.write(content)</span><br><span class="line">    new_f.close()</span><br><span class="line">    time.sleep(<span class="number">0.1</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 如果拷贝完了文件，那么就向队列里面写入一个消息，表示已经完成</span></span><br><span class="line">    queue.put(file_name)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="comment"># 获取用户要copy的文件夹的名字</span></span><br><span class="line">    old_floder_name = input(<span class="string">"请输入要陪copy的文件夹的名字："</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 创建一个新的文件夹</span></span><br><span class="line">    new_floder_name = old_floder_name + <span class="string">"[复件]"</span></span><br><span class="line">    <span class="keyword">if</span> new_floder_name <span class="keyword">not</span> <span class="keyword">in</span> os.listdir(os.getcwd()):</span><br><span class="line">        os.mkdir(new_floder_name)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 获取文件夹的所有需要copy的文件名字 listdir()</span></span><br><span class="line">    file_names = os.listdir(old_floder_name)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 创建一个对队列</span></span><br><span class="line">    queue = multiprocessing.Manager().Queue()</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 创建进程池</span></span><br><span class="line">    po = multiprocessing.Pool(<span class="number">5</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 复制原文件中的文件，到新文件夹中的文件去</span></span><br><span class="line">    <span class="keyword">for</span> file_name <span class="keyword">in</span> file_names:</span><br><span class="line">        po.apply_async(copy_file,args=(queue,file_name,old_floder_name,new_floder_name,))</span><br><span class="line"></span><br><span class="line">    po.close()</span><br><span class="line"></span><br><span class="line">    all_file_num = len(file_names)</span><br><span class="line">    copy_ok = <span class="number">0</span></span><br><span class="line">    <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">        file_name_r = queue.get()</span><br><span class="line">        <span class="comment"># print("已经拷贝完成：%s"%file_name_r)</span></span><br><span class="line"></span><br><span class="line">        copy_ok += <span class="number">1</span></span><br><span class="line">        print(<span class="string">"\r拷贝进度为：%.2f%%"</span> % (copy_ok*<span class="number">100</span> / all_file_num),end= <span class="string">' '</span>)</span><br><span class="line">        <span class="keyword">if</span> copy_ok &gt;= all_file_num:</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    main()</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h3><p>面朝大海，春暖花开。</p>
-<p>愿你一生努力，一生被爱。</p>
-]]></content>
-      <tags>
-        <tag>Python多任务</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>QA周刊2</title>
-    <url>/2021/05/12/testing/QA6-%E5%91%A8%E5%88%8A2/</url>
-    <content><![CDATA[<p>了解业内最新动态，提升QA认知，扩展思维。</p>
-<a id="more"></a>
-
-
 
 <ol>
-<li>【 <a href="https://blog.csdn.net/kami_ochin_akane/article/details/111630261" target="_blank" rel="noopener">测试分层</a> 】 【 <a href="https://www.cnblogs.com/syhshare/p/10721568.html" target="_blank" rel="noopener">分层测试2</a> 】  【 <a href="https://www.jianshu.com/p/c629baffb19c" target="_blank" rel="noopener">分层测试3</a> 】</li>
+<li><p>很多需要紧急处理的事情限制着你，让你没有办法去做那些更重要的事。但是在努力学会做好一个领导者的问题上，你面临着一个更大的挑战：那就是只有先行动起来，你才能知道关于自己，关于工作你需要做些什么，而不仅仅是思考。</p>
+</li>
+<li><p>如果我们想要成为一名优秀的领导者，就要学会“先行动后思考”。这与我们普遍所熟知的学习顺序的矛盾在于，在改变的过程中，我们会先看到结果，即改变让我们产生了什么样的感受，身边的人对我们的改变有什么样的反应，之后我们才会开始思考，把外在经历内在化。换句话说，我们要先在行为上表现得像一个领导者，而后才会像领导者一样去思考。</p>
+</li>
+<li><p>做领导者所做的工作会引发两个重要的转变过程：一是外在转变过程；二是内在转变过程。它们之间是紧密相连的。外在转变过程指的是建立起一个有潜力或有能力的好名声，这能够在很大程度上改变我们的自我认知；而内在转变过程涉及内在动机和自我定位的转变，这种转变并不是独立发生的，而是在与他人所建立的关系中渐渐发生的转变。</p>
+</li>
+<li><p>为了成为一名优秀的领导者，你要学会像领导者一样去思考。</p>
+</li>
+<li><p>你思考的方式来源于你过去的经历。</p>
+</li>
+<li><p>改变你想法的唯一方法就是去做与之前不一样的事情。</p>
+</li>
+<li><p>去做——而不仅仅是去想——才会增强你的外在表现力，而这些外在表现力是一个领导者所必需的。</p>
+</li>
+<li><p>稳定的“三脚架”（tripod）关系能提升你的外在表现力：新工作、新关系以及新自我。</p>
+</li>
+<li><p>我们很乐于去做那些我们擅长的事，于是就会一直去做，最终就使得我们会一直擅长那些事。做得越多，就越擅长，越擅长就越愿意去做。这样的一个循环能让我们在这方面获得更多的经验。而它就像是毒品一样，我们被它深深吸引，因为我们的快乐和自信都来源于它。它还会让我们产生误区，让我们相信我们擅长的事就是最有价值的且最重要的事，所以值得我们花时间去做。</p>
+</li>
 </ol>
-<ol start="2">
-<li><a href="https://mp.weixin.qq.com/s/wpqTHdQzQtBZXEdtR4_cvg" target="_blank" rel="noopener">聊天功能如何测试？</a></li>
-</ol>
-<ol start="3">
-<li><a href="https://mp.weixin.qq.com/s/WBPYEeT2QJT61qGo7rOhNA" target="_blank" rel="noopener">字节跳动首次揭秘A/B测试</a></li>
-</ol>
-<ol start="4">
-<li><a href="https://www.linuxcool.com/" target="_blank" rel="noopener">Linux命令大全(手册)</a></li>
-</ol>
-<ol start="5">
-<li><a href="http://redisdoc.com/index.html" target="_blank" rel="noopener">Redis 命令参考</a></li>
-</ol>
-<ol start="6">
-<li><a href="https://mp.weixin.qq.com/s/ZPICGqhdqAAeJfH3ESiytA" target="_blank" rel="noopener">真正决定人生高度的，是你做事的速度</a></li>
-</ol>
-<ol start="7">
-<li><a href="https://www.cnblogs.com/UncleYong/p/10836607.html" target="_blank" rel="noopener">全栈测试笔记</a></li>
-</ol>
-<h3 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h3><p>面朝大海，春暖花开。</p>
-<p>愿你一生努力，一生被爱。</p>
 ]]></content>
       <tags>
-        <tag>测试</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>QA周刊1</title>
-    <url>/2021/04/29/testing/QA5-%E5%91%A8%E5%88%8A1/</url>
-    <content><![CDATA[<p>了解业内最新动态，提升QA认知，扩展思维。</p>
-<a id="more"></a>
-
-
-
-<ol>
-<li><a href="https://book.douban.com/review/6196782/" target="_blank" rel="noopener">旧测试已死</a></li>
-</ol>
-<ol start="2">
-<li><a href="https://baijiahao.baidu.com/s?id=1590728706876159827&wfr=spider&for=pc" target="_blank" rel="noopener">游戏分类简称大全1</a>     </li>
-</ol>
-<ol start="3">
-<li><a href="https://www.sohu.com/a/255913827_100204787" target="_blank" rel="noopener">游戏分类简称大全2</a></li>
-</ol>
-<ol start="4">
-<li><a href="https://blog.csdn.net/xiadanying/article/details/91581700?utm_medium=distribute.pc_relevant_t0.none-task-blog-2%7Edefault%7EBlogCommendFromMachineLearnPai2%7Edefault-1.control&dist_request_id=1328769.11534.16173460419114229&depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-2%7Edefault%7EBlogCommendFromMachineLearnPai2%7Edefault-1.control" target="_blank" rel="noopener">手游测试</a></li>
-</ol>
-<ol start="5">
-<li><a href="https://mp.weixin.qq.com/s/1hs9yKp68M8U1M65KWCf3w" target="_blank" rel="noopener">当厌倦测试时，我们可以做的16件事</a></li>
-</ol>
-<ol start="6">
-<li><a href="https://blog.csdn.net/chengzhi1947/article/details/100788845" target="_blank" rel="noopener">QA意识的建立</a></li>
-</ol>
-<ol start="7">
-<li><a href="https://www.bilibili.com/video/BV14i4y1c7Jo?from=search&seid=5043178568997271854" target="_blank" rel="noopener">pytest自动化测试框架教程</a></li>
-</ol>
-<ol start="8">
-<li><a href="https://www.bilibili.com/video/BV1np4y1s7fo?from=search&seid=15132239919207457813" target="_blank" rel="noopener">结构思考力,视频讲解 6小时</a></li>
-</ol>
-<h3 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h3><p>面朝大海，春暖花开。</p>
-<p>愿你一生努力，一生被爱。</p>
-]]></content>
-      <tags>
-        <tag>测试</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>使用gitee自建图床</title>
-    <url>/2020/04/15/skill/%E6%8A%80%E5%B7%A72-%E8%87%AA%E5%BB%BA%E5%9B%BE%E5%BA%8A/</url>
-    <content><![CDATA[<h3 id="使用gitee建自己图床的好处："><a href="#使用gitee建自己图床的好处：" class="headerlink" title="使用gitee建自己图床的好处："></a>使用gitee建自己图床的好处：</h3><ol>
-<li><p>都在自己账号内，好管理。</p>
-</li>
-<li><p>支持https，避免使用HTTP而打开时网站提示不安全。</p>
-</li>
-<li><p>丢失概率低</p>
-</li>
-</ol>
-<a id="more"></a>
-
-<h3 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h3><ol>
-<li>创建一个属于自己的<a href="https://gitee.com/" target="_blank" rel="noopener">gitee账户</a></li>
-<li>然后就本地有git，这里有较为详细的<a href="https://www.liaoxuefeng.com/wiki/896043488029600" target="_blank" rel="noopener">git教程</a></li>
-<li>然后配置本体ssh,并与远程库建立可信任连接</li>
-</ol>
-<h3 id="开始搭建图床"><a href="#开始搭建图床" class="headerlink" title="开始搭建图床"></a>开始搭建图床</h3><ol>
-<li>打开自己的gitee,新建一个仓库</li>
-</ol>
-<p>   <img src="https://ssd.qiniu.dreamfly95.com/makeGitee1.png" alt="makeGitee1"></p>
-<p>   <img src="https://ssd.qiniu.dreamfly95.com/makeGitee2.png" alt="makeGitee2"></p>
-<ol start="2">
-<li><p>创建完成后，新建一个文件，必须是index.html</p>
-<img src="https://ssd.qiniu.dreamfly95.com/makeGitee3.png" alt="makeGitee3" style="zoom:50%;" />
-
-
-
-
-
-</li>
-</ol>
-<p>   <img src="https://ssd.qiniu.dreamfly95.com/makeGitee4.png" alt="makeGitee4"></p>
-   <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">&lt;meta charset=&quot;utf-8&quot;&gt;</span><br><span class="line">&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;</span><br><span class="line">&lt;title&gt;我的图床首页&lt;/title&gt;</span><br><span class="line">&lt;meta name=&quot;description&quot; content=&quot;&quot;&gt;</span><br><span class="line">&lt;meta name=&quot;author&quot; content=&quot;&quot;&gt;</span><br></pre></td></tr></table></figure>
-
-
-
-<ol start="3">
-<li>保存后，点击仓库上方的，服务=》‘Gitee Pages’，然后进去点击更新，等几秒钟，然后点击网站地址，就会跳转到一个空白的网页，图床基本就搭建完成了。</li>
-</ol>
-<p>   <img src="https://ssd.qiniu.dreamfly95.com/makeGitee6.png" alt="makeGitee6"></p>
-<ol start="4">
-<li><p>然后自己搭建本地库，关联自己刚新建的gitee仓库，到时在自己的本地库新建个文件夹保存图片，保存完push到自己的远程 gitee库（或者直接在gitee自己建的仓库内）。</p>
-<!--注意：每次push完或上传完图片都需要把第三步执行一遍，这样图片才能通过你的图床正常访问-->
-
-<p>例如：我的网址是 ：<a href="https://dreams_quan.gitee.io/images，我新建的问价夹名字为images，图片名为" target="_blank" rel="noopener">https://dreams_quan.gitee.io/images，我新建的问价夹名字为images，图片名为</a> china.jpg，这时在执行完上面步骤后，你的图片就可以通过网址访问了 <a href="https://dreams_quan.gitee.io/images/images/china.jpg" target="_blank" rel="noopener">https://dreams_quan.gitee.io/images/images/china.jpg</a></p>
-<blockquote>
-<p>小技巧：你写macdown等文档时，可以先使用本地保存的图片，等文档写完后，把图片统一上传，然后把文档内的图片地址的前缀替换为链接地址就OK。例如本地地址为   /Desktop/image/images/blog/china.jpg，你只要把  /Desktop/image/images/blog/  全部替换为   <a href="https://dreams_quan.gitee.io/images/images/" target="_blank" rel="noopener">https://dreams_quan.gitee.io/images/images/</a>  就OK了</p>
-</blockquote>
-</li>
-</ol>
-<ol start="5">
-<li>如果自己想让自己的图床首页好看点，就自己网上找个静态网页模板，然后自己动手改改里面的内容，push上去然后更新就OK。</li>
-</ol>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>像自建图床啦，自己搭建博客网站等，都可以自己练习的去整一下，每一个积累都会是你的财富，加油！！！</p>
-]]></content>
-      <tags>
-        <tag>技巧</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>软件绿色联盟应用体验标准5.0</title>
-    <url>/2021/11/21/testing/QA7-%E5%BA%94%E7%94%A8%E4%BD%93%E9%AA%8C%E6%A0%87%E5%87%865.0/</url>
-    <content><![CDATA[<h4 id="绿标5-0发布的意义是什么？"><a href="#绿标5-0发布的意义是什么？" class="headerlink" title="绿标5.0发布的意义是什么？"></a>绿标5.0发布的意义是什么？</h4><p>绿标5.0不仅进一步增强了五项标准的技术要求及检测能力，更在安卓应用基础上拓展到泛智能终端应用的范畴。旨在通过绿标系列标准的制定与推广，为用户带来更安全、更安心的使用体验。</p>
-<a id="more"></a>
-
-<h4 id="五大标准"><a href="#五大标准" class="headerlink" title="五大标准"></a>五大标准</h4><p>1、兼容性标准</p>
-<p><img src="https://ssd.qiniu.dreamfly95.com/%E5%85%BC%E5%AE%B9%E6%80%A7%E6%A0%87%E5%87%86.jpeg" alt="兼容性标准"></p>
-<p>2、稳定性标准</p>
-<p><img src="https://ssd.qiniu.dreamfly95.com/%E7%A8%B3%E5%AE%9A%E6%80%A7%E6%A0%87%E5%87%86.jpeg" alt="稳定性标准"></p>
-<p>3、功耗标准</p>
-<p><img src="https://ssd.qiniu.dreamfly95.com/%E5%8A%9F%E8%80%97%E6%A0%87%E5%87%86.jpeg" alt="功耗标准"></p>
-<p>4、性能标准</p>
-<p><img src="https://ssd.qiniu.dreamfly95.com/%E6%80%A7%E8%83%BD%E6%A0%87%E5%87%86.jpeg" alt="性能标准"></p>
-<p>5、安全标准</p>
-<p><img src="https://ssd.qiniu.dreamfly95.com/%E5%AE%89%E5%85%A8%E6%A0%87%E5%87%86.jpeg" alt="安全标准"></p>
-<p>来源：<a href="https://www.china-sga.com/sga/news/journalism/journalism-20211122175620697.html" target="_blank" rel="noopener">https://www.china-sga.com/sga/news/journalism/journalism-20211122175620697.html</a></p>
-<h3 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h3><p>面朝大海，春暖花开。</p>
-<p>愿你一生努力，一生被爱。</p>
-]]></content>
-      <tags>
-        <tag>测试</tag>
+        <tag>读书</tag>
       </tags>
   </entry>
 </search>
