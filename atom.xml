@@ -36,53 +36,15 @@
   </entry>
   
   <entry>
-    <title>QA周刊3</title>
-    <link href="https://yoursite.com/2021/05/21/testing/QA6-%E5%91%A8%E5%88%8A3/"/>
-    <id>https://yoursite.com/2021/05/21/testing/QA6-%E5%91%A8%E5%88%8A3/</id>
-    <published>2021-05-21T12:18:21.000Z</published>
-    <updated>2021-06-24T11:07:38.570Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;了解业内最新动态，提升QA认知，扩展思维。&lt;/p&gt;
-    
-    </summary>
-    
-    
-    
-      <category term="测试" scheme="https://yoursite.com/tags/%E6%B5%8B%E8%AF%95/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>QA周刊2</title>
-    <link href="https://yoursite.com/2021/05/12/testing/QA6-%E5%91%A8%E5%88%8A2/"/>
-    <id>https://yoursite.com/2021/05/12/testing/QA6-%E5%91%A8%E5%88%8A2/</id>
-    <published>2021-05-12T11:20:01.000Z</published>
-    <updated>2021-06-24T11:02:26.953Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;了解业内最新动态，提升QA认知，扩展思维。&lt;/p&gt;
-    
-    </summary>
-    
-    
-    
-      <category term="测试" scheme="https://yoursite.com/tags/%E6%B5%8B%E8%AF%95/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>QA周刊1</title>
-    <link href="https://yoursite.com/2021/04/29/testing/QA5-%E5%91%A8%E5%88%8A1/"/>
-    <id>https://yoursite.com/2021/04/29/testing/QA5-%E5%91%A8%E5%88%8A1/</id>
+    <title>QA周刊合集</title>
+    <link href="https://yoursite.com/2021/04/29/testing/QA5-%E5%91%A8%E5%88%8A%E5%90%88%E9%9B%86/"/>
+    <id>https://yoursite.com/2021/04/29/testing/QA5-%E5%91%A8%E5%88%8A%E5%90%88%E9%9B%86/</id>
     <published>2021-04-29T12:31:01.000Z</published>
-    <updated>2021-06-24T10:59:44.820Z</updated>
+    <updated>2022-03-29T05:18:41.622Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;了解业内最新动态，提升QA认知，扩展思维。&lt;/p&gt;
+      &lt;p&gt;了解业内动态及知识，提升QA认知，扩展思维。&lt;/p&gt;
     
     </summary>
     
@@ -406,6 +368,54 @@
       &lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h3&gt;&lt;p&gt;Markdown 是一种轻量级标记语言，它允许人们使用易读易写的纯文本格式编写文档。&lt;/p&gt;
 &lt;p&gt;Markdown 编写的文档后缀为 &lt;code&gt;.md&lt;/code&gt;, &lt;code&gt;.markdown&lt;/code&gt;，可以导出 HTML 、Word、图像、PDF、Epub 等多种格式的文档。当前许多网站都广泛使用 Markdown 来撰写帮助文档或是用于论坛上发表消息。例如：GitHub、简书等。&lt;/p&gt;
 &lt;p&gt;通俗一点讲，使用Markdown写文档可以让你的文档格式比较规范明了，看着比较优美，本文的教程就是用Markdown写的。&lt;/p&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="技巧" scheme="https://yoursite.com/tags/%E6%8A%80%E5%B7%A7/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Python之构造请求参数（1）</title>
+    <link href="https://yoursite.com/2020/05/25/pyhton/Python1%E4%B9%8B%E6%9E%84%E9%80%A0%E5%8F%82%E6%95%B0/"/>
+    <id>https://yoursite.com/2020/05/25/pyhton/Python1%E4%B9%8B%E6%9E%84%E9%80%A0%E5%8F%82%E6%95%B0/</id>
+    <published>2020-05-25T08:38:57.000Z</published>
+    <updated>2020-09-08T12:02:17.107Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h3&gt;&lt;p&gt;接口测试中，我们需要去手动输入请求参数组合，因为输入法等问题，可能会造成标点或括号等输错，最后出错后，还不大好排查。因此我们通过构造请求参数，能大大避免这类问题的发生。这也是最基础的知识，&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;另我们使用Postman输入请求参数时，也可以先用Python构造请求参数，然后再使用。不过这个因人而异，如果你对自己有信心，直接手拼也OK。&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="接口测试" scheme="https://yoursite.com/tags/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>使用gitee自建图床</title>
+    <link href="https://yoursite.com/2020/04/15/skill/%E6%8A%80%E5%B7%A72-%E8%87%AA%E5%BB%BA%E5%9B%BE%E5%BA%8A/"/>
+    <id>https://yoursite.com/2020/04/15/skill/%E6%8A%80%E5%B7%A72-%E8%87%AA%E5%BB%BA%E5%9B%BE%E5%BA%8A/</id>
+    <published>2020-04-15T12:32:47.000Z</published>
+    <updated>2021-03-24T08:33:51.446Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;使用gitee建自己图床的好处：&quot;&gt;&lt;a href=&quot;#使用gitee建自己图床的好处：&quot; class=&quot;headerlink&quot; title=&quot;使用gitee建自己图床的好处：&quot;&gt;&lt;/a&gt;使用gitee建自己图床的好处：&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;都在自己账号内，好管理。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;支持https，避免使用HTTP而打开时网站提示不安全。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;丢失概率低&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
     
     </summary>
     
