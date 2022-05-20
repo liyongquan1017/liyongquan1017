@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://yoursite.com/"/>
-  <updated>2021-11-24T06:52:24.672Z</updated>
+  <updated>2022-05-19T13:10:13.025Z</updated>
   <id>https://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Pyhton之面向对象</title>
+    <link href="https://yoursite.com/2022/05/01/pyhton/8.Python%E4%B9%8B%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/"/>
+    <id>https://yoursite.com/2022/05/01/pyhton/8.Python%E4%B9%8B%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/</id>
+    <published>2022-05-01T14:54:21.000Z</published>
+    <updated>2022-05-19T13:10:13.025Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+    
+      <category term="python" scheme="https://yoursite.com/tags/python/"/>
+    
+  </entry>
   
   <entry>
     <title>软件绿色联盟应用体验标准5.0</title>
@@ -396,32 +421,6 @@
     
     
       <category term="接口测试" scheme="https://yoursite.com/tags/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>使用gitee自建图床</title>
-    <link href="https://yoursite.com/2020/04/15/skill/%E6%8A%80%E5%B7%A72-%E8%87%AA%E5%BB%BA%E5%9B%BE%E5%BA%8A/"/>
-    <id>https://yoursite.com/2020/04/15/skill/%E6%8A%80%E5%B7%A72-%E8%87%AA%E5%BB%BA%E5%9B%BE%E5%BA%8A/</id>
-    <published>2020-04-15T12:32:47.000Z</published>
-    <updated>2021-03-24T08:33:51.446Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;使用gitee建自己图床的好处：&quot;&gt;&lt;a href=&quot;#使用gitee建自己图床的好处：&quot; class=&quot;headerlink&quot; title=&quot;使用gitee建自己图床的好处：&quot;&gt;&lt;/a&gt;使用gitee建自己图床的好处：&lt;/h3&gt;&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;都在自己账号内，好管理。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;支持https，避免使用HTTP而打开时网站提示不安全。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;丢失概率低&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-    
-    </summary>
-    
-    
-    
-      <category term="技巧" scheme="https://yoursite.com/tags/%E6%8A%80%E5%B7%A7/"/>
     
   </entry>
   
