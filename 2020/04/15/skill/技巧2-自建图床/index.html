@@ -63,7 +63,7 @@
 <meta property="og:image" content="https://ssd.qiniu.dreamfly95.com/makeGitee4.png">
 <meta property="og:image" content="https://ssd.qiniu.dreamfly95.com/makeGitee6.png">
 <meta property="article:published_time" content="2020-04-15T12:32:47.000Z">
-<meta property="article:modified_time" content="2021-03-24T08:33:51.446Z">
+<meta property="article:modified_time" content="2022-10-27T11:36:01.857Z">
 <meta property="article:author" content="Dreams">
 <meta property="article:tag" content="技巧">
 <meta name="twitter:card" content="summary">
@@ -221,7 +221,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-03-24 16:33:51" itemprop="dateModified" datetime="2021-03-24T16:33:51+08:00">2021-03-24</time>
+                <time title="修改时间：2022-10-27 19:36:01" itemprop="dateModified" datetime="2022-10-27T19:36:01+08:00">2022-10-27</time>
               </span>
 
           
@@ -243,19 +243,18 @@
 <li><p>丢失概率低</p>
 </li>
 </ol>
-<a id="more"></a>
+<span id="more"></span>
 
 <h3 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h3><ol>
-<li>创建一个属于自己的<a href="https://gitee.com/" target="_blank" rel="noopener">gitee账户</a></li>
-<li>然后就本地有git，这里有较为详细的<a href="https://www.liaoxuefeng.com/wiki/896043488029600" target="_blank" rel="noopener">git教程</a></li>
+<li>创建一个属于自己的<a target="_blank" rel="noopener" href="https://gitee.com/">gitee账户</a></li>
+<li>然后就本地有git，这里有较为详细的<a target="_blank" rel="noopener" href="https://www.liaoxuefeng.com/wiki/896043488029600">git教程</a></li>
 <li>然后配置本体ssh,并与远程库建立可信任连接</li>
 </ol>
 <h3 id="开始搭建图床"><a href="#开始搭建图床" class="headerlink" title="开始搭建图床"></a>开始搭建图床</h3><ol>
-<li>打开自己的gitee,新建一个仓库</li>
-</ol>
-<p>   <img src="https://ssd.qiniu.dreamfly95.com/makeGitee1.png" alt="makeGitee1"></p>
-<p>   <img src="https://ssd.qiniu.dreamfly95.com/makeGitee2.png" alt="makeGitee2"></p>
-<ol start="2">
+<li><p>打开自己的gitee,新建一个仓库</p>
+<p><img src="https://ssd.qiniu.dreamfly95.com/makeGitee1.png" alt="makeGitee1"></p>
+<p><img src="https://ssd.qiniu.dreamfly95.com/makeGitee2.png" alt="makeGitee2"></p>
+</li>
 <li><p>创建完成后，新建一个文件，必须是index.html</p>
 <img src="https://ssd.qiniu.dreamfly95.com/makeGitee3.png" alt="makeGitee3" style="zoom:50%;" />
 
@@ -263,29 +262,24 @@
 
 
 
+<p><img src="https://ssd.qiniu.dreamfly95.com/makeGitee4.png" alt="makeGitee4"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">&lt;meta charset=&quot;utf-8&quot;&gt;</span><br><span class="line">&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;</span><br><span class="line">&lt;title&gt;我的图床首页&lt;/title&gt;</span><br><span class="line">&lt;meta name=&quot;description&quot; content=&quot;&quot;&gt;</span><br><span class="line">&lt;meta name=&quot;author&quot; content=&quot;&quot;&gt;</span><br></pre></td></tr></table></figure>
+
+
 </li>
-</ol>
-<p>   <img src="https://ssd.qiniu.dreamfly95.com/makeGitee4.png" alt="makeGitee4"></p>
-   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">&lt;meta charset=&quot;utf-8&quot;&gt;</span><br><span class="line">&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;</span><br><span class="line">&lt;title&gt;我的图床首页&lt;/title&gt;</span><br><span class="line">&lt;meta name=&quot;description&quot; content=&quot;&quot;&gt;</span><br><span class="line">&lt;meta name=&quot;author&quot; content=&quot;&quot;&gt;</span><br></pre></td></tr></table></figure>
-
-
-
-<ol start="3">
-<li>保存后，点击仓库上方的，服务=》‘Gitee Pages’，然后进去点击更新，等几秒钟，然后点击网站地址，就会跳转到一个空白的网页，图床基本就搭建完成了。</li>
-</ol>
-<p>   <img src="https://ssd.qiniu.dreamfly95.com/makeGitee6.png" alt="makeGitee6"></p>
-<ol start="4">
+<li><p>保存后，点击仓库上方的，服务&#x3D;》‘Gitee Pages’，然后进去点击更新，等几秒钟，然后点击网站地址，就会跳转到一个空白的网页，图床基本就搭建完成了。</p>
+<p><img src="https://ssd.qiniu.dreamfly95.com/makeGitee6.png" alt="makeGitee6"></p>
+</li>
 <li><p>然后自己搭建本地库，关联自己刚新建的gitee仓库，到时在自己的本地库新建个文件夹保存图片，保存完push到自己的远程 gitee库（或者直接在gitee自己建的仓库内）。</p>
 <!--注意：每次push完或上传完图片都需要把第三步执行一遍，这样图片才能通过你的图床正常访问-->
 
-<p>例如：我的网址是 ：<a href="https://dreams_quan.gitee.io/images，我新建的问价夹名字为images，图片名为" target="_blank" rel="noopener">https://dreams_quan.gitee.io/images，我新建的问价夹名字为images，图片名为</a> china.jpg，这时在执行完上面步骤后，你的图片就可以通过网址访问了 <a href="https://dreams_quan.gitee.io/images/images/china.jpg" target="_blank" rel="noopener">https://dreams_quan.gitee.io/images/images/china.jpg</a></p>
+<p>例如：我的网址是 ：<a target="_blank" rel="noopener" href="https://dreams_quan.gitee.io/images%EF%BC%8C%E6%88%91%E6%96%B0%E5%BB%BA%E7%9A%84%E9%97%AE%E4%BB%B7%E5%A4%B9%E5%90%8D%E5%AD%97%E4%B8%BAimages%EF%BC%8C%E5%9B%BE%E7%89%87%E5%90%8D%E4%B8%BA">https://dreams_quan.gitee.io/images，我新建的问价夹名字为images，图片名为</a> china.jpg，这时在执行完上面步骤后，你的图片就可以通过网址访问了 <a target="_blank" rel="noopener" href="https://dreams_quan.gitee.io/images/images/china.jpg">https://dreams_quan.gitee.io/images/images/china.jpg</a></p>
 <blockquote>
-<p>小技巧：你写macdown等文档时，可以先使用本地保存的图片，等文档写完后，把图片统一上传，然后把文档内的图片地址的前缀替换为链接地址就OK。例如本地地址为   /Desktop/image/images/blog/china.jpg，你只要把  /Desktop/image/images/blog/  全部替换为   <a href="https://dreams_quan.gitee.io/images/images/" target="_blank" rel="noopener">https://dreams_quan.gitee.io/images/images/</a>  就OK了</p>
+<p>小技巧：你写macdown等文档时，可以先使用本地保存的图片，等文档写完后，把图片统一上传，然后把文档内的图片地址的前缀替换为链接地址就OK。例如本地地址为   &#x2F;Desktop&#x2F;image&#x2F;images&#x2F;blog&#x2F;china.jpg，你只要把  &#x2F;Desktop&#x2F;image&#x2F;images&#x2F;blog&#x2F;  全部替换为   <a target="_blank" rel="noopener" href="https://dreams_quan.gitee.io/images/images/">https://dreams_quan.gitee.io/images/images/</a>  就OK了</p>
 </blockquote>
 </li>
-</ol>
-<ol start="5">
-<li>如果自己想让自己的图床首页好看点，就自己网上找个静态网页模板，然后自己动手改改里面的内容，push上去然后更新就OK。</li>
+<li><p>如果自己想让自己的图床首页好看点，就自己网上找个静态网页模板，然后自己动手改改里面的内容，push上去然后更新就OK。</p>
+</li>
 </ol>
 <h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>像自建图床啦，自己搭建博客网站等，都可以自己练习的去整一下，每一个积累都会是你的财富，加油！！！</p>
 
@@ -304,8 +298,8 @@
 
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
-                <a href="/2019/10/25/skill/%E6%8A%80%E5%B7%A71-%E4%BB%A3%E7%A0%81%E7%AE%A1%E7%90%86%E5%B9%B3%E5%8F%B0%E9%85%8D%E7%BD%AEssh/" rel="next" title="代码管理(git,gitee,coding等)平台配置ssh">
-                  <i class="fa fa-chevron-left"></i> 代码管理(git,gitee,coding等)平台配置ssh
+                <a href="/2019/10/25/readingNotes/%E8%AF%BB%E4%B9%A62-%E8%83%BD%E5%8A%9B%E9%99%B7%E9%98%B1/" rel="next" title="能力陷阱">
+                  <i class="fa fa-chevron-left"></i> 能力陷阱
                 </a>
             </div>
 
