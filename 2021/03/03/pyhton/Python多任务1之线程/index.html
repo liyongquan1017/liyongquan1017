@@ -7,18 +7,22 @@
 <head>
   <meta charset="utf-8" />
     
-  <meta name="description" content="记录学习分享" />
+  <meta name="description" content="个人文档记录" />
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <title>
-    Python多任务之线程 |  Dreaming
+    Python多任务之线程 |  个人文档记录
   </title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   
   <link rel="shortcut icon" href="/favicon.ico" />
   
-  <link rel="stylesheet" href="/dist/main.css">
-  <link rel="stylesheet" href="/css/custom.css">
+  
+<link rel="stylesheet" href="/dist/main.css">
+
+  
+<link rel="stylesheet" href="/css/custom.css">
+
   
   <script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
   
@@ -26,7 +30,7 @@
 
   
 
-<link rel="alternate" href="/atom.xml" title="Dreaming" type="application/atom+xml">
+<link rel="alternate" href="/atom.xml" title="个人文档记录" type="application/atom+xml">
 </head>
 
 </html>
@@ -113,7 +117,7 @@
 <p>并行：真的多任务（CPU核数大于任务数）</p>
 <p>并发：假的多任务（CPU核数少于任务数）</p>
 <h4 id="查看任务线程数"><a href="#查看任务线程数" class="headerlink" title="查看任务线程数"></a>查看任务线程数</h4><p>enumerate的用法：</p>
-<img src="https://ssd.qiniu.dreamfly95.com/image-20210127174701156.png" alt="image-20210127174701156" style="zoom:50%;" / loading="lazy">
+<img src="https://ssd.qiniu.dreamfly95.com/image-20210127174701156.png" alt="image-20210127174701156" style="zoom:50%;" />
 
 <h5 id="1-查看线程数"><a href="#1-查看线程数" class="headerlink" title="1.查看线程数"></a>1.查看线程数</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> threading</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">sing</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">3</span>):</span><br><span class="line">        print(<span class="string">"---test1---%s"</span>%i)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">dance</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">3</span>):</span><br><span class="line">        print(<span class="string">"---test2---%s"</span>%i)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="comment"># 新建线程对象</span></span><br><span class="line">    t1 = threading.Thread(target=sing)</span><br><span class="line">    t2 = threading.Thread(target=dance)</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 执行线程实例</span></span><br><span class="line">    t1.start()</span><br><span class="line">    t2.start()</span><br><span class="line"></span><br><span class="line">    print(threading.enumerate())</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    main()</span><br></pre></td></tr></table></figure>
 
@@ -394,7 +398,7 @@
 <nav class="navbar">
   
   <div class="logo">
-    <a href="/"><img src="/images/ayer-side.svg" alt="Dreaming"></a>
+    <a href="/"><img src="/images/ayer-side.svg" alt="个人文档记录"></a>
   </div>
   
   <ul class="nav nav-main">
@@ -416,7 +420,7 @@
     </li>
     
     <li class="nav-item">
-      <a class="nav-item-link" href="https://picgo.github.io/PicGo-Doc/" target="_blank" rel="noopener">图床</a>
+      <a class="nav-item-link" target="_blank" rel="noopener" href="https://picgo.github.io/PicGo-Doc/">图床</a>
     </li>
     
     <li class="nav-item">
@@ -475,8 +479,12 @@
     
   </div>
 </div>
-    <script src="/js/jquery-2.0.3.min.js"></script>
+    
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
 <script src="/js/lazyload.min.js"></script>
+
 
 <script>
   try {
@@ -495,7 +503,9 @@
 
 
 
+
 <script src="/js/tocbot.min.js"></script>
+
 <script>
   // Tocbot_v4.7.0  http://tscanlin.github.io/tocbot/
   tocbot.init({
@@ -516,7 +526,9 @@
 <script src="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.js"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.css">
 <script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js"></script>
+
 <script src="/dist/main.js"></script>
+
 
 
 <!-- Root element of PhotoSwipe. Must have class pswp. -->
@@ -635,7 +647,9 @@
 
 <!-- 复制 -->
 
-  <link rel="stylesheet" href="/css/clipboard.css">
+  
+<link rel="stylesheet" href="/css/clipboard.css">
+
   <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
 <script>
   function wait(callback, seconds) {

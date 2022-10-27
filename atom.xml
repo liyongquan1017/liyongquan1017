@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>Dreaming</title>
+  <title>个人文档记录</title>
   
   <subtitle>默</subtitle>
-  <link href="/atom.xml" rel="self"/>
+  <link href="https://yoursite.com/atom.xml" rel="self"/>
   
   <link href="https://yoursite.com/"/>
-  <updated>2022-05-20T07:56:35.775Z</updated>
+  <updated>2022-10-27T11:41:26.686Z</updated>
   <id>https://yoursite.com/</id>
   
   <author>
@@ -17,21 +17,32 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>test</title>
+    <link href="https://yoursite.com/2022/10/27/test/"/>
+    <id>https://yoursite.com/2022/10/27/test/</id>
+    <published>2022-10-27T11:41:26.000Z</published>
+    <updated>2022-10-27T11:41:26.686Z</updated>
+    
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
     <title>Pyhton之面向对象</title>
     <link href="https://yoursite.com/2022/05/01/pyhton/8.Python%E4%B9%8B%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/"/>
     <id>https://yoursite.com/2022/05/01/pyhton/8.Python%E4%B9%8B%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/</id>
     <published>2022-05-01T14:54:21.000Z</published>
     <updated>2022-05-20T07:56:35.775Z</updated>
     
-    <summary type="html">
     
-      &lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h3&gt;&lt;p&gt;我们再学习Python过程中，一直提到面向对象，也常提到“一切皆对象”，那么面向对象到底是什么？又该如何在实际Coding中使用？等等等，对于这类问题本节通过一个代码实例做一个细致描述，让你能对面向对象有一个更深层次的了解。&lt;/p&gt;
-    
-    </summary>
+    <summary type="html">&lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h3&gt;&lt;p&gt;我们再学习Python过程中，一直提到面向对象，也常提到“一切皆对象”，那么面向对象到底是什么？又该如何在实际Coding中使用？等等等，对于这类问题本节通过一个代码实例做一个细致描述，让你能对面向对象有一个更深层次的了解。&lt;/p&gt;</summary>
     
     
     
-      <category term="python" scheme="https://yoursite.com/tags/python/"/>
+    
+    <category term="python" scheme="https://yoursite.com/tags/python/"/>
     
   </entry>
   
@@ -42,15 +53,13 @@
     <published>2021-11-21T11:31:09.000Z</published>
     <updated>2021-11-24T06:52:24.672Z</updated>
     
-    <summary type="html">
     
-      &lt;h4 id=&quot;绿标5-0发布的意义是什么？&quot;&gt;&lt;a href=&quot;#绿标5-0发布的意义是什么？&quot; class=&quot;headerlink&quot; title=&quot;绿标5.0发布的意义是什么？&quot;&gt;&lt;/a&gt;绿标5.0发布的意义是什么？&lt;/h4&gt;&lt;p&gt;绿标5.0不仅进一步增强了五项标准的技术要求及检测能力，更在安卓应用基础上拓展到泛智能终端应用的范畴。旨在通过绿标系列标准的制定与推广，为用户带来更安全、更安心的使用体验。&lt;/p&gt;
-    
-    </summary>
+    <summary type="html">&lt;h4 id=&quot;绿标5-0发布的意义是什么？&quot;&gt;&lt;a href=&quot;#绿标5-0发布的意义是什么？&quot; class=&quot;headerlink&quot; title=&quot;绿标5.0发布的意义是什么？&quot;&gt;&lt;/a&gt;绿标5.0发布的意义是什么？&lt;/h4&gt;&lt;p&gt;绿标5.0不仅进一步增强了五项标准的技术要求及检测能力，更在安卓应用基础上拓展到泛智能终端应用的范畴。旨在通过绿标系列标准的制定与推广，为用户带来更安全、更安心的使用体验。&lt;/p&gt;</summary>
     
     
     
-      <category term="测试" scheme="https://yoursite.com/tags/%E6%B5%8B%E8%AF%95/"/>
+    
+    <category term="测试" scheme="https://yoursite.com/tags/%E6%B5%8B%E8%AF%95/"/>
     
   </entry>
   
@@ -61,15 +70,13 @@
     <published>2021-04-29T12:31:01.000Z</published>
     <updated>2022-03-29T05:18:41.622Z</updated>
     
-    <summary type="html">
     
-      &lt;p&gt;了解业内动态及知识，提升QA认知，扩展思维。&lt;/p&gt;
-    
-    </summary>
+    <summary type="html">&lt;p&gt;了解业内动态及知识，提升QA认知，扩展思维。&lt;/p&gt;</summary>
     
     
     
-      <category term="测试" scheme="https://yoursite.com/tags/%E6%B5%8B%E8%AF%95/"/>
+    
+    <category term="测试" scheme="https://yoursite.com/tags/%E6%B5%8B%E8%AF%95/"/>
     
   </entry>
   
@@ -80,18 +87,16 @@
     <published>2021-04-12T16:00:00.000Z</published>
     <updated>2021-04-26T13:00:16.746Z</updated>
     
-    <summary type="html">
     
-      &lt;h4 id=&quot;迭代器&quot;&gt;&lt;a href=&quot;#迭代器&quot; class=&quot;headerlink&quot; title=&quot;迭代器&quot;&gt;&lt;/a&gt;迭代器&lt;/h4&gt;&lt;blockquote&gt;
+    <summary type="html">&lt;h4 id=&quot;迭代器&quot;&gt;&lt;a href=&quot;#迭代器&quot; class=&quot;headerlink&quot; title=&quot;迭代器&quot;&gt;&lt;/a&gt;迭代器&lt;/h4&gt;&lt;blockquote&gt;
 &lt;p&gt;迭代是访问集合元素的一种方式，迭代器是一个可以记住遍历的位置的对象，迭代器对象从集合的第一个元素开始访问，查到所有元素呗访问完结束，迭代器只能往前不能后退&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;h5 id=&quot;可迭代对象&quot;&gt;&lt;a href=&quot;#可迭代对象&quot; class=&quot;headerlink&quot; title=&quot;可迭代对象&quot;&gt;&lt;/a&gt;可迭代对象&lt;/h5&gt;&lt;p&gt;我们已经知道可以对list、tuple、str等类型的数据使用for…in…的循环语法从其中依次拿到数据进行使用，我们这样的过程称为遍历，也叫迭代。&lt;/p&gt;
-    
-    </summary>
+&lt;h5 id=&quot;可迭代对象&quot;&gt;&lt;a href=&quot;#可迭代对象&quot; class=&quot;headerlink&quot; title=&quot;可迭代对象&quot;&gt;&lt;/a&gt;可迭代对象&lt;/h5&gt;&lt;p&gt;我们已经知道可以对list、tuple、str等类型的数据使用for…in…的循环语法从其中依次拿到数据进行使用，我们这样的过程称为遍历，也叫迭代。&lt;/p&gt;</summary>
     
     
     
-      <category term="Python多任务" scheme="https://yoursite.com/tags/Python%E5%A4%9A%E4%BB%BB%E5%8A%A1/"/>
+    
+    <category term="Python多任务" scheme="https://yoursite.com/tags/Python%E5%A4%9A%E4%BB%BB%E5%8A%A1/"/>
     
   </entry>
   
@@ -102,21 +107,19 @@
     <published>2021-03-14T16:00:00.000Z</published>
     <updated>2021-04-23T12:00:26.130Z</updated>
     
-    <summary type="html">
     
-      &lt;h4 id=&quot;进程以及状态&quot;&gt;&lt;a href=&quot;#进程以及状态&quot; class=&quot;headerlink&quot; title=&quot;进程以及状态&quot;&gt;&lt;/a&gt;进程以及状态&lt;/h4&gt;&lt;blockquote&gt;
+    <summary type="html">&lt;h4 id=&quot;进程以及状态&quot;&gt;&lt;a href=&quot;#进程以及状态&quot; class=&quot;headerlink&quot; title=&quot;进程以及状态&quot;&gt;&lt;/a&gt;进程以及状态&lt;/h4&gt;&lt;blockquote&gt;
 &lt;p&gt;操作系统的调度算法：&lt;/p&gt;
 &lt;p&gt;时间片轮转&lt;/p&gt;
 &lt;p&gt;优先级调度&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h5 id=&quot;进程&quot;&gt;&lt;a href=&quot;#进程&quot; class=&quot;headerlink&quot; title=&quot;进程&quot;&gt;&lt;/a&gt;进程&lt;/h5&gt;&lt;p&gt;程序：例如xxx.py，xxx.exe这是程序，是一个静态的&lt;/p&gt;
-&lt;p&gt;进程：一个程序运行起来后，代码+用到的资源称之为进程，他是操作系统分配资源的基本单元。不进可以通过线程完成多任务，进程也是可以的&lt;/p&gt;
-    
-    </summary>
+&lt;p&gt;进程：一个程序运行起来后，代码+用到的资源称之为进程，他是操作系统分配资源的基本单元。不进可以通过线程完成多任务，进程也是可以的&lt;/p&gt;</summary>
     
     
     
-      <category term="Python多任务" scheme="https://yoursite.com/tags/Python%E5%A4%9A%E4%BB%BB%E5%8A%A1/"/>
+    
+    <category term="Python多任务" scheme="https://yoursite.com/tags/Python%E5%A4%9A%E4%BB%BB%E5%8A%A1/"/>
     
   </entry>
   
@@ -127,16 +130,14 @@
     <published>2021-03-02T16:00:00.000Z</published>
     <updated>2021-04-23T12:00:14.195Z</updated>
     
-    <summary type="html">
     
-      &lt;h2 id=&quot;线程&quot;&gt;&lt;a href=&quot;#线程&quot; class=&quot;headerlink&quot; title=&quot;线程&quot;&gt;&lt;/a&gt;线程&lt;/h2&gt;&lt;h4 id=&quot;多任务介绍&quot;&gt;&lt;a href=&quot;#多任务介绍&quot; class=&quot;headerlink&quot; title=&quot;多任务介绍&quot;&gt;&lt;/a&gt;多任务介绍&lt;/h4&gt;&lt;h5 id=&quot;现实中&quot;&gt;&lt;a href=&quot;#现实中&quot; class=&quot;headerlink&quot; title=&quot;现实中&quot;&gt;&lt;/a&gt;现实中&lt;/h5&gt;&lt;p&gt;很多场景是同时进行的，比如开车的时候，手和脚共同驾驶汽车，再比如唱歌跳舞也是同事进行的；&lt;/p&gt;
-&lt;p&gt;试想，如果吧唱歌和跳舞这两件事分开完成的话，估计就比较尴尬了（想一下：先唱歌，唱完再跳舞，￣□￣｜｜）&lt;/p&gt;
-    
-    </summary>
+    <summary type="html">&lt;h2 id=&quot;线程&quot;&gt;&lt;a href=&quot;#线程&quot; class=&quot;headerlink&quot; title=&quot;线程&quot;&gt;&lt;/a&gt;线程&lt;/h2&gt;&lt;h4 id=&quot;多任务介绍&quot;&gt;&lt;a href=&quot;#多任务介绍&quot; class=&quot;headerlink&quot; title=&quot;多任务介绍&quot;&gt;&lt;/a&gt;多任务介绍&lt;/h4&gt;&lt;h5 id=&quot;现实中&quot;&gt;&lt;a href=&quot;#现实中&quot; class=&quot;headerlink&quot; title=&quot;现实中&quot;&gt;&lt;/a&gt;现实中&lt;/h5&gt;&lt;p&gt;很多场景是同时进行的，比如开车的时候，手和脚共同驾驶汽车，再比如唱歌跳舞也是同事进行的；&lt;/p&gt;
+&lt;p&gt;试想，如果吧唱歌和跳舞这两件事分开完成的话，估计就比较尴尬了（想一下：先唱歌，唱完再跳舞，￣□￣｜｜）&lt;/p&gt;</summary>
     
     
     
-      <category term="Python多任务" scheme="https://yoursite.com/tags/Python%E5%A4%9A%E4%BB%BB%E5%8A%A1/"/>
+    
+    <category term="Python多任务" scheme="https://yoursite.com/tags/Python%E5%A4%9A%E4%BB%BB%E5%8A%A1/"/>
     
   </entry>
   
@@ -147,15 +148,13 @@
     <published>2020-08-16T08:38:57.000Z</published>
     <updated>2021-03-03T08:52:35.411Z</updated>
     
-    <summary type="html">
     
-      &lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h3&gt;&lt;p&gt;做接口自动化，要用到Python的单元测试框架Unittest，是Python标准库自带的单元测试工具，也称为PyUnit，是JUnit（Java语言的单元测试）的Python版本。它支持测试自动化，将测试样例聚合到测试集中，并将测试与报告框架独立。&lt;/p&gt;
-    
-    </summary>
+    <summary type="html">&lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h3&gt;&lt;p&gt;做接口自动化，要用到Python的单元测试框架Unittest，是Python标准库自带的单元测试工具，也称为PyUnit，是JUnit（Java语言的单元测试）的Python版本。它支持测试自动化，将测试样例聚合到测试集中，并将测试与报告框架独立。&lt;/p&gt;</summary>
     
     
     
-      <category term="接口测试" scheme="https://yoursite.com/tags/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/"/>
+    
+    <category term="接口测试" scheme="https://yoursite.com/tags/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/"/>
     
   </entry>
   
@@ -166,16 +165,14 @@
     <published>2020-08-08T08:44:46.000Z</published>
     <updated>2020-08-17T12:18:11.311Z</updated>
     
-    <summary type="html">
     
-      &lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h3&gt;&lt;p&gt;要学接口自动化，或者爬虫等，Requests库的使用是必备知识，也是给你打开自动化大门的一把钥匙。&lt;/p&gt;
-&lt;p&gt;Requests的口号是为人类服务，也是唯一的一个&lt;strong&gt;非转基因&lt;/strong&gt;的 Python HTTP 库，人类可以安全享用。&lt;/p&gt;
-    
-    </summary>
+    <summary type="html">&lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h3&gt;&lt;p&gt;要学接口自动化，或者爬虫等，Requests库的使用是必备知识，也是给你打开自动化大门的一把钥匙。&lt;/p&gt;
+&lt;p&gt;Requests的口号是为人类服务，也是唯一的一个&lt;strong&gt;非转基因&lt;/strong&gt;的 Python HTTP 库，人类可以安全享用。&lt;/p&gt;</summary>
     
     
     
-      <category term="接口测试" scheme="https://yoursite.com/tags/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/"/>
+    
+    <category term="接口测试" scheme="https://yoursite.com/tags/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/"/>
     
   </entry>
   
@@ -186,15 +183,13 @@
     <published>2020-08-08T06:12:25.000Z</published>
     <updated>2020-08-17T06:44:37.819Z</updated>
     
-    <summary type="html">
     
-      &lt;p&gt;我们要写一个接口自动化框架，首先要把python自动化测试框架层级结构理清楚，这样有利于我们后续的维护，也能方便他人的沿用。&lt;/p&gt;
-    
-    </summary>
+    <summary type="html">&lt;p&gt;我们要写一个接口自动化框架，首先要把python自动化测试框架层级结构理清楚，这样有利于我们后续的维护，也能方便他人的沿用。&lt;/p&gt;</summary>
     
     
     
-      <category term="接口测试" scheme="https://yoursite.com/tags/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/"/>
+    
+    <category term="接口测试" scheme="https://yoursite.com/tags/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/"/>
     
   </entry>
   
@@ -205,15 +200,13 @@
     <published>2020-08-01T03:12:21.000Z</published>
     <updated>2021-11-11T04:08:52.784Z</updated>
     
-    <summary type="html">
     
-      &lt;p&gt;我们要学习写一个完整的接口自动化框架，首先要有一个学习规划，要分一块一块来学，下面是我整理的一个学习思路，大家可以参考下。&lt;/p&gt;
-    
-    </summary>
+    <summary type="html">&lt;p&gt;我们要学习写一个完整的接口自动化框架，首先要有一个学习规划，要分一块一块来学，下面是我整理的一个学习思路，大家可以参考下。&lt;/p&gt;</summary>
     
     
     
-      <category term="接口测试" scheme="https://yoursite.com/tags/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/"/>
+    
+    <category term="接口测试" scheme="https://yoursite.com/tags/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/"/>
     
   </entry>
   
@@ -224,19 +217,17 @@
     <published>2020-07-23T14:30:45.000Z</published>
     <updated>2020-07-23T13:30:50.832Z</updated>
     
-    <summary type="html">
     
-      &lt;p&gt;&lt;img src=&quot;https://ssd.qiniu.dreamfly95.com/china.jpg&quot; alt=&quot;china&quot;&gt;&lt;/p&gt;
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://ssd.qiniu.dreamfly95.com/china.jpg&quot; alt=&quot;china&quot;&gt;&lt;/p&gt;
 &lt;p&gt;我和我的祖国&lt;/p&gt;
 &lt;p&gt;一刻也不能分割&lt;/p&gt;
 &lt;p&gt;无论我走到哪里&lt;/p&gt;
-&lt;p&gt;都流出一首赞歌&lt;/p&gt;
-    
-    </summary>
+&lt;p&gt;都流出一首赞歌&lt;/p&gt;</summary>
     
     
     
-      <category term="读书" scheme="https://yoursite.com/tags/%E8%AF%BB%E4%B9%A6/"/>
+    
+    <category term="读书" scheme="https://yoursite.com/tags/%E8%AF%BB%E4%B9%A6/"/>
     
   </entry>
   
@@ -247,15 +238,13 @@
     <published>2020-07-23T13:30:25.000Z</published>
     <updated>2020-07-23T13:30:28.719Z</updated>
     
-    <summary type="html">
     
-      &lt;p&gt;互联网企业的发展，离不开用户的需求，而质量问题是用户的需求很重要的一个指标，对于企业而言，软件质量的管理和保障是其中必不可少的一环。从事测试行业多年，对于软件质量的管理和保障也有了一定的认识，下面我谈一下我对这块的看法，也欢迎大家一起进行探讨，学习。&lt;/p&gt;
-    
-    </summary>
+    <summary type="html">&lt;p&gt;互联网企业的发展，离不开用户的需求，而质量问题是用户的需求很重要的一个指标，对于企业而言，软件质量的管理和保障是其中必不可少的一环。从事测试行业多年，对于软件质量的管理和保障也有了一定的认识，下面我谈一下我对这块的看法，也欢迎大家一起进行探讨，学习。&lt;/p&gt;</summary>
     
     
     
-      <category term="测试" scheme="https://yoursite.com/tags/%E6%B5%8B%E8%AF%95/"/>
+    
+    <category term="测试" scheme="https://yoursite.com/tags/%E6%B5%8B%E8%AF%95/"/>
     
   </entry>
   
@@ -266,16 +255,14 @@
     <published>2020-07-04T10:04:47.000Z</published>
     <updated>2020-07-09T08:37:16.681Z</updated>
     
-    <summary type="html">
     
-      &lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h3&gt;&lt;p&gt;我们写markdown时，里面需要用到的图片，需要上传生成链接后在放到文档里面，图片一旦多了会很麻烦。&lt;/p&gt;
-&lt;p&gt;今天给大家推荐两款应用，结合使用，可以直接把要用的图片直接拖到markdown编写工具内，图片就会自动上传。&lt;/p&gt;
-    
-    </summary>
+    <summary type="html">&lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h3&gt;&lt;p&gt;我们写markdown时，里面需要用到的图片，需要上传生成链接后在放到文档里面，图片一旦多了会很麻烦。&lt;/p&gt;
+&lt;p&gt;今天给大家推荐两款应用，结合使用，可以直接把要用的图片直接拖到markdown编写工具内，图片就会自动上传。&lt;/p&gt;</summary>
     
     
     
-      <category term="技巧" scheme="https://yoursite.com/tags/%E6%8A%80%E5%B7%A7/"/>
+    
+    <category term="技巧" scheme="https://yoursite.com/tags/%E6%8A%80%E5%B7%A7/"/>
     
   </entry>
   
@@ -286,15 +273,13 @@
     <published>2020-07-04T08:55:48.000Z</published>
     <updated>2020-07-09T08:37:10.088Z</updated>
     
-    <summary type="html">
     
-      &lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h3&gt;&lt;p&gt;iPhone手机也有开发者选项，这个功能开发或者测试同学都有很大的帮助，今天我们就把这个功能个如何打开，如何关闭，以及各个功能到底有什么作用给大家列一下。&lt;/p&gt;
-    
-    </summary>
+    <summary type="html">&lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h3&gt;&lt;p&gt;iPhone手机也有开发者选项，这个功能开发或者测试同学都有很大的帮助，今天我们就把这个功能个如何打开，如何关闭，以及各个功能到底有什么作用给大家列一下。&lt;/p&gt;</summary>
     
     
     
-      <category term="技巧" scheme="https://yoursite.com/tags/%E6%8A%80%E5%B7%A7/"/>
+    
+    <category term="技巧" scheme="https://yoursite.com/tags/%E6%8A%80%E5%B7%A7/"/>
     
   </entry>
   
@@ -305,15 +290,13 @@
     <published>2020-06-02T07:00:52.000Z</published>
     <updated>2020-07-09T08:37:39.204Z</updated>
     
-    <summary type="html">
     
-      &lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h3&gt;&lt;p&gt;对于测试流程，大部分做测试的同学都能说个七七八八，但是对于一些细节，可能还是一知半解的，以下是对测试全流程整理的一个图谱，应该可以给大家带来一些帮助，如有不妥的地方，烦请指正。&lt;/p&gt;
-    
-    </summary>
+    <summary type="html">&lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h3&gt;&lt;p&gt;对于测试流程，大部分做测试的同学都能说个七七八八，但是对于一些细节，可能还是一知半解的，以下是对测试全流程整理的一个图谱，应该可以给大家带来一些帮助，如有不妥的地方，烦请指正。&lt;/p&gt;</summary>
     
     
     
-      <category term="测试" scheme="https://yoursite.com/tags/%E6%B5%8B%E8%AF%95/"/>
+    
+    <category term="测试" scheme="https://yoursite.com/tags/%E6%B5%8B%E8%AF%95/"/>
     
   </entry>
   
@@ -324,15 +307,13 @@
     <published>2020-05-31T14:54:21.000Z</published>
     <updated>2020-07-24T08:04:27.181Z</updated>
     
-    <summary type="html">
     
-      &lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h3&gt;&lt;p&gt;在很多公司测试过程中会有抽奖概率测试，如果用手动去模拟，会很不现实，一般都是从接口入手，模拟跑1万到10万次或者更多，来计算概率是否符合预期。本教程先不涉及接口，只是单纯的去了解一下怎么取计算抽奖概率。&lt;/p&gt;
-    
-    </summary>
+    <summary type="html">&lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h3&gt;&lt;p&gt;在很多公司测试过程中会有抽奖概率测试，如果用手动去模拟，会很不现实，一般都是从接口入手，模拟跑1万到10万次或者更多，来计算概率是否符合预期。本教程先不涉及接口，只是单纯的去了解一下怎么取计算抽奖概率。&lt;/p&gt;</summary>
     
     
     
-      <category term="接口测试" scheme="https://yoursite.com/tags/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/"/>
+    
+    <category term="接口测试" scheme="https://yoursite.com/tags/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/"/>
     
   </entry>
   
@@ -343,15 +324,13 @@
     <published>2020-05-30T07:00:52.000Z</published>
     <updated>2020-07-09T08:37:29.352Z</updated>
     
-    <summary type="html">
     
-      &lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h3&gt;&lt;p&gt;有很多同学对于测试工程师必备的测试技能不是很清晰，对自己以后的规划也不是很明了，不知道自己到底该从哪个方向努力或发展，下面是我从其他大佬那找的测试工程师必备知识图谱，也许能能给大家带来一些帮助。&lt;/p&gt;
-    
-    </summary>
+    <summary type="html">&lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h3&gt;&lt;p&gt;有很多同学对于测试工程师必备的测试技能不是很清晰，对自己以后的规划也不是很明了，不知道自己到底该从哪个方向努力或发展，下面是我从其他大佬那找的测试工程师必备知识图谱，也许能能给大家带来一些帮助。&lt;/p&gt;</summary>
     
     
     
-      <category term="测试" scheme="https://yoursite.com/tags/%E6%B5%8B%E8%AF%95/"/>
+    
+    <category term="测试" scheme="https://yoursite.com/tags/%E6%B5%8B%E8%AF%95/"/>
     
   </entry>
   
@@ -362,16 +341,14 @@
     <published>2020-05-27T14:54:21.000Z</published>
     <updated>2020-07-24T08:04:14.883Z</updated>
     
-    <summary type="html">
     
-      &lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h3&gt;&lt;p&gt;要学接口自动化，或者爬虫等，Requests库的使用是必备知识，也是给你打开自动化大门的一把钥匙。&lt;/p&gt;
-&lt;p&gt;Requests的口号是为人类服务，也是唯一的一个&lt;strong&gt;非转基因&lt;/strong&gt;的 Python HTTP 库，人类可以安全享用。&lt;/p&gt;
-    
-    </summary>
+    <summary type="html">&lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h3&gt;&lt;p&gt;要学接口自动化，或者爬虫等，Requests库的使用是必备知识，也是给你打开自动化大门的一把钥匙。&lt;/p&gt;
+&lt;p&gt;Requests的口号是为人类服务，也是唯一的一个&lt;strong&gt;非转基因&lt;/strong&gt;的 Python HTTP 库，人类可以安全享用。&lt;/p&gt;</summary>
     
     
     
-      <category term="接口测试" scheme="https://yoursite.com/tags/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/"/>
+    
+    <category term="接口测试" scheme="https://yoursite.com/tags/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/"/>
     
   </entry>
   
@@ -382,39 +359,15 @@
     <published>2020-05-26T15:14:06.000Z</published>
     <updated>2020-07-09T08:36:59.623Z</updated>
     
-    <summary type="html">
     
-      &lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h3&gt;&lt;p&gt;Markdown 是一种轻量级标记语言，它允许人们使用易读易写的纯文本格式编写文档。&lt;/p&gt;
+    <summary type="html">&lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h3&gt;&lt;p&gt;Markdown 是一种轻量级标记语言，它允许人们使用易读易写的纯文本格式编写文档。&lt;/p&gt;
 &lt;p&gt;Markdown 编写的文档后缀为 &lt;code&gt;.md&lt;/code&gt;, &lt;code&gt;.markdown&lt;/code&gt;，可以导出 HTML 、Word、图像、PDF、Epub 等多种格式的文档。当前许多网站都广泛使用 Markdown 来撰写帮助文档或是用于论坛上发表消息。例如：GitHub、简书等。&lt;/p&gt;
-&lt;p&gt;通俗一点讲，使用Markdown写文档可以让你的文档格式比较规范明了，看着比较优美，本文的教程就是用Markdown写的。&lt;/p&gt;
-    
-    </summary>
+&lt;p&gt;通俗一点讲，使用Markdown写文档可以让你的文档格式比较规范明了，看着比较优美，本文的教程就是用Markdown写的。&lt;/p&gt;</summary>
     
     
     
-      <category term="技巧" scheme="https://yoursite.com/tags/%E6%8A%80%E5%B7%A7/"/>
     
-  </entry>
-  
-  <entry>
-    <title>Python之构造请求参数（1）</title>
-    <link href="https://yoursite.com/2020/05/25/pyhton/Python1%E4%B9%8B%E6%9E%84%E9%80%A0%E5%8F%82%E6%95%B0/"/>
-    <id>https://yoursite.com/2020/05/25/pyhton/Python1%E4%B9%8B%E6%9E%84%E9%80%A0%E5%8F%82%E6%95%B0/</id>
-    <published>2020-05-25T08:38:57.000Z</published>
-    <updated>2020-09-08T12:02:17.107Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h3&gt;&lt;p&gt;接口测试中，我们需要去手动输入请求参数组合，因为输入法等问题，可能会造成标点或括号等输错，最后出错后，还不大好排查。因此我们通过构造请求参数，能大大避免这类问题的发生。这也是最基础的知识，&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;另我们使用Postman输入请求参数时，也可以先用Python构造请求参数，然后再使用。不过这个因人而异，如果你对自己有信心，直接手拼也OK。&lt;/p&gt;
-&lt;/blockquote&gt;
-    
-    </summary>
-    
-    
-    
-      <category term="接口测试" scheme="https://yoursite.com/tags/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/"/>
+    <category term="技巧" scheme="https://yoursite.com/tags/%E6%8A%80%E5%B7%A7/"/>
     
   </entry>
   
