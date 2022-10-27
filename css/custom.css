@@ -1,0 +1,44 @@
+.sidebar {
+  left: -8rem;
+  width: 8rem;
+}
+.sidebar.on {
+  left: 0;
+}
+.content.on {
+  margin-left: 0 !important;
+}
+.navbar-toggle {
+  left: 9.5rem;
+}
+.search-form-wrap {
+  right: 8rem;
+}
+@media (min-width: 768px) {
+  .outer,
+  .wrap {
+    width: 80rem !important;
+  }
+}
+@media (max-width: 768px) {
+  .tocbot {
+    display: none !important;
+  }
+  .content.on {
+    transform: translateX(8rem);
+  }
+}
+/*哔哩哔哩视频适配*/
+.bilibili {
+  position: relative;
+  width: 100%;
+  height: 0; /*高度设置这里无效，设置为0，用padding撑开div*/
+  padding-bottom: 75%; /*68%到80%都可以*/
+}
+.bilibili iframe {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+}
