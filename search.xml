@@ -1,12 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>测试更新</title>
-    <url>/2022/10/27/test/</url>
-    <content><![CDATA[<p>dddddd</p>
-]]></content>
-  </entry>
-  <entry>
     <title>接口自动化框架之学习路径(0)</title>
     <url>/2020/08/01/interfacetest/%E6%8E%A5%E5%8F%A3%E8%87%AA%E5%8A%A8%E5%8C%96%E6%A1%86%E6%9E%B60%E4%B9%8B%E5%AD%A6%E4%B9%A0%E8%B7%AF%E5%BE%84/</url>
     <content><![CDATA[<p>我们要学习写一个完整的接口自动化框架，首先要有一个学习规划，要分一块一块来学，下面是我整理的一个学习思路，大家可以参考下。</p>

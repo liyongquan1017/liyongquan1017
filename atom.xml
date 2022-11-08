@@ -6,7 +6,7 @@
   <link href="https://yoursite.com/atom.xml" rel="self"/>
   
   <link href="https://yoursite.com/"/>
-  <updated>2022-10-27T11:43:44.072Z</updated>
+  <updated>2022-10-27T11:36:01.857Z</updated>
   <id>https://yoursite.com/</id>
   
   <author>
@@ -15,28 +15,6 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>测试更新</title>
-    <link href="https://yoursite.com/2022/10/27/test/"/>
-    <id>https://yoursite.com/2022/10/27/test/</id>
-    <published>2022-10-27T11:41:26.000Z</published>
-    <updated>2022-10-27T11:43:44.072Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;dddddd&lt;/p&gt;
-</summary>
-        
-      
-    
-    
-    
-    
-  </entry>
   
   <entry>
     <title>代码管理(git,gitee,coding等)平台配置ssh</title>
@@ -375,6 +353,25 @@
     
     
     <category term="接口测试" scheme="https://yoursite.com/tags/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Markdown的使用</title>
+    <link href="https://yoursite.com/2020/05/26/skill/%E6%8A%80%E5%B7%A73-Markdown%E7%9A%84%E4%BD%BF%E7%94%A8/"/>
+    <id>https://yoursite.com/2020/05/26/skill/%E6%8A%80%E5%B7%A73-Markdown%E7%9A%84%E4%BD%BF%E7%94%A8/</id>
+    <published>2020-05-26T15:14:06.000Z</published>
+    <updated>2022-10-27T11:36:01.858Z</updated>
+    
+    
+    <summary type="html">&lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h3&gt;&lt;p&gt;Markdown 是一种轻量级标记语言，它允许人们使用易读易写的纯文本格式编写文档。&lt;/p&gt;
+&lt;p&gt;Markdown 编写的文档后缀为 &lt;code&gt;.md&lt;/code&gt;, &lt;code&gt;.markdown&lt;/code&gt;，可以导出 HTML 、Word、图像、PDF、Epub 等多种格式的文档。当前许多网站都广泛使用 Markdown 来撰写帮助文档或是用于论坛上发表消息。例如：GitHub、简书等。&lt;/p&gt;
+&lt;p&gt;通俗一点讲，使用Markdown写文档可以让你的文档格式比较规范明了，看着比较优美，本文的教程就是用Markdown写的。&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="技巧" scheme="https://yoursite.com/tags/%E6%8A%80%E5%B7%A7/"/>
     
   </entry>
   
